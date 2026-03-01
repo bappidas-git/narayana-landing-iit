@@ -50,6 +50,9 @@ const CTASection = lazy(() =>
 const ContactSection = lazy(() =>
   import(/* webpackChunkName: "contact" */ './components/sections/ContactSection/ContactSection')
 );
+const FoundationCTASection = lazy(() =>
+  import(/* webpackChunkName: "foundation-cta" */ './components/sections/FoundationCTASection/FoundationCTASection')
+);
 
 // ===========================================
 // Error Boundary Component
@@ -321,6 +324,7 @@ const useIdlePreload = () => {
         () => import('./components/sections/PricingSection/PricingSection'),
         () => import('./components/sections/CTASection/CTASection'),
         () => import('./components/sections/ContactSection/ContactSection'),
+        () => import('./components/sections/FoundationCTASection/FoundationCTASection'),
       ];
 
       let currentIndex = 0;
@@ -462,6 +466,12 @@ const HomePageContent = () => {
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
             <ContactSection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={500} variant="default" />}>
+            <FoundationCTASection />
           </Suspense>
         </ErrorBoundary>
       </main>
