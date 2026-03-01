@@ -89,11 +89,17 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
     }
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
     };
   }, [open, handleKeyDown]);
 
@@ -185,20 +191,11 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
       {/* Header */}
       <Box className={styles.drawerHeader}>
         <Box className={styles.logoSection}>
-          <Box className={styles.logoIcon}>
-            <Icon
-              icon="ic:baseline-school"
-              style={{ fontSize: 24, color: "#1A237E" }}
-            />
-          </Box>
-          <Box className={styles.logoText}>
-            <Typography variant="h6" className={styles.projectName}>
-              Narayana Coaching
-            </Typography>
-            <Typography variant="caption" className={styles.projectSubtitle}>
-              IIT-JEE Coaching, Guwahati
-            </Typography>
-          </Box>
+          <img
+            src="https://www.narayanacoachingcenters.in/images/logo.png"
+            alt="Narayana Coaching Centers"
+            style={{ height: '28px', width: 'auto' }}
+          />
         </Box>
         <IconButton
           onClick={onClose}

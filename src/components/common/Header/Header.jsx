@@ -9,10 +9,8 @@ import { Box, Container, IconButton, useMediaQuery, useTheme } from '@mui/materi
 import { Icon } from '@iconify/react';
 import styles from './Header.module.css';
 
-// Logo imports
-import whiteLogo from '../../../assets/images/logo/narayana-logo-white.png';
-import darkLogo from '../../../assets/images/logo/narayana-logo.png';
-import iconLogo from '../../../assets/images/logo/narayana-icon.png';
+// Narayana logo URL
+const narayanaLogo = 'https://www.narayanacoachingcenters.in/images/logo.png';
 
 // Navigation items
 const navItems = [
@@ -158,9 +156,14 @@ const Header = ({ forceCloseMenu = false }) => {
           <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className={styles.logoLink}>
             <div className={styles.logoWrapper}>
               <img
-                src={isScrolled ? darkLogo : whiteLogo}
-                alt="Narayana Coaching"
+                src={narayanaLogo}
+                alt="Narayana Coaching Centers"
                 className={styles.mainLogo}
+                style={{
+                  filter: isScrolled ? 'none' : 'brightness(0) invert(1)',
+                  height: '40px',
+                  width: 'auto',
+                }}
               />
             </div>
           </a>
@@ -214,12 +217,20 @@ const Header = ({ forceCloseMenu = false }) => {
             initial={{ opacity: 0, rotate: -180 }}
             animate={{ opacity: 1, rotate: 0 }}
             transition={{ delay: 0.6, duration: 0.5, type: 'spring' }}
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #FF6D00, #FF9100)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#fff',
+              fontWeight: 800,
+              fontSize: '1.1rem',
+            }}
           >
-            <img
-              src={iconLogo}
-              alt="Narayana Coaching Icon"
-              className={styles.iconLogoImage}
-            />
+            N
           </motion.div>
 
           {/* Mobile Menu Button */}

@@ -7,26 +7,22 @@ import React, { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Container, Typography, Button } from "@mui/material";
 import { Icon } from "@iconify/react";
-import { Player } from "@lottiefiles/react-lottie-player";
 import { useModal } from "../../../context/ModalContext";
 import { benefitsData } from "../../../data/benefitsData";
-import calculatorAnimation from "../../../assets/lottie/calculator.json";
-import shieldAnimation from "../../../assets/lottie/security-shield.json";
-import treeAnimation from "../../../assets/lottie/tree-growing.json";
 import styles from "./AmenitiesSection.module.css";
 
-// Lottie map keyed by category id
-const categoryLottie = {
-  1: calculatorAnimation,
-  2: shieldAnimation,
-  3: treeAnimation,
-};
-
-// Category tab icons
+// Category icons (replacing Lottie animations)
 const categoryIcons = {
   1: "mdi:school",
   2: "mdi:hand-heart",
   3: "mdi:rocket-launch",
+};
+
+// Accent icons for decorative display (replacing Lottie)
+const categoryAccentIcons = {
+  1: "mdi:calculator-variant",
+  2: "mdi:shield-check",
+  3: "mdi:tree",
 };
 
 // Course highlights strip items
@@ -165,13 +161,12 @@ const AmenitiesSection = () => {
                 transition={{ duration: 0.3 }}
                 className={styles.benefitsGrid}
               >
-                {/* Lottie accent */}
+                {/* Decorative accent icon */}
                 <div className={styles.lottieAccent}>
-                  <Player
-                    autoplay
-                    loop
-                    src={categoryLottie[activeTab]}
+                  <Icon
+                    icon={categoryAccentIcons[activeTab]}
                     className={styles.lottiePlayer}
+                    style={{ width: '100%', height: '100%', color: '#FF6D00' }}
                   />
                 </div>
 
@@ -210,11 +205,9 @@ const AmenitiesSection = () => {
               >
                 <div className={styles.mobileCategoryHeader}>
                   <div className={styles.mobileCategoryLottie}>
-                    <Player
-                      autoplay
-                      loop
-                      src={categoryLottie[category.id]}
-                      className={styles.mobileLottiePlayer}
+                    <Icon
+                      icon={categoryAccentIcons[category.id]}
+                      style={{ width: '100%', height: '100%', color: '#FF6D00' }}
                     />
                   </div>
                   <h3 className={styles.mobileCategoryTitle}>

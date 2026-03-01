@@ -1059,6 +1059,13 @@ const UnifiedLeadForm = ({
                   }
                   return selected;
                 }}
+                MenuProps={{
+                  PaperProps: {
+                    sx: { zIndex: 99999 },
+                  },
+                  disablePortal: false,
+                  style: { zIndex: 99999 },
+                }}
                 inputProps={{
                   "aria-label": "Course interest",
                 }}
@@ -1123,6 +1130,13 @@ const UnifiedLeadForm = ({
                     );
                   }
                   return selected;
+                }}
+                MenuProps={{
+                  PaperProps: {
+                    sx: { zIndex: 99999 },
+                  },
+                  disablePortal: false,
+                  style: { zIndex: 99999 },
                 }}
                 inputProps={{
                   "aria-label": "Student class",

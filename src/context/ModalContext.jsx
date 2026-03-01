@@ -106,6 +106,9 @@ export const ModalProvider = ({ children }) => {
     });
     // Restore body scroll
     document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
     // Restore scroll position after unlocking body
     const scrollY = document.body.dataset.modalScrollY;
     document.body.style.top = '';
@@ -174,6 +177,9 @@ export const ModalProvider = ({ children }) => {
   const closeLeadDrawer = useCallback(() => {
     setIsDrawerOpen(false);
     document.body.classList.remove('drawer-open');
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
     // Restore scroll position after unlocking body
     const scrollY = document.body.dataset.scrollY;
     document.body.style.top = '';
