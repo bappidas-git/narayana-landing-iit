@@ -29,34 +29,34 @@ const menuItems = [
     href: "#home",
   },
   {
-    id: "overview",
-    label: "Overview",
-    icon: "ic:outline-info",
-    href: "#overview",
+    id: "why-narayana",
+    label: "Why Narayana",
+    icon: "ic:outline-star",
+    href: "#why-narayana",
   },
   {
-    id: "floor-plans",
-    label: "Floor Plans",
-    icon: "ic:outline-apartment",
-    href: "#floor-plans",
+    id: "courses",
+    label: "Courses",
+    icon: "ic:outline-school",
+    href: "#courses",
   },
   {
-    id: "location",
-    label: "Location",
+    id: "results",
+    label: "Results",
+    icon: "ic:outline-emoji-events",
+    href: "#results",
+  },
+  {
+    id: "benefits",
+    label: "Benefits",
+    icon: "ic:outline-verified",
+    href: "#benefits",
+  },
+  {
+    id: "centre",
+    label: "Centre",
     icon: "ic:outline-location-on",
-    href: "#location",
-  },
-  {
-    id: "amenities",
-    label: "Amenities",
-    icon: "ic:outline-interests",
-    href: "#amenities",
-  },
-  {
-    id: "pricing",
-    label: "Pricing",
-    icon: "ic:outline-local-offer",
-    href: "#pricing",
+    href: "#centre",
   },
   {
     id: "contact",
@@ -187,16 +187,16 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
         <Box className={styles.logoSection}>
           <Box className={styles.logoIcon}>
             <Icon
-              icon="ic:baseline-apartment"
+              icon="ic:baseline-school"
               style={{ fontSize: 24, color: "#1A237E" }}
             />
           </Box>
           <Box className={styles.logoText}>
             <Typography variant="h6" className={styles.projectName}>
-              Mahindra Blossom
+              Narayana Coaching
             </Typography>
             <Typography variant="caption" className={styles.projectSubtitle}>
-              Whitefield, Bengaluru
+              IIT-JEE Coaching, Guwahati
             </Typography>
           </Box>
         </Box>
@@ -293,7 +293,7 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
           </Typography>
           <Box className={styles.contactActions}>
             <motion.a
-              href="tel:+919632367929"
+              href="tel:+919667225657"
               className={styles.contactLink}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -302,7 +302,7 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
               <span>Call Us</span>
             </motion.a>
             <motion.a
-              href="https://wa.me/919632367929"
+              href="https://wa.me/919667225657"
               className={styles.contactLinkWhatsapp}
               target="_blank"
               rel="noopener noreferrer"

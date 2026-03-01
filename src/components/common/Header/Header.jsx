@@ -1,5 +1,5 @@
 /* ============================================
-   Header Component - Mahindra Blossom
+   Header Component - Narayana IIT-JEE Coaching
    Fixed header with scroll behavior and navigation
    ============================================ */
 
@@ -10,18 +10,18 @@ import { Icon } from '@iconify/react';
 import styles from './Header.module.css';
 
 // Logo imports
-import whiteLogo from '../../../assets/images/logo/logo-white.png';
-import darkLogo from '../../../assets/images/logo/logo.png';
-import iconLogo from '../../../assets/images/logo/HOM-Icon.png';
+import whiteLogo from '../../../assets/images/logo/narayana-logo-white.png';
+import darkLogo from '../../../assets/images/logo/narayana-logo.png';
+import iconLogo from '../../../assets/images/logo/narayana-icon.png';
 
 // Navigation items
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'Overview', href: '#overview' },
-  { label: 'Floor Plans', href: '#floor-plans' },
-  { label: 'Location', href: '#location' },
-  { label: 'Amenities', href: '#amenities' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Why Narayana', href: '#why-narayana' },
+  { label: 'Courses', href: '#courses' },
+  { label: 'Results', href: '#results' },
+  { label: 'Benefits', href: '#benefits' },
+  { label: 'Centre', href: '#centre' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -159,7 +159,7 @@ const Header = ({ forceCloseMenu = false }) => {
             <div className={styles.logoWrapper}>
               <img
                 src={isScrolled ? darkLogo : whiteLogo}
-                alt="Mahindra Blossom"
+                alt="Narayana Coaching"
                 className={styles.mainLogo}
               />
             </div>
@@ -200,11 +200,11 @@ const Header = ({ forceCloseMenu = false }) => {
               transition={{ delay: 0.5, duration: 0.3 }}
             >
               <a
-                href="tel:+919632367929"
+                href="tel:+919667225657"
                 className={styles.callButton}
               >
                 <Icon icon="mdi:phone" className={styles.callButtonIcon} />
-                +91-9632367929
+                +91-9667225657
               </a>
             </motion.div>
           )}
@@ -217,7 +217,7 @@ const Header = ({ forceCloseMenu = false }) => {
           >
             <img
               src={iconLogo}
-              alt="Mahindra Blossom Icon"
+              alt="Narayana Coaching Icon"
               className={styles.iconLogoImage}
             />
           </motion.div>
@@ -270,12 +270,12 @@ const Header = ({ forceCloseMenu = false }) => {
               </ul>
               <div className={styles.mobileNavCTA}>
                 <a
-                  href="tel:+919632367929"
+                  href="tel:+919667225657"
                   className={styles.mobileCallButton}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Icon icon="mdi:phone" className={styles.callButtonIcon} />
-                  +91-9632367929
+                  +91-9667225657
                 </a>
               </div>
             </nav>
@@ -290,11 +290,11 @@ const Header = ({ forceCloseMenu = false }) => {
 const getNavIcon = (label) => {
   const icons = {
     'Home': 'mdi:home-outline',
-    'Overview': 'mdi:information-outline',
-    'Amenities': 'mdi:star-four-points-outline',
-    'Pricing': 'mdi:tag-outline',
-    'Floor Plans': 'mdi:floor-plan',
-    'Location': 'mdi:map-marker-outline',
+    'Why Narayana': 'mdi:star-outline',
+    'Courses': 'mdi:school-outline',
+    'Results': 'mdi:trophy-outline',
+    'Benefits': 'mdi:check-decagram-outline',
+    'Centre': 'mdi:map-marker-outline',
     'Contact': 'mdi:phone-outline',
   };
   return icons[label] || 'mdi:circle-outline';
