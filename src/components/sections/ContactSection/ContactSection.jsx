@@ -1,18 +1,20 @@
 /* ============================================
-   ContactSection Component - Mahindra Blossom
-   "A Rare Opportunity to Own Your Dream Home" contact section
+   ContactSection Component - Narayana Coaching Centers
+   "Get in Touch" contact section with contact cards
+   and embedded lead form
    ============================================ */
 
 import React from "react";
 import { Container, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
-import { Player } from "@lottiefiles/react-lottie-player";
 import UnifiedLeadForm from "../../common/UnifiedLeadForm/UnifiedLeadForm";
-import buildingAnimation from "../../../assets/lottie/building-animation.json";
+import { useModal } from "../../../context/ModalContext";
 import styles from "./ContactSection.module.css";
 
 const ContactSection = () => {
+  const { openLeadDrawer } = useModal();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -52,29 +54,48 @@ const ContactSection = () => {
   // Contact info items
   const contactInfo = [
     {
-      icon: "mdi:map-marker-outline",
-      title: "Visit Us",
-      content:
-        "Next to Hopefarm Channasandra Metro Station, Whitefield, Bengaluru 560066",
+      icon: "mdi:phone-outline",
+      title: "Phone",
+      content: "+91-9667225657",
+      href: "tel:+919667225657",
     },
     {
-      icon: "mdi:phone-outline",
-      title: "Call Us",
-      content: "+91-9632367929",
-      href: "tel:+919632367929",
+      icon: "mdi:phone-in-talk",
+      title: "Toll Free",
+      content: "1800-102-3344",
+      href: "tel:18001023344",
     },
     {
       icon: "mdi:email-outline",
-      title: "Email Us",
-      content: "sales@mahindrablosssom.com",
-      href: "mailto:sales@mahindrablosssom.com",
+      title: "Email",
+      content: "info@narayanagroup.com",
+      href: "mailto:info@narayanagroup.com",
+    },
+    {
+      icon: "mdi:whatsapp",
+      title: "WhatsApp",
+      content: "Quick Chat",
+      href: "https://wa.me/919667225657",
+      external: true,
+    },
+    {
+      icon: "mdi:map-marker-outline",
+      title: "Address",
+      content: "Narayana Coaching Center, Guwahati, Assam",
     },
     {
       icon: "mdi:clock-outline",
-      title: "Office Hours",
-      content: "Mon - Sun: 9:30 AM - 7:30 PM",
+      title: "Hours",
+      content: "Mon-Sat, 9:00 AM - 7:00 PM",
     },
   ];
+
+  const handleRequestCallback = () => {
+    openLeadDrawer("default", {
+      title: "Request a Callback",
+      subtitle: "Fill in your details and our counsellors will call you back",
+    });
+  };
 
   return (
     <section id="contact" className={styles.section}>
@@ -85,53 +106,56 @@ const ContactSection = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <Grid container spacing={6} alignItems="center">
-            {/* Left Side - Content */}
+          {/* Section Header */}
+          <motion.div variants={itemVariants} className={styles.sectionHeader}>
+            <Typography variant="h2" className={styles.sectionTitle}>
+              Get in <span className={styles.highlight}>Touch</span>
+            </Typography>
+            <Typography variant="body1" className={styles.sectionSubtitle}>
+              Have questions? Our academic counsellors are here to help
+            </Typography>
+          </motion.div>
+
+          {/* Quick Action Buttons (mobile-first, visible on all) */}
+          <motion.div variants={itemVariants} className={styles.quickActions}>
+            <a href="tel:+919667225657" className={styles.quickActionBtn}>
+              <Icon icon="mdi:phone" className={styles.quickActionIcon} />
+              <span>Call Now</span>
+            </a>
+            <a
+              href="https://wa.me/919667225657"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.quickActionBtn} ${styles.quickActionWhatsapp}`}
+            >
+              <Icon icon="mdi:whatsapp" className={styles.quickActionIcon} />
+              <span>WhatsApp Us</span>
+            </a>
+            <button
+              onClick={handleRequestCallback}
+              className={`${styles.quickActionBtn} ${styles.quickActionCallback}`}
+            >
+              <Icon
+                icon="mdi:phone-callback"
+                className={styles.quickActionIcon}
+              />
+              <span>Request Callback</span>
+            </button>
+          </motion.div>
+
+          <Grid container spacing={6} alignItems="flex-start">
+            {/* Left Side - Contact Cards */}
             <Grid item xs={12} lg={6}>
               <motion.div
                 variants={itemVariants}
                 className={styles.contentWrapper}
               >
-                {/* Badge */}
-                <span className={styles.badge}>CONTACT US</span>
-
-                {/* Title */}
-                <Typography variant="h2" className={styles.title}>
-                  A Rare Opportunity to Own{" "}
-                  <span className={styles.highlight}>Your Dream Home</span>
-                </Typography>
-
-                {/* Description */}
-                <Typography
-                  variant="body1"
-                  className={styles.description}
-                  sx={{ marginBottom: "15px;", marginTop: "15px" }}
-                >
-                  Experience luxury living at its finest. Get in touch with our
-                  team to learn more about Mahindra Blossom and
-                  schedule your exclusive site visit today.
-                </Typography>
-
-                {/* Lottie Animation (Mobile Only) */}
-                <motion.div
-                  variants={itemVariants}
-                  className={styles.mobileAnimation}
-                >
-                  <Player
-                    autoplay
-                    loop
-                    src={buildingAnimation}
-                    className={styles.lottiePlayer}
-                  />
-                </motion.div>
-
-                {/* Contact Info */}
-                <div className={styles.contactInfo}>
+                <div className={styles.contactGrid}>
                   {contactInfo.map((item, index) => (
                     <motion.div
                       key={index}
                       variants={itemVariants}
-                      className={styles.contactItem}
+                      className={styles.contactCard}
                     >
                       <div className={styles.contactIcon}>
                         <Icon icon={item.icon} />
@@ -144,7 +168,16 @@ const ContactSection = () => {
                           {item.title}
                         </Typography>
                         {item.href ? (
-                          <a href={item.href} className={styles.contactLink}>
+                          <a
+                            href={item.href}
+                            className={styles.contactLink}
+                            {...(item.external
+                              ? {
+                                  target: "_blank",
+                                  rel: "noopener noreferrer",
+                                }
+                              : {})}
+                          >
                             {item.content}
                           </a>
                         ) : (
@@ -171,7 +204,7 @@ const ContactSection = () => {
                 {/* Form Header */}
                 <div className={styles.formHeader}>
                   <Typography variant="h5" className={styles.formTitle}>
-                    Book A Site Visit
+                    Send Us Your Query
                   </Typography>
                   <Typography variant="body2" className={styles.formSubtitle}>
                     Fill in your details and we'll get back to you
@@ -183,7 +216,6 @@ const ContactSection = () => {
                   variant="default"
                   showTitle={false}
                   showSubtitle={false}
-                  showMessage={true}
                   showTrustBadges={true}
                   showConsent={true}
                   showPhoneButton={false}
@@ -196,11 +228,6 @@ const ContactSection = () => {
           </Grid>
         </motion.div>
       </Container>
-
-      {/* Background Decorations */}
-      <div className={styles.bgDecoration1} />
-      <div className={styles.bgDecoration2} />
-      <div className={styles.bgPattern} />
     </section>
   );
 };
