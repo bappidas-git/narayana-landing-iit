@@ -16,9 +16,8 @@ import { Icon } from "@iconify/react";
 import ConfigurationSelector from "./ConfigurationSelector";
 import EMICalculatorModal from "./EMICalculatorModal";
 import {
-  configurationsData,
-  priceRange,
-} from "../../../data/configurationsData";
+  coursesData,
+} from "../../../data/coursesData";
 import { useModal } from "../../../context/ModalContext";
 import styles from "./PricingSection.module.css";
 
@@ -49,7 +48,7 @@ const itemVariants = {
 // Get unique configuration types for quick selection
 const getConfigTypes = () => {
   const types = [
-    ...new Set(configurationsData.map((c) => c.type.split(" ")[0] + " BHK")),
+    ...new Set(coursesData.map((c) => c.type.split(" ")[0] + " BHK")),
   ];
   return types.slice(0, 4); // Show max 4 types
 };
@@ -70,8 +69,8 @@ const PricingSection = () => {
 
   // Get current selected configuration
   const selectedConfig =
-    configurationsData.find((c) => c.id === selectedConfigId) ||
-    configurationsData[0];
+    coursesData.find((c) => c.id === selectedConfigId) ||
+    coursesData[0];
 
   // Handle configuration change
   const handleConfigChange = (configId) => {
@@ -80,7 +79,7 @@ const PricingSection = () => {
 
   // Handle quick config selection
   const handleQuickConfigSelect = (typePrefix) => {
-    const config = configurationsData.find((c) =>
+    const config = coursesData.find((c) =>
       c.type.startsWith(typePrefix.split(" ")[0])
     );
     if (config) {
@@ -199,11 +198,7 @@ const PricingSection = () => {
               className={styles.sectionSubtitle}
               sx={{ color: "#D9DCE0 !important" }}
             >
-              Starting from{" "}
-              <span className={styles.priceHighlight}>
-                ₹{priceRange.startingFrom}*
-              </span>{" "}
-              onwards
+              Explore our courses and programs
             </Typography>
           </motion.div>
 

@@ -9,12 +9,8 @@ import { Container, Typography, Chip, useTheme, Button } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { useModal } from "../../../context/ModalContext";
 import {
-  amenitiesCategories,
-  amenitiesStats,
-  getFeaturedAmenities,
-  getAmenitiesByCategory,
-  amenitiesData,
-} from "../../../data/amenitiesData";
+  benefitsData,
+} from "../../../data/benefitsData";
 import styles from "./AmenitiesSection.module.css";
 
 // Animation variants
@@ -75,51 +71,14 @@ const AmenitiesSection = () => {
     }
   };
 
-  // Get filtered amenities based on category
-  const getFilteredAmenities = () => {
-    if (selectedCategory === "all") {
-      return getFeaturedAmenities();
-    }
-    return getAmenitiesByCategory(selectedCategory);
-  };
-
-  const filteredAmenities = getFilteredAmenities();
+  // Get filtered benefits based on category
+  const filteredBenefits = benefitsData;
 
   // Quick stats for the stats bar
-  const quickStats = [
-    {
-      icon: "mdi:home-city-outline",
-      value: amenitiesStats.clubhouseSize,
-      label: "Amenities",
-    },
-    {
-      icon: "mdi:map-marker-radius-outline",
-      value: amenitiesStats.greenArea,
-      label: "Green Space",
-    },
-    {
-      icon: "mdi:view-grid-plus-outline",
-      value: amenitiesStats.totalAmenities,
-      label: "Total Amenities",
-    },
-    { icon: "mdi:trophy-outline", value: "10+", label: "Sports" },
-  ];
+  const quickStats = [];
 
   // Category pills with counts
-  const categoryPills = [
-    {
-      id: "all",
-      label: "Featured",
-      icon: "mdi:star-outline",
-      count: getFeaturedAmenities().length,
-    },
-    ...amenitiesCategories.map((cat) => ({
-      id: cat.id,
-      label: cat.title,
-      icon: cat.icon,
-      count: getAmenitiesByCategory(cat.id).length,
-    })),
-  ];
+  const categoryPills = [];
 
   return (
     <section className={styles.amenitiesSection} id="amenities" ref={ref}>
@@ -137,7 +96,7 @@ const AmenitiesSection = () => {
           <motion.div variants={itemVariants} className={styles.sectionHeader}>
             <div className={styles.headerTop}>
               <Chip
-                label={`${amenitiesStats.totalAmenities} AMENITIES`}
+                label="BENEFITS"
                 className={styles.amenitiesBadge}
                 sx={{
                   backgroundColor: "rgba(201, 162, 39, 0.15)",
@@ -220,7 +179,7 @@ const AmenitiesSection = () => {
               className={styles.carouselWrapper}
             >
               <div className={styles.carouselContainer} ref={carouselRef}>
-                {filteredAmenities.map((amenity, index) => (
+                {filteredBenefits.map((amenity, index) => (
                   <motion.div
                     key={amenity.id}
                     className={styles.amenityCard}
@@ -267,10 +226,10 @@ const AmenitiesSection = () => {
 
                 {/* More Amenities Card in Carousel */}
                 {/* More Amenities Card - only show if there are more amenities to explore */}
-                {amenitiesData.length - filteredAmenities.length > 0 && (
+                {benefitsData.length - filteredBenefits.length > 0 && (
                   <motion.div
                     className={styles.moreCard}
-                    custom={filteredAmenities.length}
+                    custom={filteredBenefits.length}
                     variants={cardVariants}
                     initial="hidden"
                     animate="visible"
@@ -283,7 +242,7 @@ const AmenitiesSection = () => {
                       />
                     </div>
                     <Typography className={styles.moreName}>
-                      +{amenitiesData.length - filteredAmenities.length} More
+                      +{benefitsData.length - filteredBenefits.length} More
                     </Typography>
                     <Typography className={styles.moreSubtext}>
                       Explore all amenities
@@ -304,8 +263,8 @@ const AmenitiesSection = () => {
           <motion.div variants={itemVariants} className={styles.bottomRow}>
             {/* Mini Category Cards */}
             <div className={styles.miniCategories}>
-              {amenitiesCategories.map((category, index) => {
-                const categoryAmenities = getAmenitiesByCategory(category.id);
+              {[].map((category, index) => {
+                const categoryAmenities = [];
                 return (
                   <motion.div
                     key={category.id}

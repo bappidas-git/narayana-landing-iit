@@ -8,7 +8,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Container, Typography, Grid, Button, useMediaQuery, useTheme } from '@mui/material';
 import { Icon } from '@iconify/react';
 import { useModal } from '../../../context/ModalContext';
-import { mainHighlights, additionalHighlights, projectKeyNumbers } from '../../../data/highlightsData';
+import { highlightsData } from '../../../data/highlightsData';
 import styles from './ProjectHighlights.module.css';
 
 // Animation variants
@@ -181,7 +181,7 @@ const ProjectHighlights = () => {
 
                 {/* Main Highlights Grid */}
                 <Grid container spacing={isMobile ? 1.5 : 2} className={styles.highlightsGrid}>
-                  {mainHighlights.map((highlight, index) => (
+                  {highlightsData.map((highlight, index) => (
                     <Grid item xs={6} key={highlight.id}>
                       <motion.div
                         className={styles.highlightCard}
@@ -254,7 +254,7 @@ const ProjectHighlights = () => {
                       className={styles.expandedContent}
                     >
                       <Grid container spacing={isMobile ? 1.5 : 2}>
-                        {additionalHighlights.map((highlight, index) => (
+                        {[].map((highlight, index) => (
                           <Grid item xs={6} key={highlight.id}>
                             <motion.div
                               className={styles.highlightCard}
@@ -321,7 +321,7 @@ const ProjectHighlights = () => {
           {/* Key Numbers Section */}
           <motion.div variants={itemVariants} className={styles.keyNumbersWrapper}>
             <Grid container spacing={isMobile ? 1.5 : 2}>
-              {projectKeyNumbers.map((item, index) => (
+              {[].map((item, index) => (
                 <Grid item xs={6} sm={3} key={item.id}>
                   <motion.div
                     className={styles.keyNumberCard}

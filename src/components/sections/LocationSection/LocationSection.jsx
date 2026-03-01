@@ -20,26 +20,18 @@ import SectionTitle from "../../common/SectionTitle/SectionTitle";
 import Button from "../../common/Button/Button";
 import { useModal } from "../../../context/ModalContext";
 import {
-  projectLocation,
-  locationCategories,
-  nearbyLandmarks,
-  connectivityHighlights,
-  getLandmarksByCategory,
-} from "../../../data/locationData";
+  centreData,
+} from "../../../data/centreData";
 import locationPinAnimation from "../../../assets/lottie/location-pin.json";
-import interactiveMapImage from "../../../assets/images/map/interactive-map.png";
 import styles from "./LocationSection.module.css";
 
 const LocationSection = () => {
   const { openLeadDrawer } = useModal();
   const [activeCategory, setActiveCategory] = useState("all");
 
-  // Filter landmarks based on active category
+  // Filter centres based on active category
   const filteredLandmarks = useMemo(() => {
-    if (activeCategory === "all") {
-      return nearbyLandmarks.filter((landmark) => landmark.featured);
-    }
-    return getLandmarksByCategory(activeCategory);
+    return centreData;
   }, [activeCategory]);
 
   // Animation variants
@@ -95,7 +87,7 @@ const LocationSection = () => {
 
   const handleViewOnMap = () => {
     openLeadDrawer("view-map", {
-      subtitle: `View ${projectLocation.name} on Google Maps`,
+      subtitle: "View centre on Google Maps",
     });
   };
 
@@ -127,12 +119,6 @@ const LocationSection = () => {
                 <div className={styles.mapContainer}>
                   {/* Google Maps Embed Placeholder - Replace with actual embed */}
                   <div className={styles.mapPlaceholder}>
-                    <img
-                      src={interactiveMapImage}
-                      alt="Mahindra Blossom Location Map - HopeFarm Jn., Whitefield"
-                      className={styles.mapImage}
-                      loading="lazy"
-                    />
                     <div className={styles.mapOverlay}>
                       <Player
                         autoplay
@@ -145,14 +131,14 @@ const LocationSection = () => {
                         className={styles.mapTitle}
                         sx={{ color: "#ffffff !important;" }}
                       >
-                        {projectLocation.name}
+                        Narayana Coaching Centers
                       </Typography>
                       <Typography
                         variant="body2"
                         className={styles.mapAddress}
                         sx={{ color: "#ffffff !important;" }}
                       >
-                        {projectLocation.address}
+                        Guwahati, Assam
                       </Typography>
                       <Button
                         variant="primary"
@@ -169,7 +155,7 @@ const LocationSection = () => {
 
                 {/* Connectivity Highlights */}
                 <div className={styles.connectivityBar}>
-                  {connectivityHighlights
+                  {[]
                     .slice(0, 3)
                     .map((highlight, index) => (
                       <motion.div
@@ -243,7 +229,7 @@ const LocationSection = () => {
                       label="All"
                       className={styles.categoryTab}
                     />
-                    {locationCategories.map((category) => (
+                    {[].map((category) => (
                       <Tab
                         key={category.id}
                         value={category.id}
