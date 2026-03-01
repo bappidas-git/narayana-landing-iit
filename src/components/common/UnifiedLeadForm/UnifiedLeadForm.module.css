@@ -32,7 +32,7 @@
 }
 
 .variantDefault .textField :global(.MuiOutlinedInput-root.Mui-focused) .inputIcon {
-  color: var(--accent-gold);
+  color: #1A237E;
 }
 
 .variantDefault .countryCode {
@@ -56,7 +56,7 @@
 }
 
 .variantDefault .privacyLink {
-  color: var(--accent-gold);
+  color: #1A237E;
 }
 
 /* ============================================
@@ -96,16 +96,16 @@
 }
 
 .variantHero .textField :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
-  border-color: rgba(255, 109, 0, 0.4);
+  border-color: rgba(26, 35, 126, 0.4);
 }
 
 .variantHero .textField :global(.MuiOutlinedInput-root.Mui-focused) {
   background: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(255, 109, 0, 0.12);
+  box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.12);
 }
 
 .variantHero .textField :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
-  border-color: #FF6D00;
+  border-color: #1A237E;
   border-width: 2px;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .variantHero .textField :global(.MuiOutlinedInput-root.Mui-focused) .inputIcon {
-  color: var(--accent-gold);
+  color: #1A237E;
 }
 
 .variantHero .countryCode {
@@ -176,7 +176,7 @@
 }
 
 .variantHero .privacyLink {
-  color: var(--accent-gold);
+  color: #1A237E;
 }
 
 .variantHero .messageField :global(.MuiInputBase-input) {
@@ -210,11 +210,11 @@
 }
 
 .variantDark .textField :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
-  border-color: rgba(255, 109, 0, 0.5);
+  border-color: rgba(26, 35, 126, 0.5);
 }
 
 .variantDark .textField :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
-  border-color: #FF6D00;
+  border-color: #5C6BC0;
 }
 
 .variantDark .textField :global(.MuiInputBase-input) {
@@ -230,7 +230,7 @@
 }
 
 .variantDark .textField :global(.MuiOutlinedInput-root.Mui-focused) .inputIcon {
-  color: #FF6D00;
+  color: #7986CB;
 }
 
 .variantDark .countryCode {
@@ -254,7 +254,7 @@
 }
 
 .variantDark .privacyLink {
-  color: #FF6D00;
+  color: #7986CB;
 }
 
 /* ============================================
@@ -289,11 +289,11 @@
 }
 
 .variantDrawer .textField :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
-  border-color: rgba(255, 109, 0, 0.5);
+  border-color: rgba(26, 35, 126, 0.5);
 }
 
 .variantDrawer .textField :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
-  border-color: #FF6D00;
+  border-color: #5C6BC0;
   border-width: 2px;
 }
 
@@ -313,7 +313,7 @@
 }
 
 .variantDrawer .textField :global(.MuiOutlinedInput-root.Mui-focused) .inputIcon {
-  color: #FF6D00;
+  color: #7986CB;
 }
 
 .variantDrawer .countryCode {
@@ -353,7 +353,7 @@
 }
 
 .variantDrawer .privacyLink {
-  color: #FF6D00;
+  color: #7986CB;
 }
 
 .variantDrawer .submitButton {
@@ -416,11 +416,11 @@
 }
 
 .textField :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
-  border-color: var(--accent-gold);
+  border-color: #1A237E;
 }
 
 .textField :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
-  border-color: var(--accent-gold);
+  border-color: #1A237E;
   border-width: 2px;
 }
 
@@ -597,18 +597,18 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #FF6D00;
+  color: #1A237E;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   padding: 10px 20px;
-  background: rgba(255, 109, 0, 0.1);
+  background: rgba(26, 35, 126, 0.1);
   border-radius: 10px;
   transition: all 0.2s ease;
 }
 
 .phoneLink:hover {
-  background: rgba(255, 109, 0, 0.2);
+  background: rgba(26, 35, 126, 0.2);
   transform: translateY(-2px);
 }
 
@@ -722,12 +722,12 @@
 
 /* Focus-visible for accessibility */
 .textField :global(.MuiOutlinedInput-root.Mui-focusVisible) {
-  outline: 2px solid var(--accent-gold);
+  outline: 2px solid #1A237E;
   outline-offset: 2px;
 }
 
 .submitButton:focus-visible {
-  outline: 2px solid var(--accent-gold);
+  outline: 2px solid #1A237E;
   outline-offset: 2px;
 }
 

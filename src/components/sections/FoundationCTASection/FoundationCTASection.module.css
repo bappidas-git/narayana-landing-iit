@@ -1,13 +1,13 @@
 /* ============================================
    FoundationCTASection Styles
-   Orange-themed Foundation Course CTA
+   Blue-themed Foundation Course CTA
    ============================================ */
 
 /* Section Container */
 .section {
   position: relative;
   padding: var(--space-16) 0;
-  background: linear-gradient(135deg, #FF6D00 0%, #E65100 100%);
+  background: linear-gradient(135deg, #1A237E 0%, #283593 100%);
   overflow: hidden;
 }
 
@@ -48,7 +48,7 @@
 .badge {
   display: inline-block;
   padding: var(--space-2) var(--space-5);
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
   backdrop-filter: blur(8px);
   border-radius: var(--radius-full);
   color: #FFFFFF;
@@ -115,7 +115,7 @@
 }
 
 .courseCard {
-  background: rgba(255, 255, 255, 0.15);
+  background: #FFFFFF;
   backdrop-filter: blur(16px);
   border-radius: var(--radius-2xl);
   padding: var(--space-6);
@@ -136,7 +136,7 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #1A237E 0%, #283593 100%);
   border-radius: var(--radius-xl);
   margin-bottom: var(--space-3);
   font-size: 1.75rem;
@@ -147,13 +147,13 @@
   font-family: var(--font-heading);
   font-size: var(--fs-lg);
   font-weight: var(--fw-bold);
-  color: #FFFFFF;
+  color: #1A237E;
   margin: 0 0 var(--space-1) 0;
 }
 
 .cardEligibility {
   font-size: var(--fs-sm);
-  color: rgba(255, 255, 255, 0.8);
+  color: #546E7A;
   margin: 0 0 var(--space-4) 0;
   font-weight: var(--fw-medium);
 }
@@ -170,12 +170,12 @@
   justify-content: center;
   gap: var(--space-2);
   font-size: var(--fs-sm);
-  color: rgba(255, 255, 255, 0.9);
+  color: #37474F;
 }
 
 .cardDetail svg {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #1A237E;
   flex-shrink: 0;
 }
 
@@ -263,7 +263,7 @@
 
 .whyEarlyIcon {
   font-size: 1.5rem;
-  color: #FFF9C4;
+  color: #FF9100;
 }
 
 .whyEarlyList {
@@ -286,7 +286,7 @@
 
 .checkIcon {
   font-size: 1.3rem;
-  color: #FFF9C4;
+  color: #4CAF50;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -451,7 +451,7 @@
    ============================================ */
 @media print {
   .section {
-    background: #FFF3E0;
+    background: #E8EAF6;
     padding: var(--space-8) 0;
   }
 

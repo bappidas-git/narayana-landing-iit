@@ -45,14 +45,14 @@
 }
 
 .badgeGold {
-  background: var(--accent-gold);
-  color: var(--primary-dark);
+  background: #1A237E;
+  color: #FFFFFF;
 }
 
 .badgeOutline {
   background: transparent;
-  color: var(--accent-gold);
-  border: 1px solid var(--accent-gold);
+  color: #1A237E;
+  border: 1px solid #1A237E;
 }
 
 /* Title */
@@ -60,15 +60,15 @@
   font-family: var(--font-heading);
   font-size: var(--fs-4xl);
   font-weight: var(--fw-bold);
-  color: var(--primary-dark);
+  color: #1B2A4A;
   line-height: var(--lh-tight);
   margin: 0;
 }
 
 /* Highlight Text */
 .highlight {
-  color: var(--accent-gold);
-  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+  color: #1A237E;
+  background: linear-gradient(135deg, #1A237E 0%, #283593 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -78,7 +78,7 @@
 .underline {
   width: 60px;
   height: 4px;
-  background: var(--accent-gold-gradient);
+  background: linear-gradient(135deg, #1A237E 0%, #283593 100%);
   border-radius: var(--radius-full);
   margin-top: var(--space-4);
   transform-origin: center;
@@ -111,8 +111,8 @@
 }
 
 .dark .highlight {
-  color: var(--accent-gold);
-  -webkit-text-fill-color: var(--accent-gold);
+  color: #FFFFFF;
+  -webkit-text-fill-color: #FFFFFF;
   background: none;
 }
 
