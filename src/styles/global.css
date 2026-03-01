@@ -1,10 +1,10 @@
 /* ============================================
-   Global Styles - Mahindra Blossom
-   Real Estate Landing Page
+   Global Styles - Narayana Coaching Centers
+   IIT-JEE Landing Page
    ============================================ */
 
 /* ========== CSS Reset & Base Styles ========== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 *,
 *::before,
@@ -904,7 +904,7 @@ table {
 /* ========== High Contrast Mode ========== */
 @media (prefers-contrast: high) {
   :root {
-    --accent-gold: #DAA520;
+    --accent-gold: #E65100;
     --primary-dark: #000000;
     --border-gray: #000000;
   }

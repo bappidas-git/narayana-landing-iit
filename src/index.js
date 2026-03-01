@@ -1,6 +1,6 @@
 /* ============================================
-   Entry Point - Mahindra Blossom
-   Real Estate Landing Page
+   Entry Point - Narayana Coaching Centers
+   IIT-JEE Landing Page
 
    Performance optimized with:
    - React 18 concurrent features
@@ -38,7 +38,7 @@ const preloadResources = () => {
   const fontLink = document.createElement('link');
   fontLink.rel = 'preload';
   fontLink.as = 'style';
-  fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap';
+  fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap';
   document.head.appendChild(fontLink);
 };
 
@@ -149,7 +149,7 @@ reportWebVitals(handleWebVitals);
 
 if (process.env.NODE_ENV === 'development') {
   // Log when app is ready
-  console.log('%c Mahindra Blossom - Whitefield ', 'background: #0A1628; color: #C9A227; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px;');
+  console.log('%c Narayana IIT-JEE Coaching - Guwahati ', 'background: #1A237E; color: #FF6D00; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px;');
   console.log('%c Development Mode ', 'background: #4CAF50; color: white; padding: 5px 10px; font-size: 12px; border-radius: 4px;');
 }
 

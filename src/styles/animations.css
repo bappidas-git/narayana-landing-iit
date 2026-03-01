@@ -1,6 +1,6 @@
 /* ============================================
-   Animations - Mahindra Blossom
-   Real Estate Landing Page
+   Animations - Narayana Coaching Centers
+   IIT-JEE Landing Page
    ============================================ */
 
 /* ========== Keyframe Animations ========== */
@@ -344,10 +344,10 @@
 
 @keyframes glowPulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.4);
+    box-shadow: 0 0 0 0 rgba(255, 109, 0, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 15px rgba(201, 162, 39, 0);
+    box-shadow: 0 0 0 15px rgba(255, 109, 0, 0);
   }
 }
 

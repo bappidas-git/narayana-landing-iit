@@ -1,6 +1,6 @@
 /* ============================================
-   App-specific Styles - Mahindra Blossom
-   Real Estate Landing Page
+   App-specific Styles - Narayana Coaching Centers
+   IIT-JEE Landing Page
 
    Performance optimized with:
    - GPU acceleration
@@ -128,8 +128,8 @@ section[id] {
   position: absolute;
   top: -50px;
   left: 0;
-  background: var(--accent-gold, #C9A227);
-  color: var(--primary-dark, #0A1628);
+  background: var(--accent-gold, #FF6D00);
+  color: var(--primary-dark, #1A237E);
   padding: 12px 24px;
   z-index: 10000;
   font-weight: 600;
@@ -146,19 +146,19 @@ section[id] {
 
 /* Custom focus outlines */
 *:focus-visible {
-  outline: 2px solid var(--accent-gold, #C9A227);
+  outline: 2px solid var(--accent-gold, #FF6D00);
   outline-offset: 2px;
 }
 
 /* Selection highlight */
 ::selection {
-  background-color: var(--accent-gold, #C9A227);
-  color: var(--primary-dark, #0A1628);
+  background-color: var(--accent-gold, #FF6D00);
+  color: var(--primary-dark, #1A237E);
 }
 
 ::-moz-selection {
-  background-color: var(--accent-gold, #C9A227);
-  color: var(--primary-dark, #0A1628);
+  background-color: var(--accent-gold, #FF6D00);
+  color: var(--primary-dark, #1A237E);
 }
 
 /* ===========================================
@@ -255,9 +255,9 @@ html {
 .skeleton {
   background: linear-gradient(
     90deg,
-    rgba(201, 162, 39, 0.05) 25%,
-    rgba(201, 162, 39, 0.1) 50%,
-    rgba(201, 162, 39, 0.05) 75%
+    rgba(255, 109, 0, 0.05) 25%,
+    rgba(255, 109, 0, 0.1) 50%,
+    rgba(255, 109, 0, 0.05) 75%
   );
   background-size: 200% 100%;
   animation: skeleton-loading 1.5s ease-in-out infinite;

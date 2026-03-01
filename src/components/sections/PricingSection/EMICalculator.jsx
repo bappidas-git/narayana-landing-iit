@@ -68,11 +68,11 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
 
   // Custom slider styles - compact
   const sliderSx = {
-    color: '#C9A227',
+    color: '#FF6D00',
     height: 5,
     '& .MuiSlider-track': {
       border: 'none',
-      background: 'linear-gradient(90deg, #C9A227 0%, #E5C96E 100%)',
+      background: 'linear-gradient(90deg, #FF6D00 0%, #FF9100 100%)',
     },
     '& .MuiSlider-rail': {
       backgroundColor: 'rgba(255, 255, 255, 0.15)',
@@ -80,21 +80,21 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
     '& .MuiSlider-thumb': {
       width: 18,
       height: 18,
-      backgroundColor: '#C9A227',
+      backgroundColor: '#FF6D00',
       border: '2px solid #FFFFFF',
-      boxShadow: '0 2px 6px rgba(201, 162, 39, 0.4)',
+      boxShadow: '0 2px 6px rgba(255, 109, 0, 0.4)',
       '&:before': {
         boxShadow: 'none',
       },
       '&:hover, &.Mui-focusVisible': {
-        boxShadow: '0 0 0 6px rgba(201, 162, 39, 0.16)',
+        boxShadow: '0 0 0 6px rgba(255, 109, 0, 0.16)',
       },
       '&.Mui-active': {
-        boxShadow: '0 0 0 10px rgba(201, 162, 39, 0.16)',
+        boxShadow: '0 0 0 10px rgba(255, 109, 0, 0.16)',
       },
     },
     '& .MuiSlider-valueLabel': {
-      backgroundColor: '#C9A227',
+      backgroundColor: '#FF6D00',
       borderRadius: '6px',
       padding: '3px 6px',
       fontSize: '0.6875rem',
@@ -115,15 +115,15 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
         label="EMI Calculator"
         className={styles.emiBadge}
         sx={{
-          backgroundColor: 'rgba(201, 162, 39, 0.15)',
-          color: '#C9A227',
+          backgroundColor: 'rgba(255, 109, 0, 0.15)',
+          color: '#FF6D00',
           fontWeight: 600,
           fontSize: '0.75rem',
           height: '32px',
           borderRadius: '16px',
-          border: '1px solid rgba(201, 162, 39, 0.3)',
+          border: '1px solid rgba(255, 109, 0, 0.3)',
           '& .MuiChip-icon': {
-            color: '#C9A227',
+            color: '#FF6D00',
             fontSize: '16px',
           },
         }}

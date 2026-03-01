@@ -188,7 +188,7 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
           <Box className={styles.logoIcon}>
             <Icon
               icon="ic:baseline-apartment"
-              style={{ fontSize: 24, color: "#0A1628" }}
+              style={{ fontSize: 24, color: "#1A237E" }}
             />
           </Box>
           <Box className={styles.logoText}>
@@ -236,7 +236,7 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
                         py: 1.5,
                         transition: "all 0.2s ease",
                         "&:hover": {
-                          backgroundColor: "rgba(201, 162, 39, 0.08)",
+                          backgroundColor: "rgba(255, 109, 0, 0.08)",
                         },
                       }}
                     >
@@ -245,7 +245,7 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
                         sx={{
                           minWidth: 44,
                           color:
-                            activeSection === item.id ? "#C9A227" : "#6B7280",
+                            activeSection === item.id ? "#FF6D00" : "#6B7280",
                         }}
                       >
                         <Icon icon={item.icon} style={{ fontSize: 22 }} />
@@ -257,7 +257,7 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
                           "& .MuiTypography-root": {
                             fontWeight: activeSection === item.id ? 600 : 500,
                             color:
-                              activeSection === item.id ? "#C9A227" : "#374151",
+                              activeSection === item.id ? "#FF6D00" : "#374151",
                             fontSize: "0.95rem",
                           },
                         }}

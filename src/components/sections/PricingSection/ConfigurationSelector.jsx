@@ -66,7 +66,7 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, 
           label="Select Configuration"
           className={styles.configBadge}
           sx={{
-            backgroundColor: '#C9A227',
+            backgroundColor: '#FF6D00',
             color: '#FFFFFF',
             fontWeight: 600,
             fontSize: '0.7rem',
@@ -101,8 +101,8 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, 
             MenuProps={{
               PaperProps: {
                 sx: {
-                  backgroundColor: '#0A1628',
-                  border: '1px solid rgba(201, 162, 39, 0.3)',
+                  backgroundColor: '#1A237E',
+                  border: '1px solid rgba(255, 109, 0, 0.3)',
                   borderRadius: '10px',
                   marginTop: '4px',
                   maxHeight: '280px',
@@ -115,12 +115,12 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, 
                       borderBottom: 'none',
                     },
                     '&:hover': {
-                      backgroundColor: 'rgba(201, 162, 39, 0.15)',
+                      backgroundColor: 'rgba(255, 109, 0, 0.15)',
                     },
                     '&.Mui-selected': {
-                      backgroundColor: 'rgba(201, 162, 39, 0.25)',
+                      backgroundColor: 'rgba(255, 109, 0, 0.25)',
                       '&:hover': {
-                        backgroundColor: 'rgba(201, 162, 39, 0.35)',
+                        backgroundColor: 'rgba(255, 109, 0, 0.35)',
                       },
                     },
                   },
@@ -132,17 +132,17 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, 
               background: 'linear-gradient(135deg, #E8D5A3 0%, #D4C085 100%)',
               borderRadius: '10px',
               '& .MuiOutlinedInput-notchedOutline': {
-                border: '2px solid #C9A227',
+                border: '2px solid #FF6D00',
               },
               '&:hover .MuiOutlinedInput-notchedOutline': {
-                border: '2px solid #E5C96E',
+                border: '2px solid #FF9100',
               },
               '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                border: '2px solid #C9A227',
+                border: '2px solid #FF6D00',
               },
               '& .MuiSelect-select': {
                 padding: '10px 14px',
-                color: '#0A1628',
+                color: '#1A237E',
                 fontWeight: 600,
                 fontSize: '0.875rem',
               },
@@ -152,9 +152,9 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, 
               <MenuItem key={config.id} value={config.id}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, width: '100%' }}>
                   <span style={{ fontWeight: 600 }}>{config.type}</span>
-                  <span style={{ color: '#C9A227', fontSize: '0.75rem' }}>•</span>
+                  <span style={{ color: '#FF6D00', fontSize: '0.75rem' }}>•</span>
                   <span style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.8125rem' }}>{config.sqft} sq.ft</span>
-                  <span style={{ marginLeft: 'auto', color: '#C9A227', fontWeight: 600, fontSize: '0.8125rem' }}>
+                  <span style={{ marginLeft: 'auto', color: '#FF6D00', fontWeight: 600, fontSize: '0.8125rem' }}>
                     ₹{config.priceDisplay} {config.priceUnit}*
                   </span>
                 </Box>

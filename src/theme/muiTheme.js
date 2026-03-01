@@ -1,6 +1,6 @@
 /* ============================================
-   MUI Theme Configuration - Mahindra Blossom
-   Real Estate Landing Page
+   MUI Theme Configuration - Narayana Coaching Centers
+   IIT-JEE Landing Page
    ============================================ */
 
 import { createTheme, alpha } from '@mui/material/styles';
@@ -8,63 +8,63 @@ import { createTheme, alpha } from '@mui/material/styles';
 // Color palette matching CSS variables
 const colors = {
   primary: {
-    main: '#0A1628',
-    light: '#132742',
-    dark: '#050D16',
+    main: '#1A237E',
+    light: '#3949AB',
+    dark: '#0D1754',
     contrastText: '#FFFFFF',
   },
   secondary: {
-    main: '#C9A227',
-    light: '#E5C96E',
-    dark: '#B8941F',
-    contrastText: '#0A1628',
+    main: '#FF6D00',
+    light: '#FF9100',
+    dark: '#E65100',
+    contrastText: '#FFFFFF',
   },
-  gold: {
-    main: '#C9A227',
-    light: '#E5C96E',
-    dark: '#B8941F',
-    50: '#FEF9E7',
-    100: '#FCF0C3',
-    200: '#F9E49A',
-    300: '#F5D871',
-    400: '#E5C96E',
-    500: '#C9A227',
-    600: '#B8941F',
-    700: '#9A7A1A',
-    800: '#7C6215',
-    900: '#5E4A10',
+  orange: {
+    main: '#FF6D00',
+    light: '#FF9100',
+    dark: '#E65100',
+    50: '#FFF3E0',
+    100: '#FFE0B2',
+    200: '#FFCC80',
+    300: '#FFB74D',
+    400: '#FF9100',
+    500: '#FF6D00',
+    600: '#E65100',
+    700: '#BF360C',
+    800: '#9E2A00',
+    900: '#7F1D00',
   },
   navy: {
-    main: '#0A1628',
-    light: '#132742',
-    dark: '#050D16',
-    50: '#E8EBF0',
-    100: '#C5CCD9',
-    200: '#9FADC0',
-    300: '#798DA7',
-    400: '#5C7593',
-    500: '#3F5D80',
-    600: '#374F6D',
-    700: '#2D3F57',
-    800: '#1A3352',
-    900: '#0A1628',
+    main: '#1A237E',
+    light: '#3949AB',
+    dark: '#0D1754',
+    50: '#E8EAF6',
+    100: '#C5CAE9',
+    200: '#9FA8DA',
+    300: '#7986CB',
+    400: '#5C6BC0',
+    500: '#3F51B5',
+    600: '#3949AB',
+    700: '#283593',
+    800: '#1A237E',
+    900: '#0D1754',
   },
   success: {
-    main: '#4CAF50',
-    light: '#81C784',
-    dark: '#388E3C',
+    main: '#2E7D32',
+    light: '#66BB6A',
+    dark: '#1B5E20',
     contrastText: '#FFFFFF',
   },
   warning: {
-    main: '#FF9800',
-    light: '#FFB74D',
-    dark: '#F57C00',
-    contrastText: '#0A1628',
+    main: '#FF6D00',
+    light: '#FF9100',
+    dark: '#E65100',
+    contrastText: '#FFFFFF',
   },
   error: {
-    main: '#F44336',
-    light: '#E57373',
-    dark: '#D32F2F',
+    main: '#D32F2F',
+    light: '#EF5350',
+    dark: '#C62828',
     contrastText: '#FFFFFF',
   },
   info: {
@@ -76,30 +76,30 @@ const colors = {
   grey: {
     50: '#FAFAFA',
     100: '#F8F9FA',
-    200: '#F0F2F5',
-    300: '#E0E0E0',
-    400: '#BDBDBD',
-    500: '#9E9E9E',
-    600: '#757575',
-    700: '#616161',
-    800: '#424242',
-    900: '#212121',
+    200: '#F5F7FA',
+    300: '#E8EDF2',
+    400: '#B0BEC5',
+    500: '#90A4AE',
+    600: '#78909C',
+    700: '#607D8B',
+    800: '#455A64',
+    900: '#263238',
   },
   background: {
     default: '#FFFFFF',
     paper: '#FFFFFF',
-    dark: '#0A1628',
-    light: '#F8F9FA',
+    dark: '#1A237E',
+    light: '#F5F7FA',
   },
   text: {
-    primary: '#374151',
-    secondary: '#6B7280',
-    disabled: '#9CA3AF',
-    dark: '#0A1628',
+    primary: '#1A237E',
+    secondary: '#546E7A',
+    disabled: '#90A4AE',
+    dark: '#1A237E',
     light: '#FFFFFF',
   },
   iconColors: {
-    gold: '#C9A227',
+    gold: '#FF6D00',
     green: '#4CAF50',
     purple: '#9C27B0',
     orange: '#FF9800',
@@ -109,7 +109,7 @@ const colors = {
     blue: '#2196F3',
   },
   cardBg: {
-    yellow: '#FEF9E7',
+    yellow: '#FFF3E0',
     green: '#E8F5E9',
     pink: '#FCE4EC',
     purple: '#F3E5F5',
@@ -133,7 +133,7 @@ const breakpoints = {
 // Typography configuration
 const typography = {
   fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif",
-  fontFamilyHeading: "'Playfair Display', 'Georgia', serif",
+  fontFamilyHeading: "'Poppins', sans-serif",
   fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
@@ -141,7 +141,7 @@ const typography = {
   fontWeightBold: 700,
   fontWeightExtraBold: 800,
   h1: {
-    fontFamily: "'Playfair Display', 'Georgia', serif",
+    fontFamily: "'Poppins', sans-serif",
     fontWeight: 700,
     fontSize: 'clamp(2.5rem, 2rem + 2.5vw, 4.5rem)',
     lineHeight: 1.1,
@@ -149,7 +149,7 @@ const typography = {
     color: colors.primary.main,
   },
   h2: {
-    fontFamily: "'Playfair Display', 'Georgia', serif",
+    fontFamily: "'Poppins', sans-serif",
     fontWeight: 700,
     fontSize: 'clamp(2rem, 1.5rem + 2.5vw, 3rem)',
     lineHeight: 1.1,
@@ -157,28 +157,28 @@ const typography = {
     color: colors.primary.main,
   },
   h3: {
-    fontFamily: "'Playfair Display', 'Georgia', serif",
+    fontFamily: "'Poppins', sans-serif",
     fontWeight: 700,
     fontSize: 'clamp(1.75rem, 1.4rem + 1.75vw, 2.5rem)',
     lineHeight: 1.2,
     color: colors.primary.main,
   },
   h4: {
-    fontFamily: "'Playfair Display', 'Georgia', serif",
+    fontFamily: "'Poppins', sans-serif",
     fontWeight: 700,
     fontSize: 'clamp(1.5rem, 1.25rem + 1.25vw, 2rem)',
     lineHeight: 1.25,
     color: colors.primary.main,
   },
   h5: {
-    fontFamily: "'Playfair Display', 'Georgia', serif",
+    fontFamily: "'Poppins', sans-serif",
     fontWeight: 600,
     fontSize: 'clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)',
     lineHeight: 1.3,
     color: colors.primary.main,
   },
   h6: {
-    fontFamily: "'Playfair Display', 'Georgia', serif",
+    fontFamily: "'Poppins', sans-serif",
     fontWeight: 600,
     fontSize: 'clamp(1.1rem, 1rem + 0.5vw, 1.25rem)',
     lineHeight: 1.4,
@@ -267,9 +267,9 @@ const shadows = [
   '0 40px 152px rgba(0, 0, 0, 0.28)',
 ];
 
-// Gold shadow for buttons and highlights
-const goldShadow = '0 4px 15px rgba(201, 162, 39, 0.4)';
-const goldShadowHover = '0 6px 20px rgba(201, 162, 39, 0.5)';
+// Orange shadow for buttons and highlights
+const orangeShadow = '0 4px 15px rgba(255, 109, 0, 0.4)';
+const orangeShadowHover = '0 6px 20px rgba(255, 109, 0, 0.5)';
 
 // Create theme
 const theme = createTheme({
@@ -284,7 +284,7 @@ const theme = createTheme({
     grey: colors.grey,
     background: colors.background,
     text: colors.text,
-    gold: colors.gold,
+    orange: colors.orange,
     navy: colors.navy,
     iconColors: colors.iconColors,
     cardBg: colors.cardBg,
@@ -400,11 +400,11 @@ const theme = createTheme({
         },
         containedPrimary: {
           background: `linear-gradient(135deg, ${colors.secondary.main} 0%, ${colors.secondary.light} 100%)`,
-          color: colors.primary.main,
-          boxShadow: goldShadow,
+          color: '#FFFFFF',
+          boxShadow: orangeShadow,
           '&:hover': {
             background: `linear-gradient(135deg, ${colors.secondary.light} 0%, ${colors.secondary.main} 100%)`,
-            boxShadow: goldShadowHover,
+            boxShadow: orangeShadowHover,
             transform: 'translateY(-2px)',
           },
           '&:active': {
@@ -652,7 +652,7 @@ const theme = createTheme({
         },
         colorPrimary: {
           backgroundColor: colors.secondary.main,
-          color: colors.primary.main,
+          color: '#FFFFFF',
           '&:hover': {
             backgroundColor: colors.secondary.light,
           },
@@ -683,7 +683,7 @@ const theme = createTheme({
         },
         colorPrimary: {
           backgroundColor: colors.secondary.main,
-          color: colors.primary.main,
+          color: '#FFFFFF',
         },
       },
     },
@@ -740,9 +740,9 @@ const theme = createTheme({
           width: 20,
           height: 20,
           backgroundColor: colors.secondary.main,
-          boxShadow: goldShadow,
+          boxShadow: orangeShadow,
           '&:hover, &.Mui-focusVisible': {
-            boxShadow: goldShadowHover,
+            boxShadow: orangeShadowHover,
           },
           '&:before': {
             display: 'none',
@@ -1016,7 +1016,7 @@ const theme = createTheme({
             fontWeight: 500,
             '&.Mui-selected': {
               backgroundColor: colors.secondary.main,
-              color: colors.primary.main,
+              color: '#FFFFFF',
               '&:hover': {
                 backgroundColor: colors.secondary.light,
               },
@@ -1106,14 +1106,14 @@ const theme = createTheme({
     MuiFab: {
       styleOverrides: {
         root: {
-          boxShadow: goldShadow,
+          boxShadow: orangeShadow,
           '&:hover': {
-            boxShadow: goldShadowHover,
+            boxShadow: orangeShadowHover,
           },
         },
         primary: {
           background: `linear-gradient(135deg, ${colors.secondary.main} 0%, ${colors.secondary.light} 100%)`,
-          color: colors.primary.main,
+          color: '#FFFFFF',
         },
       },
     },
@@ -1122,11 +1122,11 @@ const theme = createTheme({
       styleOverrides: {
         fab: {
           background: `linear-gradient(135deg, ${colors.secondary.main} 0%, ${colors.secondary.light} 100%)`,
-          color: colors.primary.main,
-          boxShadow: goldShadow,
+          color: '#FFFFFF',
+          boxShadow: orangeShadow,
           '&:hover': {
             background: `linear-gradient(135deg, ${colors.secondary.light} 0%, ${colors.secondary.main} 100%)`,
-            boxShadow: goldShadowHover,
+            boxShadow: orangeShadowHover,
           },
         },
       },
@@ -1147,5 +1147,5 @@ const theme = createTheme({
 });
 
 // Export theme and colors for use in styled components
-export { colors, goldShadow, goldShadowHover };
+export { colors, orangeShadow, orangeShadowHover };
 export default theme;
