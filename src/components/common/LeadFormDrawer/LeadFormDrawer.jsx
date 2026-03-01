@@ -124,7 +124,7 @@ const LeadFormDrawer = ({
                 animate="visible"
               >
                 <div className={styles.headerIcon}>
-                  <Icon icon="mdi:home-city" />
+                  <Icon icon="mdi:school" />
                 </div>
                 <Typography variant="h4" id="drawer-title" className={styles.title}>
                   {title}
@@ -139,7 +139,7 @@ const LeadFormDrawer = ({
                 variant="drawer"
                 showTitle={false}
                 showSubtitle={false}
-                showMessage={true}
+                showCourseFields={true}
                 showTrustBadges={true}
                 showConsent={true}
                 showPhoneButton={true}

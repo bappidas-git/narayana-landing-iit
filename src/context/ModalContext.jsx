@@ -1,5 +1,5 @@
 /* ============================================
-   Modal Context - Mahindra Blossom
+   Modal Context - Narayana IIT-JEE Coaching
    Handles modal state management across the app
    ============================================ */
 
@@ -23,49 +23,37 @@ export const MODAL_TYPES = {
 
 // Drawer title mapping based on source/context
 export const DRAWER_TITLES = {
-  'schedule-site-visit': {
-    title: 'Schedule a Site Visit',
-    subtitle: 'Book your visit and experience the luxury firsthand',
+  'enroll-now': {
+    title: 'Enroll Now',
+    subtitle: 'Start your IIT-JEE journey with Narayana Coaching Centers',
   },
-  'get-pricing': {
-    title: 'Get Pricing Details',
-    subtitle: 'Get complete pricing information and exclusive offers',
+  'get-course-details': {
+    title: 'Get Course Details',
+    subtitle: 'Get complete information about our IIT-JEE programmes',
   },
-  'view-pricing': {
-    title: 'View Pricing',
-    subtitle: 'Get detailed pricing for your selected configuration',
-  },
-  'get-best-price': {
-    title: 'Get Best Price Quote',
-    subtitle: 'Our experts will help you find the best deal',
-  },
-  'get-price-details': {
-    title: 'Get Price Details',
-    subtitle: 'Request detailed pricing for your preferred floor plan',
-  },
-  'request-callback': {
-    title: 'Request a Callback',
-    subtitle: 'Our team will get back to you within 24 hours',
+  'book-free-demo': {
+    title: 'Book a Free Demo Class',
+    subtitle: 'Experience Narayana\'s teaching methodology firsthand',
   },
   'download-brochure': {
     title: 'Download Brochure',
-    subtitle: 'Get the complete project brochure with all details',
+    subtitle: 'Get the complete course brochure with all details',
   },
-  'expert-guidance': {
-    title: 'Get Expert Guidance',
-    subtitle: 'Our experts will help you choose the perfect home',
+  'request-callback': {
+    title: 'Request a Callback',
+    subtitle: 'Our academic counsellors will reach out within 24 hours',
   },
-  'view-plan': {
-    title: 'View Floor Plan',
-    subtitle: 'Fill in your details to view the complete floor plan',
+  'scholarship-test': {
+    title: 'Register for NACST',
+    subtitle: 'Take the Narayana Admission cum Scholarship Test & get up to 90% scholarship',
   },
-  'view-map': {
-    title: 'View on Google Maps',
-    subtitle: 'Fill in your details to view the location on Google Maps',
+  'foundation-enroll': {
+    title: 'Enroll in Foundation Course',
+    subtitle: 'Start early preparation for IIT-JEE from Class 8/9/10',
   },
   'default': {
-    title: 'Get Expert Assistance',
-    subtitle: 'Fill the form and our experts will get in touch with you',
+    title: 'Get Expert Guidance',
+    subtitle: 'Fill the form and our academic counsellors will assist you',
   },
 };
 

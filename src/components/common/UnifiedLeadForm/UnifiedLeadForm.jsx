@@ -18,6 +18,10 @@ import {
   Typography,
   CircularProgress,
   IconButton,
+  Select,
+  MenuItem,
+  FormControl,
+  FormHelperText,
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
@@ -27,19 +31,39 @@ import {
   getMobileErrorMessage,
   getEmailErrorMessage,
   getNameErrorMessage,
-  getMessageErrorMessage,
 } from "../../../utils/validators";
 import styles from "./UnifiedLeadForm.module.css";
 
 // Local storage key for leads
-const LEADS_STORAGE_KEY = "mahindra_blossom_submitted_leads";
+const LEADS_STORAGE_KEY = "narayana_jee_submitted_leads";
+
+// Course interest options
+const COURSE_OPTIONS = [
+  "2-Year Programme (TYICP)",
+  "Apex/Spark Programme",
+  "1-Year Programme (OYICP)",
+  "Repeater/Dropper Course",
+  "Foundation Course",
+  "Not Sure - Need Guidance",
+];
+
+// Student class options
+const CLASS_OPTIONS = [
+  "Class 8",
+  "Class 9",
+  "Class 10",
+  "Class 11",
+  "Class 12",
+  "XII Passed (Dropper)",
+];
 
 // Initial form state
 const initialFormState = {
   name: "",
   mobile: "",
   email: "",
-  message: "",
+  course_interest: "",
+  student_class: "",
 };
 
 // Initial error state
@@ -47,7 +71,8 @@ const initialErrorState = {
   name: "",
   mobile: "",
   email: "",
-  message: "",
+  course_interest: "",
+  student_class: "",
 };
 
 // Privacy Policy Content Component
@@ -65,11 +90,11 @@ const PrivacyPolicyContent = () => (
         Introduction
       </h3>
       <p style={{ fontSize: "14px", lineHeight: 1.6, color: "#374151" }}>
-        H.O.M Advisory ("we," "our," or "us") respects your privacy and is
-        committed to protecting your personal data. This Privacy Policy explains
-        how we collect, use, disclose, and safeguard your information when you
-        visit our website or engage with our services as authorized marketing
-        partners for Mahindra Lifespaces.
+        Narayana Coaching Centers ("we," "our," or "us") respects your privacy
+        and is committed to protecting your personal data. This Privacy Policy
+        explains how we collect, use, disclose, and safeguard your information
+        when you visit our website or engage with our services for IIT-JEE
+        coaching programmes.
       </p>
     </section>
 
@@ -109,8 +134,9 @@ const PrivacyPolicyContent = () => (
           forms or contacting us.
         </li>
         <li style={{ marginBottom: "6px" }}>
-          <strong>Property Preferences:</strong> Information about your property
-          preferences, budget, and requirements shared during consultations.
+          <strong>Academic Preferences:</strong> Information about your course
+          preferences, class/grade, and academic requirements shared during
+          consultations.
         </li>
         <li style={{ marginBottom: "6px" }}>
           <strong>Usage Data:</strong> Information about how you interact with
@@ -156,13 +182,13 @@ const PrivacyPolicyContent = () => (
         }}
       >
         <li style={{ marginBottom: "6px" }}>
-          To respond to your inquiries and provide property information
+          To respond to your inquiries and provide course information
         </li>
         <li style={{ marginBottom: "6px" }}>
-          To schedule site visits and property viewings
+          To schedule demo classes and campus visits
         </li>
         <li style={{ marginBottom: "6px" }}>
-          To send relevant property updates and promotional communications (with
+          To send relevant course updates and promotional communications (with
           your consent)
         </li>
         <li style={{ marginBottom: "6px" }}>
@@ -206,9 +232,8 @@ const PrivacyPolicyContent = () => (
         }}
       >
         <li style={{ marginBottom: "6px" }}>
-          <strong>Mahindra Lifespaces:</strong> As authorized marketing partners,
-          we share inquiry details with the developer for processing your
-          property interests.
+          <strong>Narayana Group:</strong> We share inquiry details within our
+          group for processing your academic enrolment interests.
         </li>
         <li style={{ marginBottom: "6px" }}>
           <strong>Service Providers:</strong> Third-party vendors who assist us
@@ -320,11 +345,11 @@ const PrivacyPolicyContent = () => (
           marginTop: "8px",
         }}
       >
-        <strong>H.O.M Advisory</strong>
+        <strong>Narayana Coaching Centers</strong>
         <br />
-        Email: marketing@homadvisory.com
+        Email: info@narayanagroup.com
         <br />
-        Phone: +91-9632367929
+        Phone: +91-9667225657
       </p>
     </section>
 
@@ -439,12 +464,12 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
 
 const UnifiedLeadForm = ({
   variant = "default", // 'default', 'dark', 'hero', 'drawer'
-  title = "Book A Site Visit",
-  subtitle = "Fill in your details and our experts will get in touch with you",
+  title = "Enroll Now",
+  subtitle = "Fill in your details and our academic counsellors will assist you",
   submitButtonText = "Submit Enquiry",
   showTitle = true,
   showSubtitle = true,
-  showMessage = true,
+  showCourseFields = true,
   showTrustBadges = true,
   showConsent = true,
   showPhoneButton = false,
@@ -466,7 +491,8 @@ const UnifiedLeadForm = ({
   const nameRef = useRef(null);
   const mobileRef = useRef(null);
   const emailRef = useRef(null);
-  const messageRef = useRef(null);
+  const courseRef = useRef(null);
+  const classRef = useRef(null);
 
   // Check if lead already exists in localStorage
   const checkDuplicateLead = useCallback((email, mobile) => {
@@ -548,9 +574,14 @@ const UnifiedLeadForm = ({
         case "email":
           errorMessage = getEmailErrorMessage(formData.email);
           break;
-        case "message":
-          if (showMessage && formData.message) {
-            errorMessage = getMessageErrorMessage(formData.message);
+        case "course_interest":
+          if (showCourseFields && !formData.course_interest) {
+            errorMessage = "Please select a course";
+          }
+          break;
+        case "student_class":
+          if (showCourseFields && !formData.student_class) {
+            errorMessage = "Please select your class";
           }
           break;
         default:
@@ -562,7 +593,7 @@ const UnifiedLeadForm = ({
         [field]: errorMessage,
       }));
     },
-    [formData, showMessage]
+    [formData, showCourseFields]
   );
 
   // Validate entire form
@@ -571,9 +602,13 @@ const UnifiedLeadForm = ({
       name: getNameErrorMessage(formData.name),
       mobile: getMobileErrorMessage(formData.mobile),
       email: getEmailErrorMessage(formData.email),
-      message:
-        showMessage && formData.message
-          ? getMessageErrorMessage(formData.message)
+      course_interest:
+        showCourseFields && !formData.course_interest
+          ? "Please select a course"
+          : "",
+      student_class:
+        showCourseFields && !formData.student_class
+          ? "Please select your class"
           : "",
     };
 
@@ -582,11 +617,12 @@ const UnifiedLeadForm = ({
       name: true,
       mobile: true,
       email: true,
-      message: true,
+      course_interest: true,
+      student_class: true,
     });
 
     return Object.values(newErrors).every((error) => !error);
-  }, [formData, showMessage]);
+  }, [formData, showCourseFields]);
 
   // Handle form submission
   const handleSubmit = async (event) => {
@@ -601,8 +637,6 @@ const UnifiedLeadForm = ({
         mobileRef.current?.focus();
       } else if (errors.email || !formData.email) {
         emailRef.current?.focus();
-      } else if (showMessage && (errors.message || !formData.message)) {
-        messageRef.current?.focus();
       }
       return;
     }
@@ -631,7 +665,7 @@ const UnifiedLeadForm = ({
         },
       }).then((result) => {
         if (!result.isConfirmed && result.dismiss === "cancel") {
-          window.location.href = "tel:+919632367929";
+          window.location.href = "tel:+919667225657";
         }
       });
       return;
@@ -654,7 +688,8 @@ const UnifiedLeadForm = ({
           name: formData.name,
           email: formData.email,
           mobile: formData.mobile,
-          message: formData.message || '',
+          course_interest: formData.course_interest || '',
+          student_class: formData.student_class || '',
           source: 'website',
         }),
       });
@@ -696,7 +731,7 @@ const UnifiedLeadForm = ({
           },
         }).then((result) => {
           if (!result.isConfirmed && result.dismiss === "cancel") {
-            window.location.href = "tel:+919632367929";
+            window.location.href = "tel:+919667225657";
           }
         });
         return;
@@ -733,10 +768,10 @@ const UnifiedLeadForm = ({
       // Show success message with SweetAlert2
       await Swal.fire({
         icon: "success",
-        title: "Thank You!",
+        title: "Enrollment Request Received! 🎓",
         html: `
-          <p style="margin-bottom: 8px;">Your enquiry has been submitted successfully.</p>
-          <p style="font-size: 14px; color: #666;">Redirecting you to more information...</p>
+          <p style="margin-bottom: 8px;">Thank you for your interest in Narayana Coaching Centers!</p>
+          <p style="font-size: 14px; color: #666;">Our academic counsellor will contact you within 24 hours.</p>
         `,
         confirmButtonColor: "#FF6D00",
         confirmButtonText: "Continue",
@@ -851,7 +886,7 @@ const UnifiedLeadForm = ({
           <TextField
             inputRef={nameRef}
             fullWidth
-            placeholder="Your Name"
+            placeholder="Student's Full Name"
             variant="outlined"
             value={formData.name}
             onChange={handleChange("name")}
@@ -892,7 +927,7 @@ const UnifiedLeadForm = ({
           <TextField
             inputRef={mobileRef}
             fullWidth
-            placeholder="Mobile Number"
+            placeholder="Parent's / Student's Mobile"
             variant="outlined"
             value={formData.mobile}
             onChange={handleChange("mobile")}
@@ -981,36 +1016,30 @@ const UnifiedLeadForm = ({
           />
         </motion.div>
 
-        {/* Message Field */}
-        {showMessage && (
+        {/* Course Interest Field */}
+        {showCourseFields && (
           <motion.div
             custom={3}
             variants={fieldVariants}
             initial="hidden"
             animate="visible"
           >
-            <TextField
-              inputRef={messageRef}
+            <FormControl
               fullWidth
-              placeholder="Message (Optional)"
-              variant="outlined"
-              multiline
-              rows={3}
-              value={formData.message}
-              onChange={handleChange("message")}
-              onBlur={handleBlur("message")}
-              error={touched.message && !!errors.message}
-              helperText={touched.message && errors.message}
-              disabled={isSubmitting}
-              className={`${styles.textField} ${styles.messageField}`}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment
-                    position="start"
-                    className={styles.messageAdornment}
-                  >
+              error={touched.course_interest && !!errors.course_interest}
+              className={styles.textField}
+            >
+              <Select
+                ref={courseRef}
+                displayEmpty
+                value={formData.course_interest}
+                onChange={handleChange("course_interest")}
+                onBlur={handleBlur("course_interest")}
+                disabled={isSubmitting}
+                startAdornment={
+                  <InputAdornment position="start">
                     <Icon
-                      icon="mdi:message-outline"
+                      icon="mdi:book-education-outline"
                       className={styles.inputIcon}
                       style={
                         variant === "dark" || variant === "drawer"
@@ -1019,19 +1048,107 @@ const UnifiedLeadForm = ({
                       }
                     />
                   </InputAdornment>
-                ),
-              }}
-              inputProps={{
-                "aria-label": "Your message",
-                maxLength: 500,
-              }}
-            />
+                }
+                renderValue={(selected) => {
+                  if (!selected) {
+                    return (
+                      <span style={{ color: variant === "dark" || variant === "drawer" ? "#FFFFFF80" : undefined, opacity: variant === "dark" || variant === "drawer" ? 1 : 0.5 }}>
+                        Select Course Interest
+                      </span>
+                    );
+                  }
+                  return selected;
+                }}
+                inputProps={{
+                  "aria-label": "Course interest",
+                }}
+                sx={
+                  variant === "dark" || variant === "drawer"
+                    ? { color: "#FFFFFF", "& .MuiSelect-icon": { color: "#FFFFFF80" } }
+                    : undefined
+                }
+              >
+                {COURSE_OPTIONS.map((option) => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              {touched.course_interest && errors.course_interest && (
+                <FormHelperText>{errors.course_interest}</FormHelperText>
+              )}
+            </FormControl>
+          </motion.div>
+        )}
+
+        {/* Student Class Field */}
+        {showCourseFields && (
+          <motion.div
+            custom={4}
+            variants={fieldVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <FormControl
+              fullWidth
+              error={touched.student_class && !!errors.student_class}
+              className={styles.textField}
+            >
+              <Select
+                ref={classRef}
+                displayEmpty
+                value={formData.student_class}
+                onChange={handleChange("student_class")}
+                onBlur={handleBlur("student_class")}
+                disabled={isSubmitting}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <Icon
+                      icon="mdi:school-outline"
+                      className={styles.inputIcon}
+                      style={
+                        variant === "dark" || variant === "drawer"
+                          ? { color: "#FFFFFF80" }
+                          : undefined
+                      }
+                    />
+                  </InputAdornment>
+                }
+                renderValue={(selected) => {
+                  if (!selected) {
+                    return (
+                      <span style={{ color: variant === "dark" || variant === "drawer" ? "#FFFFFF80" : undefined, opacity: variant === "dark" || variant === "drawer" ? 1 : 0.5 }}>
+                        Select Student's Class
+                      </span>
+                    );
+                  }
+                  return selected;
+                }}
+                inputProps={{
+                  "aria-label": "Student class",
+                }}
+                sx={
+                  variant === "dark" || variant === "drawer"
+                    ? { color: "#FFFFFF", "& .MuiSelect-icon": { color: "#FFFFFF80" } }
+                    : undefined
+                }
+              >
+                {CLASS_OPTIONS.map((option) => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              {touched.student_class && errors.student_class && (
+                <FormHelperText>{errors.student_class}</FormHelperText>
+              )}
+            </FormControl>
           </motion.div>
         )}
 
         {/* Submit Button */}
         <motion.div
-          custom={showMessage ? 4 : 3}
+          custom={showCourseFields ? 5 : 3}
           variants={fieldVariants}
           initial="hidden"
           animate="visible"
@@ -1061,7 +1178,7 @@ const UnifiedLeadForm = ({
         {/* Trust Badges */}
         {showTrustBadges && (
           <motion.div
-            custom={showMessage ? 5 : 4}
+            custom={showCourseFields ? 6 : 4}
             variants={fieldVariants}
             initial="hidden"
             animate="visible"
@@ -1075,8 +1192,8 @@ const UnifiedLeadForm = ({
                   : undefined
               }
             >
-              <Icon icon="mdi:shield-check" className={styles.trustIcon} />
-              <span>100% Secure</span>
+              <Icon icon="mdi:trophy-award" className={styles.trustIcon} />
+              <span>40+ Years Legacy</span>
             </div>
             <div
               className={styles.trustBadge}
@@ -1086,8 +1203,8 @@ const UnifiedLeadForm = ({
                   : undefined
               }
             >
-              <Icon icon="mdi:phone-in-talk" className={styles.trustIcon} />
-              <span>Quick Response</span>
+              <Icon icon="mdi:star-circle" className={styles.trustIcon} />
+              <span>4 in Top 15 AIR (JEE 2024)</span>
             </div>
             <div
               className={styles.trustBadge}
@@ -1097,8 +1214,8 @@ const UnifiedLeadForm = ({
                   : undefined
               }
             >
-              <Icon icon="mdi:lock" className={styles.trustIcon} />
-              <span>Privacy Protected</span>
+              <Icon icon="mdi:percent-circle" className={styles.trustIcon} />
+              <span>Up to 90% Scholarship</span>
             </div>
           </motion.div>
         )}
@@ -1106,7 +1223,7 @@ const UnifiedLeadForm = ({
         {/* Consent Text */}
         {showConsent && (
           <motion.div
-            custom={showMessage ? 6 : 5}
+            custom={showCourseFields ? 7 : 5}
             variants={fieldVariants}
             initial="hidden"
             animate="visible"
@@ -1120,7 +1237,7 @@ const UnifiedLeadForm = ({
                   : undefined
               }
             >
-              By submitting, you agree to our{" "}
+              By submitting this form, I agree to the{" "}
               <button
                 type="button"
                 onClick={() => setPrivacyModalOpen(true)}
@@ -1132,9 +1249,10 @@ const UnifiedLeadForm = ({
                   cursor: "pointer",
                 }}
               >
-                Privacy Policy
-              </button>{" "}
-              and consent to receive communications about Mahindra Blossom.
+                Terms & Conditions and Privacy Policy
+              </button>
+              , and consent to receive communication via SMS, WhatsApp, and
+              Email from Narayana Coaching Centers.
             </Typography>
           </motion.div>
         )}
@@ -1149,9 +1267,9 @@ const UnifiedLeadForm = ({
           >
             Or call us directly
           </Typography>
-          <a href="tel:+919632367929" className={styles.phoneLink}>
+          <a href="tel:+919667225657" className={styles.phoneLink}>
             <Icon icon="mdi:phone" />
-            <span>+91-9632367929</span>
+            <span>+91-9667225657</span>
           </a>
         </div>
       )}
