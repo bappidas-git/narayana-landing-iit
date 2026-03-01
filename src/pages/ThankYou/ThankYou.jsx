@@ -1,5 +1,5 @@
 /* ============================================
-   ThankYou Page - Mahindra Blossom
+   ThankYou Page - Narayana IIT-JEE
    Post lead submission confirmation page
    ============================================ */
 
@@ -11,31 +11,31 @@ import { Icon } from '@iconify/react';
 import confetti from 'canvas-confetti';
 import styles from './ThankYou.module.css';
 
-// Project highlights for display
+// Programme highlights for display
 const projectHighlights = [
-  { icon: 'mdi:map-marker-radius', label: '100 Acres Township', color: '#4CAF50' },
-  { icon: 'mdi:home-city', label: '2.5 Lakhs Sq.Ft Clubhouse', color: '#2196F3' },
-  { icon: 'mdi:tree', label: '4000+ Trees', color: '#8BC34A' },
-  { icon: 'mdi:checkbox-marked-circle', label: 'RERA Approved', color: '#9C27B0' },
+  { icon: 'mdi:school', label: 'Expert IIT-JEE Faculty', color: '#FF6D00' },
+  { icon: 'mdi:trophy-award', label: 'Top JEE Results', color: '#4CAF50' },
+  { icon: 'mdi:book-open-page-variant', label: 'Comprehensive Study Material', color: '#2196F3' },
+  { icon: 'mdi:account-group', label: 'Small Batch Sizes', color: '#9C27B0' },
 ];
 
 // Contact details
 const contactInfo = {
-  companyName: 'H.O.M Advisory',
-  designation: 'Authorized Marketing Partner',
+  companyName: 'Narayana Coaching Centers',
+  designation: 'IIT-JEE Coaching Excellence',
   phone: '+91-9632367929',
   altPhone: '+91-9632367929',
-  email: 'sales@mahindrablossom.com',
-  address: 'HopeFarm Jn., Whitefield, Bengaluru, Karnataka',
-  workingHours: 'Mon - Sun: 9:00 AM - 8:00 PM',
+  email: 'info@narayanacoaching.com',
+  address: 'Guwahati Centre, Assam',
+  workingHours: 'Mon - Sat: 8:00 AM - 7:00 PM',
 };
 
 // Quick links
 const quickLinks = [
-  { icon: 'mdi:floor-plan', label: 'Floor Plans', href: '/#floor-plans' },
+  { icon: 'mdi:book-education', label: 'Programmes', href: '/#courses' },
   { icon: 'mdi:trophy-award', label: 'Results', href: '/#results' },
   { icon: 'mdi:map-marker', label: 'Centre', href: '/#centre' },
-  { icon: 'mdi:view-grid', label: 'Amenities', href: '/#amenities' },
+  { icon: 'mdi:star-circle', label: 'Benefits', href: '/#benefits' },
 ];
 
 const ThankYou = () => {
@@ -186,10 +186,10 @@ const ThankYou = () => {
           {/* Thank You Message */}
           <motion.div variants={itemVariants} className={styles.thankYouMessage}>
             <Typography variant="h2" className={styles.title}>
-              Thank You, {userName}!
+              Thank You for Your Interest! 🎓
             </Typography>
             <Typography className={styles.subtitle} sx={{ color: '#FFFFFFB3 !important' }}>
-              Your enquiry has been submitted successfully
+              Your enquiry has been received. Our academic counsellor from Narayana Coaching Centers will contact you within 24 hours.
             </Typography>
           </motion.div>
 
@@ -200,17 +200,17 @@ const ThankYou = () => {
             </div>
             <div className={styles.noticeContent}>
               <Typography className={styles.noticeTitle}>
-                Our sales expert will contact you within 24 hours
+                What happens next?
               </Typography>
               <Typography className={styles.noticeDesc} sx={{ color: '#FFFFFFA6 !important' }}>
-                We're excited to help you find your dream home at Mahindra Blossom
+                Our academic counsellor will reach out to discuss the best IIT-JEE programme for you
               </Typography>
             </div>
           </motion.div>
 
           {/* Project Highlights */}
           <motion.div variants={itemVariants} className={styles.highlightsSection}>
-            <Typography className={styles.sectionLabel} sx={{ color: '#FFFFFF80 !important' }}>Project Highlights</Typography>
+            <Typography className={styles.sectionLabel} sx={{ color: '#FFFFFF80 !important' }}>Why Narayana?</Typography>
             <div className={styles.highlightsGrid}>
               {projectHighlights.map((item, index) => (
                 <motion.div
@@ -339,7 +339,7 @@ const ThankYou = () => {
               whileTap={{ scale: 0.98 }}
             >
               <Icon icon="mdi:arrow-left" />
-              <span>Back to Homepage</span>
+              <span>Back to Home</span>
             </motion.a>
           </motion.div>
         </motion.div>
