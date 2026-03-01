@@ -1,5 +1,5 @@
 /* ============================================
-   App Component - Mahindra Blossom
+   App Component - Narayana IIT-JEE
    Main application component with providers,
    lazy loading, and performance optimizations
    ============================================ */
@@ -29,30 +29,14 @@ import LeadFormDrawer from './components/common/LeadFormDrawer/LeadFormDrawer';
 const ThankYouPage = lazy(() => import('./pages/ThankYou/ThankYou'));
 
 // Lazy loaded sections for performance (Below the fold)
-const OverviewSection = lazy(() =>
-  import(/* webpackChunkName: "overview" */ './components/sections/OverviewSection/OverviewSection')
-);
-const AmenitiesSection = lazy(() =>
-  import(/* webpackChunkName: "amenities" */ './components/sections/AmenitiesSection/AmenitiesSection')
-);
-const PricingSection = lazy(() =>
-  import(/* webpackChunkName: "pricing" */ './components/sections/PricingSection/PricingSection')
-);
-const FloorPlansSection = lazy(() =>
-  import(/* webpackChunkName: "floorplans" */ './components/sections/FloorPlansSection/FloorPlansSection')
-);
-const LocationSection = lazy(() =>
-  import(/* webpackChunkName: "location" */ './components/sections/LocationSection/LocationSection')
-);
-const CTASection = lazy(() =>
-  import(/* webpackChunkName: "cta" */ './components/sections/CTASection/CTASection')
-);
-const ContactSection = lazy(() =>
-  import(/* webpackChunkName: "contact" */ './components/sections/ContactSection/ContactSection')
-);
-const FoundationCTASection = lazy(() =>
-  import(/* webpackChunkName: "foundation-cta" */ './components/sections/FoundationCTASection/FoundationCTASection')
-);
+const OverviewSection = lazy(() => import('./components/sections/OverviewSection/OverviewSection'));
+const FloorPlansSection = lazy(() => import('./components/sections/FloorPlansSection/FloorPlansSection'));
+const PricingSection = lazy(() => import('./components/sections/PricingSection/PricingSection'));
+const AmenitiesSection = lazy(() => import('./components/sections/AmenitiesSection/AmenitiesSection'));
+const LocationSection = lazy(() => import('./components/sections/LocationSection/LocationSection'));
+const CTASection = lazy(() => import('./components/sections/CTASection/CTASection'));
+const ContactSection = lazy(() => import('./components/sections/ContactSection/ContactSection'));
+const FoundationCTASection = lazy(() => import('./components/sections/FoundationCTASection/FoundationCTASection'));
 
 // ===========================================
 // Error Boundary Component
@@ -95,7 +79,7 @@ class ErrorBoundary extends React.Component {
               onClick={() => this.setState({ hasError: false })}
               style={{
                 backgroundColor: '#FF6D00',
-                color: '#1A237E',
+                color: '#FFFFFF',
                 border: 'none',
                 padding: '10px 20px',
                 borderRadius: '6px',
@@ -269,7 +253,7 @@ const BackToTopButton = memo(() => {
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.1, backgroundColor: '#E65100' }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
           style={{
@@ -279,8 +263,8 @@ const BackToTopButton = memo(() => {
             width: '48px',
             height: '48px',
             borderRadius: '50%',
-            backgroundColor: 'rgba(255, 109, 0, 0.7)',
-            color: '#1A237E',
+            backgroundColor: '#FF6D00',
+            color: '#FFFFFF',
             border: '1px solid rgba(255, 255, 255, 0.3)',
             cursor: 'pointer',
             display: 'flex',
@@ -440,8 +424,8 @@ const HomePageContent = () => {
         </ErrorBoundary>
 
         <ErrorBoundary>
-          <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
-            <LocationSection />
+          <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
+            <PricingSection />
           </Suspense>
         </ErrorBoundary>
 
@@ -452,8 +436,8 @@ const HomePageContent = () => {
         </ErrorBoundary>
 
         <ErrorBoundary>
-          <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
-            <PricingSection />
+          <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
+            <LocationSection />
           </Suspense>
         </ErrorBoundary>
 
