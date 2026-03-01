@@ -44,11 +44,11 @@ const EMICalculatorModal = ({ isOpen, onClose, propertyPrice = 17000000, configT
 
   // Custom slider styles
   const sliderSx = {
-    color: '#C9A227',
+    color: '#FF6D00',
     height: 6,
     '& .MuiSlider-track': {
       border: 'none',
-      background: 'linear-gradient(90deg, #C9A227 0%, #E5C96E 100%)',
+      background: 'linear-gradient(90deg, #FF6D00 0%, #FF9100 100%)',
     },
     '& .MuiSlider-rail': {
       backgroundColor: 'rgba(255, 255, 255, 0.15)',
@@ -56,21 +56,21 @@ const EMICalculatorModal = ({ isOpen, onClose, propertyPrice = 17000000, configT
     '& .MuiSlider-thumb': {
       width: 20,
       height: 20,
-      backgroundColor: '#C9A227',
+      backgroundColor: '#FF6D00',
       border: '3px solid #FFFFFF',
-      boxShadow: '0 2px 8px rgba(201, 162, 39, 0.4)',
+      boxShadow: '0 2px 8px rgba(255, 109, 0, 0.4)',
       '&:before': {
         boxShadow: 'none',
       },
       '&:hover, &.Mui-focusVisible': {
-        boxShadow: '0 0 0 8px rgba(201, 162, 39, 0.16)',
+        boxShadow: '0 0 0 8px rgba(255, 109, 0, 0.16)',
       },
       '&.Mui-active': {
-        boxShadow: '0 0 0 12px rgba(201, 162, 39, 0.16)',
+        boxShadow: '0 0 0 12px rgba(255, 109, 0, 0.16)',
       },
     },
     '& .MuiSlider-valueLabel': {
-      backgroundColor: '#C9A227',
+      backgroundColor: '#FF6D00',
       borderRadius: '6px',
       padding: '4px 8px',
       fontSize: '0.75rem',
@@ -304,12 +304,12 @@ const EMICalculatorModal = ({ isOpen, onClose, propertyPrice = 17000000, configT
                   </div>
 
                   <div className={styles.modalBreakdownItem}>
-                    <div className={styles.breakdownIconWrapper} style={{ backgroundColor: 'rgba(201, 162, 39, 0.15)' }}>
-                      <Icon icon="mdi:wallet-outline" style={{ color: '#C9A227' }} />
+                    <div className={styles.breakdownIconWrapper} style={{ backgroundColor: 'rgba(255, 109, 0, 0.15)' }}>
+                      <Icon icon="mdi:wallet-outline" style={{ color: '#FF6D00' }} />
                     </div>
                     <div>
                       <Typography className={styles.breakdownItemLabel} sx={{ color: '#D9DCE0 !important' }}>Total Amount</Typography>
-                      <Typography className={styles.breakdownItemValue} style={{ color: '#C9A227' }}>
+                      <Typography className={styles.breakdownItemValue} style={{ color: '#FF6D00' }}>
                         {formatAmount(emiBreakdown.totalAmount)}
                       </Typography>
                     </div>

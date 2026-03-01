@@ -217,7 +217,7 @@ const LeadForm = ({
             <p style="margin-bottom: 12px;">You have already submitted an enquiry with this email or mobile number.</p>
             <p style="color: #666; font-size: 14px;">Our team will contact you soon.</p>
           `,
-          confirmButtonColor: '#C9A227',
+          confirmButtonColor: '#FF6D00',
           confirmButtonText: 'Got it!',
           customClass: {
             popup: styles.swalPopup,
@@ -250,7 +250,7 @@ const LeadForm = ({
         icon: 'success',
         title: 'Thank You!',
         text: 'Our team will contact you within 24 hours.',
-        confirmButtonColor: '#C9A227',
+        confirmButtonColor: '#FF6D00',
         confirmButtonText: 'Great!',
         timer: 3000,
         timerProgressBar: true,
@@ -276,7 +276,7 @@ const LeadForm = ({
           icon: 'error',
           title: 'Oops!',
           text: error.message || 'Something went wrong. Please try again.',
-          confirmButtonColor: '#C9A227',
+          confirmButtonColor: '#FF6D00',
           confirmButtonText: 'Try Again',
           customClass: {
             popup: styles.swalPopup,

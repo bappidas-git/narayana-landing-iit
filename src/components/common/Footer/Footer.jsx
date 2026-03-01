@@ -409,11 +409,11 @@ const Footer = () => {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center', fontSize: '12px' }}>
                 <span style={{ color: '#FFFFFFCC' }}>
-                  <strong style={{ color: '#C9A227' }}>Mahindra Blossom:</strong>{' '}
+                  <strong style={{ color: '#FF6D00' }}>Mahindra Blossom:</strong>{' '}
                   <span style={{ color: '#FFFFFF99' }}>PRM/KA/RERA/1251/446/PR/171225/008348</span>
                 </span>
                 <span style={{ color: '#FFFFFFCC' }}>
-                  <strong style={{ color: '#C9A227' }}>H.O.M Advisory (Agent):</strong>{' '}
+                  <strong style={{ color: '#FF6D00' }}>H.O.M Advisory (Agent):</strong>{' '}
                   <span style={{ color: '#FFFFFF99' }}>PRM/KA/RERA/1251/310/AG/251018/006354</span>
                 </span>
               </div>
@@ -421,7 +421,7 @@ const Footer = () => {
 
             {/* Address */}
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', marginTop: '12px', color: '#FFFFFFB3', fontSize: '13px', gap: '6px' }}>
-              <Icon icon="mdi:map-marker" style={{ color: '#C9A227', fontSize: '16px', flexShrink: 0, marginTop: '2px' }} />
+              <Icon icon="mdi:map-marker" style={{ color: '#FF6D00', fontSize: '16px', flexShrink: 0, marginTop: '2px' }} />
               <span style={{ textAlign: 'center' }}>Next to Hopefarm Channasandra Metro Station, Whitefield, Bengaluru 560066</span>
             </div>
 
@@ -434,7 +434,7 @@ const Footer = () => {
                   style={{ color: '#FFFFFF66' }}
                 />
                 <span className={styles.disclaimerSummary} style={{ color: '#FFFFFF80' }}>
-                  This website is owned, operated, and maintained by <strong style={{ color: '#C9A227CC' }}>H.O.M Advisory</strong>, a RERA-registered real estate agent and an authorized channel partner of Mahindra Lifespaces for the promotion of Mahindra Blossom.
+                  This website is owned, operated, and maintained by <strong style={{ color: '#FF6D00CC' }}>H.O.M Advisory</strong>, a RERA-registered real estate agent and an authorized channel partner of Mahindra Lifespaces for the promotion of Mahindra Blossom.
                 </span>
                 <button
                   className={styles.disclaimerToggle}
@@ -445,7 +445,7 @@ const Footer = () => {
                       ? "Collapse disclaimer"
                       : "Expand disclaimer"
                   }
-                  style={{ color: '#C9A227B3' }}
+                  style={{ color: '#FF6D00B3' }}
                 >
                   <span className={styles.readMoreText}>
                     {disclaimerExpanded ? "Less" : "More"}
@@ -468,7 +468,7 @@ const Footer = () => {
                     transition={{ duration: 0.25, ease: "easeInOut" }}
                   >
                     <p className={styles.disclaimerFullText} style={{ color: '#FFFFFF73' }}>
-                      This website is owned, operated, and maintained by <strong style={{ color: '#C9A227BF' }}>H.O.M Advisory</strong>, a RERA-registered real estate agent (Reg. No. PRM/KA/RERA/1251/310/AG/251018/006354) and an authorized channel partner of Mahindra Lifespaces for the promotion of Mahindra Blossom. This is not the official website of Mahindra Lifespaces. All prices, specifications, layouts, floor plans, amenities, and other details are indicative and subject to change without prior notice, subject to availability and approvals. Images and artistic impressions are for illustrative purposes only.
+                      This website is owned, operated, and maintained by <strong style={{ color: '#FF6D00BF' }}>H.O.M Advisory</strong>, a RERA-registered real estate agent (Reg. No. PRM/KA/RERA/1251/310/AG/251018/006354) and an authorized channel partner of Mahindra Lifespaces for the promotion of Mahindra Blossom. This is not the official website of Mahindra Lifespaces. All prices, specifications, layouts, floor plans, amenities, and other details are indicative and subject to change without prior notice, subject to availability and approvals. Images and artistic impressions are for illustrative purposes only.
                     </p>
                   </motion.div>
                 )}

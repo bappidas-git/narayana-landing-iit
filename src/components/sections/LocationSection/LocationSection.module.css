@@ -54,7 +54,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(10, 22, 40, 0.3) 0%, rgba(10, 22, 40, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(26, 35, 126, 0.3) 0%, rgba(26, 35, 126, 0.8) 100%);
   padding: var(--space-6);
   text-align: center;
 }
@@ -89,7 +89,7 @@
   background: var(--primary-dark-alt);
   border-radius: var(--radius-xl);
   padding: var(--space-4);
-  border: 1px solid rgba(201, 162, 39, 0.1);
+  border: 1px solid rgba(255, 109, 0, 0.1);
 }
 
 .connectivityItem {
@@ -109,8 +109,8 @@
 }
 
 .connectivityItem.highlighted {
-  background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.05) 100%);
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  background: linear-gradient(135deg, rgba(255, 109, 0, 0.15) 0%, rgba(255, 109, 0, 0.05) 100%);
+  border: 1px solid rgba(255, 109, 0, 0.3);
 }
 
 .connectivityIcon {
@@ -263,8 +263,8 @@
 }
 
 .highlightedLandmark {
-  background: linear-gradient(135deg, rgba(201, 162, 39, 0.1) 0%, rgba(201, 162, 39, 0.05) 100%);
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  background: linear-gradient(135deg, rgba(255, 109, 0, 0.1) 0%, rgba(255, 109, 0, 0.05) 100%);
+  border: 1px solid rgba(255, 109, 0, 0.3);
 }
 
 .landmarkIcon {
@@ -345,7 +345,7 @@
 .featuresSection {
   margin-top: var(--space-12);
   padding-top: var(--space-8);
-  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  border-top: 1px solid rgba(255, 109, 0, 0.2);
 }
 
 .featureCard {
@@ -360,7 +360,7 @@
 .featureCard:hover {
   background: rgba(255, 255, 255, 0.06);
   transform: translateY(-5px);
-  border-color: rgba(201, 162, 39, 0.3);
+  border-color: rgba(255, 109, 0, 0.3);
 }
 
 .featureIcon {
@@ -393,7 +393,7 @@
   left: -100px;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 109, 0, 0.1) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   filter: blur(60px);
@@ -405,7 +405,7 @@
   right: -100px;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 109, 0, 0.08) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   filter: blur(80px);

@@ -21,8 +21,8 @@
 .badge {
   display: inline-block;
   padding: var(--space-2) var(--space-5);
-  background: rgba(201, 162, 39, 0.15);
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  background: rgba(255, 109, 0, 0.15);
+  border: 1px solid rgba(255, 109, 0, 0.3);
   border-radius: var(--radius-full);
   color: var(--accent-gold);
   font-size: var(--fs-xs);
@@ -95,7 +95,7 @@
 
 .contactItem:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(201, 162, 39, 0.2);
+  border-color: rgba(255, 109, 0, 0.2);
   transform: translateX(5px);
 }
 
@@ -106,8 +106,8 @@
   border-radius: var(--radius-lg);
   background: linear-gradient(
     135deg,
-    rgba(201, 162, 39, 0.2) 0%,
-    rgba(201, 162, 39, 0.1) 100%
+    rgba(255, 109, 0, 0.2) 0%,
+    rgba(255, 109, 0, 0.1) 100%
   );
   display: flex;
   align-items: center;
@@ -244,7 +244,7 @@
 
 .textField :global(.MuiOutlinedInput-root.Mui-focused) {
   background: var(--white);
-  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 109, 0, 0.15);
 }
 
 .textField :global(.MuiOutlinedInput-notchedOutline) {
@@ -375,7 +375,7 @@
   height: 400px;
   background: radial-gradient(
     circle,
-    rgba(201, 162, 39, 0.1) 0%,
+    rgba(255, 109, 0, 0.1) 0%,
     transparent 70%
   );
   border-radius: 50%;
@@ -391,7 +391,7 @@
   height: 300px;
   background: radial-gradient(
     circle,
-    rgba(201, 162, 39, 0.08) 0%,
+    rgba(255, 109, 0, 0.08) 0%,
     transparent 70%
   );
   border-radius: 50%;
@@ -404,12 +404,12 @@
   inset: 0;
   background-image: radial-gradient(
       circle at 25% 25%,
-      rgba(201, 162, 39, 0.03) 0%,
+      rgba(255, 109, 0, 0.03) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 75% 75%,
-      rgba(201, 162, 39, 0.02) 0%,
+      rgba(255, 109, 0, 0.02) 0%,
       transparent 50%
     );
   pointer-events: none;

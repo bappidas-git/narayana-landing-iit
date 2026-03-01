@@ -73,15 +73,15 @@ const heroInfoCards = [
     icon: 'mdi:office-building-outline',
     value: '2, 3 & 4 BHK',
     label: 'Premium Apartments',
-    color: '#C9A227',
-    bgColor: 'rgba(201, 162, 39, 0.15)',
+    color: '#FF6D00',
+    bgColor: 'rgba(255, 109, 0, 0.15)',
   },
   {
     icon: 'mdi:map-marker-radius',
     value: '7.8 Acres',
     label: 'Development Area',
-    color: '#C9A227',
-    bgColor: 'rgba(201, 162, 39, 0.15)',
+    color: '#FF6D00',
+    bgColor: 'rgba(255, 109, 0, 0.15)',
   },
   {
     icon: 'mdi:view-grid-outline',
@@ -94,8 +94,8 @@ const heroInfoCards = [
     icon: 'mdi:train',
     value: 'Metro Adjacent',
     label: 'Hopefarm Station',
-    color: '#C9A227',
-    bgColor: 'rgba(201, 162, 39, 0.15)',
+    color: '#FF6D00',
+    bgColor: 'rgba(255, 109, 0, 0.15)',
   },
 ];
 
@@ -151,8 +151,8 @@ const HeroSection = () => {
                   label="NEW LAUNCH IN WHITEFIELD"
                   className={styles.launchBadge}
                   sx={{
-                    backgroundColor: '#C9A227',
-                    color: '#0A1628',
+                    backgroundColor: '#FF6D00',
+                    color: '#1A237E',
                     fontWeight: 600,
                     fontSize: '0.875rem',
                     height: '36px',
@@ -171,7 +171,7 @@ const HeroSection = () => {
                   className={styles.heroTitle}
                   sx={{
                     color: '#FFFFFF',
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Poppins', sans-serif",
                     fontWeight: 700,
                     fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem', lg: '4rem' },
                     lineHeight: 1.1,
@@ -272,7 +272,7 @@ const HeroSection = () => {
                     sx={{
                       color: '#FFFFFF',
                       fontWeight: 700,
-                      fontFamily: "'Playfair Display', serif",
+                      fontFamily: "'Poppins', sans-serif",
                       textAlign: 'center',
                     }}
                   >

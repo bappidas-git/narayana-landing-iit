@@ -178,7 +178,7 @@ const CTASection = () => {
                   <div className={styles.statValue}>{stat.value}</div>
                   <div
                     className={styles.statLabel}
-                    style={{ color: "#0A1628B3" }}
+                    style={{ color: "#1A237EB3" }}
                   >
                     {stat.label}
                   </div>
@@ -209,7 +209,7 @@ const CTASection = () => {
             <Typography
               variant="body1"
               className={styles.description}
-              sx={{ color: "#0A1628CC !important", marginBottom: "15px;" }}
+              sx={{ color: "#1A237ECC !important", marginBottom: "15px;" }}
             >
               Take the first step towards owning your dream home at HopeFarm Jn., Whitefield - Metro Adjacent. Schedule a
               site visit today and discover the perfect blend of luxury,
@@ -261,7 +261,7 @@ const CTASection = () => {
                   <span className={styles.trustLabel}>RERA Registered</span>
                   <span
                     className={styles.trustSubtext}
-                    style={{ color: "#0A162899" }}
+                    style={{ color: "#1A237E99" }}
                   >
                     Government Approved
                   </span>
@@ -279,7 +279,7 @@ const CTASection = () => {
                   <span className={styles.trustLabel}>Bank Loan Approved</span>
                   <span
                     className={styles.trustSubtext}
-                    style={{ color: "#0A162899" }}
+                    style={{ color: "#1A237E99" }}
                   >
                     Easy Financing
                   </span>
@@ -297,7 +297,7 @@ const CTASection = () => {
                   <span className={styles.trustLabel}>1100+ Families</span>
                   <span
                     className={styles.trustSubtext}
-                    style={{ color: "#0A162899" }}
+                    style={{ color: "#1A237E99" }}
                   >
                     Trust Mahindra
                   </span>

@@ -206,7 +206,7 @@ export const showSuccessModal = (title, message, buttonText = 'OK') => {
     html: message,
     icon: 'success',
     confirmButtonText: buttonText,
-    confirmButtonColor: '#C9A227',
+    confirmButtonColor: '#FF6D00',
     customClass: {
       popup: styles.swalPopup,
       title: styles.swalTitle,
@@ -246,7 +246,7 @@ export const showConfirmModal = (title, message, confirmText = 'Yes', cancelText
     showCancelButton: true,
     confirmButtonText: confirmText,
     cancelButtonText: cancelText,
-    confirmButtonColor: '#C9A227',
+    confirmButtonColor: '#FF6D00',
     cancelButtonColor: '#6B7280',
     customClass: {
       popup: styles.swalPopup,

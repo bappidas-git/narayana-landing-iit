@@ -25,7 +25,7 @@
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(circle at 2px 2px, rgba(201, 162, 39, 0.04) 1px, transparent 0);
+    radial-gradient(circle at 2px 2px, rgba(255, 109, 0, 0.04) 1px, transparent 0);
   background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
@@ -37,7 +37,7 @@
   left: -5%;
   width: 35%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.06) 0%, transparent 60%);
+  background: radial-gradient(ellipse at center, rgba(255, 109, 0, 0.06) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -48,7 +48,7 @@
   right: -5%;
   width: 35%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse at center, rgba(255, 109, 0, 0.04) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -60,7 +60,7 @@
   right: 0;
   width: 200px;
   height: 200px;
-  background: linear-gradient(225deg, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+  background: linear-gradient(225deg, rgba(255, 109, 0, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -71,7 +71,7 @@
   left: 0;
   width: 200px;
   height: 200px;
-  background: linear-gradient(45deg, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+  background: linear-gradient(45deg, rgba(255, 109, 0, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -95,7 +95,7 @@
 }
 
 .goldText {
-  color: #C9A227;
+  color: #FF6D00;
   font-style: italic;
 }
 
@@ -109,7 +109,7 @@
 .underlineBar {
   width: 50px;
   height: 3px;
-  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
   border-radius: 3px;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .priceHighlight {
-  color: #C9A227;
+  color: #FF6D00;
   font-weight: 700;
   font-size: 1.125rem;
 }
@@ -139,7 +139,7 @@
   background: linear-gradient(145deg, rgba(13, 30, 54, 0.95) 0%, rgba(19, 39, 66, 0.95) 100%);
   border-radius: 16px;
   padding: 1.25rem;
-  border: 1px solid rgba(201, 162, 39, 0.25);
+  border: 1px solid rgba(255, 109, 0, 0.25);
   display: grid;
   grid-template-columns: 280px 1fr auto;
   gap: 1.5rem;
@@ -161,7 +161,7 @@
   flex-direction: column;
   gap: 0.75rem;
   padding: 0.75rem 1rem;
-  background: rgba(10, 22, 40, 0.5);
+  background: rgba(26, 35, 126, 0.5);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -173,7 +173,7 @@
 }
 
 .configTypeMain {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -196,7 +196,7 @@
 
 .specItem svg {
   font-size: 16px;
-  color: #C9A227;
+  color: #FF6D00;
 }
 
 .specDivider {
@@ -210,9 +210,9 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.625rem 0.875rem;
-  background: linear-gradient(135deg, rgba(201, 162, 39, 0.18) 0%, rgba(201, 162, 39, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(255, 109, 0, 0.18) 0%, rgba(255, 109, 0, 0.08) 100%);
   border-radius: 8px;
-  border: 1px solid rgba(201, 162, 39, 0.25);
+  border: 1px solid rgba(255, 109, 0, 0.25);
 }
 
 .priceLabelMain {
@@ -221,10 +221,10 @@
 }
 
 .priceValueMain {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
-  color: #C9A227;
+  color: #FF6D00;
 }
 
 /* Features Row */
@@ -265,24 +265,24 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
-  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 50%, #C9A227 100%);
+  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 50%, #FF6D00 100%);
   background-size: 200% 100%;
   border: none;
   border-radius: 8px;
   font-size: 0.8125rem;
   font-weight: 700;
-  color: #0A1628;
+  color: #1A237E;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 109, 0, 0.3);
 }
 
 .viewDetailsBtnCompact:hover {
   background-position: 100% 0;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(201, 162, 39, 0.45);
+  box-shadow: 0 6px 20px rgba(255, 109, 0, 0.45);
 }
 
 .viewDetailsBtnCompact svg {
@@ -296,11 +296,11 @@
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
   background: transparent;
-  border: 2px solid #C9A227;
+  border: 2px solid #FF6D00;
   border-radius: 8px;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #C9A227;
+  color: #FF6D00;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -308,9 +308,9 @@
 }
 
 .emiCalcBtn:hover {
-  background: rgba(201, 162, 39, 0.15);
+  background: rgba(255, 109, 0, 0.15);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 109, 0, 0.2);
 }
 
 .emiCalcBtn svg {
@@ -324,7 +324,7 @@
   background: linear-gradient(145deg, rgba(13, 30, 54, 0.95) 0%, rgba(19, 39, 66, 0.95) 100%);
   border-radius: 16px;
   padding: 1rem;
-  border: 1px solid rgba(201, 162, 39, 0.25);
+  border: 1px solid rgba(255, 109, 0, 0.25);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -349,7 +349,7 @@
 
 .dropdownIcon {
   font-size: 22px;
-  color: #0A1628;
+  color: #1A237E;
   position: absolute;
   right: 14px;
   top: 50%;
@@ -359,7 +359,7 @@
 
 /* ========== Configuration Details - Compact ========== */
 .configDetails {
-  background: linear-gradient(145deg, rgba(10, 22, 40, 0.9) 0%, rgba(13, 30, 54, 0.9) 100%);
+  background: linear-gradient(145deg, rgba(26, 35, 126, 0.9) 0%, rgba(13, 30, 54, 0.9) 100%);
   border-radius: 12px;
   padding: 0.875rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -373,7 +373,7 @@
 }
 
 .configType {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.375rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -396,16 +396,16 @@
 
 .configSpec svg {
   font-size: 16px;
-  color: #C9A227;
+  color: #FF6D00;
 }
 
 /* Price Box - Compact */
 .configPriceBox {
-  background: linear-gradient(135deg, rgba(201, 162, 39, 0.18) 0%, rgba(201, 162, 39, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(255, 109, 0, 0.18) 0%, rgba(255, 109, 0, 0.08) 100%);
   border-radius: 8px;
   padding: 0.625rem 0.75rem;
   margin-bottom: 0.625rem;
-  border: 1px solid rgba(201, 162, 39, 0.25);
+  border: 1px solid rgba(255, 109, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -417,10 +417,10 @@
 }
 
 .configPrice {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #C9A227;
+  color: #FF6D00;
 }
 
 /* Features List - Compact Grid */
@@ -454,13 +454,13 @@
   gap: 0.5rem;
   width: 100%;
   padding: 0.625rem 1rem;
-  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 50%, #C9A227 100%);
+  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 50%, #FF6D00 100%);
   background-size: 200% 100%;
   border: none;
   border-radius: 8px;
   font-size: 0.8125rem;
   font-weight: 700;
-  color: #0A1628;
+  color: #1A237E;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: auto;
@@ -468,7 +468,7 @@
   overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 109, 0, 0.3);
 }
 
 .viewDetailsBtn::before {
@@ -485,7 +485,7 @@
 .viewDetailsBtn:hover {
   background-position: 100% 0;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(201, 162, 39, 0.45);
+  box-shadow: 0 8px 25px rgba(255, 109, 0, 0.45);
 }
 
 .viewDetailsBtn:hover::before {
@@ -499,10 +499,10 @@
 /* CTA Pulse Animation */
 @keyframes ctaPulse {
   0%, 100% {
-    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 109, 0, 0.3);
   }
   50% {
-    box-shadow: 0 4px 25px rgba(201, 162, 39, 0.5);
+    box-shadow: 0 4px 25px rgba(255, 109, 0, 0.5);
   }
 }
 
@@ -529,10 +529,10 @@
 }
 
 .emiTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
-  color: #0A1628;
+  color: #1A237E;
   margin-bottom: 0.625rem;
 }
 
@@ -565,7 +565,7 @@
 .sliderValue {
   font-size: 0.8125rem;
   font-weight: 700;
-  color: #C9A227;
+  color: #FF6D00;
 }
 
 .sliderRange {
@@ -581,7 +581,7 @@
 
 /* ========== EMI Results - Compact ========== */
 .emiResults {
-  background: linear-gradient(145deg, #0A1628 0%, #0D1E36 100%);
+  background: linear-gradient(145deg, #1A237E 0%, #283593 100%);
   border-radius: 10px;
   padding: 0.75rem;
   flex: 1;
@@ -605,7 +605,7 @@
 }
 
 .emiMainValue {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.625rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -640,20 +640,20 @@
 }
 
 .totalRow {
-  background: rgba(201, 162, 39, 0.15);
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  background: rgba(255, 109, 0, 0.15);
+  border: 1px solid rgba(255, 109, 0, 0.3);
 }
 
 .breakdownLabelTotal {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #C9A227;
+  color: #FF6D00;
 }
 
 .breakdownValueTotal {
   font-size: 0.8125rem;
   font-weight: 700;
-  color: #C9A227;
+  color: #FF6D00;
 }
 
 /* EMI Note - Compact */
@@ -712,7 +712,7 @@
 
 .infoCard:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(201, 162, 39, 0.3);
+  border-color: rgba(255, 109, 0, 0.3);
   transform: translateY(-2px);
 }
 
@@ -794,20 +794,20 @@
   justify-content: center;
   gap: 0.75rem;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 50%, #C9A227 100%);
+  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 50%, #FF6D00 100%);
   background-size: 200% 100%;
   border: none;
   border-radius: 50px;
   font-size: 1rem;
   font-weight: 700;
-  color: #0A1628;
+  color: #1A237E;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow:
-    0 6px 20px rgba(201, 162, 39, 0.4),
-    0 0 40px rgba(201, 162, 39, 0.2);
+    0 6px 20px rgba(255, 109, 0, 0.4),
+    0 0 40px rgba(255, 109, 0, 0.2);
   position: relative;
   overflow: hidden;
   animation: mainCtaPulse 2.5s ease-in-out infinite;
@@ -828,8 +828,8 @@
   background-position: 100% 0;
   transform: translateY(-3px) scale(1.02);
   box-shadow:
-    0 10px 30px rgba(201, 162, 39, 0.5),
-    0 0 60px rgba(201, 162, 39, 0.3);
+    0 10px 30px rgba(255, 109, 0, 0.5),
+    0 0 60px rgba(255, 109, 0, 0.3);
 }
 
 .mainCtaBtn:hover::before {
@@ -843,13 +843,13 @@
 @keyframes mainCtaPulse {
   0%, 100% {
     box-shadow:
-      0 6px 20px rgba(201, 162, 39, 0.4),
-      0 0 40px rgba(201, 162, 39, 0.2);
+      0 6px 20px rgba(255, 109, 0, 0.4),
+      0 0 40px rgba(255, 109, 0, 0.2);
   }
   50% {
     box-shadow:
-      0 8px 30px rgba(201, 162, 39, 0.55),
-      0 0 60px rgba(201, 162, 39, 0.35);
+      0 8px 30px rgba(255, 109, 0, 0.55),
+      0 0 60px rgba(255, 109, 0, 0.35);
   }
 }
 
@@ -876,15 +876,15 @@
 }
 
 .quickConfigChip:hover {
-  background: rgba(201, 162, 39, 0.1);
-  border-color: rgba(201, 162, 39, 0.3);
+  background: rgba(255, 109, 0, 0.1);
+  border-color: rgba(255, 109, 0, 0.3);
   color: #FFFFFF;
 }
 
 .quickConfigChipActive {
-  background: rgba(201, 162, 39, 0.2);
-  border-color: #C9A227;
-  color: #C9A227;
+  background: rgba(255, 109, 0, 0.2);
+  border-color: #FF6D00;
+  color: #FF6D00;
   font-weight: 600;
 }
 
@@ -1668,7 +1668,7 @@
   justify-content: space-between;
   padding: 1rem 1.25rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  background: linear-gradient(145deg, #0A1628 0%, #132742 100%);
+  background: linear-gradient(145deg, #1A237E 0%, #3949AB 100%);
   border-radius: 20px 20px 0 0;
 }
 
@@ -1684,17 +1684,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
   border-radius: 10px;
 }
 
 .modalIconWrapper svg {
   font-size: 20px;
-  color: #0A1628;
+  color: #1A237E;
 }
 
 .modalTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -1755,7 +1755,7 @@
 
 .sliderLabelWithIcon svg {
   font-size: 18px;
-  color: #C9A227;
+  color: #FF6D00;
 }
 
 .modalSliderLabel {
@@ -1767,7 +1767,7 @@
 .modalSliderValue {
   font-size: 1rem;
   font-weight: 700;
-  color: #C9A227;
+  color: #FF6D00;
 }
 
 .modalSliderRange {
@@ -1782,7 +1782,7 @@
 
 /* Modal Results */
 .modalResults {
-  background: linear-gradient(145deg, #0A1628 0%, #132742 100%);
+  background: linear-gradient(145deg, #1A237E 0%, #3949AB 100%);
   border-radius: 14px;
   padding: 1rem;
   overflow: hidden;
@@ -1805,7 +1805,7 @@
 }
 
 .emiHeroValue {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.875rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -1883,10 +1883,10 @@
 /* ========== Animations ========== */
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(201, 162, 39, 0.3);
+    box-shadow: 0 0 5px rgba(255, 109, 0, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
+    box-shadow: 0 0 20px rgba(255, 109, 0, 0.5);
   }
 }
 
@@ -1941,7 +1941,7 @@
 .mainCtaBtn:focus-visible,
 .infoCard:focus-visible,
 .quickConfigChip:focus-visible {
-  outline: 2px solid #C9A227;
+  outline: 2px solid #FF6D00;
   outline-offset: 2px;
 }
 
@@ -1985,7 +1985,7 @@
   .sliderValue,
   .breakdownLabelTotal,
   .breakdownValueTotal {
-    color: #0A1628 !important;
+    color: #1A237E !important;
   }
 
   .sectionTitle,
@@ -1993,7 +1993,7 @@
   .emiTitle,
   .emiMainValue,
   .infoTitle {
-    color: #0A1628 !important;
+    color: #1A237E !important;
   }
 
   .floatingCta {

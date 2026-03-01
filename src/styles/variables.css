@@ -1,37 +1,37 @@
 /* ============================================
-   CSS Variables - Mahindra Blossom
-   Real Estate Landing Page
+   CSS Variables - Narayana Coaching Centers
+   IIT-JEE Landing Page
    ============================================ */
 
 :root {
   /* ========== Primary Colors ========== */
-  --primary-dark: #0A1628;
-  --primary-dark-alt: #0D1E36;
-  --primary-dark-light: #132742;
-  --primary-dark-lighter: #1A3352;
+  --primary-dark: #1A237E;
+  --primary-dark-alt: #283593;
+  --primary-dark-light: #3949AB;
+  --primary-dark-lighter: #3F51B5;
 
-  /* ========== Accent Colors - Gold ========== */
-  --accent-gold: #C9A227;
-  --accent-gold-light: #E5C96E;
-  --accent-gold-dark: #B8941F;
-  --accent-gold-hover: #D4B038;
-  --accent-gold-gradient: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
-  --accent-gold-gradient-reverse: linear-gradient(135deg, #E5C96E 0%, #C9A227 100%);
-  --accent-gold-gradient-horizontal: linear-gradient(90deg, #C9A227 0%, #E5C96E 50%, #C9A227 100%);
+  /* ========== Accent Colors - Orange ========== */
+  --accent-gold: #FF6D00;
+  --accent-gold-light: #FF9100;
+  --accent-gold-dark: #E65100;
+  --accent-gold-hover: #FF8F00;
+  --accent-gold-gradient: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
+  --accent-gold-gradient-reverse: linear-gradient(135deg, #FF9100 0%, #FF6D00 100%);
+  --accent-gold-gradient-horizontal: linear-gradient(90deg, #FF6D00 0%, #FF9100 50%, #FF6D00 100%);
 
   /* ========== Neutral Colors ========== */
   --white: #FFFFFF;
   --off-white: #F8F9FA;
-  --light-gray: #F0F2F5;
-  --medium-gray: #E0E0E0;
-  --border-gray: #E0E0E0;
-  --text-gray: #6B7280;
-  --text-dark-gray: #374151;
-  --dark-gray: #4A5568;
+  --light-gray: #F5F7FA;
+  --medium-gray: #E8EDF2;
+  --border-gray: #D1D9E6;
+  --text-gray: #546E7A;
+  --text-dark-gray: #1A237E;
+  --dark-gray: #455A64;
 
   /* ========== Icon Background Colors ========== */
-  --icon-gold: #C9A227;
-  --icon-gold-bg: rgba(201, 162, 39, 0.15);
+  --icon-gold: #FF6D00;
+  --icon-gold-bg: rgba(255, 109, 0, 0.15);
   --icon-green: #4CAF50;
   --icon-green-bg: rgba(76, 175, 80, 0.15);
   --icon-purple: #9C27B0;
@@ -48,22 +48,22 @@
   --icon-blue-bg: rgba(33, 150, 243, 0.15);
 
   /* ========== Card Backgrounds ========== */
-  --card-yellow: #FEF9E7;
+  --card-yellow: #FFF3E0;
   --card-green: #E8F5E9;
   --card-pink: #FCE4EC;
   --card-purple: #F3E5F5;
   --card-orange: #FFF3E0;
   --card-blue: #E3F2FD;
-  --card-gold-gradient: linear-gradient(135deg, #C9A227 0%, #B8941F 100%);
-  --card-dark-gradient: linear-gradient(135deg, #0A1628 0%, #132742 100%);
+  --card-gold-gradient: linear-gradient(135deg, #FF6D00 0%, #E65100 100%);
+  --card-dark-gradient: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
 
   /* ========== Semantic Colors ========== */
-  --success: #4CAF50;
-  --success-light: #81C784;
-  --warning: #FF9800;
-  --warning-light: #FFB74D;
-  --error: #F44336;
-  --error-light: #E57373;
+  --success: #2E7D32;
+  --success-light: #66BB6A;
+  --warning: #FF6D00;
+  --warning-light: #FF9100;
+  --error: #D32F2F;
+  --error-light: #EF5350;
   --info: #2196F3;
   --info-light: #64B5F6;
 
@@ -71,15 +71,15 @@
   --shadow-light: rgba(0, 0, 0, 0.05);
   --shadow-medium: rgba(0, 0, 0, 0.1);
   --shadow-dark: rgba(0, 0, 0, 0.15);
-  --shadow-gold: rgba(201, 162, 39, 0.3);
+  --shadow-gold: rgba(255, 109, 0, 0.3);
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --shadow-button: 0 4px 15px rgba(201, 162, 39, 0.4);
-  --shadow-button-hover: 0 6px 20px rgba(201, 162, 39, 0.5);
+  --shadow-button: 0 4px 15px rgba(255, 109, 0, 0.4);
+  --shadow-button-hover: 0 6px 20px rgba(255, 109, 0, 0.5);
 
   /* ========== Typography ========== */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-heading: 'Poppins', sans-serif;
   --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
 
   /* Font Weights */
@@ -204,10 +204,10 @@
 
   /* ========== Overlays ========== */
   --overlay-light: rgba(255, 255, 255, 0.8);
-  --overlay-dark: rgba(10, 22, 40, 0.7);
-  --overlay-darker: rgba(10, 22, 40, 0.85);
-  --overlay-gradient: linear-gradient(180deg, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.4) 100%);
-  --overlay-gradient-reverse: linear-gradient(0deg, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.2) 100%);
+  --overlay-dark: rgba(26, 35, 126, 0.7);
+  --overlay-darker: rgba(26, 35, 126, 0.85);
+  --overlay-gradient: linear-gradient(180deg, rgba(26, 35, 126, 0.9) 0%, rgba(26, 35, 126, 0.4) 100%);
+  --overlay-gradient-reverse: linear-gradient(0deg, rgba(26, 35, 126, 0.9) 0%, rgba(26, 35, 126, 0.2) 100%);
 
   /* ========== Aspect Ratios ========== */
   --aspect-square: 1 / 1;

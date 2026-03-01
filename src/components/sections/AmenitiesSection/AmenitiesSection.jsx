@@ -99,14 +99,14 @@ const AmenitiesSection = () => {
                 label="BENEFITS"
                 className={styles.amenitiesBadge}
                 sx={{
-                  backgroundColor: "rgba(201, 162, 39, 0.15)",
-                  color: "#C9A227",
+                  backgroundColor: "rgba(255, 109, 0, 0.15)",
+                  color: "#FF6D00",
                   fontWeight: 700,
                   fontSize: "0.7rem",
                   letterSpacing: "0.1em",
                   height: "28px",
                   borderRadius: "14px",
-                  border: "1px solid rgba(201, 162, 39, 0.3)",
+                  border: "1px solid rgba(255, 109, 0, 0.3)",
                 }}
               />
             </div>
@@ -115,7 +115,7 @@ const AmenitiesSection = () => {
               variant="h2"
               className={styles.sectionTitle}
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: { xs: "1.5rem", sm: "1.75rem", md: "2.25rem" },
                 color: "#FFFFFF",
@@ -154,7 +154,7 @@ const AmenitiesSection = () => {
                 }`}
                 onClick={() => handleCategoryChange(pill.id)}
                 style={{
-                  color: selectedCategory === pill.id ? "#0A1628" : "#D9DCE0",
+                  color: selectedCategory === pill.id ? "#1A237E" : "#D9DCE0",
                 }}
               >
                 <Icon icon={pill.icon} className={styles.pillIcon} />
@@ -304,18 +304,18 @@ const AmenitiesSection = () => {
                 endIcon={<Icon icon="mdi:arrow-right" />}
                 sx={{
                   background:
-                    "linear-gradient(135deg, #C9A227 0%, #E5C96E 100%)",
-                  color: "#0A1628",
+                    "linear-gradient(135deg, #FF6D00 0%, #FF9100 100%)",
+                  color: "#1A237E",
                   fontWeight: 700,
                   fontSize: { xs: "0.875rem", md: "1rem" },
                   padding: { xs: "12px 24px", md: "14px 32px" },
                   borderRadius: "50px",
                   textTransform: "none",
-                  boxShadow: "0 8px 32px rgba(201, 162, 39, 0.3)",
+                  boxShadow: "0 8px 32px rgba(255, 109, 0, 0.3)",
                   "&:hover": {
                     background:
-                      "linear-gradient(135deg, #E5C96E 0%, #C9A227 100%)",
-                    boxShadow: "0 12px 40px rgba(201, 162, 39, 0.4)",
+                      "linear-gradient(135deg, #FF9100 0%, #FF6D00 100%)",
+                    boxShadow: "0 12px 40px rgba(255, 109, 0, 0.4)",
                     transform: "translateY(-2px)",
                   },
                 }}

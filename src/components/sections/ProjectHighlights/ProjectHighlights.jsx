@@ -168,10 +168,10 @@ const ProjectHighlights = () => {
                   variant="h2"
                   className={styles.sectionTitle}
                   sx={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Poppins', sans-serif",
                     fontWeight: 700,
                     fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem' },
-                    color: '#0A1628',
+                    color: '#1A237E',
                     marginBottom: { xs: '1.5rem', md: '2rem' },
                   }}
                 >
@@ -224,18 +224,18 @@ const ProjectHighlights = () => {
                       />
                     }
                     sx={{
-                      background: 'linear-gradient(135deg, #C9A227 0%, #E5C96E 100%)',
-                      color: '#0A1628',
+                      background: 'linear-gradient(135deg, #FF6D00 0%, #FF9100 100%)',
+                      color: '#1A237E',
                       fontWeight: 600,
                       fontSize: { xs: '0.875rem', md: '0.9375rem' },
                       padding: { xs: '12px 24px', md: '14px 32px' },
                       borderRadius: '50px',
                       textTransform: 'none',
-                      boxShadow: '0 4px 15px rgba(201, 162, 39, 0.3)',
+                      boxShadow: '0 4px 15px rgba(255, 109, 0, 0.3)',
                       width: '100%',
                       '&:hover': {
-                        background: 'linear-gradient(135deg, #E5C96E 0%, #C9A227 100%)',
-                        boxShadow: '0 6px 20px rgba(201, 162, 39, 0.4)',
+                        background: 'linear-gradient(135deg, #FF9100 0%, #FF6D00 100%)',
+                        boxShadow: '0 6px 20px rgba(255, 109, 0, 0.4)',
                       },
                     }}
                   >
@@ -294,8 +294,8 @@ const ProjectHighlights = () => {
                     className={styles.siteVisitButton}
                     endIcon={<Icon icon="mdi:check" />}
                     sx={{
-                      color: '#0A1628',
-                      borderColor: '#0A1628',
+                      color: '#1A237E',
+                      borderColor: '#1A237E',
                       fontWeight: 600,
                       fontSize: { xs: '0.875rem', md: '0.9375rem' },
                       padding: { xs: '12px 24px', md: '14px 32px' },
@@ -304,9 +304,9 @@ const ProjectHighlights = () => {
                       borderWidth: '2px',
                       width: '100%',
                       '&:hover': {
-                        backgroundColor: '#0A1628',
+                        backgroundColor: '#1A237E',
                         color: '#FFFFFF',
-                        borderColor: '#0A1628',
+                        borderColor: '#1A237E',
                         borderWidth: '2px',
                       },
                     }}

@@ -59,7 +59,7 @@ const PrivacyPolicyContent = () => (
           fontSize: "16px",
           fontWeight: 600,
           marginBottom: "12px",
-          color: "#0A1628",
+          color: "#1A237E",
         }}
       >
         Introduction
@@ -79,7 +79,7 @@ const PrivacyPolicyContent = () => (
           fontSize: "16px",
           fontWeight: 600,
           marginBottom: "12px",
-          color: "#0A1628",
+          color: "#1A237E",
         }}
       >
         Information We Collect
@@ -131,7 +131,7 @@ const PrivacyPolicyContent = () => (
           fontSize: "16px",
           fontWeight: 600,
           marginBottom: "12px",
-          color: "#0A1628",
+          color: "#1A237E",
         }}
       >
         How We Use Your Information
@@ -181,7 +181,7 @@ const PrivacyPolicyContent = () => (
           fontSize: "16px",
           fontWeight: 600,
           marginBottom: "12px",
-          color: "#0A1628",
+          color: "#1A237E",
         }}
       >
         Information Sharing
@@ -237,7 +237,7 @@ const PrivacyPolicyContent = () => (
           fontSize: "16px",
           fontWeight: 600,
           marginBottom: "12px",
-          color: "#0A1628",
+          color: "#1A237E",
         }}
       >
         Data Security
@@ -257,7 +257,7 @@ const PrivacyPolicyContent = () => (
           fontSize: "16px",
           fontWeight: 600,
           marginBottom: "12px",
-          color: "#0A1628",
+          color: "#1A237E",
         }}
       >
         Your Rights
@@ -303,7 +303,7 @@ const PrivacyPolicyContent = () => (
           fontSize: "16px",
           fontWeight: 600,
           marginBottom: "12px",
-          color: "#0A1628",
+          color: "#1A237E",
         }}
       >
         Contact Us
@@ -406,7 +406,7 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
                   fontSize: "18px",
                   fontWeight: 600,
                   margin: 0,
-                  color: "#0A1628",
+                  color: "#1A237E",
                 }}
               >
                 Privacy Policy
@@ -621,11 +621,11 @@ const UnifiedLeadForm = ({
           <p style="margin-bottom: 12px;">You have already submitted an enquiry with this email or mobile number.</p>
           <p style="color: #666; font-size: 14px;">Our team will contact you soon. For immediate assistance, please call us.</p>
         `,
-        confirmButtonColor: "#C9A227",
+        confirmButtonColor: "#FF6D00",
         confirmButtonText: "Got it!",
         showCancelButton: true,
         cancelButtonText: "Call Now",
-        cancelButtonColor: "#0A1628",
+        cancelButtonColor: "#1A237E",
         customClass: {
           popup: styles.swalPopup,
         },
@@ -686,11 +686,11 @@ const UnifiedLeadForm = ({
             <p style="margin-bottom: 12px;">You have already submitted an enquiry with this email or mobile number.</p>
             <p style="color: #666; font-size: 14px;">Our team will contact you soon. For immediate assistance, please call us.</p>
           `,
-          confirmButtonColor: "#C9A227",
+          confirmButtonColor: "#FF6D00",
           confirmButtonText: "Got it!",
           showCancelButton: true,
           cancelButtonText: "Call Now",
-          cancelButtonColor: "#0A1628",
+          cancelButtonColor: "#1A237E",
           customClass: {
             popup: styles.swalPopup,
           },
@@ -738,7 +738,7 @@ const UnifiedLeadForm = ({
           <p style="margin-bottom: 8px;">Your enquiry has been submitted successfully.</p>
           <p style="font-size: 14px; color: #666;">Redirecting you to more information...</p>
         `,
-        confirmButtonColor: "#C9A227",
+        confirmButtonColor: "#FF6D00",
         confirmButtonText: "Continue",
         timer: 3000,
         timerProgressBar: true,
@@ -769,7 +769,7 @@ const UnifiedLeadForm = ({
           icon: "error",
           title: "Oops!",
           text: error.message || "Something went wrong. Please try again.",
-          confirmButtonColor: "#C9A227",
+          confirmButtonColor: "#FF6D00",
           confirmButtonText: "Try Again",
           customClass: {
             popup: styles.swalPopup,

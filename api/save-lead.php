@@ -328,8 +328,8 @@ function buildEmailHTML($leadData, $leadId) {
                     <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                         <!-- Header -->
                         <tr>
-                            <td style="background: linear-gradient(135deg, #0A1628 0%, #1a2d4a 100%); padding: 30px; text-align: center;">
-                                <h1 style="color: #C9A227; margin: 0; font-size: 24px;">New Lead Enquiry</h1>
+                            <td style="background: linear-gradient(135deg, #1A237E 0%, #1a2d4a 100%); padding: 30px; text-align: center;">
+                                <h1 style="color: #FF6D00; margin: 0; font-size: 24px;">New Lead Enquiry</h1>
                                 <p style="color: #ffffff; margin: 10px 0 0 0; font-size: 14px;">Mahindra Blossom - Whitefield</p>
                             </td>
                         </tr>
@@ -337,7 +337,7 @@ function buildEmailHTML($leadData, $leadId) {
                         <!-- Lead ID Badge -->
                         <tr>
                             <td style="padding: 20px 30px 0 30px; text-align: center;">
-                                <span style="background-color: #FDF6E3; color: #C9A227; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: bold;">
+                                <span style="background-color: #FDF6E3; color: #FF6D00; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: bold;">
                                     Lead ID: #' . $leadId . '
                                 </span>
                             </td>
@@ -353,7 +353,7 @@ function buildEmailHTML($leadData, $leadId) {
                                             <table width="100%">
                                                 <tr>
                                                     <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Name</td>
-                                                    <td style="color: #0A1628; font-size: 16px; font-weight: bold;">' . htmlspecialchars($leadData['name']) . '</td>
+                                                    <td style="color: #1A237E; font-size: 16px; font-weight: bold;">' . htmlspecialchars($leadData['name']) . '</td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -365,8 +365,8 @@ function buildEmailHTML($leadData, $leadId) {
                                             <table width="100%">
                                                 <tr>
                                                     <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Mobile</td>
-                                                    <td style="color: #0A1628; font-size: 16px;">
-                                                        <a href="tel:+91' . htmlspecialchars($leadData['mobile']) . '" style="color: #0A1628; text-decoration: none; font-weight: bold;">
+                                                    <td style="color: #1A237E; font-size: 16px;">
+                                                        <a href="tel:+91' . htmlspecialchars($leadData['mobile']) . '" style="color: #1A237E; text-decoration: none; font-weight: bold;">
                                                             +91 ' . htmlspecialchars($leadData['mobile']) . '
                                                         </a>
                                                     </td>
@@ -381,8 +381,8 @@ function buildEmailHTML($leadData, $leadId) {
                                             <table width="100%">
                                                 <tr>
                                                     <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Email</td>
-                                                    <td style="color: #0A1628; font-size: 16px;">
-                                                        <a href="mailto:' . htmlspecialchars($leadData['email']) . '" style="color: #0A1628; text-decoration: none;">
+                                                    <td style="color: #1A237E; font-size: 16px;">
+                                                        <a href="mailto:' . htmlspecialchars($leadData['email']) . '" style="color: #1A237E; text-decoration: none;">
                                                             ' . htmlspecialchars($leadData['email']) . '
                                                         </a>
                                                     </td>
@@ -398,7 +398,7 @@ function buildEmailHTML($leadData, $leadId) {
                                             <table width="100%">
                                                 <tr>
                                                     <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Message</td>
-                                                    <td style="color: #0A1628; font-size: 14px; line-height: 1.5;">
+                                                    <td style="color: #1A237E; font-size: 14px; line-height: 1.5;">
                                                         ' . nl2br(htmlspecialchars($leadData['message'])) . '
                                                     </td>
                                                 </tr>
@@ -413,7 +413,7 @@ function buildEmailHTML($leadData, $leadId) {
                                             <table width="100%">
                                                 <tr>
                                                     <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Source</td>
-                                                    <td style="color: #0A1628; font-size: 14px;">' . htmlspecialchars($leadData['source']) . '</td>
+                                                    <td style="color: #1A237E; font-size: 14px;">' . htmlspecialchars($leadData['source']) . '</td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -425,7 +425,7 @@ function buildEmailHTML($leadData, $leadId) {
                                             <table width="100%">
                                                 <tr>
                                                     <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Submitted</td>
-                                                    <td style="color: #0A1628; font-size: 14px;">' . $submittedAt . '</td>
+                                                    <td style="color: #1A237E; font-size: 14px;">' . $submittedAt . '</td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -436,12 +436,12 @@ function buildEmailHTML($leadData, $leadId) {
                                 <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px;">
                                     <tr>
                                         <td style="padding-right: 10px;">
-                                            <a href="tel:+91' . htmlspecialchars($leadData['mobile']) . '" style="display: block; background-color: #C9A227; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; text-align: center;">
+                                            <a href="tel:+91' . htmlspecialchars($leadData['mobile']) . '" style="display: block; background-color: #FF6D00; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; text-align: center;">
                                                 Call Now
                                             </a>
                                         </td>
                                         <td style="padding-left: 10px;">
-                                            <a href="mailto:' . htmlspecialchars($leadData['email']) . '" style="display: block; background-color: #0A1628; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; text-align: center;">
+                                            <a href="mailto:' . htmlspecialchars($leadData['email']) . '" style="display: block; background-color: #1A237E; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; text-align: center;">
                                                 Send Email
                                             </a>
                                         </td>

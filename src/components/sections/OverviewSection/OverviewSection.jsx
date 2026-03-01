@@ -81,14 +81,14 @@ const keyStats = [
     unit: "Acres",
     label: "Prime Location",
     icon: "mdi:map-marker-radius",
-    color: "#C9A227",
+    color: "#FF6D00",
   },
   {
     value: "97K",
     unit: "Sq.Ft",
     label: "Amenities",
     icon: "mdi:home-city-outline",
-    color: "#C9A227",
+    color: "#FF6D00",
   },
   {
     value: "4",
@@ -103,7 +103,7 @@ const keyStats = [
     label: "Hopefarm Metro",
     sublabel: "Adjacent • Walk",
     icon: "mdi:train-variant",
-    color: "#C9A227",
+    color: "#FF6D00",
   },
 ];
 
@@ -173,10 +173,10 @@ const OverviewSection = () => {
               variant="h2"
               className={styles.sectionTitle}
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: { xs: "1.75rem", sm: "2rem", md: "2.75rem" },
-                color: "#0A1628",
+                color: "#1A237E",
                 letterSpacing: "-0.01em",
               }}
             >
@@ -197,7 +197,7 @@ const OverviewSection = () => {
                 gap: "0.5rem",
               }}
             >
-              <Icon icon="mdi:map-marker" style={{ color: "#C9A227" }} />
+              <Icon icon="mdi:map-marker" style={{ color: "#FF6D00" }} />
               HopeFarm Junction, Whitefield
             </Typography>
           </motion.div>
@@ -347,19 +347,19 @@ const OverviewSection = () => {
                   endIcon={<Icon icon="mdi:arrow-right" />}
                   sx={{
                     background:
-                      "linear-gradient(135deg, #C9A227 0%, #E5C96E 100%)",
-                    color: "#0A1628",
+                      "linear-gradient(135deg, #FF6D00 0%, #FF9100 100%)",
+                    color: "#1A237E",
                     fontWeight: 700,
                     fontSize: { xs: "0.9375rem", md: "1rem" },
                     padding: { xs: "14px 28px", md: "16px 36px" },
                     borderRadius: "50px",
                     textTransform: "none",
-                    boxShadow: "0 8px 30px rgba(201, 162, 39, 0.4)",
+                    boxShadow: "0 8px 30px rgba(255, 109, 0, 0.4)",
                     minWidth: { xs: "100%", sm: "auto" },
                     "&:hover": {
                       background:
-                        "linear-gradient(135deg, #E5C96E 0%, #C9A227 100%)",
-                      boxShadow: "0 12px 40px rgba(201, 162, 39, 0.5)",
+                        "linear-gradient(135deg, #FF9100 0%, #FF6D00 100%)",
+                      boxShadow: "0 12px 40px rgba(255, 109, 0, 0.5)",
                       transform: "translateY(-2px)",
                     },
                   }}

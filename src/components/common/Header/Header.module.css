@@ -182,7 +182,7 @@
   background: var(--primary-dark);
   color: var(--accent-gold);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(201, 162, 39, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 109, 0, 0.3);
 }
 
 .callButtonIcon {

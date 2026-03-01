@@ -163,14 +163,14 @@ const PricingSection = () => {
               label="PRICING & EMI"
               className={styles.pricingBadge}
               sx={{
-                backgroundColor: "rgba(201, 162, 39, 0.15)",
-                color: "#C9A227",
+                backgroundColor: "rgba(255, 109, 0, 0.15)",
+                color: "#FF6D00",
                 fontWeight: 700,
                 fontSize: "0.7rem",
                 letterSpacing: "0.1em",
                 height: "28px",
                 borderRadius: "16px",
-                border: "1px solid rgba(201, 162, 39, 0.3)",
+                border: "1px solid rgba(255, 109, 0, 0.3)",
               }}
             />
 
@@ -178,7 +178,7 @@ const PricingSection = () => {
               variant="h2"
               className={styles.sectionTitle}
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: { xs: "1.5rem", sm: "1.75rem", md: "2.25rem" },
                 color: "#FFFFFF",
