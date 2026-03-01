@@ -149,7 +149,7 @@
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #1A237E 0%, #283593 100%);
+  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -158,7 +158,7 @@
 
 .noticeIcon svg {
   font-size: 26px;
-  color: #FFFFFF;
+  color: #1A237E;
 }
 
 .noticeContent {
@@ -168,7 +168,7 @@
 .noticeTitle {
   font-size: 1.0625rem !important;
   font-weight: 600 !important;
-  color: #FFFFFF !important;
+  color: #FF6D00 !important;
   margin-bottom: 6px !important;
 }
 
@@ -251,14 +251,14 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(26, 35, 126, 0.15);
-  border: 1px solid rgba(26, 35, 126, 0.3);
+  background: rgba(255, 109, 0, 0.15);
+  border: 1px solid rgba(255, 109, 0, 0.3);
   border-radius: 20px;
   padding: 8px 16px;
   margin-bottom: 12px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #5C6BC0;
+  color: #FF6D00;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -292,7 +292,7 @@
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  background: rgba(26, 35, 126, 0.12);
+  background: rgba(255, 109, 0, 0.12);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -301,7 +301,7 @@
 
 .contactIconWrapper svg {
   font-size: 24px;
-  color: #5C6BC0;
+  color: #FF6D00;
 }
 
 .contactDetails {
@@ -327,7 +327,7 @@
 }
 
 .contactValue:hover {
-  color: #5C6BC0;
+  color: #FF6D00;
 }
 
 .contactValueAlt {
@@ -338,7 +338,7 @@
 }
 
 .contactValueAlt:hover {
-  color: #5C6BC0;
+  color: #FF6D00;
 }
 
 /* Quick Links Section */
@@ -357,11 +357,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(26, 35, 126, 0.1);
-  border: 1px solid rgba(26, 35, 126, 0.25);
+  background: rgba(255, 109, 0, 0.1);
+  border: 1px solid rgba(255, 109, 0, 0.25);
   border-radius: 12px;
   padding: 14px 24px;
-  color: #5C6BC0;
+  color: #FF6D00;
   font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
@@ -369,8 +369,8 @@
 }
 
 .quickLinkCard:hover {
-  background: rgba(26, 35, 126, 0.2);
-  border-color: rgba(26, 35, 126, 0.4);
+  background: rgba(255, 109, 0, 0.2);
+  border-color: rgba(255, 109, 0, 0.4);
 }
 
 .quickLinkIcon {

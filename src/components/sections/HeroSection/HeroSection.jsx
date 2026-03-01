@@ -111,14 +111,12 @@ const HeroSection = () => {
                   label="🏆 #1 IIT-JEE Coaching in North-East India"
                   className={styles.launchBadge}
                   sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    backgroundColor: '#FF6D00',
                     color: '#FFFFFF',
                     fontWeight: 600,
                     fontSize: '0.875rem',
                     height: '36px',
                     borderRadius: '20px',
-                    backdropFilter: 'blur(4px)',
                     '& .MuiChip-icon': {
                       marginLeft: '8px',
                     },
@@ -196,9 +194,8 @@ const HeroSection = () => {
                   className={styles.secondaryCta}
                   onClick={() => openLeadDrawer('book-free-demo')}
                   sx={{
-                    borderColor: '#1A237E',
-                    backgroundColor: '#FFFFFF',
-                    color: '#1A237E',
+                    borderColor: 'rgba(255, 255, 255, 0.6)',
+                    color: '#FFFFFF',
                     fontWeight: 600,
                     fontSize: '1rem',
                     padding: '0.875rem 2rem',
@@ -207,10 +204,9 @@ const HeroSection = () => {
                     fontFamily: "'Poppins', sans-serif",
                     borderWidth: '2px',
                     '&:hover': {
-                      borderColor: '#283593',
-                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                      borderColor: '#FF9100',
+                      backgroundColor: 'rgba(255, 145, 0, 0.1)',
                       borderWidth: '2px',
-                      transform: 'translateY(-2px)',
                     },
                     transition: 'all 0.3s ease',
                   }}

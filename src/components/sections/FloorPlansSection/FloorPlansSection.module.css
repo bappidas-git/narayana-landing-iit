@@ -51,7 +51,7 @@
 }
 
 .accentText {
-  color: #1A237E;
+  color: #FF6D00;
   font-style: italic;
 }
 
@@ -177,7 +177,7 @@
 
 .metaItem svg {
   font-size: 15px;
-  color: #1A237E;
+  color: #FF6D00;
 }
 
 /* ========== Course Description ========== */
@@ -282,7 +282,7 @@
 
 .comparisonTitle svg {
   font-size: 22px;
-  color: #1A237E;
+  color: #FF6D00;
 }
 
 .comparisonTableWrapper {
@@ -634,7 +634,7 @@
 /* ========== Focus Styles for Accessibility ========== */
 .courseCtaBtn:focus-visible,
 .ctaBtn:focus-visible {
-  outline: 2px solid #1A237E;
+  outline: 2px solid #FF6D00;
   outline-offset: 2px;
 }
 

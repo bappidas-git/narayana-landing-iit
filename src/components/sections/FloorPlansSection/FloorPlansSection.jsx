@@ -196,14 +196,14 @@ const FloorPlansSection = () => {
             <Chip
               label="PROGRAMMES"
               sx={{
-                backgroundColor: "rgba(26, 35, 126, 0.1)",
-                color: "#1A237E",
+                backgroundColor: "rgba(255, 109, 0, 0.12)",
+                color: "#FF6D00",
                 fontWeight: 700,
                 fontSize: "0.7rem",
                 letterSpacing: "0.1em",
                 height: "28px",
                 borderRadius: "20px",
-                border: "1px solid rgba(26, 35, 126, 0.2)",
+                border: "1px solid rgba(255, 109, 0, 0.3)",
               }}
             />
             <Typography

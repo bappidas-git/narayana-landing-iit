@@ -166,7 +166,7 @@ const AmenitiesSection = () => {
                   <Icon
                     icon={categoryAccentIcons[activeTab]}
                     className={styles.lottiePlayer}
-                    style={{ width: '100%', height: '100%', color: '#1A237E' }}
+                    style={{ width: '100%', height: '100%', color: '#FF6D00' }}
                   />
                 </div>
 
@@ -207,7 +207,7 @@ const AmenitiesSection = () => {
                   <div className={styles.mobileCategoryLottie}>
                     <Icon
                       icon={categoryAccentIcons[category.id]}
-                      style={{ width: '100%', height: '100%', color: '#1A237E' }}
+                      style={{ width: '100%', height: '100%', color: '#FF6D00' }}
                     />
                   </div>
                   <h3 className={styles.mobileCategoryTitle}>

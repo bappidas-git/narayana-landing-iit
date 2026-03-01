@@ -13,7 +13,7 @@ import styles from './ThankYou.module.css';
 
 // Programme highlights for display
 const projectHighlights = [
-  { icon: 'mdi:school', label: 'Expert IIT-JEE Faculty', color: '#1A237E' },
+  { icon: 'mdi:school', label: 'Expert IIT-JEE Faculty', color: '#FF6D00' },
   { icon: 'mdi:trophy-award', label: 'Top JEE Results', color: '#4CAF50' },
   { icon: 'mdi:book-open-page-variant', label: 'Comprehensive Study Material', color: '#2196F3' },
   { icon: 'mdi:account-group', label: 'Small Batch Sizes', color: '#9C27B0' },
@@ -91,7 +91,7 @@ const ThankYou = () => {
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-        colors: ['#1A237E', '#3949AB', '#5C6BC0', '#FF6D00'],
+        colors: ['#FF6D00', '#FF9100', '#FFD700', '#FFA500'],
       });
 
       // Right side confetti
@@ -99,7 +99,7 @@ const ThankYou = () => {
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-        colors: ['#1A237E', '#3949AB', '#5C6BC0', '#FF6D00'],
+        colors: ['#FF6D00', '#FF9100', '#FFD700', '#FFA500'],
       });
     }, 250);
 
@@ -108,7 +108,7 @@ const ThankYou = () => {
       particleCount: 100,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#1A237E', '#3949AB', '#5C6BC0', '#4CAF50', '#FF6D00'],
+      colors: ['#FF6D00', '#FF9100', '#FFD700', '#4CAF50', '#2196F3'],
     });
   }, []);
 

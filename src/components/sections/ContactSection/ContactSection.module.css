@@ -27,11 +27,11 @@
 }
 
 .highlight {
-  color: var(--primary-dark);
+  color: var(--accent-gold);
   background: linear-gradient(
     135deg,
-    var(--primary-dark) 0%,
-    var(--primary-light) 100%
+    var(--accent-gold) 0%,
+    var(--accent-gold-light) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -132,7 +132,7 @@
 
 .contactCard:hover {
   background: var(--white);
-  border-color: var(--primary-light);
+  border-color: var(--accent-gold);
   box-shadow: var(--shadow-card-hover);
   transform: translateY(-3px);
 }
@@ -142,11 +142,15 @@
   height: 48px;
   min-width: 48px;
   border-radius: var(--radius-lg);
-  background: rgba(26, 35, 126, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 109, 0, 0.15) 0%,
+    rgba(255, 109, 0, 0.08) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-dark);
+  color: var(--accent-gold);
   font-size: 1.4rem;
 }
 
@@ -179,7 +183,7 @@
 }
 
 .contactLink:hover {
-  color: var(--primary-light);
+  color: var(--accent-gold);
 }
 
 /* Form Wrapper */

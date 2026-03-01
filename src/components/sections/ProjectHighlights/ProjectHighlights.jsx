@@ -171,7 +171,7 @@ const ProjectHighlights = () => {
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 700,
                     fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem' },
-                    color: '#1B2A4A',
+                    color: '#1A237E',
                     marginBottom: { xs: '1.5rem', md: '2rem' },
                   }}
                 >

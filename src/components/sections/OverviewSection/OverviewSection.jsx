@@ -47,7 +47,7 @@ const keyStats = [
     suffix: "+",
     label: "Years of Excellence",
     icon: "mdi:trophy-award",
-    color: "#1A237E",
+    color: "#FF6D00",
   },
   {
     value: "4",
@@ -61,7 +61,7 @@ const keyStats = [
     suffix: "",
     label: "Students in Top 100 AIR",
     icon: "mdi:star-circle",
-    color: "#1A237E",
+    color: "#FF6D00",
   },
   {
     value: "200",
@@ -75,22 +75,22 @@ const keyStats = [
     suffix: "%",
     label: "Max Scholarship",
     icon: "mdi:school",
-    color: "#1A237E",
+    color: "#FF6D00",
   },
 ];
 
 // Image grid data
 const gridImages = [
   {
-    src: "https://placehold.co/400x300/E8EAF6/1A237E?text=400x300+Classroom",
+    src: "https://placehold.co/400x300/1A237E/FFFFFF?text=Classroom",
     alt: "Narayana Classroom",
   },
   {
-    src: "https://placehold.co/400x300/E8EAF6/1A237E?text=400x300+Students",
+    src: "https://placehold.co/400x300/283593/FFFFFF?text=Students",
     alt: "Narayana Students",
   },
   {
-    src: "https://placehold.co/400x300/FFF3E0/E65100?text=400x300+Results",
+    src: "https://placehold.co/400x300/FF6D00/FFFFFF?text=Results",
     alt: "Narayana Results",
   },
 ];
@@ -159,7 +159,7 @@ const OverviewSection = () => {
                 fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: { xs: "1.75rem", sm: "2rem", md: "2.75rem" },
-                color: "#1B2A4A",
+                color: "#1A237E",
                 letterSpacing: "-0.01em",
               }}
             >
