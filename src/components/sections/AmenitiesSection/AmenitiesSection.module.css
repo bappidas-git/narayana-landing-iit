@@ -1,815 +1,501 @@
 /* ============================================
-   AmenitiesSection Styles - Mahindra Blossom
-   Compact, innovative design with carousel
+   AmenitiesSection Styles - Benefits of Joining Narayana
+   White background, tabbed benefits, highlights strip
    ============================================ */
 
 /* ========== Main Section ========== */
-.amenitiesSection {
+.benefitsSection {
   position: relative;
-  padding: 3.5rem 0;
-  background-color: #1A237E;
+  padding: 4rem 0 3.5rem;
+  background-color: #ffffff;
   overflow: hidden;
 }
 
-/* ========== Background Elements ========== */
-.bgOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #1A237E 0%, #283593 50%, #1A237E 100%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.bgPattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    rgba(255, 109, 0, 0.03) 1px,
-    transparent 0
-  );
-  background-size: 32px 32px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ========== Compact Section Header ========== */
+/* ========== Section Header ========== */
 .sectionHeader {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.headerTop {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.amenitiesBadge {
-  margin-bottom: 0;
+  margin-bottom: 2rem;
 }
 
 .sectionTitle {
   position: relative;
 }
 
-.goldText {
+.accentText {
   color: #FF6D00;
-  font-style: italic;
 }
 
-/* ========== Quick Stats Bar ========== */
-.statsBar {
+.sectionSubtitle {
+  max-width: 480px;
+}
+
+/* ========== Category Tabs ========== */
+.categoryTabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e8eaed;
+  padding-bottom: 0;
+}
+
+.categoryTab {
   position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 0;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 109, 0, 0.08) 0%,
-    rgba(255, 109, 0, 0.03) 100%
-  );
-  border-radius: 16px;
-  border: 1px solid rgba(255, 109, 0, 0.15);
-  overflow: hidden;
-}
-
-.statItem {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.5rem;
-  flex: 1;
-  justify-content: center;
-  border-right: 1px solid rgba(255, 109, 0, 0.1);
-  transition: background 0.3s ease;
-}
-
-.statItem:last-child {
-  border-right: none;
-}
-
-.statItem:hover {
-  background: rgba(255, 109, 0, 0.08);
-}
-
-.statIconWrapper {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
-  border-radius: 10px;
-  flex-shrink: 0;
-}
-
-.statIcon {
-  font-size: 20px;
-  color: #1A237E;
-}
-
-.statContent {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-}
-
-.statValue {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.2;
-}
-
-.statLabel {
-  font-size: 0.6875rem;
-  color: #d9dce0;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* ========== Category Pills ========== */
-.categoryPills {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.categoryPill {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  color: #d9dce0 !important;
-  font-size: 0.8125rem;
-  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-
-.categoryPill:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.activePill {
-  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
-  border-color: transparent;
-  color: #1A237E !important;
-}
-
-.activePill:hover {
-  background: linear-gradient(135deg, #FF9100 0%, #FF6D00 100%);
-  color: #1A237E !important;
-}
-
-.pillIcon {
-  font-size: 16px;
-}
-
-.pillLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #90A4AE;
+  transition: color 0.25s ease;
   white-space: nowrap;
 }
 
-.pillCount {
-  background: rgba(0, 0, 0, 0.15);
-  padding: 0.125rem 0.5rem;
-  border-radius: 10px;
-  font-size: 0.6875rem;
+.categoryTab:hover {
+  color: #1A237E;
+}
+
+.activeTab {
+  color: #1A237E;
   font-weight: 600;
 }
 
-.activePill .pillCount {
-  background: rgba(26, 35, 126, 0.2);
+.tabIcon {
+  font-size: 20px;
 }
 
-/* ========== Carousel ========== */
-.carouselWrapper {
+.tabLabel {
+  pointer-events: none;
+}
+
+/* Orange underline indicator */
+.tabIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF6D00, #FF9100);
+  border-radius: 3px 3px 0 0;
+}
+
+/* ========== Benefits Grid (Desktop) ========== */
+.desktopGrid {
+  display: block;
+}
+
+.benefitsGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Lottie accent floats in corner */
+.lottieAccent {
+  position: absolute;
+  top: -30px;
+  right: -60px;
+  width: 120px;
+  height: 120px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lottiePlayer {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== Benefit Card ========== */
+.benefitCard {
   position: relative;
   z-index: 1;
-  margin-bottom: 1.5rem;
-}
-
-.carouselContainer {
   display: flex;
+  align-items: flex-start;
   gap: 1rem;
-  overflow-x: auto;
-  padding: 1rem 0.5rem;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-snap-type: x mandatory;
-}
-
-.carouselContainer::-webkit-scrollbar {
-  display: none;
-}
-
-/* ========== Amenity Card ========== */
-.amenityCard {
-  flex: 0 0 auto;
-  width: 140px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1.25rem 1rem;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.25rem;
+  background: #f8f9fa;
+  border-radius: 14px;
+  border: 1px solid #eef0f2;
   transition: all 0.3s ease;
-  cursor: pointer;
-  scroll-snap-align: start;
+  cursor: default;
 }
 
-.amenityCard:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 109, 0, 0.4);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+.benefitCard:hover {
+  background: #ffffff;
+  border-color: rgba(255, 109, 0, 0.35);
+  box-shadow: 0 8px 28px rgba(26, 35, 126, 0.08);
 }
 
-.amenityIconWrapper {
-  width: 48px;
-  height: 48px;
+.benefitIconWrapper {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 109, 0, 0.12) 0%, rgba(255, 145, 0, 0.08) 100%);
   border-radius: 12px;
-  margin-bottom: 0.75rem;
   transition: transform 0.3s ease;
 }
 
-.amenityCard:hover .amenityIconWrapper {
+.benefitCard:hover .benefitIconWrapper {
   transform: scale(1.1) rotate(5deg);
 }
 
-.amenityIcon {
-  font-size: 24px;
+.benefitIcon {
+  font-size: 22px;
+  color: #FF6D00;
 }
 
-.amenityName {
-  font-size: 0.75rem;
+.benefitContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.benefitTitle {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.925rem;
   font-weight: 600;
-  color: #f2f3f4 !important;
+  color: #1A237E;
   line-height: 1.3;
+}
+
+.benefitDescription {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: #546E7A;
+  line-height: 1.4;
+}
+
+/* ========== Mobile Stack (all categories) ========== */
+.mobileStack {
+  display: none;
+}
+
+.mobileCategory {
+  margin-bottom: 2rem;
+}
+
+.mobileCategory:last-child {
   margin-bottom: 0;
 }
 
-.amenityDescription {
-  font-size: 0.625rem;
-  color: #d9dce0 !important;
-  line-height: 1.4;
-  margin-top: 0.5rem;
-  overflow: hidden;
-}
-
-/* ========== More Card ========== */
-.moreCard {
-  flex: 0 0 auto;
-  width: 140px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.25rem 1rem;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 109, 0, 0.15) 0%,
-    rgba(255, 109, 0, 0.05) 100%
-  );
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px dashed rgba(255, 109, 0, 0.4);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  scroll-snap-align: start;
-}
-
-.moreCard:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 109, 0, 0.25) 0%,
-    rgba(255, 109, 0, 0.1) 100%
-  );
-  border-color: rgba(255, 109, 0, 0.6);
-}
-
-.moreIconWrapper {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 109, 0, 0.2);
-  border-radius: 12px;
-  margin-bottom: 0.75rem;
-}
-
-.moreIcon {
-  font-size: 24px;
-  color: #FF6D00;
-}
-
-.moreName {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: #FF6D00;
-  margin-bottom: 0.25rem;
-}
-
-.moreSubtext {
-  font-size: 0.625rem;
-  color: #c8cbcf;
-}
-
-/* ========== Scroll Indicator ========== */
-.scrollIndicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding-top: 0.75rem;
-  font-size: 0.75rem;
-  color: #b8bcc2 !important;
-}
-
-.scrollIndicator svg {
-  font-size: 18px;
-}
-
-/* ========== Bottom Row ========== */
-.bottomRow {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-/* ========== Mini Categories ========== */
-.miniCategories {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  flex: 1;
-}
-
-.miniCategoryCard {
+.mobileCategoryHeader {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  margin-bottom: 1rem;
 }
 
-.miniCategoryCard:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 109, 0, 0.3);
-}
-
-.activeCategory {
-  background: rgba(255, 109, 0, 0.15);
-  border-color: rgba(255, 109, 0, 0.4);
-}
-
-.miniCategoryIcon {
+.mobileCategoryLottie {
   width: 36px;
   height: 36px;
+  flex-shrink: 0;
+}
+
+.mobileLottiePlayer {
+  width: 100%;
+  height: 100%;
+}
+
+.mobileCategoryTitle {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1A237E;
+  border-left: 3px solid #FF6D00;
+  padding-left: 0.75rem;
+}
+
+.mobileBenefitsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+/* ========== Course Highlights Strip ========== */
+.highlightsStrip {
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.highlightsStrip::-webkit-scrollbar {
+  display: none;
+}
+
+.highlightsTrack {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.highlightChip {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
-  border-radius: 8px;
-  color: #1A237E;
-  font-size: 18px;
-}
-
-.miniCategoryContent {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-}
-
-.miniCategoryTitle {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #ffffff;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: linear-gradient(135deg, #1A237E 0%, #283593 100%);
+  border-radius: 50px;
   white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.miniCategoryCount {
-  font-size: 0.6875rem;
-  color: #FF6D00;
+.highlightChip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(26, 35, 126, 0.25);
+}
+
+.highlightIcon {
+  font-size: 18px;
+  color: #FF9100;
+}
+
+.highlightLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
   font-weight: 500;
+  color: #ffffff;
 }
 
-/* ========== CTA Section ========== */
+/* ========== Bottom CTA ========== */
 .ctaWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .ctaButton {
   white-space: nowrap;
 }
 
-.ctaSubtext {
-  font-size: 0.6875rem;
-  color: #f5f5f5 !important;
-  text-align: center;
-}
-
-/* ========== Responsive Styles ========== */
-
-/* Large Desktop (1440px+) */
+/* ========== Responsive: Large Desktop (1440px+) ========== */
 @media (min-width: 1440px) {
-  .amenitiesSection {
-    padding: 4rem 0;
+  .benefitsSection {
+    padding: 5rem 0 4rem;
   }
 
-  .statItem {
-    padding: 1.25rem 2rem;
+  .benefitsGrid {
+    max-width: 1000px;
+    gap: 1.5rem;
   }
 
-  .statIconWrapper {
-    width: 44px;
-    height: 44px;
+  .benefitCard {
+    padding: 1.5rem;
   }
 
-  .statIcon {
-    font-size: 22px;
+  .benefitIconWrapper {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
   }
 
-  .statValue {
-    font-size: 1.125rem;
+  .benefitIcon {
+    font-size: 24px;
   }
 
-  .amenityCard {
-    width: 160px;
-    padding: 1.5rem 1.25rem;
+  .benefitTitle {
+    font-size: 1rem;
   }
 
-  .moreCard {
-    width: 160px;
-  }
-
-  .amenityIconWrapper {
-    width: 56px;
-    height: 56px;
-  }
-
-  .amenityIcon {
-    font-size: 28px;
-  }
-
-  .amenityName {
-    font-size: 0.8125rem;
+  .lottieAccent {
+    width: 140px;
+    height: 140px;
   }
 }
 
-/* Tablet (768px - 1023px) */
+/* ========== Responsive: Desktop (1024px - 1439px) ========== */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .benefitsGrid {
+    max-width: 860px;
+  }
+}
+
+/* ========== Responsive: Tablet (768px - 1023px) ========== */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .amenitiesSection {
-    padding: 3rem 0;
+  .benefitsSection {
+    padding: 3.5rem 0 3rem;
   }
 
-  .statsBar {
-    flex-wrap: wrap;
+  .categoryTab {
+    padding: 0.625rem 1rem;
+    font-size: 0.85rem;
   }
 
-  .statItem {
-    flex: 0 0 calc(50% - 0.5px);
-    border-bottom: 1px solid rgba(255, 109, 0, 0.1);
+  .tabIcon {
+    font-size: 18px;
   }
 
-  .statItem:nth-child(2) {
-    border-right: none;
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
-  .statItem:nth-child(3),
-  .statItem:nth-child(4) {
-    border-bottom: none;
-  }
-
-  .bottomRow {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .miniCategories {
-    justify-content: center;
-  }
-
-  .ctaWrapper {
-    width: 100%;
-    padding-top: 1rem;
+  .lottieAccent {
+    width: 100px;
+    height: 100px;
+    right: -40px;
   }
 }
 
-/* Mobile (max-width: 767px) */
+/* ========== Responsive: Mobile (max-width: 767px) ========== */
 @media (max-width: 767px) {
-  .amenitiesSection {
-    padding: 2.5rem 0;
-  }
-
-  .bgPattern {
-    background-size: 24px 24px;
+  .benefitsSection {
+    padding: 2.5rem 0 2rem;
   }
 
   .sectionHeader {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
-  .statsBar {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .statItem {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 109, 0, 0.1);
-    padding: 0.875rem 1rem;
-    justify-content: flex-start;
-  }
-
-  .statItem:last-child {
-    border-bottom: none;
-  }
-
-  .statIconWrapper {
-    width: 36px;
-    height: 36px;
-  }
-
-  .statIcon {
-    font-size: 18px;
-  }
-
-  .statValue {
-    font-size: 0.9375rem;
-  }
-
-  .statLabel {
-    font-size: 0.625rem;
-  }
-
-  .categoryPills {
-    gap: 0.375rem;
-    margin-bottom: 1.25rem;
-    padding: 0 0.25rem;
-  }
-
-  .categoryPill {
-    padding: 0.375rem 0.75rem;
-    font-size: 0.75rem;
-    gap: 0.375rem;
-  }
-
-  .pillIcon {
-    font-size: 14px;
-  }
-
-  .pillCount {
-    padding: 0.0625rem 0.375rem;
-    font-size: 0.625rem;
-  }
-
-  .carouselContainer {
-    gap: 0.75rem;
-    padding: 0.75rem 0.25rem;
-  }
-
-  .amenityCard {
-    width: 120px;
-    padding: 1rem 0.75rem;
-    border-radius: 12px;
-  }
-
-  .moreCard {
-    width: 120px;
-    padding: 1rem 0.75rem;
-    border-radius: 12px;
-  }
-
-  .amenityIconWrapper {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    margin-bottom: 0.5rem;
-  }
-
-  .amenityIcon {
-    font-size: 20px;
-  }
-
-  .amenityName {
-    font-size: 0.6875rem;
-  }
-
-  .moreIconWrapper {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 0.5rem;
-  }
-
-  .moreIcon {
-    font-size: 20px;
-  }
-
-  .moreName {
-    font-size: 0.75rem;
-  }
-
-  .scrollIndicator {
-    font-size: 0.6875rem;
-    gap: 0.375rem;
-  }
-
-  .scrollIndicator svg {
-    font-size: 16px;
-  }
-
-  .bottomRow {
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .miniCategories {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    width: 100%;
-  }
-
-  .miniCategoryCard {
-    padding: 0.625rem 0.75rem;
-    gap: 0.5rem;
-    border-radius: 10px;
-  }
-
-  .miniCategoryIcon {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-    border-radius: 6px;
-  }
-
-  .miniCategoryTitle {
-    font-size: 0.6875rem;
-  }
-
-  .miniCategoryCount {
-    font-size: 0.5625rem;
-  }
-
-  .ctaWrapper {
-    width: 100%;
-    padding-top: 0.5rem;
-  }
-}
-
-/* Small Mobile (max-width: 374px) */
-@media (max-width: 374px) {
-  .amenitiesSection {
-    padding: 2rem 0;
-  }
-
-  .categoryPills {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    padding-bottom: 0.5rem;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .categoryPills::-webkit-scrollbar {
+  /* Hide desktop tabs and grid, show mobile stack */
+  .categoryTabs {
     display: none;
   }
 
-  .categoryPill {
-    flex-shrink: 0;
+  .desktopGrid {
+    display: none;
   }
 
-  .amenityCard {
-    width: 110px;
-    padding: 0.875rem 0.5rem;
+  .mobileStack {
+    display: block;
   }
 
-  .moreCard {
-    width: 110px;
-    padding: 0.875rem 0.5rem;
+  .mobileBenefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.625rem;
   }
 
-  .amenityIconWrapper {
+  .benefitCard {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .benefitIconWrapper {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 10px;
+  }
+
+  .benefitIcon {
+    font-size: 20px;
+  }
+
+  .benefitTitle {
+    font-size: 0.85rem;
+  }
+
+  .benefitDescription {
+    font-size: 0.75rem;
+  }
+
+  /* Highlights become scrollable on mobile */
+  .highlightsStrip {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .highlightsTrack {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 0.25rem 0;
+  }
+
+  .highlightChip {
+    padding: 0.5rem 0.875rem;
+  }
+
+  .highlightLabel {
+    font-size: 0.75rem;
+  }
+
+  .highlightIcon {
+    font-size: 16px;
+  }
+}
+
+/* ========== Responsive: Small Mobile (max-width: 374px) ========== */
+@media (max-width: 374px) {
+  .benefitsSection {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .benefitCard {
+    gap: 0.75rem;
+    padding: 0.875rem;
+  }
+
+  .benefitIconWrapper {
     width: 36px;
     height: 36px;
+    min-width: 36px;
   }
 
-  .amenityIcon {
+  .benefitIcon {
     font-size: 18px;
   }
 
-  .amenityName {
-    font-size: 0.625rem;
+  .benefitTitle {
+    font-size: 0.8rem;
   }
 
-  .miniCategories {
-    grid-template-columns: 1fr;
-  }
-
-  .miniCategoryCard {
-    justify-content: flex-start;
+  .mobileCategoryTitle {
+    font-size: 0.95rem;
   }
 }
 
 /* ========== Hover Effects (Pointer Devices) ========== */
 @media (hover: hover) {
-  .amenityCard:hover {
-    transform: translateY(-8px) scale(1.02);
-  }
-
-  .moreCard:hover {
-    transform: translateY(-8px) scale(1.02);
-  }
-}
-
-/* ========== Touch Devices ========== */
-@media (hover: none) {
-  .scrollIndicator {
-    display: flex;
-  }
-}
-
-@media (hover: hover) {
-  .scrollIndicator {
-    opacity: 0.6;
+  .benefitCard:hover {
+    transform: translateY(-4px);
   }
 }
 
 /* ========== Reduced Motion ========== */
 @media (prefers-reduced-motion: reduce) {
-  .amenityCard,
-  .moreCard,
-  .miniCategoryCard,
-  .amenityIconWrapper,
-  .categoryPill,
-  .statItem {
+  .benefitCard,
+  .benefitIconWrapper,
+  .categoryTab,
+  .highlightChip {
     transition: none;
   }
 
-  .amenityCard:hover,
-  .moreCard:hover {
+  .benefitCard:hover {
     transform: none;
   }
 
-  .amenityCard:hover .amenityIconWrapper {
+  .benefitCard:hover .benefitIconWrapper {
     transform: none;
-  }
-
-  .carouselContainer {
-    scroll-behavior: auto;
   }
 }
 
 /* ========== Focus Styles for Accessibility ========== */
-.categoryPill:focus-visible,
-.amenityCard:focus-visible,
-.moreCard:focus-visible,
-.miniCategoryCard:focus-visible,
+.categoryTab:focus-visible,
+.benefitCard:focus-visible,
 .ctaButton:focus-visible {
   outline: 2px solid #FF6D00;
   outline-offset: 2px;
@@ -817,69 +503,39 @@
 
 /* ========== Print Styles ========== */
 @media print {
-  .amenitiesSection {
+  .benefitsSection {
     padding: 2rem 0;
     background: white;
-    color: black;
   }
 
-  .bgOverlay,
-  .bgPattern {
-    display: none;
-  }
-
-  .statsBar {
+  .benefitCard {
     background: #f5f5f5;
     border: 1px solid #ddd;
+    break-inside: avoid;
   }
 
-  .amenityCard,
-  .moreCard,
-  .miniCategoryCard {
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-  }
-
-  .amenityName,
-  .miniCategoryTitle,
-  .goldText,
-  .sectionTitle,
-  .statValue {
-    color: #1A237E !important;
-  }
-
-  .scrollIndicator {
-    display: none;
-  }
-
-  .carouselContainer {
-    flex-wrap: wrap;
+  .highlightsStrip {
     overflow: visible;
   }
-}
 
-/* ========== Custom Scrollbar (when visible) ========== */
-@media (min-width: 1024px) {
-  .carouselContainer {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 109, 0, 0.3) transparent;
+  .highlightsTrack {
+    flex-wrap: wrap;
   }
 
-  .carouselContainer::-webkit-scrollbar {
-    height: 6px;
+  .highlightChip {
+    background: #1A237E;
   }
 
-  .carouselContainer::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 3px;
+  /* Show all categories in print */
+  .categoryTabs {
+    display: none;
   }
 
-  .carouselContainer::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 109, 0, 0.3);
-    border-radius: 3px;
+  .desktopGrid {
+    display: none;
   }
 
-  .carouselContainer::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 109, 0, 0.5);
+  .mobileStack {
+    display: block;
   }
 }

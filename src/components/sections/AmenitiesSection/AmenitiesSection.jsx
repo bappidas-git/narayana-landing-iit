@@ -1,17 +1,43 @@
 /* ============================================
-   AmenitiesSection Component - Mahindra Blossom
-   Compact amenities showcase with carousel and CTA
+   AmenitiesSection Component - Benefits of Joining Narayana
+   Tabbed benefits showcase with course highlights and CTA
    ============================================ */
 
 import React, { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Container, Typography, Chip, useTheme, Button } from "@mui/material";
+import { Container, Typography, Button } from "@mui/material";
 import { Icon } from "@iconify/react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { useModal } from "../../../context/ModalContext";
-import {
-  benefitsData,
-} from "../../../data/benefitsData";
+import { benefitsData } from "../../../data/benefitsData";
+import calculatorAnimation from "../../../assets/lottie/calculator.json";
+import shieldAnimation from "../../../assets/lottie/security-shield.json";
+import treeAnimation from "../../../assets/lottie/tree-growing.json";
 import styles from "./AmenitiesSection.module.css";
+
+// Lottie map keyed by category id
+const categoryLottie = {
+  1: calculatorAnimation,
+  2: shieldAnimation,
+  3: treeAnimation,
+};
+
+// Category tab icons
+const categoryIcons = {
+  1: "mdi:school",
+  2: "mdi:hand-heart",
+  3: "mdi:rocket-launch",
+};
+
+// Course highlights strip items
+const courseHighlights = [
+  { icon: "mdi:book-open-page-variant", label: "Complete Board + JEE Syllabus" },
+  { icon: "mdi:earth", label: "All India Test Series" },
+  { icon: "mdi:account-question", label: "Doubt Clearing Sessions" },
+  { icon: "mdi:calendar-clock", label: "Micro-Schedule & Test Planners" },
+  { icon: "mdi:account-supervisor", label: "Regular Parent Updates" },
+  { icon: "mdi:trophy-award", label: "Up to 90% Scholarship through NACST" },
+];
 
 // Animation variants
 const containerVariants = {
@@ -19,8 +45,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
+      staggerChildren: 0.1,
+      delayChildren: 0.15,
     },
   },
 };
@@ -38,79 +64,41 @@ const itemVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: (i) => ({
     opacity: 1,
+    y: 0,
     scale: 1,
     transition: {
-      delay: i * 0.03,
-      duration: 0.3,
+      delay: i * 0.06,
+      duration: 0.4,
       ease: [0.25, 0.46, 0.45, 0.94],
     },
   }),
 };
 
 const AmenitiesSection = () => {
-  useTheme(); // Theme context for MUI components
   const ref = useRef(null);
-  const carouselRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [activeTab, setActiveTab] = useState(benefitsData[0]?.id ?? 1);
   const { openLeadDrawer } = useModal();
 
-  const handleScheduleVisit = () => {
-    openLeadDrawer("schedule-site-visit");
+  const handleEnrollNow = () => {
+    openLeadDrawer("enroll-now");
   };
 
-  const handleCategoryChange = (categoryId) => {
-    setSelectedCategory(categoryId);
-    // Scroll carousel to start when category changes
-    if (carouselRef.current) {
-      carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
-    }
-  };
-
-  // Get filtered benefits based on category
-  const filteredBenefits = benefitsData;
-
-  // Quick stats for the stats bar
-  const quickStats = [];
-
-  // Category pills with counts
-  const categoryPills = [];
+  const activeCategory = benefitsData.find((c) => c.id === activeTab) || benefitsData[0];
 
   return (
-    <section className={styles.amenitiesSection} id="amenities" ref={ref}>
-      {/* Background Elements */}
-      <div className={styles.bgOverlay} />
-      <div className={styles.bgPattern} />
-
+    <section className={styles.benefitsSection} id="benefits" ref={ref}>
       <Container maxWidth="xl">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {/* Compact Section Header */}
+          {/* Section Header */}
           <motion.div variants={itemVariants} className={styles.sectionHeader}>
-            <div className={styles.headerTop}>
-              <Chip
-                label="BENEFITS"
-                className={styles.amenitiesBadge}
-                sx={{
-                  backgroundColor: "rgba(255, 109, 0, 0.15)",
-                  color: "#FF6D00",
-                  fontWeight: 700,
-                  fontSize: "0.7rem",
-                  letterSpacing: "0.1em",
-                  height: "28px",
-                  borderRadius: "14px",
-                  border: "1px solid rgba(255, 109, 0, 0.3)",
-                }}
-              />
-            </div>
-
             <Typography
               variant="h2"
               className={styles.sectionTitle}
@@ -118,217 +106,202 @@ const AmenitiesSection = () => {
                 fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: { xs: "1.5rem", sm: "1.75rem", md: "2.25rem" },
-                color: "#FFFFFF",
-                marginTop: "0.75rem",
+                color: "#1A237E",
                 textAlign: "center",
                 lineHeight: 1.2,
               }}
             >
-              Everything You Need,{" "}
-              <span className={styles.goldText}>Within Your Community</span>
+              Benefits of Joining{" "}
+              <span className={styles.accentText}>Narayana</span>
+            </Typography>
+            <Typography
+              className={styles.sectionSubtitle}
+              sx={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: { xs: "0.875rem", md: "1.05rem" },
+                color: "#546E7A",
+                textAlign: "center",
+                marginTop: "0.75rem",
+              }}
+            >
+              A complete ecosystem designed for your IIT-JEE success
             </Typography>
           </motion.div>
 
-          {/* Quick Stats Bar - Compact Horizontal Layout */}
-          <motion.div variants={itemVariants} className={styles.statsBar}>
-            {quickStats.map((stat, index) => (
-              <div key={index} className={styles.statItem}>
-                <div className={styles.statIconWrapper}>
-                  <Icon icon={stat.icon} className={styles.statIcon} />
-                </div>
-                <div className={styles.statContent}>
-                  <span className={styles.statValue}>{stat.value}</span>
-                  <span className={styles.statLabel}>{stat.label}</span>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Category Pills */}
-          <motion.div variants={itemVariants} className={styles.categoryPills}>
-            {categoryPills.map((pill) => (
+          {/* Category Tabs - Desktop */}
+          <motion.div variants={itemVariants} className={styles.categoryTabs}>
+            {benefitsData.map((category) => (
               <button
-                key={pill.id}
-                className={`${styles.categoryPill} ${
-                  selectedCategory === pill.id ? styles.activePill : ""
+                key={category.id}
+                className={`${styles.categoryTab} ${
+                  activeTab === category.id ? styles.activeTab : ""
                 }`}
-                onClick={() => handleCategoryChange(pill.id)}
-                style={{
-                  color: selectedCategory === pill.id ? "#1A237E" : "#D9DCE0",
-                }}
+                onClick={() => setActiveTab(category.id)}
               >
-                <Icon icon={pill.icon} className={styles.pillIcon} />
-                <span className={styles.pillLabel} style={{ color: "inherit" }}>
-                  {pill.label}
-                </span>
-                <span className={styles.pillCount} style={{ color: "inherit" }}>
-                  {pill.count}
-                </span>
+                <Icon
+                  icon={categoryIcons[category.id]}
+                  className={styles.tabIcon}
+                />
+                <span className={styles.tabLabel}>{category.category}</span>
+                {activeTab === category.id && (
+                  <motion.div
+                    className={styles.tabIndicator}
+                    layoutId="tabIndicator"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
               </button>
             ))}
           </motion.div>
 
-          {/* Amenities Carousel */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedCategory}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className={styles.carouselWrapper}
-            >
-              <div className={styles.carouselContainer} ref={carouselRef}>
-                {filteredBenefits.map((amenity, index) => (
+          {/* Benefits Grid - Desktop (tabbed) */}
+          <div className={styles.desktopGrid}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.3 }}
+                className={styles.benefitsGrid}
+              >
+                {/* Lottie accent */}
+                <div className={styles.lottieAccent}>
+                  <Player
+                    autoplay
+                    loop
+                    src={categoryLottie[activeTab]}
+                    className={styles.lottiePlayer}
+                  />
+                </div>
+
+                {activeCategory.items.map((item, index) => (
                   <motion.div
-                    key={amenity.id}
-                    className={styles.amenityCard}
+                    key={item.title}
+                    className={styles.benefitCard}
                     custom={index}
                     variants={cardVariants}
                     initial="hidden"
                     animate="visible"
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    onMouseEnter={() => setHoveredCard(amenity.id)}
-                    onMouseLeave={() => setHoveredCard(null)}
+                    whileHover={{ y: -4, scale: 1.02 }}
                   >
-                    <div
-                      className={styles.amenityIconWrapper}
-                      style={{ backgroundColor: `${amenity.iconColor}20` }}
-                    >
-                      <Icon
-                        icon={amenity.icon}
-                        className={styles.amenityIcon}
-                        style={{ color: amenity.iconColor }}
-                      />
+                    <div className={styles.benefitIconWrapper}>
+                      <Icon icon={item.icon} className={styles.benefitIcon} />
                     </div>
-                    <Typography
-                      className={styles.amenityName}
-                      sx={{ color: "#F2F3F4 !important" }}
-                    >
-                      {amenity.name}
-                    </Typography>
-                    {/* Show description on hover */}
-                    <AnimatePresence>
-                      {hoveredCard === amenity.id && (
-                        <motion.p
-                          className={styles.amenityDescription}
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          style={{ color: "#D9DCE0" }}
-                        >
-                          {amenity.description}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
+                    <div className={styles.benefitContent}>
+                      <h4 className={styles.benefitTitle}>{item.title}</h4>
+                      <p className={styles.benefitDescription}>
+                        {item.description}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-                {/* More Amenities Card in Carousel */}
-                {/* More Amenities Card - only show if there are more amenities to explore */}
-                {benefitsData.length - filteredBenefits.length > 0 && (
-                  <motion.div
-                    className={styles.moreCard}
-                    custom={filteredBenefits.length}
-                    variants={cardVariants}
-                    initial="hidden"
-                    animate="visible"
-                    whileHover={{ y: -8, scale: 1.02 }}
-                  >
-                    <div className={styles.moreIconWrapper}>
-                      <Icon
-                        icon="mdi:dots-horizontal-circle-outline"
-                        className={styles.moreIcon}
-                      />
-                    </div>
-                    <Typography className={styles.moreName}>
-                      +{benefitsData.length - filteredBenefits.length} More
-                    </Typography>
-                    <Typography className={styles.moreSubtext}>
-                      Explore all amenities
-                    </Typography>
-                  </motion.div>
-                )}
-              </div>
+          {/* Benefits Grid - Mobile (all categories stacked) */}
+          <div className={styles.mobileStack}>
+            {benefitsData.map((category) => (
+              <motion.div
+                key={category.id}
+                variants={itemVariants}
+                className={styles.mobileCategory}
+              >
+                <div className={styles.mobileCategoryHeader}>
+                  <div className={styles.mobileCategoryLottie}>
+                    <Player
+                      autoplay
+                      loop
+                      src={categoryLottie[category.id]}
+                      className={styles.mobileLottiePlayer}
+                    />
+                  </div>
+                  <h3 className={styles.mobileCategoryTitle}>
+                    {category.category}
+                  </h3>
+                </div>
+                <div className={styles.mobileBenefitsGrid}>
+                  {category.items.map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      className={styles.benefitCard}
+                      custom={index}
+                      variants={cardVariants}
+                      initial="hidden"
+                      animate={isInView ? "visible" : "hidden"}
+                      whileHover={{ y: -4, scale: 1.02 }}
+                    >
+                      <div className={styles.benefitIconWrapper}>
+                        <Icon
+                          icon={item.icon}
+                          className={styles.benefitIcon}
+                        />
+                      </div>
+                      <div className={styles.benefitContent}>
+                        <h4 className={styles.benefitTitle}>{item.title}</h4>
+                        <p className={styles.benefitDescription}>
+                          {item.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-              {/* Scroll Indicators */}
-              <div className={styles.scrollIndicator}>
-                <Icon icon="mdi:gesture-swipe-horizontal" />
-                <span style={{ color: "#B8BCC2" }}>Scroll to explore</span>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Bottom Row: Category Summary + CTA */}
-          <motion.div variants={itemVariants} className={styles.bottomRow}>
-            {/* Mini Category Cards */}
-            <div className={styles.miniCategories}>
-              {[].map((category, index) => {
-                const categoryAmenities = [];
-                return (
-                  <motion.div
-                    key={category.id}
-                    className={`${styles.miniCategoryCard} ${
-                      selectedCategory === category.id
-                        ? styles.activeCategory
-                        : ""
-                    }`}
-                    custom={index}
-                    variants={cardVariants}
-                    onClick={() => handleCategoryChange(category.id)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className={styles.miniCategoryIcon}>
-                      <Icon icon={category.icon} />
-                    </div>
-                    <div className={styles.miniCategoryContent}>
-                      <span className={styles.miniCategoryTitle}>
-                        {category.title}
-                      </span>
-                      <span className={styles.miniCategoryCount}>
-                        {categoryAmenities.length}+ Amenities
-                      </span>
-                    </div>
-                  </motion.div>
-                );
-              })}
+          {/* Course Highlights Strip */}
+          <motion.div variants={itemVariants} className={styles.highlightsStrip}>
+            <div className={styles.highlightsTrack}>
+              {courseHighlights.map((item, index) => (
+                <div key={index} className={styles.highlightChip}>
+                  <Icon icon={item.icon} className={styles.highlightIcon} />
+                  <span className={styles.highlightLabel}>{item.label}</span>
+                </div>
+              ))}
             </div>
+          </motion.div>
 
-            {/* CTA Button */}
-            <div className={styles.ctaWrapper}>
-              <Button
-                variant="contained"
-                className={styles.ctaButton}
-                onClick={handleScheduleVisit}
-                endIcon={<Icon icon="mdi:arrow-right" />}
-                sx={{
+          {/* Bottom CTA */}
+          <motion.div variants={itemVariants} className={styles.ctaWrapper}>
+            <Typography
+              sx={{
+                fontFamily: "'Poppins', sans-serif",
+                fontWeight: 600,
+                fontSize: { xs: "1.1rem", md: "1.35rem" },
+                color: "#1A237E",
+                textAlign: "center",
+                marginBottom: "1rem",
+              }}
+            >
+              Ready to start your IIT-JEE journey?
+            </Typography>
+            <Button
+              variant="contained"
+              className={styles.ctaButton}
+              onClick={handleEnrollNow}
+              endIcon={<Icon icon="mdi:arrow-right" />}
+              sx={{
+                background:
+                  "linear-gradient(135deg, #FF6D00 0%, #FF9100 100%)",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: { xs: "0.9rem", md: "1rem" },
+                padding: { xs: "12px 28px", md: "14px 36px" },
+                borderRadius: "50px",
+                textTransform: "none",
+                boxShadow: "0 8px 32px rgba(255, 109, 0, 0.3)",
+                "&:hover": {
                   background:
-                    "linear-gradient(135deg, #FF6D00 0%, #FF9100 100%)",
-                  color: "#1A237E",
-                  fontWeight: 700,
-                  fontSize: { xs: "0.875rem", md: "1rem" },
-                  padding: { xs: "12px 24px", md: "14px 32px" },
-                  borderRadius: "50px",
-                  textTransform: "none",
-                  boxShadow: "0 8px 32px rgba(255, 109, 0, 0.3)",
-                  "&:hover": {
-                    background:
-                      "linear-gradient(135deg, #FF9100 0%, #FF6D00 100%)",
-                    boxShadow: "0 12px 40px rgba(255, 109, 0, 0.4)",
-                    transform: "translateY(-2px)",
-                  },
-                }}
-              >
-                Schedule a Visit
-              </Button>
-              <Typography
-                className={styles.ctaSubtext}
-                sx={{ color: "#f5f5f5 !important;" }}
-              >
-                Experience our world-class amenities firsthand
-              </Typography>
-            </div>
+                    "linear-gradient(135deg, #FF9100 0%, #FF6D00 100%)",
+                  boxShadow: "0 12px 40px rgba(255, 109, 0, 0.4)",
+                  transform: "translateY(-2px)",
+                },
+              }}
+            >
+              Enroll Now
+            </Button>
           </motion.div>
         </motion.div>
       </Container>
