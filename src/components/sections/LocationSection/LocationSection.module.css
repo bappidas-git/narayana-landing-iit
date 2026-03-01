@@ -1,13 +1,13 @@
 /* ============================================
-   LocationSection Styles - Mahindra Blossom
-   Location advantages and map integration section
+   LocationSection Styles - Narayana IIT-JEE
+   Our Centre section with light background
    ============================================ */
 
 /* Section Container */
 .section {
   position: relative;
   padding: var(--space-20) 0;
-  background: var(--primary-dark);
+  background: var(--off-white);
   overflow: hidden;
 }
 
@@ -16,37 +16,142 @@
   margin-top: var(--space-8);
 }
 
-/* Map Wrapper */
-.mapWrapper {
+/* ========== Centre Info Card ========== */
+.centreInfoCard {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  height: 100%;
+  box-shadow: 0 10px 40px rgba(26, 35, 126, 0.08);
+  border: 1px solid var(--medium-gray);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.centreHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.centreIconWrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-xl);
+  background: var(--card-dark-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.centreName {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  color: var(--primary-dark);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-snug);
+  margin-bottom: var(--space-1);
+}
+
+.centreAddress {
+  color: var(--text-gray);
+  font-size: var(--fs-sm);
+}
+
+/* Contact List */
+.contactList {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
 
-/* Map Container */
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--off-white);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.contactItem:hover {
+  background: var(--light-gray);
+  transform: translateX(4px);
+}
+
+.contactIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 109, 0, 0.1);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.contactLabel {
+  display: block;
+  color: var(--text-gray);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  font-weight: var(--fw-medium);
+  margin-bottom: 2px;
+}
+
+.contactValue {
+  color: var(--primary-dark);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+}
+
+.contactValue a {
+  color: var(--primary-dark);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contactValue a:hover {
+  color: var(--accent-gold);
+}
+
+/* ========== Map Section ========== */
+.mapWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .mapContainer {
   position: relative;
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(26, 35, 126, 0.12);
+  height: 100%;
 }
 
 .mapPlaceholder {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  background: linear-gradient(135deg, var(--primary-dark-alt) 0%, var(--primary-dark-light) 100%);
+  height: 100%;
+  min-height: 360px;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark-light) 100%);
 }
 
 .mapImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(4px);
-  transform: scale(1.05); /* Prevents blur edge artifacts */
 }
 
-/* Map Overlay */
 .mapOverlay {
   position: absolute;
   inset: 0;
@@ -59,10 +164,11 @@
   text-align: center;
 }
 
-.locationPin {
-  width: 80px;
-  height: 80px;
+.mapPinIcon {
+  font-size: 3rem;
+  color: var(--accent-gold);
   margin-bottom: var(--space-2);
+  filter: drop-shadow(0 2px 8px rgba(255, 109, 0, 0.5));
 }
 
 .mapTitle {
@@ -82,318 +188,131 @@
   z-index: 1;
 }
 
-/* Connectivity Bar */
-.connectivityBar {
-  display: flex;
-  gap: var(--space-3);
-  background: var(--primary-dark-alt);
-  border-radius: var(--radius-xl);
-  padding: var(--space-4);
-  border: 1px solid rgba(255, 109, 0, 0.1);
+/* ========== Areas Served Section ========== */
+.areasSection {
+  margin-top: var(--space-12);
+  text-align: center;
 }
 
-.connectivityItem {
-  flex: 1;
+.areasTitle {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  color: var(--primary-dark);
+  margin-bottom: var(--space-6);
+  font-size: var(--fs-xl);
+}
+
+.areasGrid {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-3);
-  padding: var(--space-3);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.03);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.areaPill {
+  height: 36px;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  background: var(--white);
+  color: var(--primary-dark);
+  border: 1px solid var(--medium-gray);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-2);
   transition: all var(--transition-base);
 }
 
-.connectivityItem:hover {
-  background: rgba(255, 255, 255, 0.06);
+.areaPill:hover {
+  background: var(--primary-dark);
+  color: var(--white);
+  border-color: var(--primary-dark);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.2);
 }
 
-.connectivityItem.highlighted {
-  background: linear-gradient(135deg, rgba(255, 109, 0, 0.15) 0%, rgba(255, 109, 0, 0.05) 100%);
-  border: 1px solid rgba(255, 109, 0, 0.3);
+.areaPill :global(.MuiChip-icon) {
+  font-size: 1rem;
+  color: var(--accent-gold);
+}
+
+.areaPill:hover :global(.MuiChip-icon) {
+  color: var(--accent-gold-light);
+}
+
+/* ========== Connectivity Highlights ========== */
+.connectivitySection {
+  margin-top: var(--space-12);
+}
+
+.connectivityCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--medium-gray);
+  transition: all var(--transition-base);
+  cursor: default;
+}
+
+.connectivityCard:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 24px rgba(26, 35, 126, 0.1);
 }
 
 .connectivityIcon {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   flex-shrink: 0;
 }
 
 .connectivityText {
-  flex: 1;
-  min-width: 0;
-}
-
-.connectivityTitle {
-  color: var(--white);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-sm);
-  line-height: 1.3;
-  margin-bottom: var(--space-1);
-}
-
-.connectivityDesc {
-  color: #D9DCE0 !important;
-  font-size: var(--fs-xs);
-  line-height: 1.4;
-  display: block;
-}
-
-/* Landmarks Wrapper */
-.landmarksWrapper {
-  display: flex;
-  flex-direction: column;
-  background: var(--white);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-6);
-  height: 100%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-}
-
-.landmarksHeader {
-  margin-bottom: var(--space-4);
-}
-
-.landmarksTitle {
-  font-family: var(--font-heading);
-  font-weight: var(--fw-bold);
-  color: var(--primary-dark);
-  margin-bottom: var(--space-4);
-}
-
-.goldText {
-  color: var(--accent-gold);
-}
-
-/* Category Tabs */
-.categoryTabs {
-  min-height: 40px;
-}
-
-.categoryTabs :global(.MuiTabs-flexContainer) {
-  gap: var(--space-2);
-}
-
-.categoryTab {
-  min-height: 36px;
-  min-width: auto;
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
-  text-transform: none;
-  color: var(--text-gray);
-  border-radius: var(--radius-lg);
-  background: var(--light-gray);
-  transition: all var(--transition-fast);
-}
-
-.categoryTab:hover {
-  background: var(--medium-gray);
   color: var(--primary-dark);
+  font-size: var(--fs-base);
+  line-height: var(--lh-snug);
 }
 
-.categoryTab:global(.Mui-selected) {
-  background: var(--primary-dark);
-  color: var(--white);
-}
-
-.tabIndicator {
-  display: none;
-}
-
-.tabIcon {
-  font-size: 1rem;
-  margin-right: var(--space-1) !important;
-}
-
-/* Landmarks List */
-.landmarksList {
-  flex: 1;
-  overflow-y: auto;
-  margin: var(--space-4) 0;
-  padding-right: var(--space-2);
-  max-height: 400px;
-}
-
-.landmarksList::-webkit-scrollbar {
-  width: 4px;
-}
-
-.landmarksList::-webkit-scrollbar-track {
-  background: var(--light-gray);
-  border-radius: var(--radius-full);
-}
-
-.landmarksList::-webkit-scrollbar-thumb {
-  background: var(--medium-gray);
-  border-radius: var(--radius-full);
-}
-
-.landmarksList::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-gold);
-}
-
-.landmarksGrid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-/* Landmark Card */
-.landmarkCard {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3);
-  background: var(--off-white);
-  border-radius: var(--radius-lg);
-  border: 1px solid transparent;
-  transition: all var(--transition-base);
-  cursor: pointer;
-}
-
-.landmarkCard:hover {
-  border-color: var(--accent-gold);
-  background: var(--white);
-}
-
-.highlightedLandmark {
-  background: linear-gradient(135deg, rgba(255, 109, 0, 0.1) 0%, rgba(255, 109, 0, 0.05) 100%);
-  border: 1px solid rgba(255, 109, 0, 0.3);
-}
-
-.landmarkIcon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
-
-.landmarkInfo {
-  flex: 1;
-  min-width: 0;
-}
-
-.landmarkName {
-  font-weight: var(--fw-semibold);
-  color: var(--primary-dark);
-  font-size: var(--fs-sm);
-  margin-bottom: var(--space-1);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.landmarkMeta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.distanceChip {
-  height: 22px;
-  font-size: var(--fs-xs);
-  background: var(--white);
-  border: 1px solid var(--medium-gray);
-}
-
-.distanceChip :global(.MuiChip-icon) {
-  font-size: 0.9rem;
-  margin-left: var(--space-1);
-  color: var(--text-gray);
-}
-
-.driveTime {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  color: var(--text-gray);
-  font-size: var(--fs-xs);
-}
-
-.driveIcon {
-  font-size: 0.9rem;
-}
-
-.upcomingChip {
-  height: 20px;
-  font-size: 10px;
-  font-weight: var(--fw-semibold);
-  background: var(--accent-gold);
-  color: var(--primary-dark);
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-/* Landmarks CTA */
-.landmarksCta {
-  margin-top: auto;
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--light-gray);
-}
-
-/* Features Section */
-.featuresSection {
+/* ========== Bottom CTA ========== */
+.bottomCta {
   margin-top: var(--space-12);
-  padding-top: var(--space-8);
-  border-top: 1px solid rgba(255, 109, 0, 0.2);
-}
-
-.featureCard {
   text-align: center;
-  padding: var(--space-6);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all var(--transition-base);
+  padding: var(--space-10) var(--space-6);
+  background: var(--card-dark-gradient);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 20px 60px rgba(26, 35, 126, 0.15);
 }
 
-.featureCard:hover {
-  background: rgba(255, 255, 255, 0.06);
-  transform: translateY(-5px);
-  border-color: rgba(255, 109, 0, 0.3);
-}
-
-.featureIcon {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  margin: 0 auto var(--space-4);
-}
-
-.featureTitle {
+.ctaTitle {
   font-family: var(--font-heading);
   font-weight: var(--fw-bold);
   color: var(--white);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-6);
+  font-size: var(--fs-2xl);
 }
 
-.featureDesc {
-  color: #D9DCE0 !important;
-  font-size: var(--fs-sm);
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
 }
 
-/* Background Decorations */
+/* ========== Background Decorations ========== */
 .bgDecoration1 {
   position: absolute;
   top: 10%;
   left: -100px;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(255, 109, 0, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(26, 35, 126, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   filter: blur(60px);
@@ -405,28 +324,20 @@
   right: -100px;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(255, 109, 0, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 109, 0, 0.05) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   filter: blur(80px);
 }
 
-/* Responsive Styles */
+/* ========== Responsive Styles ========== */
 @media (max-width: 1024px) {
   .section {
     padding: var(--space-16) 0;
   }
 
-  .connectivityBar {
-    flex-wrap: wrap;
-  }
-
-  .connectivityItem {
-    flex: 1 1 calc(50% - var(--space-2));
-  }
-
-  .landmarksList {
-    max-height: 350px;
+  .connectivityCard {
+    padding: var(--space-4);
   }
 }
 
@@ -439,100 +350,94 @@
     margin-top: var(--space-6);
   }
 
+  .centreInfoCard {
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+    gap: var(--space-4);
+  }
+
+  .centreIconWrapper {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+
+  .centreName {
+    font-size: var(--fs-base);
+  }
+
   .mapContainer {
     border-radius: var(--radius-xl);
   }
 
   .mapPlaceholder {
-    aspect-ratio: 4 / 3;
+    min-height: 280px;
   }
 
-  .locationPin {
-    width: 60px;
-    height: 60px;
+  .areasSection {
+    margin-top: var(--space-8);
   }
 
-  .connectivityBar {
-    flex-direction: column;
-    padding: var(--space-3);
+  .areasTitle {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-4);
+  }
+
+  .areasGrid {
     gap: var(--space-2);
   }
 
-  .connectivityItem {
-    flex: none;
-    width: 100%;
+  .areaPill {
+    height: 32px;
+    font-size: var(--fs-xs);
+  }
+
+  .connectivitySection {
+    margin-top: var(--space-8);
   }
 
   .connectivityIcon {
-    width: 38px;
-    height: 38px;
-    font-size: 1.2rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
   }
 
-  .landmarksWrapper {
-    padding: var(--space-4);
-    border-radius: var(--radius-xl);
-    margin-top: var(--space-4);
-  }
-
-  .landmarksTitle {
-    font-size: var(--fs-lg);
-    margin-bottom: var(--space-3);
-  }
-
-  .categoryTabs {
-    margin: 0 calc(var(--space-4) * -1);
-    padding: 0 var(--space-4);
-  }
-
-  .landmarksList {
-    max-height: 300px;
-    margin: var(--space-3) 0;
-  }
-
-  .landmarkCard {
-    padding: var(--space-2);
-    gap: var(--space-2);
-  }
-
-  .landmarkIcon {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
-
-  .landmarkName {
-    font-size: var(--fs-xs);
-  }
-
-  .featuresSection {
-    margin-top: var(--space-8);
-    padding-top: var(--space-6);
-  }
-
-  .featureCard {
-    padding: var(--space-4);
-  }
-
-  .featureIcon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    margin-bottom: var(--space-3);
-  }
-
-  .featureTitle {
+  .connectivityText {
     font-size: var(--fs-sm);
   }
 
-  .featureDesc {
-    font-size: var(--fs-xs);
+  .bottomCta {
+    margin-top: var(--space-8);
+    padding: var(--space-8) var(--space-4);
+    border-radius: var(--radius-xl);
+  }
+
+  .ctaTitle {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--space-4);
   }
 }
 
 @media (max-width: 480px) {
   .section {
     padding: var(--space-10) 0;
+  }
+
+  .centreHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contactItem {
+    padding: var(--space-2);
+    gap: var(--space-2);
+  }
+
+  .contactIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 
   .mapOverlay {
@@ -547,59 +452,45 @@
     font-size: var(--fs-xs);
   }
 
-  .connectivityTitle {
+  .mapPinIcon {
+    font-size: 2.4rem;
+  }
+
+  .connectivityCard {
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+
+  .connectivityIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .connectivityText {
     font-size: var(--fs-xs);
   }
 
-  .connectivityDesc {
-    display: none;
+  .bottomCta {
+    padding: var(--space-6) var(--space-3);
   }
 
-  .categoryTab {
-    padding: var(--space-1) var(--space-2);
-    font-size: 10px;
+  .ctaTitle {
+    font-size: var(--fs-lg);
   }
 
-  .tabIcon {
-    font-size: 0.9rem;
-  }
-
-  .landmarkMeta {
-    flex-wrap: wrap;
-    gap: var(--space-1);
-  }
-
-  .distanceChip {
-    height: 20px;
-    font-size: 10px;
-  }
-
-  .upcomingChip {
-    font-size: 8px;
-    height: 18px;
-  }
-
-  .featureCard {
-    padding: var(--space-3);
-  }
-
-  .featureIcon {
-    width: 44px;
-    height: 44px;
-    font-size: 1.3rem;
+  .ctaButtons {
+    flex-direction: column;
+    gap: var(--space-3);
   }
 }
 
 /* Touch Device Optimizations */
 @media (hover: none) and (pointer: coarse) {
-  .connectivityItem:hover,
-  .landmarkCard:hover,
-  .featureCard:hover {
+  .contactItem:hover,
+  .areaPill:hover,
+  .connectivityCard:hover {
     transform: none;
-  }
-
-  .landmarksList {
-    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -616,8 +507,18 @@
     display: none;
   }
 
-  .landmarksWrapper {
+  .centreInfoCard {
     box-shadow: none;
     border: 1px solid var(--medium-gray);
+  }
+
+  .bottomCta {
+    background: var(--white);
+    box-shadow: none;
+    border: 1px solid var(--medium-gray);
+  }
+
+  .ctaTitle {
+    color: var(--primary-dark);
   }
 }
