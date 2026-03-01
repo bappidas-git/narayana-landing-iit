@@ -1,12 +1,12 @@
 /* ============================================
-   FloorPlansSection Styles - Mahindra Blossom
-   Compact Showcase Layout
+   CoursesSection Styles - Narayana IIT-JEE
+   Programme cards with comparison table
    ============================================ */
 
 /* ========== Main Section ========== */
-.floorPlansSection {
+.coursesSection {
   position: relative;
-  padding: 3.5rem 0;
+  padding: 4rem 0;
   background-color: #FFFFFF;
   overflow: hidden;
 }
@@ -36,583 +36,360 @@
   z-index: 0;
 }
 
-/* ========== Section Header - Compact ========== */
+/* ========== Section Header ========== */
 .sectionHeader {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.headerTop {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.floorPlansBadge {
-  margin-bottom: 0.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .sectionTitle {
   position: relative;
 }
 
-.goldText {
+.accentText {
   color: #FF6D00;
   font-style: italic;
 }
 
-/* Highlights Strip - Compact Inline */
-.highlightsStrip {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1rem;
+.sectionSubtitle {
+  line-height: 1.5;
 }
 
-.highlightItem {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-size: 0.75rem;
-  color: #6B7280;
-}
-
-.highlightItem svg {
-  font-size: 14px;
-}
-
-/* ========== Filter Pills ========== */
-.filterWrapper {
+/* ========== Courses Grid (Desktop) ========== */
+.coursesGrid {
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ========== Swiper Container (Mobile) ========== */
+.swiperContainer {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
-.filterPill {
-  padding: 0.5rem 1.25rem;
-  background: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  border-radius: 50px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: #6B7280;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.filterPill:hover {
-  border-color: #FF6D00;
-  color: #FF6D00;
-}
-
-.filterPillActive {
-  background: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
-  border-color: #1A237E;
-  color: #FFFFFF;
-}
-
-.filterPillActive:hover {
-  color: #FFFFFF;
-  border-color: #1A237E;
-}
-
-/* ========== Showcase Container ========== */
-.showcaseContainer {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 1.25rem;
-}
-
-.showcaseCard {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  background: #FFFFFF;
-  border-radius: 20px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid #E5E7EB;
-  overflow: hidden;
-}
-
-/* ========== Showcase Image Section ========== */
-.showcaseImageSection {
-  position: relative;
-  background: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
-  min-height: 380px;
-}
-
-.showcaseImageWrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.showcaseImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease, filter 0.3s ease;
-  filter: blur(6px);
-}
-
-.showcaseImageWrapper:hover .showcaseImage {
-  transform: scale(1.03);
-  filter: blur(8px);
-}
-
-/* Blur overlay - always visible to obscure floor plan details */
-.blurOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(26, 35, 126, 0.3) 0%,
-    rgba(26, 35, 126, 0.15) 50%,
-    rgba(26, 35, 126, 0.3) 100%
-  );
-  backdrop-filter: blur(2px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-/* Hover overlay with CTA button */
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 35, 126, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
-
-.showcaseImageWrapper:hover .imageOverlay {
+.swiperContainer :global(.swiper-pagination-bullet) {
+  width: 8px;
+  height: 8px;
+  background: #C5CAE9;
   opacity: 1;
 }
 
-/* Preview label on blurred image */
-.previewLabel {
+.swiperContainer :global(.swiper-pagination-bullet-active) {
+  background: #FF6D00;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ========== Course Card ========== */
+.courseCard {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: #FFFFFFE6 !important;
-  text-align: center;
-  pointer-events: none;
-}
-
-.previewLabel svg {
-  font-size: 32px;
-  color: #FF6D00;
-}
-
-.previewLabel span {
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.viewPlanBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 12px 24px;
   background: #FFFFFF;
-  border-radius: 50px;
-  color: #1A237E;
-  font-size: 0.875rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  height: 100%;
 }
 
-.viewPlanBtn:hover {
-  background: #FF6D00;
-  color: #FFFFFF;
-}
-
-.viewPlanBtn svg {
-  font-size: 20px;
-}
-
-/* Badges */
-.popularBadge,
-.limitedBadge {
+/* ========== Course Badge ========== */
+.courseBadge {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 10;
+  top: 14px;
+  right: 14px;
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 6px 12px;
+  padding: 4px 10px;
   border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.popularBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
-  color: #1A237E;
+  color: #FFFFFF;
+  z-index: 2;
 }
 
-.limitedBadge {
-  background: linear-gradient(135deg, #F44336 0%, #E57373 100%);
+.courseBadge svg {
+  font-size: 12px;
+}
+
+.premiumBadge {
+  background: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
   color: #FFFFFF;
 }
 
-.popularBadge svg,
-.limitedBadge svg {
-  font-size: 14px;
-}
-
-/* Navigation Arrows */
-.navArrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+/* ========== Course Icon ========== */
+.courseIconWrapper {
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.95);
-  border: none;
-  border-radius: 50%;
+  background: rgba(26, 35, 126, 0.08);
+  border-radius: 14px;
+  margin-bottom: 1rem;
+}
+
+.courseIcon {
+  font-size: 26px;
   color: #1A237E;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.navArrow:hover {
-  background: #FF6D00;
-  color: #FFFFFF;
-  transform: translateY(-50%) scale(1.05);
+/* ========== Course Name ========== */
+.courseName {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.0625rem !important;
+  font-weight: 700 !important;
+  color: #1A237E !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0.75rem !important;
+  min-height: 2.75rem;
 }
 
-.navArrow svg {
-  font-size: 24px;
-}
-
-.navArrowLeft {
-  left: 12px;
-}
-
-.navArrowRight {
-  right: 12px;
-}
-
-/* ========== Showcase Details ========== */
-.showcaseDetails {
-  padding: 1.75rem 1.75rem 1.75rem 0;
+/* ========== Course Meta ========== */
+.courseMeta {
   display: flex;
-  flex-direction: column;
-}
-
-.detailsHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.25rem;
-}
-
-.planType {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1A237E;
-  line-height: 1.1;
-}
-
-.planName {
-  font-size: 0.9375rem;
-  color: #6B7280;
-  margin-top: 0.25rem;
-}
-
-.priceTag {
-  text-align: right;
-}
-
-.priceLabel {
-  display: block;
-  font-size: 0.6875rem;
-  color: #9CA3AF;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.priceValue {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #FF6D00;
-}
-
-/* Quick Specs */
-.quickSpecs {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  flex-wrap: wrap;
   gap: 0.75rem;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid #E5E7EB;
+  margin-bottom: 0.75rem;
 }
 
-.specItem {
+.metaItem {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: #6B7280;
+  font-weight: 500;
 }
 
-.specItem svg {
-  font-size: 20px;
+.metaItem svg {
+  font-size: 15px;
   color: #FF6D00;
 }
 
-.specContent {
+/* ========== Course Description ========== */
+.courseDescription {
+  font-size: 0.8125rem !important;
+  color: #6B7280 !important;
+  line-height: 1.55 !important;
+  margin-bottom: 1rem !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 0;
+}
+
+/* ========== Course Features ========== */
+.courseFeatures {
   display: flex;
   flex-direction: column;
-}
-
-.specValue {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #1A237E;
-  line-height: 1.1;
-}
-
-.specLabel {
-  font-size: 0.6875rem;
-  color: #9CA3AF;
-  text-transform: uppercase;
-}
-
-/* Area Details */
-.areaDetails {
-  display: flex;
-  gap: 1.5rem;
+  gap: 0.4rem;
   margin-bottom: 1rem;
-  padding: 0.875rem 1rem;
-  background: #F8F9FA;
-  border-radius: 10px;
+  flex-grow: 1;
 }
 
-.areaRow {
-  display: flex;
-  flex-direction: column;
-}
-
-.areaRow span:first-child {
-  font-size: 0.6875rem;
-  color: #9CA3AF;
-  text-transform: uppercase;
-  margin-bottom: 0.125rem;
-}
-
-.areaRow span:last-child {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #1A237E;
-}
-
-/* Features List */
-.featuresList {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.featureItem {
+.courseFeatureItem {
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  font-size: 0.8125rem;
+  font-size: 0.78125rem;
   color: #4B5563;
 }
 
-.featureItem svg {
-  font-size: 16px;
+.courseFeatureItem svg {
+  font-size: 15px;
   color: #4CAF50;
   flex-shrink: 0;
 }
 
-/* CTA Buttons */
-.ctaButtons {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: auto;
-}
-
-.primaryBtn {
-  flex: 1;
+/* ========== Course Frequency ========== */
+.courseFrequency {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 12px 20px;
-  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
-  border: none;
-  border-radius: 10px;
-  color: #1A237E;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.primaryBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 109, 0, 0.35);
-}
-
-.primaryBtn svg {
-  font-size: 18px;
-}
-
-.secondaryBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 12px 20px;
-  background: transparent;
-  border: 2px solid #1A237E;
-  border-radius: 10px;
-  color: #1A237E;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.secondaryBtn:hover {
-  background: #1A237E;
-  color: #FFFFFF;
-}
-
-.secondaryBtn svg {
-  font-size: 18px;
-}
-
-/* ========== Thumbnail Strip ========== */
-.thumbnailStrip {
-  position: relative;
-  z-index: 1;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  background: #F3F4F6;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: #4B5563;
   margin-bottom: 1.25rem;
 }
 
-.thumbnailScroller {
-  display: flex;
-  gap: 0.75rem;
-  overflow-x: auto;
-  padding: 0.5rem 0.25rem;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.thumbnailScroller::-webkit-scrollbar {
-  display: none;
-}
-
-.thumbnailCard {
-  position: relative;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.625rem 1rem;
-  background: #FFFFFF;
-  border: 2px solid #E5E7EB;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  min-width: 135px;
-}
-
-.thumbnailCard:hover {
-  border-color: #FF6D00;
-}
-
-.thumbnailActive {
-  border-color: #1A237E;
-  background: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
-}
-
-.thumbnailActive .thumbnailType,
-.thumbnailActive .thumbnailSqft,
-.thumbnailActive .thumbnailPrice {
-  color: #FFFFFF;
-}
-
-.thumbnailActive .thumbnailSqft {
-  color: #FFFFFFB3 !important;
-}
-
-.thumbnailInfo {
-  display: flex;
-  flex-direction: column;
-}
-
-.thumbnailType {
-  font-size: 0.8125rem;
-  font-weight: 700;
+.courseFrequency svg {
+  font-size: 15px;
   color: #1A237E;
+  flex-shrink: 0;
 }
 
-.thumbnailSqft {
-  font-size: 0.625rem;
-  color: #9CA3AF;
-}
-
-.thumbnailPrice {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #FF6D00;
-}
-
-.thumbnailBadge {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 20px;
-  height: 20px;
+/* ========== Course CTA Button ========== */
+.courseCtaBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #FF6D00;
-  border-radius: 50%;
-  color: #1A237E;
-  font-size: 10px;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 11px 20px;
+  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
+  border: none;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 0.8375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
 }
 
-/* ========== Compact CTA ========== */
-.compactCta {
+.courseCtaBtn:hover {
+  box-shadow: 0 6px 20px rgba(255, 109, 0, 0.35);
+}
+
+.courseCtaBtn svg {
+  font-size: 18px;
+}
+
+/* ========== Comparison Section ========== */
+.comparisonSection {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+.comparisonTitle {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  color: #1A237E !important;
+  margin-bottom: 1rem !important;
+}
+
+.comparisonTitle svg {
+  font-size: 22px;
+  color: #FF6D00;
+}
+
+.comparisonTableWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+}
+
+.comparisonTableWrapper::-webkit-scrollbar {
+  height: 4px;
+}
+
+.comparisonTableWrapper::-webkit-scrollbar-track {
+  background: #F3F4F6;
+}
+
+.comparisonTableWrapper::-webkit-scrollbar-thumb {
+  background: #C5CAE9;
+  border-radius: 2px;
+}
+
+.comparisonTable {
+  width: 100%;
+  min-width: 580px;
+  border-collapse: collapse;
+  font-size: 0.8375rem;
+}
+
+.comparisonTable thead {
+  background: linear-gradient(135deg, #1A237E 0%, #283593 100%);
+}
+
+.comparisonTable th {
+  padding: 0.875rem 1rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.comparisonTable th:first-child {
+  border-radius: 11px 0 0 0;
+}
+
+.comparisonTable th:last-child {
+  border-radius: 0 11px 0 0;
+}
+
+.comparisonTable tbody tr {
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.comparisonTable tbody tr:last-child {
+  border-bottom: none;
+}
+
+.comparisonTable tbody tr:nth-child(even) {
+  background: #FAFAFA;
+}
+
+.comparisonTable td {
+  padding: 0.75rem 1rem;
+  color: #374151;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.comparisonLabel {
+  font-weight: 600 !important;
+  color: #1A237E !important;
+}
+
+.comparisonYes {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.comparisonYes svg {
+  font-size: 16px;
+}
+
+.comparisonNo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+.comparisonNo svg {
+  font-size: 16px;
+}
+
+/* ========== Bottom CTA ========== */
+.bottomCta {
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.75rem;
   background: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
   border-radius: 14px;
 }
@@ -641,19 +418,19 @@
 
 .ctaSubtitle {
   font-size: 0.75rem;
-  color: #FFFFFF99 !important;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .ctaBtn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 10px 20px;
+  padding: 11px 22px;
   background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
   border: none;
   border-radius: 10px;
-  color: #1A237E;
-  font-size: 0.8125rem;
+  color: #FFFFFF;
+  font-size: 0.8375rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -669,313 +446,48 @@
   font-size: 18px;
 }
 
-/* ========== Modal Styles ========== */
-.planModal {
-  z-index: 1400;
-}
-
-.modalContent {
-  position: relative;
-  padding: 2rem !important;
-}
-
-.modalClose {
-  z-index: 10;
-}
-
-.modalImageWrapper {
-  position: relative;
-  background: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.modalImage {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.modalDetails {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.modalType {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1A237E;
-  margin-bottom: 0.25rem;
-}
-
-.modalName {
-  font-size: 1rem;
-  color: #FF6D00;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.modalDesc {
-  font-size: 0.9375rem;
-  color: #6B7280;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-/* Modal Specs */
-.modalSpecs {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.modalSpecItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
-  background: #F8F9FA;
-  border-radius: 12px;
-}
-
-.modalSpecItem svg {
-  font-size: 24px;
-  color: #FF6D00;
-  margin-bottom: 0.5rem;
-}
-
-.modalSpecValue {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1A237E;
-}
-
-.modalSpecLabel {
-  font-size: 0.75rem;
-  color: #6B7280;
-}
-
-/* Modal Area Details */
-.modalAreaDetails {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: #F8F9FA;
-  border-radius: 12px;
-}
-
-.modalAreaRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #E5E7EB;
-}
-
-.modalAreaRow:last-child {
-  border-bottom: none;
-}
-
-.modalAreaRow span:first-child {
-  font-size: 0.875rem;
-  color: #6B7280;
-}
-
-.modalAreaRow span:last-child {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: #1A237E;
-}
-
-/* Modal Price */
-.modalPrice {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  background: linear-gradient(135deg, rgba(255, 109, 0, 0.1) 0%, rgba(255, 109, 0, 0.05) 100%);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 109, 0, 0.2);
-  margin-bottom: 1.5rem;
-}
-
-.modalPriceLabel {
-  font-size: 0.8125rem;
-  color: #6B7280;
-  margin-bottom: 0.25rem;
-}
-
-.modalPriceValue {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #FF6D00;
-}
-
-/* Modal Features */
-.modalFeatures {
-  margin-bottom: 1.5rem;
-}
-
-.featuresTitle {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: #1A237E;
-  margin-bottom: 0.75rem;
-}
-
-.modalFeaturesList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.modalFeatureItem {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: #4B5563;
-}
-
-.modalFeatureItem svg {
-  font-size: 18px;
-  color: #4CAF50;
-  flex-shrink: 0;
-}
-
-/* Modal Actions */
-.modalActions {
-  display: flex;
-  gap: 1rem;
-  margin-top: auto;
-}
-
-.modalPrimaryBtn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 14px 24px;
-  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
-  border: none;
-  border-radius: 12px;
-  color: #1A237E;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.modalPrimaryBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 109, 0, 0.3);
-}
-
-.modalPrimaryBtn svg {
-  font-size: 20px;
-}
-
-.modalSecondaryBtn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 14px 24px;
-  background: transparent;
-  border: 2px solid #1A237E;
-  border-radius: 12px;
-  color: #1A237E;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.modalSecondaryBtn:hover {
-  background: #1A237E;
-  color: #FFFFFF;
-}
-
-.modalSecondaryBtn svg {
-  font-size: 20px;
-}
-
-/* ========== Responsive Styles ========== */
-
-/* Large Desktop (1440px+) */
+/* ========== Responsive - Large Desktop (1440px+) ========== */
 @media (min-width: 1440px) {
-  .floorPlansSection {
-    padding: 4rem 0;
+  .coursesSection {
+    padding: 5rem 0;
   }
 
-  .showcaseCard {
-    gap: 2.5rem;
+  .coursesGrid {
+    gap: 2rem;
   }
 
-  .showcaseImageSection {
-    min-height: 420px;
-  }
-
-  .showcaseDetails {
-    padding: 2rem 2rem 2rem 0;
-  }
-
-  .planType {
-    font-size: 2rem;
-  }
-
-  .priceValue {
-    font-size: 1.625rem;
+  .courseCard {
+    padding: 2rem 1.75rem;
   }
 }
 
-/* Desktop (1024px - 1439px) */
+/* ========== Responsive - Medium Desktop (1024-1439px) ========== */
 @media (min-width: 1024px) and (max-width: 1439px) {
-  .floorPlansSection {
-    padding: 3.5rem 0;
+  .coursesGrid {
+    gap: 1.25rem;
   }
 
-  .showcaseImageSection {
-    min-height: 360px;
+  .courseCard {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .courseName {
+    font-size: 1rem !important;
   }
 }
 
-/* Tablet (768px - 1023px) */
+/* ========== Responsive - Tablet (768-1023px) ========== */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .floorPlansSection {
+  .coursesSection {
     padding: 3rem 0;
   }
 
-  .showcaseCard {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .showcaseImageSection {
-    min-height: 300px;
-  }
-
-  .showcaseDetails {
-    padding: 1.5rem;
-  }
-
-  .quickSpecs {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .featuresList {
+  .coursesGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 
-  .compactCta {
+  .bottomCta {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
@@ -990,16 +502,11 @@
     width: 100%;
     justify-content: center;
   }
-
-  /* Modal Tablet */
-  .modalSpecs {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
-/* Mobile (max-width: 767px) */
+/* ========== Responsive - Mobile (max-width: 767px) ========== */
 @media (max-width: 767px) {
-  .floorPlansSection {
+  .coursesSection {
     padding: 2.5rem 0;
   }
 
@@ -1008,169 +515,44 @@
   }
 
   .sectionHeader {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.75rem;
   }
 
-  .highlightsStrip {
-    gap: 0.5rem;
-    margin-top: 0.75rem;
+  .courseCard {
+    padding: 1.5rem 1.25rem;
   }
 
-  .highlightItem {
-    font-size: 0.6875rem;
+  .courseName {
+    font-size: 1rem !important;
+    min-height: auto;
   }
 
-  .highlightItem svg {
-    font-size: 12px;
+  .courseDescription {
+    font-size: 0.8125rem !important;
   }
 
-  .filterWrapper {
-    gap: 0.375rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .filterPill {
-    padding: 0.375rem 0.875rem;
+  .courseFeatureItem {
     font-size: 0.75rem;
   }
 
-  .showcaseContainer {
-    margin-bottom: 1rem;
+  .courseFrequency {
+    font-size: 0.7rem;
   }
 
-  .showcaseCard {
-    grid-template-columns: 1fr;
-    gap: 0;
-    border-radius: 16px;
-  }
-
-  .showcaseImageSection {
-    min-height: 240px;
-    border-radius: 16px 16px 0 0;
-  }
-
-  .navArrow {
-    width: 36px;
-    height: 36px;
-  }
-
-  .navArrow svg {
-    font-size: 20px;
-  }
-
-  .navArrowLeft {
-    left: 8px;
-  }
-
-  .navArrowRight {
-    right: 8px;
-  }
-
-  .previewLabel svg {
-    font-size: 28px;
-  }
-
-  .previewLabel span {
-    font-size: 0.8125rem;
-  }
-
-  .showcaseDetails {
-    padding: 1.25rem;
-  }
-
-  .detailsHeader {
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .priceTag {
-    text-align: left;
-  }
-
-  .planType {
-    font-size: 1.375rem;
-  }
-
-  .priceValue {
-    font-size: 1.25rem;
-  }
-
-  .quickSpecs {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .specValue {
-    font-size: 1rem;
-  }
-
-  .specLabel {
-    font-size: 0.625rem;
-  }
-
-  .areaDetails {
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    margin-bottom: 0.875rem;
-  }
-
-  .areaRow {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .featuresList {
-    grid-template-columns: 1fr;
-    gap: 0.375rem;
-    margin-bottom: 1rem;
-  }
-
-  .featureItem {
-    font-size: 0.75rem;
-  }
-
-  .ctaButtons {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .primaryBtn,
-  .secondaryBtn {
+  .courseCtaBtn {
     padding: 10px 16px;
     font-size: 0.8125rem;
   }
 
-  .thumbnailStrip {
-    margin-bottom: 1rem;
+  .comparisonTitle {
+    font-size: 1rem !important;
   }
 
-  .thumbnailCard {
-    min-width: 120px;
-    padding: 0.5rem 0.75rem;
-    gap: 0.5rem;
-  }
-
-  .thumbnailType {
-    font-size: 0.75rem;
-  }
-
-  .thumbnailSqft {
-    font-size: 0.5625rem;
-  }
-
-  .thumbnailPrice {
-    font-size: 0.6875rem;
-  }
-
-  .compactCta {
+  .bottomCta {
     flex-direction: column;
     text-align: center;
     gap: 0.875rem;
-    padding: 1rem;
+    padding: 1.25rem 1rem;
     border-radius: 12px;
   }
 
@@ -1184,7 +566,7 @@
   }
 
   .ctaTitle {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
   }
 
   .ctaSubtitle {
@@ -1197,267 +579,68 @@
     padding: 10px 16px;
     font-size: 0.8125rem;
   }
-
-  /* Modal Mobile */
-  .modalContent {
-    padding: 1rem !important;
-  }
-
-  .modalImageWrapper {
-    border-radius: 12px;
-    margin-bottom: 1rem;
-  }
-
-  .modalType {
-    font-size: 1.375rem;
-  }
-
-  .modalName {
-    font-size: 0.875rem;
-  }
-
-  .modalDesc {
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
-
-  .modalSpecs {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .modalSpecItem {
-    padding: 0.75rem;
-    border-radius: 10px;
-  }
-
-  .modalSpecItem svg {
-    font-size: 20px;
-    margin-bottom: 0.375rem;
-  }
-
-  .modalSpecValue {
-    font-size: 1.0625rem;
-  }
-
-  .modalSpecLabel {
-    font-size: 0.6875rem;
-  }
-
-  .modalAreaDetails {
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border-radius: 10px;
-  }
-
-  .modalAreaRow {
-    padding: 0.375rem 0;
-  }
-
-  .modalAreaRow span:first-child {
-    font-size: 0.8125rem;
-  }
-
-  .modalAreaRow span:last-child {
-    font-size: 0.875rem;
-  }
-
-  .modalPrice {
-    padding: 0.875rem;
-    margin-bottom: 1rem;
-    border-radius: 10px;
-  }
-
-  .modalPriceLabel {
-    font-size: 0.75rem;
-  }
-
-  .modalPriceValue {
-    font-size: 1.5rem;
-  }
-
-  .modalFeatures {
-    margin-bottom: 1.25rem;
-  }
-
-  .featuresTitle {
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .modalFeatureItem {
-    font-size: 0.8125rem;
-  }
-
-  .modalFeatureItem svg {
-    font-size: 16px;
-  }
-
-  .modalActions {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .modalPrimaryBtn,
-  .modalSecondaryBtn {
-    padding: 12px 20px;
-    font-size: 0.875rem;
-    border-radius: 10px;
-  }
-
-  .modalPrimaryBtn svg,
-  .modalSecondaryBtn svg {
-    font-size: 18px;
-  }
 }
 
-/* Small Mobile (max-width: 374px) */
+/* ========== Responsive - Small Mobile (max-width: 374px) ========== */
 @media (max-width: 374px) {
-  .floorPlansSection {
+  .coursesSection {
     padding: 2rem 0;
   }
 
-  .highlightsStrip {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 0.5rem;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  .courseCard {
+    padding: 1.25rem 1rem;
   }
 
-  .highlightsStrip::-webkit-scrollbar {
-    display: none;
+  .courseName {
+    font-size: 0.9375rem !important;
   }
 
-  .highlightItem {
-    flex-shrink: 0;
-    font-size: 0.625rem;
+  .courseIconWrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
   }
 
-  .filterPill {
-    padding: 0.375rem 0.75rem;
-    font-size: 0.6875rem;
-  }
-
-  .showcaseImageSection {
-    min-height: 200px;
-  }
-
-  .previewLabel svg {
-    font-size: 24px;
-  }
-
-  .previewLabel span {
-    font-size: 0.75rem;
-  }
-
-  .showcaseDetails {
-    padding: 1rem;
-  }
-
-  .planType {
-    font-size: 1.25rem;
-  }
-
-  .priceValue {
-    font-size: 1.125rem;
-  }
-
-  .quickSpecs {
-    gap: 0.5rem;
-  }
-
-  .specItem svg {
-    font-size: 16px;
-  }
-
-  .specValue {
-    font-size: 0.9375rem;
-  }
-
-  .thumbnailCard {
-    min-width: 110px;
-    padding: 0.5rem 0.625rem;
+  .courseIcon {
+    font-size: 22px;
   }
 
   .ctaTitle {
-    font-size: 0.75rem;
-  }
-
-  .modalType {
-    font-size: 1.25rem;
-  }
-
-  .modalSpecValue {
-    font-size: 1rem;
-  }
-
-  .modalPriceValue {
-    font-size: 1.375rem;
+    font-size: 0.8125rem;
   }
 }
 
 /* ========== Hover Effects (Pointer Devices) ========== */
 @media (hover: hover) {
-  .thumbnailCard:hover {
-    transform: translateY(-2px);
-  }
-
-  .navArrow:hover {
-    transform: translateY(-50%) scale(1.08);
+  .courseCard:hover {
+    border-color: rgba(26, 35, 126, 0.15);
   }
 }
 
 /* ========== Reduced Motion ========== */
 @media (prefers-reduced-motion: reduce) {
-  .showcaseCard,
-  .showcaseImage,
-  .imageOverlay,
-  .blurOverlay,
-  .viewPlanBtn,
-  .primaryBtn,
-  .secondaryBtn,
-  .ctaBtn,
-  .modalPrimaryBtn,
-  .modalSecondaryBtn,
-  .thumbnailCard,
-  .filterPill,
-  .navArrow {
+  .courseCard,
+  .courseCtaBtn,
+  .ctaBtn {
     transition: none;
   }
 
-  .showcaseImageWrapper:hover .showcaseImage {
-    transform: none;
-    filter: blur(6px);
-  }
-
-  .primaryBtn:hover,
-  .secondaryBtn:hover,
-  .ctaBtn:hover,
-  .thumbnailCard:hover {
+  .courseCtaBtn:hover,
+  .ctaBtn:hover {
     transform: none;
   }
 }
 
 /* ========== Focus Styles for Accessibility ========== */
-.filterPill:focus-visible,
-.primaryBtn:focus-visible,
-.secondaryBtn:focus-visible,
-.ctaBtn:focus-visible,
-.viewPlanBtn:focus-visible,
-.modalPrimaryBtn:focus-visible,
-.modalSecondaryBtn:focus-visible,
-.thumbnailCard:focus-visible,
-.navArrow:focus-visible {
+.courseCtaBtn:focus-visible,
+.ctaBtn:focus-visible {
   outline: 2px solid #FF6D00;
   outline-offset: 2px;
 }
 
 /* ========== Print Styles ========== */
 @media print {
-  .floorPlansSection {
+  .coursesSection {
     padding: 2rem 0;
     background: white;
   }
@@ -1467,41 +650,26 @@
     display: none;
   }
 
-  .showcaseCard {
+  .courseCard {
     box-shadow: none;
     border: 1px solid #ddd;
+    page-break-inside: avoid;
   }
 
-  .imageOverlay,
-  .blurOverlay {
+  .courseBadge {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .bottomCta {
     display: none;
   }
 
-  .showcaseImage {
-    filter: none;
+  .courseCtaBtn {
+    display: none;
   }
 
-  .goldText,
-  .priceValue,
-  .modalPriceValue {
+  .accentText {
     color: #1A237E !important;
-  }
-
-  .compactCta {
-    display: none;
-  }
-
-  .thumbnailStrip {
-    display: none;
-  }
-
-  .navArrow {
-    display: none;
-  }
-
-  .primaryBtn,
-  .secondaryBtn,
-  .ctaBtn {
-    display: none;
   }
 }
