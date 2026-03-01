@@ -34,7 +34,7 @@ const contactInfo = {
 const quickLinks = [
   { icon: 'mdi:floor-plan', label: 'Floor Plans', href: '/#floor-plans' },
   { icon: 'mdi:trophy-award', label: 'Results', href: '/#results' },
-  { icon: 'mdi:map-marker', label: 'Location', href: '/#location' },
+  { icon: 'mdi:map-marker', label: 'Centre', href: '/#centre' },
   { icon: 'mdi:view-grid', label: 'Amenities', href: '/#amenities' },
 ];
 

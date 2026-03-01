@@ -1,38 +1,20 @@
 /* ============================================
-   LocationSection Component - Mahindra Blossom
-   Location advantages and map integration section
+   LocationSection Component - Narayana IIT-JEE
+   Our Centre section showing Guwahati centre info
    ============================================ */
 
-import React, { useState, useMemo } from "react";
-import {
-  Container,
-  Box,
-  Grid,
-  Typography,
-  Chip,
-  Tabs,
-  Tab,
-} from "@mui/material";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { Container, Grid, Typography, Chip } from "@mui/material";
+import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
-import { Player } from "@lottiefiles/react-lottie-player";
 import SectionTitle from "../../common/SectionTitle/SectionTitle";
 import Button from "../../common/Button/Button";
 import { useModal } from "../../../context/ModalContext";
-import {
-  centreData,
-} from "../../../data/centreData";
-import locationPinAnimation from "../../../assets/lottie/location-pin.json";
+import { centreData } from "../../../data/centreData";
 import styles from "./LocationSection.module.css";
 
 const LocationSection = () => {
   const { openLeadDrawer } = useModal();
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  // Filter centres based on active category
-  const filteredLandmarks = useMemo(() => {
-    return centreData;
-  }, [activeCategory]);
 
   // Animation variants
   const containerVariants = {
@@ -77,31 +59,52 @@ const LocationSection = () => {
     },
   };
 
-  const handleCategoryChange = (event, newValue) => {
-    setActiveCategory(newValue);
+  const handleGetDirections = () => {
+    window.open(
+      "https://www.google.com/maps/search/Narayana+Coaching+Center+Guwahati+Assam",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
-  const handleScheduleVisit = () => {
-    openLeadDrawer("schedule-site-visit");
+  const handleBookDemo = () => {
+    openLeadDrawer("book-free-demo");
   };
 
-  const handleViewOnMap = () => {
-    openLeadDrawer("view-map", {
-      subtitle: "View centre on Google Maps",
-    });
-  };
+  const connectivityHighlights = [
+    {
+      icon: "mdi:map-marker-radius",
+      title: "Accessible from all parts of Guwahati",
+      color: "#FF9800",
+    },
+    {
+      icon: "mdi:train",
+      title: "Well-connected via Guwahati Railway Station & LGBI Airport",
+      color: "#2196F3",
+    },
+    {
+      icon: "mdi:earth",
+      title: "Students from across North-East India can enroll",
+      color: "#9C27B0",
+    },
+    {
+      icon: "mdi:home-city",
+      title: "Hostel assistance available for outstation students",
+      color: "#4CAF50",
+    },
+  ];
 
   return (
-    <section id="location" className={styles.section}>
+    <section id="centre" className={styles.section}>
       <Container maxWidth="xl">
         {/* Section Title */}
         <SectionTitle
-          badge="LOCATION"
-          title="Bangalore's Most"
-          highlight="Promising Location"
-          subtitle="Adjacent to Hopefarm Channasandra Metro Station in Whitefield with excellent connectivity to IT hubs, schools, hospitals, and entertainment zones."
+          badge="OUR CENTRE"
+          title="Narayana Coaching Centre in"
+          highlight="Guwahati"
+          subtitle="Bringing world-class IIT-JEE coaching to Assam & North-East India"
           align="center"
-          variant="dark"
+          variant="light"
           badgeVariant="gold"
         />
 
@@ -112,31 +115,120 @@ const LocationSection = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <Grid container spacing={4} className={styles.mainContent}>
+            {/* Centre Info Card */}
+            <Grid item xs={12} md={5}>
+              <motion.div
+                variants={itemVariants}
+                className={styles.centreInfoCard}
+              >
+                <div className={styles.centreHeader}>
+                  <div className={styles.centreIconWrapper}>
+                    <Icon icon="mdi:school" />
+                  </div>
+                  <div>
+                    <Typography
+                      variant="h5"
+                      className={styles.centreName}
+                    >
+                      {centreData.name}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      className={styles.centreAddress}
+                    >
+                      {centreData.address}
+                    </Typography>
+                  </div>
+                </div>
+
+                <div className={styles.contactList}>
+                  <div className={styles.contactItem}>
+                    <div className={styles.contactIcon}>
+                      <Icon icon="mdi:phone" />
+                    </div>
+                    <div>
+                      <Typography
+                        variant="caption"
+                        className={styles.contactLabel}
+                      >
+                        Phone
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        className={styles.contactValue}
+                      >
+                        <a href={`tel:${centreData.phone}`}>+91-9667225657</a>
+                      </Typography>
+                    </div>
+                  </div>
+
+                  <div className={styles.contactItem}>
+                    <div className={styles.contactIcon}>
+                      <Icon icon="mdi:phone-in-talk" />
+                    </div>
+                    <div>
+                      <Typography
+                        variant="caption"
+                        className={styles.contactLabel}
+                      >
+                        Toll Free
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        className={styles.contactValue}
+                      >
+                        <a href={`tel:${centreData.tollFree}`}>{centreData.tollFree}</a>
+                      </Typography>
+                    </div>
+                  </div>
+
+                  <div className={styles.contactItem}>
+                    <div className={styles.contactIcon}>
+                      <Icon icon="mdi:email-outline" />
+                    </div>
+                    <div>
+                      <Typography
+                        variant="caption"
+                        className={styles.contactLabel}
+                      >
+                        Email
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        className={styles.contactValue}
+                      >
+                        <a href={`mailto:${centreData.email}`}>{centreData.email}</a>
+                      </Typography>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </Grid>
+
             {/* Map Section */}
-            <Grid item xs={12} lg={7}>
+            <Grid item xs={12} md={7}>
               <motion.div variants={itemVariants} className={styles.mapWrapper}>
-                {/* Map Container */}
                 <div className={styles.mapContainer}>
-                  {/* Google Maps Embed Placeholder - Replace with actual embed */}
                   <div className={styles.mapPlaceholder}>
+                    <img
+                      src="https://placehold.co/800x400/1A237E/FFFFFF?text=Guwahati+Centre+Location+Map"
+                      alt="Narayana Coaching Centre Guwahati Location Map"
+                      className={styles.mapImage}
+                    />
                     <div className={styles.mapOverlay}>
-                      <Player
-                        autoplay
-                        loop
-                        src={locationPinAnimation}
-                        className={styles.locationPin}
+                      <Icon
+                        icon="mdi:map-marker"
+                        className={styles.mapPinIcon}
                       />
                       <Typography
                         variant="h6"
                         className={styles.mapTitle}
-                        sx={{ color: "#ffffff !important;" }}
                       >
-                        Narayana Coaching Centers
+                        Narayana Coaching Centre
                       </Typography>
                       <Typography
                         variant="body2"
                         className={styles.mapAddress}
-                        sx={{ color: "#ffffff !important;" }}
                       >
                         Guwahati, Assam
                       </Typography>
@@ -144,7 +236,7 @@ const LocationSection = () => {
                         variant="primary"
                         size="small"
                         startIcon="mdi:map-marker"
-                        onClick={handleViewOnMap}
+                        onClick={handleGetDirections}
                         className={styles.mapButton}
                       >
                         View on Google Maps
@@ -152,258 +244,111 @@ const LocationSection = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Connectivity Highlights */}
-                <div className={styles.connectivityBar}>
-                  {[]
-                    .slice(0, 3)
-                    .map((highlight, index) => (
-                      <motion.div
-                        key={highlight.id}
-                        className={`${styles.connectivityItem} ${
-                          highlight.highlight ? styles.highlighted : ""
-                        }`}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                      >
-                        <div
-                          className={styles.connectivityIcon}
-                          style={{
-                            backgroundColor: `${highlight.iconColor}20`,
-                            color: highlight.iconColor,
-                          }}
-                        >
-                          <Icon icon={highlight.icon} />
-                        </div>
-                        <div className={styles.connectivityText}>
-                          <Typography
-                            variant="subtitle2"
-                            className={styles.connectivityTitle}
-                          >
-                            {highlight.title}
-                          </Typography>
-                          <Typography
-                            variant="caption"
-                            className={styles.connectivityDesc}
-                            sx={{ color: "#D9DCE0 !important" }}
-                          >
-                            {highlight.description}
-                          </Typography>
-                        </div>
-                      </motion.div>
-                    ))}
-                </div>
-              </motion.div>
-            </Grid>
-
-            {/* Landmarks Section */}
-            <Grid item xs={12} lg={5}>
-              <motion.div
-                variants={itemVariants}
-                className={styles.landmarksWrapper}
-              >
-                <div className={styles.landmarksHeader}>
-                  <Typography
-                    variant="h5"
-                    className={styles.landmarksTitle}
-                    sx={{ marginBottom: "20px;" }}
-                  >
-                    Nearby <span className={styles.goldText}>Landmarks</span>
-                  </Typography>
-
-                  {/* Category Tabs */}
-                  <Tabs
-                    value={activeCategory}
-                    onChange={handleCategoryChange}
-                    className={styles.categoryTabs}
-                    variant="scrollable"
-                    scrollButtons="auto"
-                    TabIndicatorProps={{
-                      className: styles.tabIndicator,
-                    }}
-                  >
-                    <Tab
-                      value="all"
-                      label="All"
-                      className={styles.categoryTab}
-                    />
-                    {[].map((category) => (
-                      <Tab
-                        key={category.id}
-                        value={category.id}
-                        label={category.name}
-                        icon={
-                          <Icon
-                            icon={category.icon}
-                            className={styles.tabIcon}
-                          />
-                        }
-                        iconPosition="start"
-                        className={styles.categoryTab}
-                      />
-                    ))}
-                  </Tabs>
-                </div>
-
-                {/* Landmarks List */}
-                <div className={styles.landmarksList}>
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeCategory}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                      className={styles.landmarksGrid}
-                    >
-                      {filteredLandmarks.map((landmark, index) => (
-                        <motion.div
-                          key={landmark.id}
-                          variants={cardVariants}
-                          initial="hidden"
-                          animate="visible"
-                          whileHover="hover"
-                          transition={{ delay: index * 0.05 }}
-                          className={`${styles.landmarkCard} ${
-                            landmark.highlight ? styles.highlightedLandmark : ""
-                          }`}
-                        >
-                          <div
-                            className={styles.landmarkIcon}
-                            style={{
-                              backgroundColor: `${landmark.iconColor}15`,
-                              color: landmark.iconColor,
-                            }}
-                          >
-                            <Icon icon={landmark.icon} />
-                          </div>
-                          <div className={styles.landmarkInfo}>
-                            <Typography
-                              variant="subtitle2"
-                              className={styles.landmarkName}
-                            >
-                              {landmark.name}
-                            </Typography>
-                            <div className={styles.landmarkMeta}>
-                              <Chip
-                                label={landmark.distance}
-                                size="small"
-                                className={styles.distanceChip}
-                                icon={<Icon icon="mdi:map-marker-distance" />}
-                              />
-                              <Typography
-                                variant="caption"
-                                className={styles.driveTime}
-                              >
-                                <Icon
-                                  icon="mdi:car"
-                                  className={styles.driveIcon}
-                                />
-                                {landmark.driveTime}
-                              </Typography>
-                            </div>
-                          </div>
-                          {landmark.highlight && (
-                            <Chip
-                              label="Upcoming"
-                              size="small"
-                              className={styles.upcomingChip}
-                            />
-                          )}
-                        </motion.div>
-                      ))}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-
-                {/* CTA Button */}
-                <motion.div
-                  variants={itemVariants}
-                  className={styles.landmarksCta}
-                >
-                  <Button
-                    variant="outline"
-                    size="large"
-                    fullWidth
-                    endIcon="mdi:arrow-right"
-                    onClick={handleScheduleVisit}
-                  >
-                    Schedule a Site Visit
-                  </Button>
-                </motion.div>
               </motion.div>
             </Grid>
           </Grid>
         </motion.div>
 
-        {/* Location Features Grid */}
+        {/* Areas Served Section */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className={styles.featuresSection}
+          className={styles.areasSection}
+        >
+          <motion.div variants={itemVariants}>
+            <Typography variant="h5" className={styles.areasTitle}>
+              Now Serving Students From
+            </Typography>
+          </motion.div>
+          <motion.div variants={itemVariants} className={styles.areasGrid}>
+            {centreData.nearbyAreas.map((area, index) => (
+              <motion.div
+                key={area}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.03, duration: 0.3 }}
+              >
+                <Chip
+                  label={area}
+                  className={styles.areaPill}
+                  icon={<Icon icon="mdi:map-marker" />}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Connectivity Highlights - 2x2 Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className={styles.connectivitySection}
         >
           <Grid container spacing={3}>
-            {[
-              {
-                icon: "mdi:train",
-                title: "Adjacent to Metro",
-                desc: "Hopefarm Channasandra Metro Station",
-                color: "#FF9800",
-              },
-              {
-                icon: "mdi:office-building",
-                title: "IT Hub Proximity",
-                desc: "ITPB & Google Office within 2 km",
-                color: "#2196F3",
-              },
-              {
-                icon: "mdi:airplane",
-                title: "50 mins to Airport",
-                desc: "Quick Airport Access",
-                color: "#9C27B0",
-              },
-              {
-                icon: "mdi:road",
-                title: "ORR Connected",
-                desc: "Outer Ring Road Access",
-                color: "#4CAF50",
-              },
-            ].map((feature, index) => (
-              <Grid item xs={6} sm={6} md={3} key={index}>
+            {connectivityHighlights.map((item, index) => (
+              <Grid item xs={12} sm={6} key={index}>
                 <motion.div
-                  variants={itemVariants}
-                  className={styles.featureCard}
+                  variants={cardVariants}
+                  whileHover="hover"
+                  className={styles.connectivityCard}
                 >
                   <div
-                    className={styles.featureIcon}
+                    className={styles.connectivityIcon}
                     style={{
-                      backgroundColor: `${feature.color}15`,
-                      color: feature.color,
+                      backgroundColor: `${item.color}15`,
+                      color: item.color,
                     }}
                   >
-                    <Icon icon={feature.icon} />
+                    <Icon icon={item.icon} />
                   </div>
                   <Typography
-                    variant="subtitle1"
-                    className={styles.featureTitle}
+                    variant="body1"
+                    className={styles.connectivityText}
                   >
-                    {feature.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    className={styles.featureDesc}
-                    sx={{ color: "#D9DCE0 !important" }}
-                  >
-                    {feature.desc}
+                    {item.title}
                   </Typography>
                 </motion.div>
               </Grid>
             ))}
           </Grid>
+        </motion.div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className={styles.bottomCta}
+        >
+          <motion.div variants={itemVariants}>
+            <Typography variant="h5" className={styles.ctaTitle}>
+              Visit our Guwahati centre today!
+            </Typography>
+          </motion.div>
+          <motion.div variants={itemVariants} className={styles.ctaButtons}>
+            <Button
+              variant="primary"
+              size="large"
+              startIcon="mdi:directions"
+              onClick={handleGetDirections}
+            >
+              Get Directions
+            </Button>
+            <Button
+              variant="outline"
+              size="large"
+              startIcon="mdi:calendar-check"
+              onClick={handleBookDemo}
+            >
+              Book Free Demo
+            </Button>
+          </motion.div>
         </motion.div>
       </Container>
 
