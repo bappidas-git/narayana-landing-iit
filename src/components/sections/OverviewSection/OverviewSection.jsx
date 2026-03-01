@@ -1,10 +1,10 @@
 /* ============================================
-   OverviewSection Component - Mahindra Blossom
-   Compact, innovative overview with bento grid layout
+   OverviewSection Component - About Narayana
+   IIT-JEE legacy, stats, content grid & differentiators
    ============================================ */
 
-import React, { useState, useEffect, useCallback } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Container,
   Typography,
@@ -13,16 +13,8 @@ import {
   useTheme,
 } from "@mui/material";
 import { Icon } from "@iconify/react";
-import { useModal } from "../../../context/ModalContext";
 import AnimatedCounter from "../../common/AnimatedCounter/AnimatedCounter";
 import styles from "./OverviewSection.module.css";
-
-// Import actual overview images
-import overviewImage1 from "../../../assets/images/overview/overview-image-1.jpg";
-import overviewImage2 from "../../../assets/images/overview/overview-image-2.jpg";
-import overviewImage3 from "../../../assets/images/overview/overview-image-3.jpg";
-import overviewImage4 from "../../../assets/images/overview/overview-image-4.jpg";
-import overviewImage5 from "../../../assets/images/overview/overview-image-5.jpg";
 
 // Animation variants
 const containerVariants = {
@@ -48,113 +40,104 @@ const itemVariants = {
   },
 };
 
-const imageVariants = {
-  enter: (direction) => ({
-    x: direction > 0 ? 100 : -100,
-    opacity: 0,
-    scale: 0.95,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  },
-  exit: (direction) => ({
-    x: direction < 0 ? 100 : -100,
-    opacity: 0,
-    scale: 0.95,
-    transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  }),
-};
-
-// Consolidated data - Five Pillars of Mahindra Blossom
+// Stats data
 const keyStats = [
   {
-    value: "7.8",
-    unit: "Acres",
-    label: "Prime Location",
-    icon: "mdi:map-marker-radius",
-    color: "#FF6D00",
-  },
-  {
-    value: "97K",
-    unit: "Sq.Ft",
-    label: "Amenities",
-    icon: "mdi:home-city-outline",
+    value: "40",
+    suffix: "+",
+    label: "Years of Excellence",
+    icon: "mdi:trophy-award",
     color: "#FF6D00",
   },
   {
     value: "4",
-    unit: "Acres",
-    label: "Expansive Greens",
-    icon: "mdi:tree",
-    color: "#4CAF50",
+    suffix: "",
+    label: "Students in Top 15 AIR (JEE 2024)",
+    icon: "mdi:medal",
+    color: "#1A237E",
   },
   {
-    value: "0",
-    unit: "km",
-    label: "Hopefarm Metro",
-    sublabel: "Adjacent • Walk",
-    icon: "mdi:train-variant",
+    value: "30",
+    suffix: "",
+    label: "Students in Top 100 AIR",
+    icon: "mdi:star-circle",
+    color: "#FF6D00",
+  },
+  {
+    value: "200",
+    suffix: "+",
+    label: "Centers Pan India",
+    icon: "mdi:map-marker-multiple",
+    color: "#1A237E",
+  },
+  {
+    value: "90",
+    suffix: "%",
+    label: "Max Scholarship",
+    icon: "mdi:school",
     color: "#FF6D00",
   },
 ];
 
-const quickFeatures = [
-  { icon: "mdi:train-variant", text: "Metro Adjacent" },
-  { icon: "mdi:floor-plan", text: "Best-in-Class Design" },
-  { icon: "mdi:account-group-outline", text: "Vibrant Community" },
-  { icon: "mdi:tree", text: "4 Acres Greens" },
-  { icon: "mdi:leaf", text: "IGBC Certified" },
-  { icon: "mdi:map-marker", text: "HopeFarm Jn., Whitefield" },
-  { icon: "mdi:shield-check", text: "24/7 Security" },
-  { icon: "mdi:home-variant-outline", text: "Premium Living" },
+// Image grid data
+const gridImages = [
+  {
+    src: "https://placehold.co/400x300/1A237E/FFFFFF?text=Classroom",
+    alt: "Narayana Classroom",
+  },
+  {
+    src: "https://placehold.co/400x300/283593/FFFFFF?text=Students",
+    alt: "Narayana Students",
+  },
+  {
+    src: "https://placehold.co/400x300/FF6D00/FFFFFF?text=Results",
+    alt: "Narayana Results",
+  },
 ];
 
-const galleryImages = [
-  { src: overviewImage1, alt: "Mahindra Blossom - Modern Living" },
-  { src: overviewImage2, alt: "Mahindra Blossom - Premium Amenities" },
-  { src: overviewImage3, alt: "Mahindra Blossom - Luxury Lifestyle" },
-  { src: overviewImage4, alt: "Mahindra Blossom - Exterior View" },
-  { src: overviewImage5, alt: "Mahindra Blossom - Community Living" },
+// Key differentiators data
+const differentiators = [
+  {
+    icon: "mdi:calendar-clock",
+    title: "Micro-Schedules & Test Planners",
+    description:
+      "Structured daily plans and test schedules designed for maximum efficiency and consistent progress.",
+  },
+  {
+    icon: "mdi:whatsapp",
+    title: "WhatsApp Query Resolution System (WQRS)",
+    description:
+      "Instant doubt-clearing via WhatsApp so students never stay stuck on a problem.",
+  },
+  {
+    icon: "mdi:file-document-check",
+    title: "All India Test Series",
+    description:
+      "Compete with thousands of aspirants nationwide and benchmark your preparation level.",
+  },
+  {
+    icon: "mdi:account-star",
+    title: "Personalised Coaching",
+    description:
+      "Tailored guidance and mentoring based on each student's strengths and areas of improvement.",
+  },
 ];
 
 const OverviewSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const { openLeadDrawer } = useModal();
 
-  // Image carousel state
-  const [[activeIndex, direction], setActiveIndex] = useState([0, 0]);
-
-  // Auto-rotate images
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex(([prev]) => [(prev + 1) % galleryImages.length, 1]);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleImageNav = useCallback((newIndex) => {
-    setActiveIndex(([prev]) => [newIndex, newIndex > prev ? 1 : -1]);
-  }, []);
-
-  const handleScheduleVisit = () => {
-    openLeadDrawer("schedule-site-visit");
+  const handleExploreCourses = () => {
+    const coursesSection = document.getElementById("courses");
+    if (coursesSection) {
+      coursesSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
-    <section className={styles.overviewSection} id="overview" ref={ref}>
+    <section className={styles.overviewSection} id="why-narayana" ref={ref}>
       {/* Background Elements */}
       <div className={styles.bgGradient} />
       <div className={styles.bgPattern} />
@@ -166,9 +149,9 @@ const OverviewSection = () => {
           animate={isInView ? "visible" : "hidden"}
           className={styles.mainWrapper}
         >
-          {/* Section Header - Professional Design */}
+          {/* Section Header */}
           <motion.div variants={itemVariants} className={styles.sectionHeader}>
-            <span className={styles.badge}>HOME OF POSITIVE ENERGY</span>
+            <span className={styles.badge}>ABOUT NARAYANA</span>
             <Typography
               variant="h2"
               className={styles.sectionTitle}
@@ -180,7 +163,7 @@ const OverviewSection = () => {
                 letterSpacing: "-0.01em",
               }}
             >
-              Mahindra Blossom
+              Why Choose Narayana for IIT-JEE?
             </Typography>
             <Typography
               variant="h3"
@@ -188,192 +171,146 @@ const OverviewSection = () => {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 500,
-                fontSize: { xs: "1rem", sm: "1.125rem", md: "1.25rem" },
+                fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.2rem" },
                 color: "#6b7280",
                 marginTop: "0.5rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "0.5rem",
               }}
             >
-              <Icon icon="mdi:map-marker" style={{ color: "#FF6D00" }} />
-              HopeFarm Junction, Whitefield
+              India's Most Trusted Name in IIT-JEE Coaching Since 1979
             </Typography>
           </motion.div>
 
-          {/* Bento Grid Layout */}
-          <div className={styles.bentoGrid}>
-            {/* Image Gallery Card - Main Feature */}
-            <motion.div
-              variants={itemVariants}
-              className={`${styles.bentoCard} ${styles.imageCard}`}
-            >
-              <div className={styles.imageGallery}>
-                <AnimatePresence initial={false} custom={direction} mode="wait">
-                  <motion.img
-                    key={activeIndex}
-                    src={galleryImages[activeIndex].src}
-                    alt={galleryImages[activeIndex].alt}
-                    className={styles.galleryImage}
-                    custom={direction}
-                    variants={imageVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    loading="lazy"
-                  />
-                </AnimatePresence>
-
-                {/* Image Navigation Dots */}
-                <div className={styles.imageDots}>
-                  {galleryImages.map((_, idx) => (
-                    <button
-                      key={idx}
-                      className={`${styles.dot} ${
-                        idx === activeIndex ? styles.activeDot : ""
-                      }`}
-                      onClick={() => handleImageNav(idx)}
-                      aria-label={`View image ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-
-                {/* Floating Badge */}
-                <motion.div
-                  className={styles.floatingBadge}
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+          {/* Stats Counter Row */}
+          <motion.div variants={itemVariants} className={styles.statsRow}>
+            {keyStats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className={styles.statItem}
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div
+                  className={styles.statIcon}
+                  style={{ backgroundColor: `${stat.color}15` }}
                 >
-                  <span className={styles.badgeValue}>7.8</span>
-                  <span
-                    className={styles.badgeLabel}
-                    style={{ color: "#FFFFFFE6" }}
-                  >
-                    Acres
-                  </span>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Stats Grid */}
-            <motion.div
-              variants={itemVariants}
-              className={`${styles.bentoCard} ${styles.statsCard}`}
-            >
-              <div className={styles.statsGrid}>
-                {keyStats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    className={styles.statItem}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div
-                      className={styles.statIcon}
-                      style={{ backgroundColor: `${stat.color}15` }}
-                    >
-                      <Icon icon={stat.icon} style={{ color: stat.color }} />
-                    </div>
-                    <div className={styles.statContent}>
-                      <div className={styles.statValue}>
-                        <AnimatedCounter
-                          value={stat.value}
-                          duration={1.5}
-                          delay={0.2 + index * 0.1}
-                        />
-                        <span className={styles.statUnit}>{stat.unit}</span>
-                      </div>
-                      <span className={styles.statLabel}>{stat.label}</span>
-                      {stat.sublabel && (
-                        <span className={styles.statSublabel}>{stat.sublabel}</span>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Quick Features Strip */}
-            <motion.div
-              variants={itemVariants}
-              className={`${styles.bentoCard} ${styles.featuresCard}`}
-            >
-              <div className={styles.featuresScroll}>
-                <div className={styles.featuresTrack}>
-                  {[...quickFeatures, ...quickFeatures].map(
-                    (feature, index) => (
-                      <div key={index} className={styles.featureChip}>
-                        <Icon
-                          icon={feature.icon}
-                          className={styles.featureIcon}
-                        />
-                        <span>{feature.text}</span>
-                      </div>
-                    )
+                  <Icon icon={stat.icon} style={{ color: stat.color }} />
+                </div>
+                <div className={styles.statValue}>
+                  <AnimatedCounter
+                    value={stat.value}
+                    duration={1.5}
+                    delay={0.2 + index * 0.1}
+                  />
+                  {stat.suffix && (
+                    <span className={styles.statSuffix}>{stat.suffix}</span>
                   )}
                 </div>
-              </div>
+                <span className={styles.statLabel}>{stat.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Content Grid (2 columns desktop, 1 column mobile) */}
+          <div className={styles.contentGrid}>
+            {/* Left Column - Text */}
+            <motion.div variants={itemVariants} className={styles.textColumn}>
+              <Typography className={styles.contentParagraph}>
+                For more than forty years, Narayana Group has established
+                unparalleled standards in academic excellence. Consistently
+                producing top performers in IIT-JEE since inception, Narayana is
+                now the best coaching center for IIT-JEE in India.
+              </Typography>
+              <Typography className={styles.contentParagraph}>
+                In JEE Advanced 2024, 4 of the top-15 rankers (Open category)
+                were from Narayana. 18 students in top-50 and 30 students in
+                top-100 ranks in the open category.
+              </Typography>
+              <Button
+                variant="contained"
+                onClick={handleExploreCourses}
+                className={styles.ctaButton}
+                endIcon={<Icon icon="mdi:arrow-right" />}
+                sx={{
+                  background:
+                    "linear-gradient(135deg, #FF6D00 0%, #FF9100 100%)",
+                  color: "#ffffff",
+                  fontWeight: 700,
+                  fontSize: { xs: "0.9375rem", md: "1rem" },
+                  padding: { xs: "12px 28px", md: "14px 36px" },
+                  borderRadius: "50px",
+                  textTransform: "none",
+                  boxShadow: "0 8px 30px rgba(255, 109, 0, 0.3)",
+                  marginTop: "1.5rem",
+                  "&:hover": {
+                    background:
+                      "linear-gradient(135deg, #FF9100 0%, #FF6D00 100%)",
+                    boxShadow: "0 12px 40px rgba(255, 109, 0, 0.45)",
+                    transform: "translateY(-2px)",
+                  },
+                }}
+              >
+                Explore Our Courses →
+              </Button>
             </motion.div>
 
-            {/* CTA Card - Prominent */}
-            <motion.div
-              variants={itemVariants}
-              className={`${styles.bentoCard} ${styles.ctaCard}`}
-            >
-              <div className={styles.ctaContent}>
-                <div className={styles.ctaText}>
-                  <Typography
-                    className={styles.ctaTitle}
-                    sx={{ color: "#ffffff !important;" }}
-                  >
-                    Experience Premium Living
-                  </Typography>
-                  <Typography
-                    className={styles.ctaSubtitle}
-                    sx={{ color: "#FFFFFFB3 !important" }}
-                  >
-                    Schedule a site visit today
-                  </Typography>
-                </div>
-                <Button
-                  variant="contained"
-                  onClick={handleScheduleVisit}
-                  className={styles.ctaButton}
-                  endIcon={<Icon icon="mdi:arrow-right" />}
-                  sx={{
-                    background:
-                      "linear-gradient(135deg, #FF6D00 0%, #FF9100 100%)",
-                    color: "#1A237E",
-                    fontWeight: 700,
-                    fontSize: { xs: "0.9375rem", md: "1rem" },
-                    padding: { xs: "14px 28px", md: "16px 36px" },
-                    borderRadius: "50px",
-                    textTransform: "none",
-                    boxShadow: "0 8px 30px rgba(255, 109, 0, 0.4)",
-                    minWidth: { xs: "100%", sm: "auto" },
-                    "&:hover": {
-                      background:
-                        "linear-gradient(135deg, #FF9100 0%, #FF6D00 100%)",
-                      boxShadow: "0 12px 40px rgba(255, 109, 0, 0.5)",
-                      transform: "translateY(-2px)",
-                    },
-                  }}
+            {/* Right Column - Image Grid */}
+            <motion.div variants={itemVariants} className={styles.imageColumn}>
+              {gridImages.map((img, index) => (
+                <motion.div
+                  key={index}
+                  className={styles.imageWrapper}
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  Schedule Site Visit
-                </Button>
-              </div>
-
-              {/* Decorative elements */}
-              <div className={styles.ctaDecor}>
-                <Icon icon="mdi:calendar-check" className={styles.decorIcon} />
-              </div>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className={styles.gridImage}
+                    loading="lazy"
+                  />
+                </motion.div>
+              ))}
             </motion.div>
           </div>
+
+          {/* Key Differentiators Row */}
+          <motion.div
+            variants={itemVariants}
+            className={styles.differentiatorsRow}
+          >
+            <Typography
+              variant="h4"
+              className={styles.differentiatorsTitle}
+              sx={{
+                fontFamily: "'Poppins', sans-serif",
+                fontWeight: 700,
+                fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" },
+                color: "#1A237E",
+                textAlign: "center",
+                marginBottom: { xs: "1.5rem", md: "2rem" },
+              }}
+            >
+              What Sets Narayana Apart
+            </Typography>
+            <div className={styles.differentiatorsGrid}>
+              {differentiators.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className={styles.differentiatorCard}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className={styles.differentiatorIcon}>
+                    <Icon icon={item.icon} />
+                  </div>
+                  <h4 className={styles.differentiatorTitle}>{item.title}</h4>
+                  <p className={styles.differentiatorDesc}>
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </Container>
     </section>
