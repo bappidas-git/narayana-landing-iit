@@ -64,6 +64,9 @@ const Modal = ({
     return () => {
       document.removeEventListener('keydown', handleEscapeKey);
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
     };
   }, [isOpen, handleEscapeKey]);
 

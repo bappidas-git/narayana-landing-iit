@@ -153,10 +153,6 @@
   font-size: 28px;
 }
 
-.lottieContainer {
-  width: 40px;
-  height: 40px;
-}
 
 /* Icon Color Variants */
 .iconGold {
@@ -330,11 +326,6 @@
 
   .icon {
     font-size: 22px;
-  }
-
-  .lottieContainer {
-    width: 32px;
-    height: 32px;
   }
 }
 

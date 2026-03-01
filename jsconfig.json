@@ -13,8 +13,7 @@
       "@styles/*": ["styles/*"],
       "@theme/*": ["theme/*"],
       "@assets/*": ["assets/*"],
-      "@images/*": ["assets/images/*"],
-      "@lottie/*": ["assets/lottie/*"]
+      "@images/*": ["assets/images/*"]
     },
     "target": "ES6",
     "module": "ESNext",

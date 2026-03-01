@@ -13,7 +13,6 @@ const Card = forwardRef(({
   variant = 'default', // default, elevated, outlined, flat, gradient, dark, feature, stat
   iconVariant = 'gold', // gold, green, purple, orange, pink, red, teal, blue
   icon = null,
-  lottieAnimation = null,
   title = null,
   subtitle = null,
   value = null,
@@ -67,15 +66,11 @@ const Card = forwardRef(({
 
   // Render icon with colored background
   const renderIcon = () => {
-    if (!icon && !lottieAnimation) return null;
+    if (!icon) return null;
 
     return (
       <div className={`${styles.iconWrapper} ${styles[`icon${iconVariant.charAt(0).toUpperCase() + iconVariant.slice(1)}`]}`}>
-        {lottieAnimation ? (
-          <div className={styles.lottieContainer}>
-            {lottieAnimation}
-          </div>
-        ) : typeof icon === 'string' ? (
+        {typeof icon === 'string' ? (
           <Icon icon={icon} className={styles.icon} />
         ) : (
           icon

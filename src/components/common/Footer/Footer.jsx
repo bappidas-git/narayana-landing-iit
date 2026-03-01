@@ -381,8 +381,11 @@ const Footer = () => {
               {/* Column 1: Logo & Tagline */}
               <div className={styles.footerBrand}>
                 <div className={styles.logoWrapper}>
-                  <Icon icon="mdi:school" className={styles.logoIcon} />
-                  <span className={styles.logoText}>Narayana</span>
+                  <img
+                    src="https://www.narayanacoachingcenters.in/images/logo.png"
+                    alt="Narayana Coaching Centers"
+                    style={{ height: '36px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+                  />
                 </div>
                 <p className={styles.tagline}>
                   One of Asia's largest educational conglomerates inspiring
