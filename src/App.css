@@ -59,23 +59,27 @@ section[id] {
 }
 
 .pattern-dots {
-  background-image: radial-gradient(circle, var(--medium-gray, #E0E0E0) 1px, transparent 1px);
+  background-image: radial-gradient(
+    circle,
+    var(--medium-gray, #e0e0e0) 1px,
+    transparent 1px
+  );
   background-size: 24px 24px;
   opacity: 0.3;
 }
 
 .pattern-grid {
   background-image:
-    linear-gradient(to right, var(--medium-gray, #E0E0E0) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--medium-gray, #E0E0E0) 1px, transparent 1px);
+    linear-gradient(to right, var(--medium-gray, #e0e0e0) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--medium-gray, #e0e0e0) 1px, transparent 1px);
   background-size: 40px 40px;
   opacity: 0.2;
 }
 
 .pattern-plus {
   background-image:
-    linear-gradient(var(--medium-gray, #E0E0E0) 1px, transparent 1px),
-    linear-gradient(90deg, var(--medium-gray, #E0E0E0) 1px, transparent 1px);
+    linear-gradient(var(--medium-gray, #e0e0e0) 1px, transparent 1px),
+    linear-gradient(90deg, var(--medium-gray, #e0e0e0) 1px, transparent 1px);
   background-size: 24px 24px;
   background-position: center;
   opacity: 0.15;
@@ -105,19 +109,18 @@ section[id] {
 
 /* Image placeholder shimmer */
 .image-placeholder {
-  background: linear-gradient(
-    90deg,
-    #F0F0F0 25%,
-    #E8E8E8 50%,
-    #F0F0F0 75%
-  );
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* ===========================================
@@ -129,8 +132,8 @@ section[id] {
   position: absolute;
   top: -50px;
   left: 0;
-  background: var(--primary-dark, #1A237E);
-  color: #FFFFFF;
+  background: var(--accent-gold, #ff6d00);
+  color: var(--primary-dark, #1a237e);
   padding: 12px 24px;
   z-index: 10000;
   font-weight: 600;
@@ -147,19 +150,19 @@ section[id] {
 
 /* Custom focus outlines */
 *:focus-visible {
-  outline: 2px solid var(--primary-light, #3949AB);
+  outline: 2px solid var(--accent-gold, #ff6d00);
   outline-offset: 2px;
 }
 
 /* Selection highlight */
 ::selection {
-  background-color: var(--primary-light, #3949AB);
-  color: #FFFFFF;
+  background-color: var(--accent-gold, #ff6d00);
+  color: var(--primary-dark, #1a237e);
 }
 
 ::-moz-selection {
-  background-color: var(--primary-light, #3949AB);
-  color: #FFFFFF;
+  background-color: var(--accent-gold, #ff6d00);
+  color: var(--primary-dark, #1a237e);
 }
 
 /* ===========================================
@@ -171,9 +174,9 @@ section[id] {
 /* Native app feel on mobile */
 @media screen and (max-width: 768px) {
   /* Prevent pull-to-refresh interfering with scroll */
-  body {
+  /* body {
     overscroll-behavior-y: contain;
-  }
+  } */
 
   /* Smooth momentum scrolling */
   .main-content {
@@ -249,7 +252,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%);
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 /* Skeleton loading */
@@ -266,8 +269,12 @@ html {
 }
 
 @keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* ===========================================
@@ -283,7 +290,9 @@ html {
 .page-transition-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 
 .page-transition-exit {
@@ -317,12 +326,24 @@ html {
   animation: fadeIn 0.5s ease forwards;
 }
 
-.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
-.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
-.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
-.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
-.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
-.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-children > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stagger-children > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stagger-children > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stagger-children > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.stagger-children > *:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.stagger-children > *:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
 /* ===========================================
    Print Styles
