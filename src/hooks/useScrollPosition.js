@@ -1,5 +1,5 @@
 /* ============================================
-   useScrollPosition Hook - Mahindra Blossom
+   useScrollPosition Hook - Narayana IIT-JEE
    Custom hook for tracking scroll position
    ============================================ */
 

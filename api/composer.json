@@ -1,6 +1,6 @@
 {
-    "name": "mahindra-blossom/lead-api",
-    "description": "Lead form submission API for Mahindra Blossom Landing Page",
+    "name": "narayana-iit-jee/lead-api",
+    "description": "Lead form submission API for Narayana IIT-JEE Landing Page",
     "type": "project",
     "require": {
         "php": ">=7.4",

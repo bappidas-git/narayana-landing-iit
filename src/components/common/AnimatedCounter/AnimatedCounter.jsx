@@ -1,5 +1,5 @@
 /* ============================================
-   AnimatedCounter Component - Mahindra Blossom
+   AnimatedCounter Component - Narayana IIT-JEE
    Animated number counter with scroll trigger
    ============================================ */
 

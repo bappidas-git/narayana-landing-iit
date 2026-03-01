@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Narayana IIT-JEE Coaching - Guwahati
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Landing page for Narayana Coaching Centers' IIT-JEE programme in Guwahati, Assam.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+- **Frontend:** React 18, Material UI 5, Framer Motion
+- **Styling:** CSS Modules, CSS Custom Properties
+- **Backend API:** PHP (lead form submission with Gmail SMTP)
+- **Icons:** Iconify (MDI icon set)
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+# Install dependencies
+npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Start development server
+npm start
 
-### `npm test`
+# Production build
+npm run build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app runs at [http://localhost:3000](http://localhost:3000) in development.
 
-### `npm run build`
+## Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+├── components/       # Reusable UI components (Button, Card, Modal, etc.)
+├── context/          # React Context providers (Theme)
+├── data/             # Static data (highlights, courses, FAQs)
+├── hooks/            # Custom hooks (useInView, useMediaQuery, useScrollPosition)
+├── pages/            # Page components (ThankYou)
+├── styles/           # Global styles, variables, animations, responsive
+├── theme/            # MUI theme configuration
+└── utils/            # Validators and utilities
+api/
+├── save-lead.php     # Lead form handler
+└── config/           # Database and email configuration
+public/
+└── index.html        # HTML template with structured data (JSON-LD)
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Environment Variables
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Copy `.env.example` to `.env` and configure:
 
-### `npm run eject`
+- `REACT_APP_SALES_PHONE` / `REACT_APP_WHATSAPP_NUMBER` - Contact numbers
+- `REACT_APP_GOOGLE_MAPS_API_KEY` - Google Maps key
+- `REACT_APP_API_BASE_URL` - Backend API URL for lead submissions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Lead Form API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The PHP backend requires [Composer](https://getcomposer.org/):
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+cd api && composer install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Configure SMTP credentials in `api/config/email.php`.

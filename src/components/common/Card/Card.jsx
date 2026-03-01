@@ -1,5 +1,5 @@
 /* ============================================
-   Card Component - Mahindra Blossom
+   Card Component - Narayana IIT-JEE
    Reusable card with multiple variants and animations
    ============================================ */
 

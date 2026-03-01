@@ -1,5 +1,5 @@
 /* ============================================
-   Button Component - Mahindra Blossom
+   Button Component - Narayana IIT-JEE
    Reusable button with multiple variants and animations
    ============================================ */
 

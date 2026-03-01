@@ -1,6 +1,6 @@
 /* ============================================
    Web Vitals Performance Monitoring
-   Mahindra Blossom
+   Narayana IIT-JEE
 
    Measures Core Web Vitals:
    - CLS (Cumulative Layout Shift)
