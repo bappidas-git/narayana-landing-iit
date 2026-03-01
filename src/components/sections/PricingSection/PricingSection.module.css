@@ -7,7 +7,7 @@
 .resultsSection {
   position: relative;
   padding: 4rem 0;
-  background: #F5F7FA;
+  background: #F8FAFC;
   overflow: hidden;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .highlightText {
-  color: #FF6D00;
+  color: #1A237E;
   font-style: italic;
 }
 
@@ -49,7 +49,7 @@
 .underlineBar {
   width: 50px;
   height: 3px;
-  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%);
+  background: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
   border-radius: 3px;
 }
 
@@ -131,7 +131,7 @@
 .subStatText {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #FF6D00;
+  color: #1A237E;
   letter-spacing: 0.02em;
 }
 
@@ -205,8 +205,8 @@
 .testTypeTag {
   display: inline-block;
   padding: 0.1rem 0.5rem;
-  background: rgba(255, 109, 0, 0.12);
-  color: #FF6D00;
+  background: rgba(26, 35, 126, 0.1);
+  color: #1A237E;
   font-size: 0.65rem;
   font-weight: 700;
   border-radius: 10px;
@@ -606,7 +606,7 @@
 /* ========== Focus Styles for Accessibility ========== */
 .scholarshipCta:focus-visible,
 .brochureBtn:focus-visible {
-  outline: 2px solid #FF6D00;
+  outline: 2px solid #1A237E;
   outline-offset: 2px;
 }
 

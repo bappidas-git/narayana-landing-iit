@@ -4,13 +4,23 @@
    ============================================ */
 
 :root {
-  /* ========== Primary Colors ========== */
+  /* === Primary Colors === */
   --primary-dark: #1A237E;
+  --primary-medium: #283593;
+  --primary-light: #3949AB;
+  --primary-lighter: #5C6BC0;
+  --primary-surface: #E8EAF6;
+  /* Backward compat aliases */
   --primary-dark-alt: #283593;
   --primary-dark-light: #3949AB;
-  --primary-dark-lighter: #3F51B5;
+  --primary-dark-lighter: #5C6BC0;
 
-  /* ========== Accent Colors - Orange ========== */
+  /* === Accent (Use sparingly — CTAs and highlights only) === */
+  --accent-orange: #FF6D00;
+  --accent-orange-light: #FF9100;
+  --accent-orange-dark: #E65100;
+  --accent-orange-surface: #FFF3E0;
+  /* Backward compat aliases */
   --accent-gold: #FF6D00;
   --accent-gold-light: #FF9100;
   --accent-gold-dark: #E65100;
@@ -19,19 +29,27 @@
   --accent-gold-gradient-reverse: linear-gradient(135deg, #FF9100 0%, #FF6D00 100%);
   --accent-gold-gradient-horizontal: linear-gradient(90deg, #FF6D00 0%, #FF9100 50%, #FF6D00 100%);
 
-  /* ========== Neutral Colors ========== */
+  /* === Neutrals === */
   --white: #FFFFFF;
-  --off-white: #F8F9FA;
-  --light-gray: #F5F7FA;
+  --off-white: #FAFBFC;
+  --light-gray: #F8FAFC;
   --medium-gray: #E8EDF2;
   --border-gray: #D1D9E6;
+  --border-light: #E2E8F0;
+
+  /* === Text === */
+  --text-primary: #1B2A4A;
+  --text-secondary: #546E7A;
+  --text-tertiary: #90A4AE;
+  --text-inverse: #FFFFFF;
+  --text-dark-gray: #374151;
+  /* Backward compat alias */
   --text-gray: #546E7A;
-  --text-dark-gray: #1A237E;
   --dark-gray: #455A64;
 
-  /* ========== Icon Background Colors ========== */
-  --icon-gold: #FF6D00;
-  --icon-gold-bg: rgba(255, 109, 0, 0.15);
+  /* === Icon Background Colors === */
+  --icon-gold: #1A237E;
+  --icon-gold-bg: rgba(26, 35, 126, 0.1);
   --icon-green: #4CAF50;
   --icon-green-bg: rgba(76, 175, 80, 0.15);
   --icon-purple: #9C27B0;
@@ -47,39 +65,42 @@
   --icon-blue: #2196F3;
   --icon-blue-bg: rgba(33, 150, 243, 0.15);
 
-  /* ========== Card Backgrounds ========== */
+  /* === Card Backgrounds === */
   --card-yellow: #FFF3E0;
   --card-green: #E8F5E9;
   --card-pink: #FCE4EC;
   --card-purple: #F3E5F5;
   --card-orange: #FFF3E0;
   --card-blue: #E3F2FD;
-  --card-gold-gradient: linear-gradient(135deg, #FF6D00 0%, #E65100 100%);
+  --card-gold-gradient: linear-gradient(135deg, #1A237E 0%, #283593 100%);
   --card-dark-gradient: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
 
-  /* ========== Semantic Colors ========== */
+  /* === Semantic Colors === */
   --success: #2E7D32;
-  --success-light: #66BB6A;
-  --warning: #FF6D00;
-  --warning-light: #FF9100;
+  --success-light: #E8F5E9;
+  --warning: #F57C00;
+  --warning-light: #FFF3E0;
   --error: #D32F2F;
-  --error-light: #EF5350;
+  --error-light: #FFEBEE;
   --info: #2196F3;
   --info-light: #64B5F6;
 
-  /* ========== Shadow Colors ========== */
-  --shadow-light: rgba(0, 0, 0, 0.05);
-  --shadow-medium: rgba(0, 0, 0, 0.1);
-  --shadow-dark: rgba(0, 0, 0, 0.15);
-  --shadow-gold: rgba(255, 109, 0, 0.3);
-  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --shadow-button: 0 4px 15px rgba(255, 109, 0, 0.4);
-  --shadow-button-hover: 0 6px 20px rgba(255, 109, 0, 0.5);
+  /* === Shadows (use blue tint, not orange) === */
+  --shadow-light: rgba(26, 35, 126, 0.04);
+  --shadow-medium: rgba(26, 35, 126, 0.08);
+  --shadow-dark: rgba(26, 35, 126, 0.12);
+  --shadow-gold: rgba(26, 35, 126, 0.15);
+  --shadow-sm: 0 1px 3px rgba(26, 35, 126, 0.06);
+  --shadow-card: 0 2px 12px rgba(26, 35, 126, 0.08);
+  --shadow-card-hover: 0 8px 30px rgba(26, 35, 126, 0.12);
+  --shadow-elevated: 0 12px 40px rgba(26, 35, 126, 0.15);
+  --shadow-button: 0 4px 14px rgba(255, 109, 0, 0.25);
+  --shadow-button-hover: 0 6px 20px rgba(255, 109, 0, 0.35);
 
   /* ========== Typography ========== */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Poppins', 'Inter', sans-serif;
   --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
 
   /* Font Weights */

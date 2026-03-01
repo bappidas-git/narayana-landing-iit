@@ -15,7 +15,7 @@
 .bgOverlay {
   position: absolute;
   inset: 0;
-  background-image: url('https://placehold.co/1920x600/1A237E/FFFFFF?text=CTA+Background');
+  background-image: url('https://placehold.co/1920x600/0D1754/FFFFFF?text=1920x600+CTA+Background');
   background-size: cover;
   background-position: center;
   opacity: 0.08;
@@ -57,7 +57,7 @@
 .highlight {
   position: relative;
   display: inline-block;
-  color: var(--accent-gold);
+  color: #FF6D00;
 }
 
 .highlight::after {
@@ -67,7 +67,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--accent-gold);
+  background: #FF6D00;
   border-radius: var(--radius-full);
   opacity: 0.4;
 }
@@ -98,7 +98,7 @@
 
 .statIcon {
   font-size: 1.5rem;
-  color: var(--accent-gold);
+  color: #FFFFFF;
 }
 
 .statValue {

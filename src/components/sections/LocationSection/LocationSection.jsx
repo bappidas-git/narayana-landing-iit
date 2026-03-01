@@ -75,7 +75,7 @@ const LocationSection = () => {
     {
       icon: "mdi:map-marker-radius",
       title: "Accessible from all parts of Guwahati",
-      color: "#FF9800",
+      color: "#1A237E",
     },
     {
       icon: "mdi:train",
@@ -211,7 +211,7 @@ const LocationSection = () => {
                 <div className={styles.mapContainer}>
                   <div className={styles.mapPlaceholder}>
                     <img
-                      src="https://placehold.co/800x400/1A237E/FFFFFF?text=Guwahati+Centre+Location+Map"
+                      src="https://placehold.co/800x400/E8EAF6/1A237E?text=800x400+Guwahati+Centre+Map"
                       alt="Narayana Coaching Centre Guwahati Location Map"
                       className={styles.mapImage}
                     />

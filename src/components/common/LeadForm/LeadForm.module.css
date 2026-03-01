@@ -38,7 +38,7 @@
 }
 
 .variantDark .inputRoot:hover {
-  border-color: var(--accent-gold);
+  border-color: #5C6BC0;
 }
 
 .variantDark .inputRoot input,
@@ -121,11 +121,11 @@
 }
 
 .textField :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
-  border-color: var(--accent-gold);
+  border-color: #1A237E;
 }
 
 .textField :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
-  border-color: var(--accent-gold);
+  border-color: #1A237E;
   border-width: 2px;
 }
 
@@ -161,7 +161,7 @@
 }
 
 .inputFocused :global(.MuiOutlinedInput-notchedOutline) {
-  border-color: var(--accent-gold) !important;
+  border-color: #1A237E !important;
 }
 
 .inputError :global(.MuiOutlinedInput-notchedOutline) {
@@ -176,7 +176,7 @@
 }
 
 .inputRoot:focus-within .inputIcon {
-  color: var(--accent-gold);
+  color: #1A237E;
 }
 
 /* Mobile Prefix */
@@ -342,12 +342,12 @@
 
 /* Focus-visible for accessibility */
 .textField :global(.MuiOutlinedInput-root.Mui-focusVisible) {
-  outline: 2px solid var(--accent-gold);
+  outline: 2px solid #1A237E;
   outline-offset: 2px;
 }
 
 .submitButton:focus-visible {
-  outline: 2px solid var(--accent-gold);
+  outline: 2px solid #1A237E;
   outline-offset: 2px;
 }
 

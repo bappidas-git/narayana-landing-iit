@@ -56,8 +56,8 @@ const colors = {
     contrastText: '#FFFFFF',
   },
   warning: {
-    main: '#FF6D00',
-    light: '#FF9100',
+    main: '#F57C00',
+    light: '#FFF3E0',
     dark: '#E65100',
     contrastText: '#FFFFFF',
   },
@@ -92,14 +92,14 @@ const colors = {
     light: '#F5F7FA',
   },
   text: {
-    primary: '#1A237E',
+    primary: '#1B2A4A',
     secondary: '#546E7A',
     disabled: '#90A4AE',
-    dark: '#1A237E',
+    dark: '#1B2A4A',
     light: '#FFFFFF',
   },
   iconColors: {
-    gold: '#FF6D00',
+    gold: '#1A237E',
     green: '#4CAF50',
     purple: '#9C27B0',
     orange: '#FF9800',
@@ -234,7 +234,7 @@ const typography = {
     lineHeight: 1.5,
     textTransform: 'uppercase',
     letterSpacing: '0.1em',
-    color: colors.secondary.main,
+    color: colors.primary.main,
   },
 };
 
@@ -267,9 +267,9 @@ const shadows = [
   '0 40px 152px rgba(0, 0, 0, 0.28)',
 ];
 
-// Orange shadow for buttons and highlights
-const orangeShadow = '0 4px 15px rgba(255, 109, 0, 0.4)';
-const orangeShadowHover = '0 6px 20px rgba(255, 109, 0, 0.5)';
+// Orange shadow for CTA buttons only
+const orangeShadow = '0 4px 14px rgba(255, 109, 0, 0.25)';
+const orangeShadowHover = '0 6px 20px rgba(255, 109, 0, 0.35)';
 
 // Create theme
 const theme = createTheme({
@@ -290,12 +290,12 @@ const theme = createTheme({
     cardBg: colors.cardBg,
     divider: colors.grey[300],
     action: {
-      active: colors.secondary.main,
-      hover: alpha(colors.secondary.main, 0.08),
-      selected: alpha(colors.secondary.main, 0.16),
+      active: colors.primary.main,
+      hover: alpha(colors.primary.main, 0.08),
+      selected: alpha(colors.primary.main, 0.16),
       disabled: colors.grey[400],
       disabledBackground: colors.grey[200],
-      focus: alpha(colors.secondary.main, 0.12),
+      focus: alpha(colors.primary.main, 0.12),
     },
   },
   breakpoints,
@@ -353,8 +353,8 @@ const theme = createTheme({
           overflowX: 'hidden',
         },
         '::selection': {
-          backgroundColor: colors.secondary.main,
-          color: colors.background.default,
+          backgroundColor: colors.primary.light,
+          color: '#FFFFFF',
         },
         '::-webkit-scrollbar': {
           width: 8,
@@ -365,10 +365,10 @@ const theme = createTheme({
           borderRadius: 4,
         },
         '::-webkit-scrollbar-thumb': {
-          background: colors.secondary.main,
+          background: colors.navy[400],
           borderRadius: 4,
           '&:hover': {
-            background: colors.secondary.dark,
+            background: colors.primary.main,
           },
         },
       },
@@ -387,7 +387,7 @@ const theme = createTheme({
           textTransform: 'none',
           transition: 'all 0.25s ease',
           '&:focus-visible': {
-            outline: `2px solid ${colors.secondary.main}`,
+            outline: `2px solid ${colors.primary.light}`,
             outlineOffset: 2,
           },
         },
@@ -425,11 +425,11 @@ const theme = createTheme({
           },
         },
         outlinedPrimary: {
-          borderColor: colors.secondary.main,
-          color: colors.secondary.main,
+          borderColor: colors.primary.main,
+          color: colors.primary.main,
           '&:hover': {
-            backgroundColor: alpha(colors.secondary.main, 0.08),
-            borderColor: colors.secondary.main,
+            backgroundColor: alpha(colors.primary.main, 0.08),
+            borderColor: colors.primary.main,
           },
         },
         outlinedSecondary: {
@@ -442,7 +442,7 @@ const theme = createTheme({
         },
         text: {
           '&:hover': {
-            backgroundColor: alpha(colors.secondary.main, 0.08),
+            backgroundColor: alpha(colors.primary.main, 0.08),
           },
         },
         sizeLarge: {
@@ -461,7 +461,7 @@ const theme = createTheme({
         root: {
           transition: 'all 0.25s ease',
           '&:hover': {
-            backgroundColor: alpha(colors.secondary.main, 0.1),
+            backgroundColor: alpha(colors.primary.main, 0.1),
           },
         },
       },
@@ -554,10 +554,10 @@ const theme = createTheme({
             borderRadius: 12,
             transition: 'all 0.25s ease',
             '&:hover .MuiOutlinedInput-notchedOutline': {
-              borderColor: colors.secondary.main,
+              borderColor: colors.primary.main,
             },
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-              borderColor: colors.secondary.main,
+              borderColor: colors.primary.main,
               borderWidth: 2,
             },
           },
@@ -569,10 +569,10 @@ const theme = createTheme({
         root: {
           borderRadius: 12,
           '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: colors.secondary.main,
+            borderColor: colors.primary.main,
           },
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: colors.secondary.main,
+            borderColor: colors.primary.main,
           },
         },
         notchedOutline: {
@@ -589,7 +589,7 @@ const theme = createTheme({
         root: {
           color: colors.text.secondary,
           '&.Mui-focused': {
-            color: colors.secondary.main,
+            color: colors.primary.main,
           },
         },
       },
@@ -623,12 +623,12 @@ const theme = createTheme({
           padding: '12px 16px',
           transition: 'background-color 0.2s ease',
           '&:hover': {
-            backgroundColor: alpha(colors.secondary.main, 0.08),
+            backgroundColor: alpha(colors.primary.main, 0.08),
           },
           '&.Mui-selected': {
-            backgroundColor: alpha(colors.secondary.main, 0.12),
+            backgroundColor: alpha(colors.primary.main, 0.12),
             '&:hover': {
-              backgroundColor: alpha(colors.secondary.main, 0.16),
+              backgroundColor: alpha(colors.primary.main, 0.16),
             },
           },
         },
@@ -696,7 +696,7 @@ const theme = createTheme({
         indicator: {
           height: 3,
           borderRadius: '3px 3px 0 0',
-          backgroundColor: colors.secondary.main,
+          backgroundColor: colors.primary.main,
         },
       },
     },
@@ -710,10 +710,10 @@ const theme = createTheme({
           textTransform: 'none',
           transition: 'all 0.2s ease',
           '&.Mui-selected': {
-            color: colors.secondary.main,
+            color: colors.primary.main,
           },
           '&:hover': {
-            color: colors.secondary.main,
+            color: colors.primary.main,
             opacity: 1,
           },
         },
@@ -804,7 +804,7 @@ const theme = createTheme({
         root: {
           color: colors.grey[400],
           '&.Mui-checked': {
-            color: colors.secondary.main,
+            color: colors.primary.main,
           },
         },
       },
@@ -815,7 +815,7 @@ const theme = createTheme({
         root: {
           color: colors.grey[400],
           '&.Mui-checked': {
-            color: colors.secondary.main,
+            color: colors.primary.main,
           },
         },
       },
@@ -991,11 +991,11 @@ const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          color: colors.secondary.main,
+          color: colors.primary.main,
           fontWeight: 500,
           transition: 'color 0.2s ease',
           '&:hover': {
-            color: colors.secondary.light,
+            color: colors.primary.light,
           },
         },
       },
@@ -1015,10 +1015,10 @@ const theme = createTheme({
           '& .MuiPaginationItem-root': {
             fontWeight: 500,
             '&.Mui-selected': {
-              backgroundColor: colors.secondary.main,
+              backgroundColor: colors.primary.main,
               color: '#FFFFFF',
               '&:hover': {
-                backgroundColor: colors.secondary.light,
+                backgroundColor: colors.primary.light,
               },
             },
           },
@@ -1043,7 +1043,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           '&:hover': {
-            backgroundColor: alpha(colors.secondary.main, 0.04),
+            backgroundColor: alpha(colors.primary.main, 0.04),
           },
         },
       },
@@ -1054,13 +1054,13 @@ const theme = createTheme({
         root: {
           borderRadius: 12,
           '&.Mui-selected': {
-            backgroundColor: alpha(colors.secondary.main, 0.12),
+            backgroundColor: alpha(colors.primary.main, 0.12),
             '&:hover': {
-              backgroundColor: alpha(colors.secondary.main, 0.16),
+              backgroundColor: alpha(colors.primary.main, 0.16),
             },
           },
           '&:hover': {
-            backgroundColor: alpha(colors.secondary.main, 0.08),
+            backgroundColor: alpha(colors.primary.main, 0.08),
           },
         },
       },
@@ -1069,7 +1069,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           minWidth: 40,
-          color: colors.secondary.main,
+          color: colors.primary.main,
         },
       },
     },
@@ -1090,7 +1090,7 @@ const theme = createTheme({
           padding: '8px 12px',
           color: colors.text.secondary,
           '&.Mui-selected': {
-            color: colors.secondary.main,
+            color: colors.primary.main,
           },
         },
         label: {
