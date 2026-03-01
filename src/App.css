@@ -259,9 +259,9 @@ html {
 .skeleton {
   background: linear-gradient(
     90deg,
-    rgba(26, 35, 126, 0.05) 25%,
-    rgba(26, 35, 126, 0.1) 50%,
-    rgba(26, 35, 126, 0.05) 75%
+    rgba(255, 109, 0, 0.05) 25%,
+    rgba(255, 109, 0, 0.1) 50%,
+    rgba(255, 109, 0, 0.05) 75%
   );
   background-size: 200% 100%;
   animation: skeleton-loading 1.5s ease-in-out infinite;

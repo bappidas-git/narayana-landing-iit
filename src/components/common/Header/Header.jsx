@@ -221,7 +221,7 @@ const Header = ({ forceCloseMenu = false }) => {
               width: 40,
               height: 40,
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #1A237E, #283593)',
+              background: 'linear-gradient(135deg, #FF6D00, #FF9100)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

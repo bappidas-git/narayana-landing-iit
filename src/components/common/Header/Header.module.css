@@ -16,8 +16,8 @@
 
 /* Scrolled State */
 .header.scrolled {
-  background: #FFFFFF;
-  box-shadow: 0 2px 12px rgba(26, 35, 126, 0.08);
+  background: var(--white);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   padding: var(--space-2) 0;
 }
 
@@ -27,7 +27,7 @@
 
 .header.scrolled .navLink:hover,
 .header.scrolled .navLink.active {
-  color: #1A237E;
+  color: var(--accent-gold);
 }
 
 .header.scrolled .mainLogo {
@@ -135,7 +135,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: #FF6D00;
+  background: var(--accent-gold);
   transform: translateX(-50%);
   transition: width var(--transition-fast);
   border-radius: var(--radius-full);
@@ -143,7 +143,7 @@
 
 .navLink:hover,
 .navLink.active {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--accent-gold);
 }
 
 .navLink:hover::after,
@@ -168,35 +168,21 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
-  background: transparent;
-  color: rgba(255, 255, 255, 0.9);
+  background: var(--accent-gold);
+  color: var(--primary-dark);
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
   text-decoration: none;
   border-radius: var(--radius-lg);
-  border: 2px solid rgba(255, 255, 255, 0.6);
   transition: all var(--transition-fast);
   white-space: nowrap;
 }
 
 .callButton:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
-  border-color: #FFFFFF;
+  background: var(--primary-dark);
+  color: var(--accent-gold);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-}
-
-.scrolled .callButton {
-  color: #1A237E;
-  border-color: #1A237E;
-  background: transparent;
-}
-
-.scrolled .callButton:hover {
-  background: #1A237E;
-  color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 109, 0, 0.3);
 }
 
 .callButtonIcon {
@@ -210,19 +196,18 @@
   gap: var(--space-2);
   width: 100%;
   padding: var(--space-3) var(--space-4);
-  background: transparent;
-  color: #1A237E;
+  background: var(--accent-gold);
+  color: var(--primary-dark);
   font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
   text-decoration: none;
   border-radius: var(--radius-lg);
-  border: 2px solid #1A237E;
   transition: all var(--transition-fast);
 }
 
 .mobileCallButton:hover {
-  background: #1A237E;
-  color: #FFFFFF;
+  background: var(--primary-dark);
+  color: var(--accent-gold);
 }
 
 .iconLogo {
@@ -309,7 +294,7 @@
 .mobileNavLink:hover,
 .mobileNavLink.active {
   background: var(--light-gray);
-  color: #1A237E;
+  color: var(--accent-gold);
 }
 
 .mobileNavIcon {
@@ -320,7 +305,7 @@
 
 .mobileNavLink:hover .mobileNavIcon,
 .mobileNavLink.active .mobileNavIcon {
-  color: #1A237E;
+  color: var(--accent-gold);
 }
 
 .mobileNavCTA {
@@ -414,6 +399,6 @@
 /* Focus States */
 .navLink:focus-visible,
 .mobileNavLink:focus-visible {
-  outline: 2px solid #1A237E;
+  outline: 2px solid var(--accent-gold);
   outline-offset: 2px;
 }

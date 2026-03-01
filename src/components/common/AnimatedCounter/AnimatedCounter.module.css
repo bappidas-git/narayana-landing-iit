@@ -23,7 +23,7 @@
   font-size: var(--fs-4xl);
   font-weight: var(--fw-bold);
   line-height: 1;
-  color: #1A237E;
+  color: var(--accent-gold);
   transition: color var(--transition-base);
 }
 
@@ -49,7 +49,7 @@
 .icon {
   margin-bottom: var(--space-3);
   font-size: 32px;
-  color: #1A237E;
+  color: var(--accent-gold);
 }
 
 /* Variants */
@@ -67,7 +67,7 @@
 }
 
 .gradient .value {
-  background: linear-gradient(135deg, #1A237E 0%, #283593 100%);
+  background: var(--accent-gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -75,7 +75,7 @@
 
 .outline {
   padding: var(--space-4) var(--space-6);
-  border: 2px solid #1A237E;
+  border: 2px solid var(--accent-gold);
   border-radius: var(--radius-xl);
 }
 
@@ -83,7 +83,7 @@
 .colorGold .value,
 .colorGold .prefix,
 .colorGold .suffix {
-  color: #1A237E;
+  color: var(--accent-gold);
 }
 
 .colorDark .value,
