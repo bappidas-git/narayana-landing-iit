@@ -1,7 +1,7 @@
 /* ============================================
-   CTASection Component - Mahindra Blossom
-   "Home of Positive Energy" call-to-action section
-   Desktop-optimized with innovative split layout
+   CTASection Component - Narayana IIT-JEE
+   "Your Dream IIT Seat is One Step Away"
+   Dark indigo CTA with stats and enrollment buttons
    ============================================ */
 
 import React from "react";
@@ -12,14 +12,9 @@ import Button from "../../common/Button/Button";
 import { useModal } from "../../../context/ModalContext";
 import styles from "./CTASection.module.css";
 
-import ctaImage from "../../../assets/images/cta-section/cta-image.jpg";
-
-const clubImage = ctaImage;
-
 const CTASection = () => {
   const { openLeadDrawer } = useModal();
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -43,30 +38,6 @@ const CTASection = () => {
     },
   };
 
-  const scaleVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    },
-  };
-
-  const floatVariants = {
-    initial: { y: 0 },
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   const pulseVariants = {
     initial: { scale: 1 },
     animate: {
@@ -79,62 +50,21 @@ const CTASection = () => {
     },
   };
 
-  const handleScheduleVisit = () => {
-    openLeadDrawer("schedule-site-visit");
+  const handleEnrollNow = () => {
+    openLeadDrawer("enroll-now");
   };
 
-  // Stats data for desktop showcase
   const stats = [
-    { value: "25+", label: "Years Excellence", icon: "mdi:trophy-award" },
-    { value: "1100+", label: "Happy Families", icon: "mdi:home-heart" },
-    { value: "5th", label: "Project in Bengaluru", icon: "mdi:office-building" },
+    { value: "40+", label: "Years", icon: "mdi:trophy-award" },
+    { value: "Top 15", label: "AIR", icon: "mdi:star-circle" },
+    { value: "90%", label: "Scholarship", icon: "mdi:percent-circle" },
   ];
 
   return (
     <section id="cta" className={styles.section}>
-      {/* Background Pattern */}
+      {/* Background Overlay Image */}
+      <div className={styles.bgOverlay} />
       <div className={styles.bgPattern} />
-
-      {/* Animated Background Elements */}
-      <motion.div
-        className={styles.floatingElement1}
-        variants={floatVariants}
-        initial="initial"
-        animate="animate"
-        style={{ color: "#FFFFFF26" }}
-      >
-        <Icon icon="mdi:home-variant" />
-      </motion.div>
-
-      <motion.div
-        className={styles.floatingElement2}
-        variants={floatVariants}
-        initial="initial"
-        animate="animate"
-        style={{ animationDelay: "1s", color: "#FFFFFF26" }}
-      >
-        <Icon icon="mdi:star-four-points" />
-      </motion.div>
-
-      <motion.div
-        className={styles.floatingElement3}
-        variants={floatVariants}
-        initial="initial"
-        animate="animate"
-        style={{ animationDelay: "2s", color: "#FFFFFF26" }}
-      >
-        <Icon icon="mdi:key-variant" />
-      </motion.div>
-
-      <motion.div
-        className={styles.floatingElement4}
-        variants={floatVariants}
-        initial="initial"
-        animate="animate"
-        style={{ animationDelay: "1.5s", color: "#FFFFFF26" }}
-      >
-        <Icon icon="mdi:diamond-stone" />
-      </motion.div>
 
       <Container maxWidth="xl">
         <motion.div
@@ -144,198 +74,68 @@ const CTASection = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Left Side - Visual Showcase (Desktop) */}
-          <motion.div variants={itemVariants} className={styles.visualShowcase}>
-            {/* Hero Image Card */}
-            <div className={styles.imageCard}>
-              <div className={styles.imageCardGlow} />
-              <img
-                src={clubImage}
-                alt="Mahindra Blossom - Home of Positive Energy"
-                className={styles.heroImage}
-              />
-              <div className={styles.imageOverlay}>
-                <div className={styles.imageLabel}>
-                  <Icon icon="mdi:home-city" />
-                  <span>Your Dream Home Awaits</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Stats Cards - Desktop Only */}
-            <div className={styles.statsGrid}>
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  className={styles.statCard}
-                  variants={scaleVariants}
-                  whileHover={{ scale: 1.03, y: -3 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className={styles.statIconWrapper}>
-                    <Icon icon={stat.icon} className={styles.statIcon} />
-                  </div>
-                  <div className={styles.statValue}>{stat.value}</div>
-                  <div
-                    className={styles.statLabel}
-                    style={{ color: "#1A237EB3" }}
-                  >
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* Headline */}
+          <motion.div variants={itemVariants}>
+            <Typography variant="h3" className={styles.title}>
+              Your Dream IIT Seat is{" "}
+              <span className={styles.highlight}>One Step Away</span>
+            </Typography>
           </motion.div>
 
-          {/* Right Side - Content */}
-          <motion.div variants={itemVariants} className={styles.textContent}>
-            <Typography
-              variant="overline"
-              className={styles.preTitle}
-              sx={{ color: "#000" }}
-            >
-              Don't Miss This Opportunity
+          {/* Subtext */}
+          <motion.div variants={itemVariants}>
+            <Typography variant="body1" className={styles.description}>
+              Join thousands of successful Narayana students who cracked
+              IIT-JEE. Limited seats available for 2025-26 batch in Guwahati.
             </Typography>
+          </motion.div>
 
-            <Typography
-              variant="h3"
-              className={styles.title}
-              sx={{ marginBottom: "15px;", marginTop: "15px" }}
+          {/* Stats Row */}
+          <motion.div variants={itemVariants} className={styles.statsRow}>
+            {stats.map((stat, index) => (
+              <React.Fragment key={stat.label}>
+                {index > 0 && <div className={styles.statDivider} />}
+                <div className={styles.statItem}>
+                  <Icon icon={stat.icon} className={styles.statIcon} />
+                  <span className={styles.statValue}>{stat.value}</span>
+                  <span className={styles.statLabel}>{stat.label}</span>
+                </div>
+              </React.Fragment>
+            ))}
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div variants={itemVariants} className={styles.ctaButtons}>
+            <motion.div
+              variants={pulseVariants}
+              initial="initial"
+              animate="animate"
             >
-              Welcome to the{" "}
-              <span className={styles.highlight}>Home of Positive Energy</span>
-            </Typography>
-
-            <Typography
-              variant="body1"
-              className={styles.description}
-              sx={{ color: "#1A237ECC !important", marginBottom: "15px;" }}
-            >
-              Take the first step towards owning your dream home at HopeFarm Jn., Whitefield - Metro Adjacent. Schedule a
-              site visit today and discover the perfect blend of luxury,
-              comfort, and convenience at Mahindra Blossom.
-            </Typography>
-
-            {/* CTA Buttons */}
-            <motion.div variants={itemVariants} className={styles.ctaButtons}>
-              <motion.div
-                variants={pulseVariants}
-                initial="initial"
-                animate="animate"
-              >
-                <Button
-                  variant="secondary"
-                  size="large"
-                  endIcon="mdi:arrow-right"
-                  onClick={handleScheduleVisit}
-                  className={styles.primaryBtn}
-                >
-                  Schedule a Site Visit
-                </Button>
-              </motion.div>
-
               <Button
-                variant="dark"
+                variant="primary"
                 size="large"
-                startIcon="mdi:phone-outline"
-                href="tel:+919632367929"
-                className={styles.secondaryBtn}
+                endIcon="mdi:arrow-right"
+                onClick={handleEnrollNow}
+                className={styles.primaryBtn}
               >
-                Call Now
+                Enroll Now — Limited Seats!
               </Button>
             </motion.div>
 
-            {/* Trust Indicators - Enhanced Cards */}
-            <motion.div
-              variants={itemVariants}
-              className={styles.trustIndicators}
+            <Button
+              variant="outline"
+              size="large"
+              startIcon="mdi:phone-outline"
+              href="tel:+919667225657"
+              className={styles.secondaryBtn}
             >
-              <motion.div
-                className={styles.trustCard}
-                whileHover={{ scale: 1.02, y: -2 }}
-              >
-                <div className={styles.trustIconWrapper}>
-                  <Icon icon="mdi:shield-check" className={styles.trustIcon} />
-                </div>
-                <div className={styles.trustContent}>
-                  <span className={styles.trustLabel}>RERA Registered</span>
-                  <span
-                    className={styles.trustSubtext}
-                    style={{ color: "#1A237E99" }}
-                  >
-                    Government Approved
-                  </span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className={styles.trustCard}
-                whileHover={{ scale: 1.02, y: -2 }}
-              >
-                <div className={styles.trustIconWrapper}>
-                  <Icon icon="mdi:bank" className={styles.trustIcon} />
-                </div>
-                <div className={styles.trustContent}>
-                  <span className={styles.trustLabel}>Bank Loan Approved</span>
-                  <span
-                    className={styles.trustSubtext}
-                    style={{ color: "#1A237E99" }}
-                  >
-                    Easy Financing
-                  </span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className={styles.trustCard}
-                whileHover={{ scale: 1.02, y: -2 }}
-              >
-                <div className={styles.trustIconWrapper}>
-                  <Icon icon="mdi:account-group" className={styles.trustIcon} />
-                </div>
-                <div className={styles.trustContent}>
-                  <span className={styles.trustLabel}>1100+ Families</span>
-                  <span
-                    className={styles.trustSubtext}
-                    style={{ color: "#1A237E99" }}
-                  >
-                    Trust Mahindra
-                  </span>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Mobile/Tablet Trust Indicators (Simple) */}
-            <motion.div
-              variants={itemVariants}
-              className={styles.trustIndicatorsMobile}
-            >
-              <div className={styles.trustItem}>
-                <Icon
-                  icon="mdi:shield-check"
-                  className={styles.trustItemIcon}
-                />
-                <span>RERA Registered</span>
-              </div>
-              <div className={styles.trustDivider} />
-              <div className={styles.trustItem}>
-                <Icon icon="mdi:bank" className={styles.trustItemIcon} />
-                <span>Bank Loan Approved</span>
-              </div>
-              <div className={styles.trustDivider} />
-              <div className={styles.trustItem}>
-                <Icon
-                  icon="mdi:account-group"
-                  className={styles.trustItemIcon}
-                />
-                <span>1100+ Happy Families</span>
-              </div>
-            </motion.div>
+              Call: 9667-225-657
+            </Button>
           </motion.div>
         </motion.div>
       </Container>
 
-      {/* Decorative Elements */}
+      {/* Corner Decorations */}
       <div className={styles.cornerDecoration1} />
       <div className={styles.cornerDecoration2} />
     </section>
