@@ -14,13 +14,13 @@ import {
   Box,
 } from '@mui/material';
 import { Icon } from '@iconify/react';
-import { configurationsData } from '../../../data/configurationsData';
+import { coursesData } from '../../../data/coursesData';
 import styles from './PricingSection.module.css';
 
 const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, onOpenEMI }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const currentConfig = configurationsData.find(c => c.id === selectedConfig) || configurationsData[0];
+  const currentConfig = coursesData.find(c => c.id === selectedConfig) || coursesData[0];
 
   const handleChange = (event) => {
     onConfigChange(event.target.value);
@@ -148,7 +148,7 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, 
               },
             }}
           >
-            {configurationsData.map((config) => (
+            {coursesData.map((config) => (
               <MenuItem key={config.id} value={config.id}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, width: '100%' }}>
                   <span style={{ fontWeight: 600 }}>{config.type}</span>

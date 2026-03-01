@@ -1,7 +1,7 @@
 {
-  "name": "mahindra-blossom-whitefield",
+  "name": "narayana-iit-jee-guwahati",
   "version": "1.0.0",
-  "description": "Mahindra Blossom - Premium 2, 3 & 4 BHK Apartments in Whitefield, Bengaluru | Home of Positive Energy | RERA Registered | Near Hopefarm Metro Station",
+  "description": "Narayana Coaching Centers | Best IIT-JEE Coaching in Guwahati, Assam | 40+ Years Legacy | Top Results | NACST Scholarship up to 90% | Enroll Now",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -53,18 +53,18 @@
     ]
   },
   "homepage": ".",
-  "author": "Mahindra Lifespaces",
+  "author": "Narayana Coaching Centers",
   "license": "UNLICENSED",
   "keywords": [
-    "mahindra-blossom",
-    "mahindra-lifespaces",
-    "whitefield-apartments",
-    "hopefarm-junction",
-    "bengaluru-real-estate",
-    "luxury-apartments",
-    "2bhk-3bhk-4bhk",
-    "igbc-certified",
-    "net-zero-waste",
-    "metro-connectivity"
+    "narayana-coaching",
+    "iit-jee-coaching",
+    "jee-main-advanced",
+    "guwahati-coaching",
+    "assam-iit-coaching",
+    "narayana-guwahati",
+    "best-jee-coaching",
+    "nacst-scholarship",
+    "engineering-entrance",
+    "competitive-exam-coaching"
   ]
 }

@@ -11,10 +11,7 @@ import {
   Chip,
 } from '@mui/material';
 import { Icon } from '@iconify/react';
-import {
-  getEMIBreakdown,
-  DEFAULT_EMI_CONFIG,
-} from '../../../utils/emiCalculator';
+// EMI calculator removed - not needed for coaching
 import styles from './PricingSection.module.css';
 
 const EMICalculator = ({ propertyPrice = 17000000 }) => {

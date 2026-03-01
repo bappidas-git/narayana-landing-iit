@@ -1,5 +1,5 @@
 /* ============================================
-   Formatters - Mahindra Blossom
+   Formatters - Narayana IIT-JEE Coaching
    Utility functions for formatting data
    ============================================ */
 
@@ -21,55 +21,6 @@ export const formatCurrency = (amount, showSymbol = true) => {
   });
 
   return formatter.format(amount);
-};
-
-/**
- * Format amount to Crores/Lakhs display
- * @param {number} amount - Amount in rupees
- * @returns {string} - Formatted string like "1.70 Cr" or "50 L"
- */
-export const formatIndianAmount = (amount) => {
-  if (!amount || amount <= 0) return '₹0';
-
-  if (amount >= 10000000) {
-    // Crores (1 Cr = 10,000,000)
-    const crores = amount / 10000000;
-    return `₹${crores.toFixed(2)} Cr`;
-  } else if (amount >= 100000) {
-    // Lakhs (1 L = 100,000)
-    const lakhs = amount / 100000;
-    return `₹${lakhs.toFixed(2)} L`;
-  } else if (amount >= 1000) {
-    // Thousands
-    const thousands = amount / 1000;
-    return `₹${thousands.toFixed(2)} K`;
-  }
-
-  return `₹${amount}`;
-};
-
-/**
- * Format amount to short display with separate value and unit
- * @param {number} amount - Amount in rupees
- * @returns {Object} - Object with value, unit, and formatted string
- */
-export const formatAmountWithUnit = (amount) => {
-  if (!amount || amount <= 0) {
-    return { value: '0', unit: '', formatted: '₹0' };
-  }
-
-  if (amount >= 10000000) {
-    const value = (amount / 10000000).toFixed(2);
-    return { value, unit: 'Cr', formatted: `₹${value} Cr` };
-  } else if (amount >= 100000) {
-    const value = (amount / 100000).toFixed(2);
-    return { value, unit: 'L', formatted: `₹${value} L` };
-  } else if (amount >= 1000) {
-    const value = (amount / 1000).toFixed(2);
-    return { value, unit: 'K', formatted: `₹${value} K` };
-  }
-
-  return { value: amount.toString(), unit: '', formatted: `₹${amount}` };
 };
 
 /**
@@ -120,29 +71,6 @@ export const formatIndianNumber = (number) => {
   }
 
   return result;
-};
-
-/**
- * Format square feet display
- * @param {number} sqft - Square feet value
- * @returns {string} - Formatted string like "1,245 sq.ft"
- */
-export const formatSqft = (sqft) => {
-  if (!sqft || sqft <= 0) return '0 sq.ft';
-
-  return `${formatIndianNumber(sqft)} sq.ft`;
-};
-
-/**
- * Format area in acres
- * @param {number} acres - Area in acres
- * @returns {string} - Formatted string
- */
-export const formatAcres = (acres) => {
-  if (!acres || acres <= 0) return '0 Acres';
-
-  if (acres === 1) return '1 Acre';
-  return `${acres} Acres`;
 };
 
 /**
@@ -272,43 +200,6 @@ export const capitalizeWords = (text) => {
 };
 
 /**
- * Format BHK type for display
- * @param {string} type - BHK type like "2 BHK" or "3 BHK 2T"
- * @returns {Object} - Parsed BHK info
- */
-export const formatBHKType = (type) => {
-  if (!type) return { bedrooms: 0, display: '' };
-
-  const match = type.match(/(\d+\.?\d*)\s*BHK/i);
-  const bedrooms = match ? parseFloat(match[1]) : 0;
-
-  return {
-    bedrooms,
-    display: type,
-    shortDisplay: `${bedrooms} BHK`,
-  };
-};
-
-/**
- * Format price range display
- * @param {number} min - Minimum price
- * @param {number} max - Maximum price
- * @returns {string} - Formatted price range
- */
-export const formatPriceRange = (min, max) => {
-  if (!min && !max) return 'Price on Request';
-
-  const minFormatted = formatAmountWithUnit(min);
-  const maxFormatted = formatAmountWithUnit(max);
-
-  if (min === max) {
-    return minFormatted.formatted;
-  }
-
-  return `${minFormatted.formatted} - ${maxFormatted.formatted}`;
-};
-
-/**
  * Slugify text for URLs
  * @param {string} text - Text to slugify
  * @returns {string} - URL-safe slug
@@ -326,11 +217,7 @@ export const slugify = (text) => {
 
 export default {
   formatCurrency,
-  formatIndianAmount,
-  formatAmountWithUnit,
   formatIndianNumber,
-  formatSqft,
-  formatAcres,
   formatPhoneNumber,
   formatPhoneWithCountryCode,
   formatDistance,
@@ -338,7 +225,5 @@ export default {
   formatDate,
   truncateText,
   capitalizeWords,
-  formatBHKType,
-  formatPriceRange,
   slugify,
 };

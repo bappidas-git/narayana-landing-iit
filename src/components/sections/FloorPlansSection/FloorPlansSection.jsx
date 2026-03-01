@@ -18,10 +18,8 @@ import {
 } from "@mui/material";
 import { Icon } from "@iconify/react";
 import {
-  floorPlansData,
-  floorPlanFilters,
-  floorPlanHighlights,
-} from "../../../data/floorPlansData";
+  courseDetailsData,
+} from "../../../data/courseDetailsData";
 import { useModal } from "../../../context/ModalContext";
 import styles from "./FloorPlansSection.module.css";
 
@@ -65,12 +63,12 @@ const FloorPlansSection = () => {
   // Get filtered floor plans
   const filteredPlans =
     selectedFilter === "all"
-      ? floorPlansData
-      : floorPlansData.filter((plan) => plan.type.includes(selectedFilter));
+      ? courseDetailsData
+      : courseDetailsData.filter((plan) => plan.type.includes(selectedFilter));
 
   // Get currently selected plan
   const selectedPlan =
-    floorPlansData.find((p) => p.id === selectedPlanId) || floorPlansData[0];
+    courseDetailsData.find((p) => p.id === selectedPlanId) || courseDetailsData[0];
 
   // Handle plan selection
   const handleSelectPlan = (planId) => {
@@ -83,8 +81,8 @@ const FloorPlansSection = () => {
     // Select first plan of the filtered type
     const filtered =
       filterValue === "all"
-        ? floorPlansData
-        : floorPlansData.filter((plan) => plan.type.includes(filterValue));
+        ? courseDetailsData
+        : courseDetailsData.filter((plan) => plan.type.includes(filterValue));
     if (filtered.length > 0) {
       setSelectedPlanId(filtered[0].id);
     }
@@ -173,7 +171,7 @@ const FloorPlansSection = () => {
 
             {/* Highlights Strip - Inline */}
             <div className={styles.highlightsStrip}>
-              {floorPlanHighlights.map((highlight) => (
+              {[].map((highlight) => (
                 <div key={highlight.id} className={styles.highlightItem}>
                   <Icon
                     icon={highlight.icon}
@@ -187,7 +185,7 @@ const FloorPlansSection = () => {
 
           {/* Filter Pills */}
           <motion.div variants={itemVariants} className={styles.filterWrapper}>
-            {floorPlanFilters.map((filter) => (
+            {[].map((filter) => (
               <motion.button
                 key={filter.id}
                 className={`${styles.filterPill} ${
