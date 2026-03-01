@@ -1,7 +1,7 @@
 /* ============================================
-   Footer Component - Mahindra Blossom
-   Professional footer with disclaimer, RERA info,
-   and legal modals
+   Footer Component - Narayana Coaching Centers
+   Multi-column footer with links, contact info,
+   social media, and legal modals
    ============================================ */
 
 import React, { useState } from "react";
@@ -17,11 +17,10 @@ const PrivacyPolicyContent = () => (
     <section className={styles.legalSection}>
       <h3>Introduction</h3>
       <p>
-        H.O.M Advisory ("we," "our," or "us") respects your privacy and is
+        Narayana Group ("we," "our," or "us") respects your privacy and is
         committed to protecting your personal data. This Privacy Policy explains
         how we collect, use, disclose, and safeguard your information when you
-        visit our website or engage with our services as authorized marketing
-        partners for Mahindra Lifespaces.
+        visit our website or engage with our coaching services.
       </p>
     </section>
 
@@ -35,8 +34,9 @@ const PrivacyPolicyContent = () => (
           forms or contacting us.
         </li>
         <li>
-          <strong>Property Preferences:</strong> Information about your property
-          preferences, budget, and requirements shared during consultations.
+          <strong>Academic Preferences:</strong> Information about your course
+          preferences, class, and academic requirements shared during
+          consultations.
         </li>
         <li>
           <strong>Usage Data:</strong> Information about how you interact with
@@ -55,10 +55,10 @@ const PrivacyPolicyContent = () => (
       <h3>How We Use Your Information</h3>
       <p>We use the collected information for the following purposes:</p>
       <ul>
-        <li>To respond to your inquiries and provide property information</li>
-        <li>To schedule site visits and property viewings</li>
+        <li>To respond to your inquiries and provide course information</li>
+        <li>To schedule counselling sessions and centre visits</li>
         <li>
-          To send relevant property updates and promotional communications (with
+          To send relevant academic updates and promotional communications (with
           your consent)
         </li>
         <li>To improve our website and services based on user feedback</li>
@@ -67,27 +67,6 @@ const PrivacyPolicyContent = () => (
           interests
         </li>
       </ul>
-    </section>
-
-    <section className={styles.legalSection}>
-      <h3>Information Sharing</h3>
-      <p>We may share your information with:</p>
-      <ul>
-        <li>
-          <strong>Mahindra Lifespaces:</strong> As authorized marketing partners,
-          we share inquiry details with the developer for processing your
-          property interests.
-        </li>
-        <li>
-          <strong>Service Providers:</strong> Third-party vendors who assist us
-          with website hosting, analytics, and communication services.
-        </li>
-        <li>
-          <strong>Legal Requirements:</strong> When required by law, court
-          order, or governmental regulations.
-        </li>
-      </ul>
-      <p>We do not sell your personal information to third parties.</p>
     </section>
 
     <section className={styles.legalSection}>
@@ -116,50 +95,21 @@ const PrivacyPolicyContent = () => (
     </section>
 
     <section className={styles.legalSection}>
-      <h3>Cookies & Tracking</h3>
-      <p>
-        Our website uses cookies and similar tracking technologies to enhance
-        your browsing experience and analyze website traffic. You can manage
-        cookie preferences through your browser settings. Disabling cookies may
-        affect some features of our website.
-      </p>
-    </section>
-
-    <section className={styles.legalSection}>
-      <h3>Third-Party Links</h3>
-      <p>
-        Our website may contain links to third-party websites. We are not
-        responsible for the privacy practices or content of these external
-        sites. We encourage you to review the privacy policies of any
-        third-party websites you visit.
-      </p>
-    </section>
-
-    <section className={styles.legalSection}>
-      <h3>Updates to This Policy</h3>
-      <p>
-        We may update this Privacy Policy from time to time to reflect changes
-        in our practices or legal requirements. The updated policy will be
-        posted on this page with a revised effective date.
-      </p>
-    </section>
-
-    <section className={styles.legalSection}>
       <h3>Contact Us</h3>
       <p>
         If you have any questions or concerns about this Privacy Policy or our
         data practices, please contact us at:
       </p>
       <p>
-        <strong>H.O.M Advisory</strong>
+        <strong>Narayana Group</strong>
         <br />
-        Email: marketing@homadvisory.com
+        Email: info@narayanagroup.com
         <br />
-        Phone: +91-9632367929
+        Phone: 1800-102-3344
       </p>
     </section>
 
-    <p className={styles.lastUpdated}>Last Updated: January 2026</p>
+    <p className={styles.lastUpdated}>Last Updated: January 2025</p>
   </div>
 );
 
@@ -171,7 +121,7 @@ const TermsConditionsContent = () => (
       <p>
         By accessing and using this website, you accept and agree to be bound by
         these Terms and Conditions. If you do not agree to these terms, please
-        do not use this website. H.O.M Advisory reserves the right to modify
+        do not use this website. Narayana Group reserves the right to modify
         these terms at any time without prior notice.
       </p>
     </section>
@@ -179,49 +129,34 @@ const TermsConditionsContent = () => (
     <section className={styles.legalSection}>
       <h3>About This Website</h3>
       <p>
-        This website is operated by H.O.M Advisory, an authorized marketing
-        partner of Mahindra Lifespaces. This is not the official website of Mahindra
-        Lifespaces. We are engaged in marketing and selling activities for Mahindra
-        Blossom project.
+        This website is operated by Narayana Group for the purpose of providing
+        information about our coaching programmes, courses, and services. All
+        content is for general informational purposes only.
       </p>
     </section>
 
     <section className={styles.legalSection}>
-      <h3>Property Information Disclaimer</h3>
+      <h3>Information Disclaimer</h3>
       <p>
         The information provided on this website is for general informational
         purposes only:
       </p>
       <ul>
         <li>
-          All property details, specifications, amenities, and features are
-          subject to change without prior notice.
+          All course details, fees, schedules, and offerings are subject to
+          change without prior notice.
         </li>
         <li>
-          Prices mentioned are indicative and subject to revision at the
-          discretion of Mahindra Lifespaces.
+          Results and rankings mentioned are based on past performance and do
+          not guarantee future outcomes.
         </li>
         <li>
-          Images, renders, and visualizations are for representational purposes
-          only and may not reflect the actual property.
+          Images and representations are for illustrative purposes only.
         </li>
         <li>
-          Availability of units is not guaranteed and is subject to real-time
-          inventory status.
+          Availability of courses and batches is subject to real-time status.
         </li>
-        <li>Floor plans and layouts may vary from the actual construction.</li>
       </ul>
-    </section>
-
-    <section className={styles.legalSection}>
-      <h3>No Offer or Contract</h3>
-      <p>
-        The content on this website does not constitute an offer to sell or a
-        solicitation of an offer to buy any property. No contractual
-        relationship is created by your use of this website or by any inquiry
-        submitted through it. Any purchase or transaction must be executed
-        through official documentation with Mahindra Lifespaces.
-      </p>
     </section>
 
     <section className={styles.legalSection}>
@@ -243,10 +178,6 @@ const TermsConditionsContent = () => (
           Not attempt to gain unauthorized access to any part of the website or
           its systems
         </li>
-        <li>
-          Verify all property details directly with Mahindra Lifespaces before
-          making any purchase decision
-        </li>
       </ul>
     </section>
 
@@ -254,41 +185,18 @@ const TermsConditionsContent = () => (
       <h3>Intellectual Property</h3>
       <p>
         All content on this website, including but not limited to text,
-        graphics, logos, images, and software, is the property of H.O.M Advisory
-        or Mahindra Lifespaces and is protected by intellectual property laws. You
-        may not reproduce, distribute, or create derivative works without prior
-        written consent.
+        graphics, logos, images, and software, is the property of Narayana Group
+        and is protected by intellectual property laws. You may not reproduce,
+        distribute, or create derivative works without prior written consent.
       </p>
     </section>
 
     <section className={styles.legalSection}>
       <h3>Limitation of Liability</h3>
       <p>
-        H.O.M Advisory shall not be liable for any direct, indirect, incidental,
+        Narayana Group shall not be liable for any direct, indirect, incidental,
         consequential, or punitive damages arising from your use of this website
-        or reliance on any information provided herein. We make no warranties or
-        representations about the accuracy, completeness, or reliability of the
-        content on this website.
-      </p>
-    </section>
-
-    <section className={styles.legalSection}>
-      <h3>Third-Party Links</h3>
-      <p>
-        This website may contain links to third-party websites for your
-        convenience. We do not endorse, control, or assume responsibility for
-        the content or practices of any third-party sites. Your use of such
-        sites is at your own risk.
-      </p>
-    </section>
-
-    <section className={styles.legalSection}>
-      <h3>Indemnification</h3>
-      <p>
-        You agree to indemnify and hold harmless H.O.M Advisory, its affiliates,
-        and their respective officers, directors, employees, and agents from any
-        claims, damages, or expenses arising from your use of this website or
-        violation of these Terms and Conditions.
+        or reliance on any information provided herein.
       </p>
     </section>
 
@@ -298,17 +206,7 @@ const TermsConditionsContent = () => (
         These Terms and Conditions shall be governed by and construed in
         accordance with the laws of India. Any disputes arising from or related
         to these terms shall be subject to the exclusive jurisdiction of the
-        courts in Bangalore, Karnataka.
-      </p>
-    </section>
-
-    <section className={styles.legalSection}>
-      <h3>Severability</h3>
-      <p>
-        If any provision of these Terms and Conditions is found to be
-        unenforceable or invalid, that provision shall be limited or eliminated
-        to the minimum extent necessary, and the remaining provisions shall
-        continue in full force and effect.
+        courts in Hyderabad, Telangana.
       </p>
     </section>
 
@@ -319,15 +217,51 @@ const TermsConditionsContent = () => (
         us at:
       </p>
       <p>
-        <strong>H.O.M Advisory</strong>
+        <strong>Narayana Group</strong>
         <br />
-        Email: marketing@homadvisory.com
+        Email: info@narayanagroup.com
         <br />
-        Phone: +91-9632367929
+        Phone: 1800-102-3344
       </p>
     </section>
 
-    <p className={styles.lastUpdated}>Last Updated: January 2026</p>
+    <p className={styles.lastUpdated}>Last Updated: January 2025</p>
+  </div>
+);
+
+// Disclaimer Content Component
+const DisclaimerContent = () => (
+  <div className={styles.legalContent}>
+    <section className={styles.legalSection}>
+      <h3>General Disclaimer</h3>
+      <p>
+        The information provided on this website is for general informational
+        purposes only. While we strive to keep the information up to date and
+        correct, we make no representations or warranties of any kind about the
+        completeness, accuracy, reliability, suitability, or availability with
+        respect to the website or the information, products, services, or
+        related graphics contained on the website.
+      </p>
+    </section>
+
+    <section className={styles.legalSection}>
+      <h3>Results Disclaimer</h3>
+      <p>
+        Past results and rankings are based on historical data and are not
+        indicative of future performance. Individual results may vary based on
+        the student's aptitude, dedication, and other factors.
+      </p>
+    </section>
+
+    <section className={styles.legalSection}>
+      <h3>Contact</h3>
+      <p>
+        For any questions or concerns, please contact us at
+        info@narayanagroup.com or call 1800-102-3344.
+      </p>
+    </section>
+
+    <p className={styles.lastUpdated}>Last Updated: January 2025</p>
   </div>
 );
 
@@ -390,10 +324,52 @@ const LegalModal = ({ isOpen, onClose, title, children }) => {
   );
 };
 
+// Quick Links data
+const quickLinks = [
+  { label: "About Narayana", href: "#overview" },
+  { label: "Why Narayana", href: "#amenities" },
+  { label: "Results", href: "#pricing" },
+  { label: "Centres", href: "#location" },
+  {
+    label: "Careers",
+    href: "https://www.narayanacoachingcenters.in/careers",
+    external: true,
+  },
+];
+
+// Courses data
+const courses = [
+  { label: "IIT-JEE Coaching", href: "#overview" },
+  {
+    label: "NEET Coaching",
+    href: "https://www.narayanacoachingcenters.in/neet-coaching",
+    external: true,
+  },
+  { label: "Foundation Courses", href: "#overview" },
+  {
+    label: "Crash Courses",
+    href: "https://www.narayanacoachingcenters.in/iit-crash-course",
+    external: true,
+  },
+  {
+    label: "Test Series",
+    href: "https://www.narayanacoachingcenters.in/naits/",
+    external: true,
+  },
+];
+
+// Social media links
+const socialLinks = [
+  { icon: "mdi:facebook", href: "#", label: "Facebook" },
+  { icon: "mdi:instagram", href: "#", label: "Instagram" },
+  { icon: "mdi:youtube", href: "#", label: "YouTube" },
+  { icon: "mdi:twitter", href: "#", label: "Twitter" },
+];
+
 const Footer = () => {
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const [termsModalOpen, setTermsModalOpen] = useState(false);
-  const [disclaimerExpanded, setDisclaimerExpanded] = useState(false);
+  const [disclaimerModalOpen, setDisclaimerModalOpen] = useState(false);
 
   return (
     <>
@@ -401,101 +377,164 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className={styles.mainFooter}>
           <Container maxWidth="xl">
-            {/* RERA Badge */}
-            <div className={styles.reraBadge} style={{ flexDirection: 'column', gap: '8px', padding: '12px 20px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Icon icon="mdi:shield-check" className={styles.reraIcon} />
-                <span className={styles.reraLabel}>RERA Registered</span>
+            <div className={styles.footerGrid}>
+              {/* Column 1: Logo & Tagline */}
+              <div className={styles.footerBrand}>
+                <div className={styles.logoWrapper}>
+                  <Icon icon="mdi:school" className={styles.logoIcon} />
+                  <span className={styles.logoText}>Narayana</span>
+                </div>
+                <p className={styles.tagline}>
+                  One of Asia's largest educational conglomerates inspiring
+                  success since 1979.
+                </p>
+                {/* Social Icons */}
+                <div className={styles.socialIcons}>
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.socialIcon}
+                      aria-label={social.label}
+                    >
+                      <Icon icon={social.icon} />
+                    </a>
+                  ))}
+                </div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center', fontSize: '12px' }}>
-                <span style={{ color: '#FFFFFFCC' }}>
-                  <strong style={{ color: '#FF6D00' }}>Mahindra Blossom:</strong>{' '}
-                  <span style={{ color: '#FFFFFF99' }}>PRM/KA/RERA/1251/446/PR/171225/008348</span>
-                </span>
-                <span style={{ color: '#FFFFFFCC' }}>
-                  <strong style={{ color: '#FF6D00' }}>H.O.M Advisory (Agent):</strong>{' '}
-                  <span style={{ color: '#FFFFFF99' }}>PRM/KA/RERA/1251/310/AG/251018/006354</span>
-                </span>
+
+              {/* Column 2: Quick Links */}
+              <div className={styles.footerColumn}>
+                <h4 className={styles.columnTitle}>Quick Links</h4>
+                <ul className={styles.footerLinks}>
+                  {quickLinks.map((link, index) => (
+                    <li key={index}>
+                      <a
+                        href={link.href}
+                        className={styles.footerLink}
+                        {...(link.external
+                          ? {
+                              target: "_blank",
+                              rel: "noopener noreferrer",
+                            }
+                          : {})}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Column 3: Courses */}
+              <div className={styles.footerColumn}>
+                <h4 className={styles.columnTitle}>Courses</h4>
+                <ul className={styles.footerLinks}>
+                  {courses.map((course, index) => (
+                    <li key={index}>
+                      <a
+                        href={course.href}
+                        className={styles.footerLink}
+                        {...(course.external
+                          ? {
+                              target: "_blank",
+                              rel: "noopener noreferrer",
+                            }
+                          : {})}
+                      >
+                        {course.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Column 4: Contact */}
+              <div className={styles.footerColumn}>
+                <h4 className={styles.columnTitle}>Contact</h4>
+                <ul className={styles.contactList}>
+                  <li className={styles.contactItem}>
+                    <Icon icon="mdi:phone" className={styles.contactIcon} />
+                    <div>
+                      <span className={styles.contactLabel}>
+                        Admission Support
+                      </span>
+                      <a href="tel:+919667225657" className={styles.contactValue}>
+                        9667225657
+                      </a>
+                    </div>
+                  </li>
+                  <li className={styles.contactItem}>
+                    <Icon
+                      icon="mdi:phone-in-talk"
+                      className={styles.contactIcon}
+                    />
+                    <div>
+                      <span className={styles.contactLabel}>Toll Free</span>
+                      <a href="tel:18001023344" className={styles.contactValue}>
+                        1800-102-3344
+                      </a>
+                    </div>
+                  </li>
+                  <li className={styles.contactItem}>
+                    <Icon icon="mdi:email" className={styles.contactIcon} />
+                    <div>
+                      <span className={styles.contactLabel}>Email</span>
+                      <a
+                        href="mailto:info@narayanagroup.com"
+                        className={styles.contactValue}
+                      >
+                        info@narayanagroup.com
+                      </a>
+                    </div>
+                  </li>
+                  <li className={styles.contactItem}>
+                    <Icon
+                      icon="mdi:map-marker"
+                      className={styles.contactIcon}
+                    />
+                    <div>
+                      <span className={styles.contactLabel}>Address</span>
+                      <span className={styles.contactValue}>
+                        Guwahati, Assam
+                      </span>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
+          </Container>
+        </div>
 
-            {/* Address */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', marginTop: '12px', color: '#FFFFFFB3', fontSize: '13px', gap: '6px' }}>
-              <Icon icon="mdi:map-marker" style={{ color: '#FF6D00', fontSize: '16px', flexShrink: 0, marginTop: '2px' }} />
-              <span style={{ textAlign: 'center' }}>Next to Hopefarm Channasandra Metro Station, Whitefield, Bengaluru 560066</span>
-            </div>
-
-            {/* Compact Disclaimer Bar */}
-            <div className={styles.compactDisclaimer}>
-              <span className={styles.disclaimerLine}>
-                <Icon
-                  icon="mdi:information-outline"
-                  className={styles.disclaimerInfoIcon}
-                  style={{ color: '#FFFFFF66' }}
-                />
-                <span className={styles.disclaimerSummary} style={{ color: '#FFFFFF80' }}>
-                  This website is owned, operated, and maintained by <strong style={{ color: '#FF6D00CC' }}>H.O.M Advisory</strong>, a RERA-registered real estate agent and an authorized channel partner of Mahindra Lifespaces for the promotion of Mahindra Blossom.
-                </span>
-                <button
-                  className={styles.disclaimerToggle}
-                  onClick={() => setDisclaimerExpanded(!disclaimerExpanded)}
-                  aria-expanded={disclaimerExpanded}
-                  aria-label={
-                    disclaimerExpanded
-                      ? "Collapse disclaimer"
-                      : "Expand disclaimer"
-                  }
-                  style={{ color: '#FF6D00B3' }}
-                >
-                  <span className={styles.readMoreText}>
-                    {disclaimerExpanded ? "Less" : "More"}
-                  </span>
-                  <Icon
-                    icon={
-                      disclaimerExpanded ? "mdi:chevron-up" : "mdi:chevron-down"
-                    }
-                    className={styles.toggleIcon}
-                  />
-                </button>
-              </span>
-              <AnimatePresence>
-                {disclaimerExpanded && (
-                  <motion.div
-                    className={styles.disclaimerExpanded}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
-                  >
-                    <p className={styles.disclaimerFullText} style={{ color: '#FFFFFF73' }}>
-                      This website is owned, operated, and maintained by <strong style={{ color: '#FF6D00BF' }}>H.O.M Advisory</strong>, a RERA-registered real estate agent (Reg. No. PRM/KA/RERA/1251/310/AG/251018/006354) and an authorized channel partner of Mahindra Lifespaces for the promotion of Mahindra Blossom. This is not the official website of Mahindra Lifespaces. All prices, specifications, layouts, floor plans, amenities, and other details are indicative and subject to change without prior notice, subject to availability and approvals. Images and artistic impressions are for illustrative purposes only.
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Footer Links & Copyright */}
-            <div className={styles.footerBottom}>
-              <p className={styles.copyright} style={{ color: '#FFFFFF99' }}>
-                &copy; {new Date().getFullYear()} H.O.M Advisory. All Rights
-                Reserved.
+        {/* Bottom Bar */}
+        <div className={styles.bottomBar}>
+          <Container maxWidth="xl">
+            <div className={styles.bottomContent}>
+              <p className={styles.copyright}>
+                &copy; 2025 Narayana Group. All Rights Reserved.
               </p>
               <div className={styles.legalLinks}>
                 <button
                   className={styles.legalLink}
+                  onClick={() => setTermsModalOpen(true)}
+                >
+                  Terms & Conditions
+                </button>
+                <span className={styles.linkDivider}>|</span>
+                <button
+                  className={styles.legalLink}
                   onClick={() => setPrivacyModalOpen(true)}
-                  style={{ color: '#FFFFFFB3' }}
                 >
                   Privacy Policy
                 </button>
-                <span className={styles.linkDivider} style={{ color: '#FFFFFF4D' }}>|</span>
+                <span className={styles.linkDivider}>|</span>
                 <button
                   className={styles.legalLink}
-                  onClick={() => setTermsModalOpen(true)}
-                  style={{ color: '#FFFFFFB3' }}
+                  onClick={() => setDisclaimerModalOpen(true)}
                 >
-                  Terms & Conditions
+                  Disclaimer
                 </button>
               </div>
             </div>
@@ -505,7 +544,7 @@ const Footer = () => {
         {/* Developer Credit Bar */}
         <div className={styles.developerBar}>
           <Container maxWidth="xl">
-            <p className={styles.developerText} style={{ color: '#FFFFFF80' }}>
+            <p className={styles.developerText}>
               Designed and Developed by{" "}
               <a
                 href="https://assamdigital.com"
@@ -535,6 +574,14 @@ const Footer = () => {
         title="Terms & Conditions"
       >
         <TermsConditionsContent />
+      </LegalModal>
+
+      <LegalModal
+        isOpen={disclaimerModalOpen}
+        onClose={() => setDisclaimerModalOpen(false)}
+        title="Disclaimer"
+      >
+        <DisclaimerContent />
       </LegalModal>
     </>
   );
