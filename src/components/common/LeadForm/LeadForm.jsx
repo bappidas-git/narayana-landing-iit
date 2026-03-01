@@ -12,6 +12,10 @@ import {
   CircularProgress,
   Collapse,
   Alert,
+  Select,
+  MenuItem,
+  FormControl,
+  FormHelperText,
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
@@ -21,20 +25,39 @@ import {
   validateIndianMobile,
   validateEmail,
   validateName,
-  validateMessage,
   getMobileErrorMessage,
   getEmailErrorMessage,
   getNameErrorMessage,
-  getMessageErrorMessage,
 } from '../../../utils/validators';
 import styles from './LeadForm.module.css';
+
+// Course interest options
+const COURSE_OPTIONS = [
+  "2-Year Programme (TYICP)",
+  "Apex/Spark Programme",
+  "1-Year Programme (OYICP)",
+  "Repeater/Dropper Course",
+  "Foundation Course",
+  "Not Sure - Need Guidance",
+];
+
+// Student class options
+const CLASS_OPTIONS = [
+  "Class 8",
+  "Class 9",
+  "Class 10",
+  "Class 11",
+  "Class 12",
+  "XII Passed (Dropper)",
+];
 
 // Initial form state
 const initialFormState = {
   name: '',
   mobile: '',
   email: '',
-  message: '',
+  course_interest: '',
+  student_class: '',
 };
 
 // Initial error state
@@ -42,15 +65,17 @@ const initialErrorState = {
   name: '',
   mobile: '',
   email: '',
-  message: '',
+  course_interest: '',
+  student_class: '',
 };
 
 const LeadForm = ({
   variant = 'default', // 'default', 'compact', 'dark', 'card'
-  title = 'Book A Site Visit',
+  title = 'Enroll Now',
   subtitle = '',
   submitButtonText = 'Submit',
   showTitle = true,
+  showCourseFields = true,
   onSubmitSuccess,
   onSubmitError,
   className = '',
@@ -67,7 +92,8 @@ const LeadForm = ({
   const nameRef = useRef(null);
   const mobileRef = useRef(null);
   const emailRef = useRef(null);
-  const messageRef = useRef(null);
+  const courseRef = useRef(null);
+  const classRef = useRef(null);
 
   // Reset submit status after delay
   useEffect(() => {
@@ -120,8 +146,15 @@ const LeadForm = ({
       case 'email':
         errorMessage = getEmailErrorMessage(formData.email);
         break;
-      case 'message':
-        errorMessage = getMessageErrorMessage(formData.message);
+      case 'course_interest':
+        if (showCourseFields && !formData.course_interest) {
+          errorMessage = 'Please select a course';
+        }
+        break;
+      case 'student_class':
+        if (showCourseFields && !formData.student_class) {
+          errorMessage = 'Please select your class';
+        }
         break;
       default:
         break;
@@ -131,7 +164,7 @@ const LeadForm = ({
       ...prev,
       [field]: errorMessage,
     }));
-  }, [formData]);
+  }, [formData, showCourseFields]);
 
   // Validate entire form
   const validateForm = useCallback(() => {
@@ -139,7 +172,14 @@ const LeadForm = ({
       name: getNameErrorMessage(formData.name),
       mobile: getMobileErrorMessage(formData.mobile),
       email: getEmailErrorMessage(formData.email),
-      message: getMessageErrorMessage(formData.message),
+      course_interest:
+        showCourseFields && !formData.course_interest
+          ? 'Please select a course'
+          : '',
+      student_class:
+        showCourseFields && !formData.student_class
+          ? 'Please select your class'
+          : '',
     };
 
     setErrors(newErrors);
@@ -147,11 +187,12 @@ const LeadForm = ({
       name: true,
       mobile: true,
       email: true,
-      message: true,
+      course_interest: true,
+      student_class: true,
     });
 
     return Object.values(newErrors).every((error) => !error);
-  }, [formData]);
+  }, [formData, showCourseFields]);
 
   // Handle form submission
   const handleSubmit = async (event) => {
@@ -166,8 +207,6 @@ const LeadForm = ({
         mobileRef.current?.focus();
       } else if (errors.email || !formData.email) {
         emailRef.current?.focus();
-      } else if (errors.message || !formData.message) {
-        messageRef.current?.focus();
       }
       return;
     }
@@ -190,7 +229,8 @@ const LeadForm = ({
           name: formData.name,
           email: formData.email,
           mobile: formData.mobile,
-          message: formData.message || '',
+          course_interest: formData.course_interest || '',
+          student_class: formData.student_class || '',
           source: 'website',
         }),
       });
@@ -248,8 +288,8 @@ const LeadForm = ({
       // Show success message with SweetAlert2
       Swal.fire({
         icon: 'success',
-        title: 'Thank You!',
-        text: 'Our team will contact you within 24 hours.',
+        title: 'Enrollment Request Received! 🎓',
+        text: 'Thank you for your interest in Narayana Coaching Centers! Our academic counsellor will contact you within 24 hours.',
         confirmButtonColor: '#FF6D00',
         confirmButtonText: 'Great!',
         timer: 3000,
@@ -367,7 +407,7 @@ const LeadForm = ({
           <TextField
             inputRef={nameRef}
             fullWidth
-            placeholder="Name"
+            placeholder="Student's Full Name"
             variant="outlined"
             value={formData.name}
             onChange={handleChange('name')}
@@ -404,7 +444,7 @@ const LeadForm = ({
           <TextField
             inputRef={mobileRef}
             fullWidth
-            placeholder="Mobile"
+            placeholder="Parent's / Student's Mobile"
             variant="outlined"
             value={formData.mobile}
             onChange={handleChange('mobile')}
@@ -442,7 +482,7 @@ const LeadForm = ({
           <TextField
             inputRef={emailRef}
             fullWidth
-            placeholder="Email"
+            placeholder="Email Address"
             type="email"
             variant="outlined"
             value={formData.email}
@@ -474,47 +514,123 @@ const LeadForm = ({
           />
         </motion.div>
 
-        {/* Message Field */}
-        <motion.div variants={fieldVariants}>
-          <TextField
-            inputRef={messageRef}
-            fullWidth
-            placeholder="Message"
-            variant="outlined"
-            multiline
-            rows={3}
-            value={formData.message}
-            onChange={handleChange('message')}
-            onBlur={handleBlur('message')}
-            error={touched.message && !!errors.message}
-            helperText={touched.message && errors.message}
-            disabled={isSubmitting}
-            className={`${styles.textField} ${styles.messageField}`}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment
-                  position="start"
-                  className={styles.messageAdornment}
-                >
-                  <Icon
-                    icon="ic:outline-message"
-                    className={styles.inputIcon}
-                    style={variant === 'dark' ? { color: '#FFFFFF99' } : undefined}
-                  />
-                </InputAdornment>
-              ),
-              classes: {
-                root: styles.inputRoot,
-                focused: styles.inputFocused,
-                error: styles.inputError,
-              },
-            }}
-            inputProps={{
-              'aria-label': 'Your message',
-              maxLength: 500,
-            }}
-          />
-        </motion.div>
+        {/* Course Interest Field */}
+        {showCourseFields && (
+          <motion.div variants={fieldVariants}>
+            <FormControl
+              fullWidth
+              error={touched.course_interest && !!errors.course_interest}
+              className={styles.textField}
+            >
+              <Select
+                ref={courseRef}
+                displayEmpty
+                value={formData.course_interest}
+                onChange={handleChange('course_interest')}
+                onBlur={handleBlur('course_interest')}
+                disabled={isSubmitting}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <Icon
+                      icon="mdi:book-education-outline"
+                      className={styles.inputIcon}
+                      style={variant === 'dark' ? { color: '#FFFFFF99' } : undefined}
+                    />
+                  </InputAdornment>
+                }
+                renderValue={(selected) => {
+                  if (!selected) {
+                    return (
+                      <span style={{ color: variant === 'dark' ? '#FFFFFF80' : undefined, opacity: variant === 'dark' ? 1 : 0.5 }}>
+                        Select Course Interest
+                      </span>
+                    );
+                  }
+                  return selected;
+                }}
+                classes={{
+                  root: styles.inputRoot,
+                }}
+                inputProps={{
+                  'aria-label': 'Course interest',
+                }}
+                sx={
+                  variant === 'dark'
+                    ? { color: '#FFFFFF', '& .MuiSelect-icon': { color: '#FFFFFF80' } }
+                    : undefined
+                }
+              >
+                {COURSE_OPTIONS.map((option) => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              {touched.course_interest && errors.course_interest && (
+                <FormHelperText>{errors.course_interest}</FormHelperText>
+              )}
+            </FormControl>
+          </motion.div>
+        )}
+
+        {/* Student Class Field */}
+        {showCourseFields && (
+          <motion.div variants={fieldVariants}>
+            <FormControl
+              fullWidth
+              error={touched.student_class && !!errors.student_class}
+              className={styles.textField}
+            >
+              <Select
+                ref={classRef}
+                displayEmpty
+                value={formData.student_class}
+                onChange={handleChange('student_class')}
+                onBlur={handleBlur('student_class')}
+                disabled={isSubmitting}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <Icon
+                      icon="mdi:school-outline"
+                      className={styles.inputIcon}
+                      style={variant === 'dark' ? { color: '#FFFFFF99' } : undefined}
+                    />
+                  </InputAdornment>
+                }
+                renderValue={(selected) => {
+                  if (!selected) {
+                    return (
+                      <span style={{ color: variant === 'dark' ? '#FFFFFF80' : undefined, opacity: variant === 'dark' ? 1 : 0.5 }}>
+                        Select Student's Class
+                      </span>
+                    );
+                  }
+                  return selected;
+                }}
+                classes={{
+                  root: styles.inputRoot,
+                }}
+                inputProps={{
+                  'aria-label': 'Student class',
+                }}
+                sx={
+                  variant === 'dark'
+                    ? { color: '#FFFFFF', '& .MuiSelect-icon': { color: '#FFFFFF80' } }
+                    : undefined
+                }
+              >
+                {CLASS_OPTIONS.map((option) => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+              {touched.student_class && errors.student_class && (
+                <FormHelperText>{errors.student_class}</FormHelperText>
+              )}
+            </FormControl>
+          </motion.div>
+        )}
 
         {/* Submit Button */}
         <motion.div variants={fieldVariants} className={styles.submitWrapper}>
