@@ -33,7 +33,7 @@ const contactInfo = {
 // Quick links
 const quickLinks = [
   { icon: 'mdi:floor-plan', label: 'Floor Plans', href: '/#floor-plans' },
-  { icon: 'mdi:currency-inr', label: 'Pricing', href: '/#pricing' },
+  { icon: 'mdi:trophy-award', label: 'Results', href: '/#results' },
   { icon: 'mdi:map-marker', label: 'Location', href: '/#location' },
   { icon: 'mdi:view-grid', label: 'Amenities', href: '/#amenities' },
 ];
