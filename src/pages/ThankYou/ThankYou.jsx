@@ -23,8 +23,8 @@ const projectHighlights = [
 const contactInfo = {
   companyName: 'Narayana Coaching Centers',
   designation: 'IIT-JEE Coaching Excellence',
-  phone: '+91-9632367929',
-  altPhone: '+91-9632367929',
+  phone: '+91-9667225657',
+  altPhone: '+91-9667225657',
   email: 'info@narayanacoaching.com',
   address: 'Guwahati Centre, Assam',
   workingHours: 'Mon - Sat: 8:00 AM - 7:00 PM',

@@ -2,7 +2,7 @@
 /**
  * Lead Form Submission Handler
  *
- * This script handles lead form submissions from the Mahindra Blossom landing page.
+ * This script handles lead form submissions from the Narayana IIT-JEE landing page.
  * It creates the database and table if they don't exist, validates input, saves the lead,
  * and sends an email notification via Gmail SMTP.
  */
@@ -330,7 +330,7 @@ function buildEmailHTML($leadData, $leadId) {
                         <tr>
                             <td style="background: linear-gradient(135deg, #1A237E 0%, #1a2d4a 100%); padding: 30px; text-align: center;">
                                 <h1 style="color: #FF6D00; margin: 0; font-size: 24px;">New Lead Enquiry</h1>
-                                <p style="color: #ffffff; margin: 10px 0 0 0; font-size: 14px;">Mahindra Blossom - Whitefield</p>
+                                <p style="color: #ffffff; margin: 10px 0 0 0; font-size: 14px;">Narayana IIT-JEE Coaching - Guwahati</p>
                             </td>
                         </tr>
 
@@ -454,7 +454,7 @@ function buildEmailHTML($leadData, $leadId) {
                         <tr>
                             <td style="background-color: #f5f5f5; padding: 20px 30px; text-align: center;">
                                 <p style="color: #757575; font-size: 12px; margin: 0;">
-                                    This is an automated notification from the Mahindra Blossom website.<br>
+                                    This is an automated notification from the Narayana IIT-JEE website.<br>
                                     Please respond to this lead within 24 hours.
                                 </p>
                             </td>
@@ -477,7 +477,7 @@ function buildEmailHTML($leadData, $leadId) {
 function buildEmailPlainText($leadData, $leadId) {
     $submittedAt = date('d M Y, h:i A');
 
-    $text = "NEW LEAD ENQUIRY - Mahindra Blossom\n";
+    $text = "NEW LEAD ENQUIRY - Narayana IIT-JEE\n";
     $text .= "=========================================\n\n";
     $text .= "Lead ID: #" . $leadId . "\n\n";
     $text .= "CONTACT DETAILS:\n";

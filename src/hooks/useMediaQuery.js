@@ -1,5 +1,5 @@
 /* ============================================
-   useMediaQuery Hook - Mahindra Blossom
+   useMediaQuery Hook - Narayana IIT-JEE
    Custom hook for responsive design
    ============================================ */
 

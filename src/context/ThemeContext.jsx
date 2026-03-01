@@ -1,5 +1,5 @@
 /* ============================================
-   Theme Context - Mahindra Blossom
+   Theme Context - Narayana IIT-JEE
    Handles theme preferences (light/dark mode)
    ============================================ */
 

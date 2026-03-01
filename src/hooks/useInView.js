@@ -1,5 +1,5 @@
 /* ============================================
-   useInView Hook - Mahindra Blossom
+   useInView Hook - Narayana IIT-JEE
    Custom hook for detecting element visibility
    ============================================ */
 

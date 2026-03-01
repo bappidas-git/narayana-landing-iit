@@ -1,5 +1,5 @@
 /* ============================================
-   Modal Component - Mahindra Blossom
+   Modal Component - Narayana IIT-JEE
    Animated modal/dialog with multiple variants
    ============================================ */
 

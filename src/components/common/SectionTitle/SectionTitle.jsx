@@ -1,5 +1,5 @@
 /* ============================================
-   SectionTitle Component - Mahindra Blossom
+   SectionTitle Component - Narayana IIT-JEE
    Reusable section title with badge and animations
    ============================================ */
 

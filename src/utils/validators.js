@@ -1,5 +1,5 @@
 /* ============================================
-   Validators - Mahindra Blossom
+   Validators - Narayana IIT-JEE
    Form validation utilities
    ============================================ */
 

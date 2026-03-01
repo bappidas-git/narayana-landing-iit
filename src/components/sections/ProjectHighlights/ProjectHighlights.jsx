@@ -1,5 +1,5 @@
 /* ============================================
-   ProjectHighlights Component - Mahindra Blossom
+   ProjectHighlights Component - Narayana IIT-JEE
    Project highlights with expand/collapse functionality
    ============================================ */
 
@@ -142,7 +142,7 @@ const ProjectHighlights = () => {
                 <div className={styles.towerImageContainer}>
                   <img
                     src="https://placehold.co/600x800/1a1a1a/FFFFFF?text=Tower+B%26W+600x800"
-                    alt="Mahindra Blossom Tower"
+                    alt="Narayana IIT-JEE Centre"
                     className={styles.towerImage}
                     loading="lazy"
                   />

@@ -26,12 +26,12 @@ define('SMTP_SECURE', 'tls'); // Use 'tls' for port 587, 'ssl' for port 465
 
 // Email Recipients
 define('EMAIL_FROM', 'mythikona@gmail.com');
-define('EMAIL_FROM_NAME', 'Mahindra Blossom - H.O.M Advisory');
+define('EMAIL_FROM_NAME', 'Narayana IIT-JEE - Narayana Coaching Centers');
 define('EMAIL_TO', 'prasoon@homadvisory.com');
-define('EMAIL_TO_NAME', 'H.O.M Advisory');
+define('EMAIL_TO_NAME', 'Narayana Coaching Centers');
 
 // Optional: CC Recipients (comma-separated)
 define('EMAIL_CC', 'assamdigital@gmail.com,susmit@assamdigital.com');
 
 // Email Settings
-define('EMAIL_SUBJECT_PREFIX', '[New Lead] Mahindra Blossom');
+define('EMAIL_SUBJECT_PREFIX', '[New Lead] Narayana IIT-JEE');

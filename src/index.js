@@ -118,25 +118,9 @@ const handleWebVitals = (metric) => {
     console.log(`[Web Vital] ${metric.name}:`, metric.value.toFixed(2));
   }
 
-  // Send to analytics in production
+  // Log to console in production (analytics removed)
   if (process.env.NODE_ENV === 'production') {
-    // Example: Send to Google Analytics
-    if (window.gtag) {
-      window.gtag('event', metric.name, {
-        event_category: 'Web Vitals',
-        event_label: metric.id,
-        value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
-        non_interaction: true,
-      });
-    }
-
-    // Example: Send to custom analytics endpoint
-    // sendToAnalytics({
-    //   name: metric.name,
-    //   value: metric.value,
-    //   id: metric.id,
-    //   delta: metric.delta,
-    // });
+    // Could send to custom analytics endpoint if needed
   }
 };
 
