@@ -17,7 +17,7 @@ const navItems = [
     icon: "ic:baseline-whatsapp",
     color: "#25D366",
     action: "whatsapp",
-    href: "https://wa.me/919632367929?text=Hi,%20I%20am%20interested%20in%20District%2025%20Phase%202",
+    href: "https://wa.me/919667225657?text=Hi,%20I%20am%20interested%20in%20Narayana%20IIT-JEE%20Coaching%20in%20Guwahati",
   },
   {
     id: "call",
@@ -25,12 +25,12 @@ const navItems = [
     icon: "ic:baseline-phone",
     color: "#FF6D00",
     action: "call",
-    href: "tel:+919632367929",
+    href: "tel:+919667225657",
   },
   {
     id: "enquiry",
     label: "Enquiry",
-    icon: "ic:baseline-download",
+    icon: "ic:baseline-school",
     color: "#FF6D00",
     action: "enquiry",
     badge: true,
@@ -39,7 +39,7 @@ const navItems = [
     id: "menu",
     label: "Menu",
     icon: "ic:baseline-menu",
-    color: "#6B7280",
+    color: "#546E7A",
     action: "menu",
   },
 ];
