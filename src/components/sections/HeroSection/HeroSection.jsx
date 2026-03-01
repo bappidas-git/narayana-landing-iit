@@ -1,21 +1,18 @@
 /* ============================================
-   HeroSection Component - Mahindra Blossom
-   Premium real estate hero section with animations
+   HeroSection Component - Narayana IIT-JEE
+   Premium coaching hero section with animations
    ============================================ */
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Container, Typography, Grid, Chip, useMediaQuery, useTheme } from '@mui/material';
+import { Container, Typography, Grid, Chip, useMediaQuery, useTheme, Button } from '@mui/material';
 import { Icon } from '@iconify/react';
-import Lottie from 'lottie-react';
 import UnifiedLeadForm from '../../common/UnifiedLeadForm/UnifiedLeadForm';
+import { useModal } from '../../../context/ModalContext';
 import styles from './HeroSection.module.css';
 
-// Import lottie animations
-import buildingAnimation from '../../../assets/lottie/building-animation.json';
-
 // Import hero images
-import heroBuildingImg from '../../../assets/images/hero/hero-desktop.jpg';
+import heroDesktopImg from '../../../assets/images/hero/hero-desktop.jpg';
 import heroMobileImg from '../../../assets/images/hero/hero-mobile.jpg';
 
 // Animation variants
@@ -54,76 +51,39 @@ const badgeVariants = {
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i) => ({
+const buttonVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
     opacity: 1,
-    y: 0,
+    scale: 1,
     transition: {
-      delay: 0.5 + i * 0.1,
       duration: 0.5,
       ease: 'easeOut',
     },
-  }),
+  },
 };
 
-// Hero info cards data - Mahindra Blossom
-const heroInfoCards = [
-  {
-    icon: 'mdi:office-building-outline',
-    value: '2, 3 & 4 BHK',
-    label: 'Premium Apartments',
-    color: '#FF6D00',
-    bgColor: 'rgba(255, 109, 0, 0.15)',
-  },
-  {
-    icon: 'mdi:map-marker-radius',
-    value: '7.8 Acres',
-    label: 'Development Area',
-    color: '#FF6D00',
-    bgColor: 'rgba(255, 109, 0, 0.15)',
-  },
-  {
-    icon: 'mdi:view-grid-outline',
-    value: '97,000 sq.ft',
-    label: 'Amenities',
-    color: '#2196F3',
-    bgColor: 'rgba(33, 150, 243, 0.15)',
-  },
-  {
-    icon: 'mdi:train',
-    value: 'Metro Adjacent',
-    label: 'Hopefarm Station',
-    color: '#FF6D00',
-    bgColor: 'rgba(255, 109, 0, 0.15)',
-  },
-];
-
-// Trust badges data - Mahindra Blossom
-const trustBadges = [
-  { icon: 'mdi:shield-check-outline', text: 'RERA Registered' },
-  { icon: 'mdi:leaf-circle', text: 'IGBC Certified' },
-  { icon: 'mdi:recycle', text: 'Net Zero Waste' },
-];
-
-// Quick features - Mahindra Blossom
-const quickFeatures = [
-  { text: 'Vaastu Compliant', icon: 'mdi:compass-outline' },
-  { text: 'IGBC Green Homes', icon: 'mdi:leaf' },
-  { text: 'IT Corridor Access', icon: 'mdi:office-building' },
+// Trust indicators data
+const trustIndicators = [
+  { icon: 'mdi:trophy-outline', text: '40+ Years Legacy' },
+  { icon: 'mdi:map-marker-multiple-outline', text: '200+ Centers' },
+  { icon: 'mdi:star-outline', text: '4 in Top 15 AIR' },
+  { icon: 'mdi:percent-outline', text: '90% Scholarship' },
 ];
 
 const HeroSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const { openLeadDrawer } = useModal();
 
   return (
     <section className={styles.heroSection} id="home">
       {/* Background Image with Overlay */}
       <div className={styles.heroBg}>
         <img
-          src={isMobile ? heroMobileImg : heroBuildingImg}
-          alt="Mahindra Blossom - Home of Positive Energy"
+          src={isMobile ? heroMobileImg : heroDesktopImg}
+          alt="Narayana IIT-JEE Coaching Centers"
           className={styles.heroImage}
           loading="eager"
         />
@@ -137,22 +97,22 @@ const HeroSection = () => {
       <Container maxWidth="xl" className={styles.heroContainer}>
         <Grid container spacing={isMobile ? 3 : 6} alignItems="center">
           {/* Left Content */}
-          <Grid item xs={12} md={7} lg={6}>
+          <Grid item xs={12} lg={7}>
             <motion.div
               className={styles.heroContent}
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
-              {/* Launch Badge */}
+              {/* Pre-headline Badge */}
               <motion.div variants={badgeVariants}>
                 <Chip
                   icon={<span className={styles.pulseDot} />}
-                  label="NEW LAUNCH IN WHITEFIELD"
+                  label="🏆 #1 IIT-JEE Coaching in North-East India"
                   className={styles.launchBadge}
                   sx={{
                     backgroundColor: '#FF6D00',
-                    color: '#1A237E',
+                    color: '#FFFFFF',
                     fontWeight: 600,
                     fontSize: '0.875rem',
                     height: '36px',
@@ -173,17 +133,17 @@ const HeroSection = () => {
                     color: '#FFFFFF',
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 700,
-                    fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem', lg: '4rem' },
+                    fontSize: { xs: '2.25rem', sm: '2.75rem', md: '3.25rem', lg: '3.5rem' },
                     lineHeight: 1.1,
                     marginTop: '1.5rem',
                   }}
                 >
-                  POSITIVE ENERGY
-                  <span className={styles.goldText}> THAT MAKES YOU FALL IN LOVE</span>
+                  Crack IIT-JEE with
+                  <span className={styles.orangeText}> Narayana Coaching Centers</span>
                 </Typography>
               </motion.div>
 
-              {/* Subtitle */}
+              {/* Sub-headline */}
               <motion.div variants={itemVariants}>
                 <Typography
                   variant="h6"
@@ -191,126 +151,134 @@ const HeroSection = () => {
                   sx={{
                     color: 'rgba(255, 255, 255, 0.85)',
                     fontWeight: 400,
-                    fontSize: { xs: '1rem', md: '1.125rem' },
+                    fontSize: { xs: '0.95rem', md: '1.125rem' },
                     marginTop: '1rem',
-                    maxWidth: '500px',
+                    maxWidth: '600px',
+                    lineHeight: 1.6,
                   }}
                 >
-                  Launching 2, 3 & 4 BHK homes at HopeFarm Jn., Whitefield - Adjacent to Metro Station
+                  4 of Top-15 All India Rankers in JEE Advanced 2024 | 40+ Years of Academic Excellence | Up to 90% Scholarship via NACST
                 </Typography>
               </motion.div>
 
-              {/* Trust Badges */}
-              <motion.div variants={itemVariants} className={styles.trustBadges}>
-                {trustBadges.map((badge, index) => (
-                  <motion.div
-                    key={index}
-                    className={styles.trustBadge}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Icon icon={badge.icon} className={styles.badgeIcon} />
-                    <span>{badge.text}</span>
-                  </motion.div>
-                ))}
+              {/* CTA Buttons */}
+              <motion.div variants={buttonVariants} className={styles.ctaButtons}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  className={styles.primaryCta}
+                  onClick={() => openLeadDrawer('enroll-now')}
+                  sx={{
+                    backgroundColor: '#FF6D00',
+                    color: '#FFFFFF',
+                    fontWeight: 700,
+                    fontSize: '1rem',
+                    padding: '0.875rem 2rem',
+                    borderRadius: '12px',
+                    textTransform: 'none',
+                    fontFamily: "'Poppins', sans-serif",
+                    boxShadow: '0 4px 20px rgba(255, 109, 0, 0.4)',
+                    '&:hover': {
+                      backgroundColor: '#FF9100',
+                      boxShadow: '0 6px 24px rgba(255, 109, 0, 0.5)',
+                      transform: 'translateY(-2px)',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Enroll Now →
+                </Button>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  className={styles.secondaryCta}
+                  onClick={() => openLeadDrawer('book-free-demo')}
+                  sx={{
+                    borderColor: 'rgba(255, 255, 255, 0.6)',
+                    color: '#FFFFFF',
+                    fontWeight: 600,
+                    fontSize: '1rem',
+                    padding: '0.875rem 2rem',
+                    borderRadius: '12px',
+                    textTransform: 'none',
+                    fontFamily: "'Poppins', sans-serif",
+                    borderWidth: '2px',
+                    '&:hover': {
+                      borderColor: '#FF9100',
+                      backgroundColor: 'rgba(255, 145, 0, 0.1)',
+                      borderWidth: '2px',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Book Free Demo Class
+                </Button>
               </motion.div>
 
-              {/* Info Cards Grid */}
-              <motion.div variants={itemVariants} className={styles.infoCardsWrapper}>
-                <div className={styles.infoCardsGrid}>
-                  {heroInfoCards.map((card, index) => (
-                    <motion.div
-                      key={index}
-                      className={styles.infoCard}
-                      custom={index}
-                      variants={cardVariants}
-                      whileHover={{
-                        y: -5,
-                        boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                        transition: { duration: 0.3 }
-                      }}
-                    >
-                      <div
-                        className={styles.infoCardIcon}
-                        style={{ backgroundColor: card.bgColor }}
-                      >
-                        <Icon icon={card.icon} style={{ color: card.color, fontSize: '24px' }} />
-                      </div>
-                      <div className={styles.infoCardContent}>
-                        <span className={styles.infoCardValue}>{card.value}</span>
-                        <span className={styles.infoCardLabel} style={{ color: '#FFFFFFD9' }}>{card.label}</span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Quick Features */}
-              <motion.div variants={itemVariants} className={styles.quickFeatures}>
-                {quickFeatures.map((feature, index) => (
-                  <div key={index} className={styles.quickFeature} style={{ color: '#FFFFFFE6' }}>
-                    <Icon icon={feature.icon} className={styles.featureIcon} />
-                    <span>{feature.text}</span>
+              {/* Trust Indicators */}
+              <motion.div variants={itemVariants} className={styles.trustIndicators}>
+                {trustIndicators.map((indicator, index) => (
+                  <div key={index} className={styles.trustIndicator}>
+                    <Icon icon={indicator.icon} className={styles.trustIcon} />
+                    <span>{indicator.text}</span>
                   </div>
                 ))}
               </motion.div>
             </motion.div>
           </Grid>
 
-          {/* Right Content - Lead Form */}
-          <Grid item xs={12} md={5} lg={6}>
-            <motion.div
-              className={styles.formWrapper}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
-            >
-              <div className={styles.formCard}>
-                <div className={styles.formHeader}>
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      color: '#FFFFFF',
-                      fontWeight: 700,
-                      fontFamily: "'Poppins', sans-serif",
-                      textAlign: 'center',
-                    }}
-                  >
-                    Book A Site Visit
-                  </Typography>
+          {/* Right Content - Lead Form (Desktop only) */}
+          {isDesktop && (
+            <Grid item lg={5}>
+              <motion.div
+                className={styles.formWrapper}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
+              >
+                <div className={styles.formCard}>
+                  <div className={styles.formHeader}>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        color: '#FFFFFF',
+                        fontWeight: 700,
+                        fontFamily: "'Poppins', sans-serif",
+                        textAlign: 'center',
+                        fontSize: '1.25rem',
+                      }}
+                    >
+                      Start Your IIT-JEE Journey
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        textAlign: 'center',
+                        marginTop: '0.25rem',
+                        fontSize: '0.875rem',
+                      }}
+                    >
+                      Register now & get free counselling session
+                    </Typography>
+                  </div>
+                  <div className={styles.formBody}>
+                    <UnifiedLeadForm
+                      variant="hero"
+                      showTitle={false}
+                      showSubtitle={false}
+                      showCourseFields={true}
+                      showTrustBadges={true}
+                      showConsent={true}
+                      showPhoneButton={false}
+                      submitButtonText="Submit Enquiry"
+                      formId="hero-form"
+                    />
+                  </div>
                 </div>
-                <div className={styles.formBody}>
-                  <UnifiedLeadForm
-                    variant="hero"
-                    showTitle={false}
-                    showSubtitle={false}
-                    showMessage={true}
-                    showTrustBadges={true}
-                    showConsent={true}
-                    showPhoneButton={false}
-                    submitButtonText="Submit Enquiry"
-                    formId="hero-form"
-                  />
-                </div>
-              </div>
-
-              {/* Lottie Animation - Desktop Only */}
-              {!isMobile && (
-                <motion.div
-                  className={styles.lottieWrapper}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1, duration: 0.5 }}
-                >
-                  <Lottie
-                    animationData={buildingAnimation}
-                    loop={true}
-                    className={styles.lottieAnimation}
-                  />
-                </motion.div>
-              )}
-            </motion.div>
-          </Grid>
+              </motion.div>
+            </Grid>
+          )}
         </Grid>
       </Container>
 
