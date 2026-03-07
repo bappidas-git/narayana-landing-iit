@@ -918,3 +918,29 @@ table {
     --border-gray: #000000;
   }
 }
+
+/* ============================================
+   SweetAlert2 — Force above all overlays
+   (Drawer z-index is 9999, this must be higher)
+   ============================================ */
+.swal2-container {
+  z-index: 100000 !important;
+}
+
+.swal2-container.swal-above-drawer {
+  z-index: 100000 !important;
+}
+
+.swal2-popup.swal-above-drawer-popup {
+  z-index: 100001 !important;
+}
+
+/* Ensure SweetAlert backdrop is above drawer */
+.swal2-container .swal2-backdrop-show {
+  z-index: 99999 !important;
+}
+
+/* SweetAlert shown state */
+.swal2-shown {
+  z-index: 100000 !important;
+}

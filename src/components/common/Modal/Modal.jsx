@@ -10,6 +10,7 @@ import { IconButton } from '@mui/material';
 import { Icon } from '@iconify/react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { showAlert } from '../../../utils/swalHelper';
 import styles from './Modal.module.css';
 import { useModal, MODAL_TYPES } from '../../../context/ModalContext';
 import Button from '../Button/Button';
@@ -202,20 +203,14 @@ const Modal = ({
   return createPortal(modalContent, document.body);
 };
 
-// SweetAlert helper functions
+// SweetAlert helper functions (with z-index fix via showAlert)
 export const showSuccessModal = (title, message, buttonText = 'OK') => {
-  return MySwal.fire({
+  return showAlert({
     title: title,
     html: message,
     icon: 'success',
     confirmButtonText: buttonText,
-    confirmButtonColor: '#FF6D00',
-    customClass: {
-      popup: styles.swalPopup,
-      title: styles.swalTitle,
-      htmlContainer: styles.swalContent,
-      confirmButton: styles.swalButton,
-    },
+    confirmButtonColor: '#1A237E',
     showClass: {
       popup: 'animate__animated animate__fadeInUp animate__faster'
     },
@@ -226,85 +221,58 @@ export const showSuccessModal = (title, message, buttonText = 'OK') => {
 };
 
 export const showErrorModal = (title, message, buttonText = 'OK') => {
-  return MySwal.fire({
+  return showAlert({
     title: title,
     html: message,
     icon: 'error',
     confirmButtonText: buttonText,
     confirmButtonColor: '#F44336',
-    customClass: {
-      popup: styles.swalPopup,
-      title: styles.swalTitle,
-      htmlContainer: styles.swalContent,
-      confirmButton: styles.swalButton,
-    }
   });
 };
 
 export const showConfirmModal = (title, message, confirmText = 'Yes', cancelText = 'Cancel') => {
-  return MySwal.fire({
+  return showAlert({
     title: title,
     html: message,
     icon: 'warning',
     showCancelButton: true,
     confirmButtonText: confirmText,
     cancelButtonText: cancelText,
-    confirmButtonColor: '#FF6D00',
+    confirmButtonColor: '#1A237E',
     cancelButtonColor: '#6B7280',
-    customClass: {
-      popup: styles.swalPopup,
-      title: styles.swalTitle,
-      htmlContainer: styles.swalContent,
-      confirmButton: styles.swalButton,
-      cancelButton: styles.swalCancelButton,
-    }
   });
 };
 
 export const showInfoModal = (title, message, buttonText = 'Got it') => {
-  return MySwal.fire({
+  return showAlert({
     title: title,
     html: message,
     icon: 'info',
     confirmButtonText: buttonText,
-    confirmButtonColor: '#2196F3',
-    customClass: {
-      popup: styles.swalPopup,
-      title: styles.swalTitle,
-      htmlContainer: styles.swalContent,
-      confirmButton: styles.swalButton,
-    }
+    confirmButtonColor: '#1A237E',
   });
 };
 
 export const showFormModal = (title, formComponent) => {
-  return MySwal.fire({
+  return showAlert({
     title: title,
     html: formComponent,
     showConfirmButton: false,
     showCloseButton: true,
-    customClass: {
-      popup: styles.swalFormPopup,
-      title: styles.swalTitle,
-      htmlContainer: styles.swalFormContent,
-      closeButton: styles.swalCloseButton,
-    }
   });
 };
 
 export const showLoadingModal = (message = 'Please wait...') => {
-  MySwal.fire({
+  showAlert({
     title: message,
     allowOutsideClick: false,
     allowEscapeKey: false,
     showConfirmButton: false,
     didOpen: () => {
       MySwal.showLoading();
+      const container = document.querySelector('.swal2-container');
+      if (container) container.style.zIndex = '100000';
     },
-    customClass: {
-      popup: styles.swalPopup,
-      title: styles.swalTitle,
-    }
   });
 };
 

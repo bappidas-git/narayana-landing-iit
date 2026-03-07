@@ -21,7 +21,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
-import Swal from "sweetalert2";
+import { showSuccess, showError, showInfo } from "../../../utils/swalHelper";
 import Button from "../../common/Button/Button";
 import {
   getMobileErrorMessage,
@@ -240,12 +240,10 @@ const FoundationCTASection = () => {
 
     // Check for duplicate
     if (isDuplicateLead(formData.mobile)) {
-      Swal.fire({
-        icon: 'info',
-        title: 'Already Registered!',
-        text: 'This mobile number has already been registered. Our counsellor will contact you soon.',
-        confirmButtonColor: '#1A237E',
-      });
+      await showInfo(
+        'Already Registered!',
+        'This mobile number has already been registered. Our counsellor will contact you soon.'
+      );
       return;
     }
 
@@ -269,35 +267,25 @@ const FoundationCTASection = () => {
         sessionStorage.setItem("lead_submitted", "true");
         sessionStorage.setItem("lead_name", formData.name);
 
+        await showSuccess(
+          'Foundation Course Enquiry Received!',
+          'Our counsellor will contact you soon.'
+        );
+
         setFormData(initialFormState);
         setTouched({});
         setErrors(initialErrorState);
 
-        await Swal.fire({
-          icon: "success",
-          title: "Foundation Course Enquiry Received!",
-          text: "Our counsellor will contact you soon.",
-          confirmButtonColor: "#1A237E",
-          confirmButtonText: "Great!",
-        });
-
         navigate("/thank-you");
       } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops!',
-          text: result.message,
-          confirmButtonColor: '#1A237E',
-        });
+        await showError('Oops!', result.message);
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Something went wrong',
-        text: 'Please try again or call us directly at +91-6002500672.',
-        confirmButtonColor: '#1A237E',
-      });
+      await showError(
+        'Something went wrong',
+        'Please try again or call us directly at +91-6002500672.'
+      );
     } finally {
       setIsSubmitting(false);
     }

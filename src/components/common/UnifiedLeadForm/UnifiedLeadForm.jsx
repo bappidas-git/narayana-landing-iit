@@ -26,7 +26,7 @@ import {
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
-import Swal from "sweetalert2";
+import { showSuccess, showError, showInfo } from "../../../utils/swalHelper";
 import Button from "../Button/Button";
 import {
   getMobileErrorMessage,
@@ -642,14 +642,12 @@ const UnifiedLeadForm = ({
       return;
     }
 
-    // Check for duplicate
+    // Check for duplicate — show alert ON TOP of drawer (don't close drawer)
     if (isDuplicateLead(formData.mobile)) {
-      Swal.fire({
-        icon: 'info',
-        title: 'Already Registered!',
-        text: 'This mobile number has already been registered. Our counsellor will contact you soon.',
-        confirmButtonColor: '#1A237E',
-      });
+      await showInfo(
+        'Already Registered!',
+        'This mobile number has already been registered. Our counsellor will contact you soon.'
+      );
       return;
     }
 
@@ -680,48 +678,38 @@ const UnifiedLeadForm = ({
         sessionStorage.setItem("lead_submitted", "true");
         sessionStorage.setItem("lead_name", formData.name);
 
-        // Reset form
+        // Show success alert ON TOP of drawer
+        await showSuccess(
+          'Enrollment Request Received!',
+          'Thank you for your interest in Narayana Coaching Centers! Our academic counsellor will contact you within 24 hours.'
+        );
+
+        // THEN reset form
         setFormData(initialFormState);
         setTouched({});
         setErrors(initialErrorState);
 
-        // Close drawer first if it exists
+        // THEN close drawer (if in a drawer)
         if (onClose) {
           onClose();
         }
-
-        // Show success alert
-        await Swal.fire({
-          icon: 'success',
-          title: 'Enrollment Request Received!',
-          text: 'Thank you for your interest in Narayana Coaching Centers! Our academic counsellor will contact you within 24 hours.',
-          confirmButtonColor: '#1A237E',
-          confirmButtonText: 'Great!',
-        });
 
         // Callback for parent component
         if (onSubmitSuccess) {
           onSubmitSuccess(formData);
         }
 
-        // Navigate to thank you page
+        // THEN navigate to thank you page
         navigate('/thank-you');
       } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops!',
-          text: result.message,
-          confirmButtonColor: '#1A237E',
-        });
+        await showError('Oops!', result.message);
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Something went wrong',
-        text: 'Please try again or call us directly at +91-6002500672.',
-        confirmButtonColor: '#1A237E',
-      });
+      await showError(
+        'Something went wrong',
+        'Please try again or call us directly at +91-6002500672.'
+      );
     } finally {
       setIsSubmitting(false);
     }
