@@ -29,14 +29,14 @@ import LeadFormDrawer from './components/common/LeadFormDrawer/LeadFormDrawer';
 const ThankYouPage = lazy(() => import('./pages/ThankYou/ThankYou'));
 
 // Lazy loaded sections for performance (Below the fold)
-const OverviewSection = lazy(() => import('./components/sections/OverviewSection/OverviewSection'));
-const FloorPlansSection = lazy(() => import('./components/sections/FloorPlansSection/FloorPlansSection'));
-const PricingSection = lazy(() => import('./components/sections/PricingSection/PricingSection'));
-const AmenitiesSection = lazy(() => import('./components/sections/AmenitiesSection/AmenitiesSection'));
+const AboutSection = lazy(() => import('./components/sections/AboutSection/AboutSection'));
+const ServicesSection = lazy(() => import('./components/sections/ServicesSection/ServicesSection'));
+const HighlightsSection = lazy(() => import('./components/sections/HighlightsSection/HighlightsSection'));
+const FeaturesSection = lazy(() => import('./components/sections/FeaturesSection/FeaturesSection'));
 const LocationSection = lazy(() => import('./components/sections/LocationSection/LocationSection'));
 const CTASection = lazy(() => import('./components/sections/CTASection/CTASection'));
 const ContactSection = lazy(() => import('./components/sections/ContactSection/ContactSection'));
-const FoundationCTASection = lazy(() => import('./components/sections/FoundationCTASection/FoundationCTASection'));
+const SecondaryCTASection = lazy(() => import('./components/sections/SecondaryCTASection/SecondaryCTASection'));
 
 // ===========================================
 // Error Boundary Component
@@ -301,14 +301,14 @@ const useIdlePreload = () => {
     // Preload sections during idle time
     if ('requestIdleCallback' in window) {
       const sections = [
-        () => import('./components/sections/OverviewSection/OverviewSection'),
-        () => import('./components/sections/FloorPlansSection/FloorPlansSection'),
+        () => import('./components/sections/AboutSection/AboutSection'),
+        () => import('./components/sections/ServicesSection/ServicesSection'),
         () => import('./components/sections/LocationSection/LocationSection'),
-        () => import('./components/sections/AmenitiesSection/AmenitiesSection'),
-        () => import('./components/sections/PricingSection/PricingSection'),
+        () => import('./components/sections/FeaturesSection/FeaturesSection'),
+        () => import('./components/sections/HighlightsSection/HighlightsSection'),
         () => import('./components/sections/CTASection/CTASection'),
         () => import('./components/sections/ContactSection/ContactSection'),
-        () => import('./components/sections/FoundationCTASection/FoundationCTASection'),
+        () => import('./components/sections/SecondaryCTASection/SecondaryCTASection'),
       ];
 
       let currentIndex = 0;
@@ -413,25 +413,25 @@ const HomePageContent = () => {
         {/* Lazy loaded sections with error boundaries */}
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
-            <OverviewSection />
+            <AboutSection />
           </Suspense>
         </ErrorBoundary>
 
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
-            <FloorPlansSection />
+            <ServicesSection />
           </Suspense>
         </ErrorBoundary>
 
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
-            <PricingSection />
+            <HighlightsSection />
           </Suspense>
         </ErrorBoundary>
 
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader height={600} variant="skeleton" />}>
-            <AmenitiesSection />
+            <FeaturesSection />
           </Suspense>
         </ErrorBoundary>
 
@@ -455,7 +455,7 @@ const HomePageContent = () => {
 
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader height={500} variant="default" />}>
-            <FoundationCTASection />
+            <SecondaryCTASection />
           </Suspense>
         </ErrorBoundary>
       </main>

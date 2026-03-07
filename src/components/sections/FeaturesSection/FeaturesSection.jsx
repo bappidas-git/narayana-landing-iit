@@ -1,5 +1,5 @@
 /* ============================================
-   AmenitiesSection Component - Benefits of Joining Narayana
+   FeaturesSection Component - Benefits of Joining Narayana
    Tabbed benefits showcase with course highlights and CTA
    ============================================ */
 
@@ -9,7 +9,7 @@ import { Container, Typography, Button } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { useModal } from "../../../context/ModalContext";
 import { benefitsData } from "../../../data/benefitsData";
-import styles from "./AmenitiesSection.module.css";
+import styles from "./FeaturesSection.module.css";
 
 // Category icons (replacing Lottie animations)
 const categoryIcons = {
@@ -73,7 +73,7 @@ const cardVariants = {
   }),
 };
 
-const AmenitiesSection = () => {
+const FeaturesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [activeTab, setActiveTab] = useState(benefitsData[0]?.id ?? 1);
@@ -302,4 +302,4 @@ const AmenitiesSection = () => {
   );
 };
 
-export default AmenitiesSection;
+export default FeaturesSection;

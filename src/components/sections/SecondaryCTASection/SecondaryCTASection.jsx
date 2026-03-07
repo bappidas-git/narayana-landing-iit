@@ -1,5 +1,5 @@
 /* ============================================
-   FoundationCTASection Component - Narayana IIT-JEE
+   SecondaryCTASection Component - Narayana IIT-JEE
    Foundation Course CTA with inline lead form
    Placed before footer for Class 8-10 students
    ============================================ */
@@ -32,7 +32,7 @@ import {
   getEmailErrorMessage,
   getNameErrorMessage,
 } from "../../../utils/validators";
-import styles from "./FoundationCTASection.module.css";
+import styles from "./SecondaryCTASection.module.css";
 
 const LEADS_STORAGE_KEY = "narayana_jee_submitted_leads";
 
@@ -100,7 +100,7 @@ const whyStartEarly = [
   "Smoother transition to advanced IIT-JEE preparation",
 ];
 
-const FoundationCTASection = () => {
+const SecondaryCTASection = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState(initialFormState);
@@ -644,4 +644,4 @@ const FoundationCTASection = () => {
   );
 };
 
-export default FoundationCTASection;
+export default SecondaryCTASection;

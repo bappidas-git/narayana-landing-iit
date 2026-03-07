@@ -1,5 +1,5 @@
 /* ============================================
-   PricingSection Component - Results & Achievements
+   HighlightsSection Component - Results & Achievements
    Showcases Narayana's IIT-JEE results and testing ecosystem
    ============================================ */
 
@@ -9,7 +9,7 @@ import { Container, Typography } from "@mui/material";
 import { Icon } from "@iconify/react";
 import AnimatedCounter from "../../common/AnimatedCounter/AnimatedCounter";
 import { useModal } from "../../../context/ModalContext";
-import styles from "./PricingSection.module.css";
+import styles from "./HighlightsSection.module.css";
 
 // Animation variants
 const containerVariants = {
@@ -109,7 +109,7 @@ const testTypes = [
   },
 ];
 
-const PricingSection = () => {
+const HighlightsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const { openLeadDrawer } = useModal();
@@ -309,4 +309,4 @@ const PricingSection = () => {
   );
 };
 
-export default PricingSection;
+export default HighlightsSection;
