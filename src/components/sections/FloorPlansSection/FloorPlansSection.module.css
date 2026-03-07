@@ -676,6 +676,8 @@
 
 /* Foundation Course CTA Banner */
 .foundationBanner {
+  position: relative;
+  z-index: 1;
   margin-top: 24px;
 }
 
