@@ -480,7 +480,8 @@ a.contactValue:hover {
 
   .contactItem {
     justify-content: center;
-    text-align: left;
+    text-align: center;
+    align-items: center;
   }
 
   .bottomContent {
