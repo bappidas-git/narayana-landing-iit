@@ -7,7 +7,7 @@
 .section {
   position: relative;
   padding: var(--space-16) 0;
-  background: linear-gradient(135deg, #FF6D00 0%, #E65100 100%);
+  background: linear-gradient(135deg, #ff6d00 0%, #e65100 100%);
   overflow: hidden;
 }
 
@@ -16,8 +16,16 @@
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 15% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 85% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+    radial-gradient(
+      circle at 15% 30%,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 40%
+    ),
     repeating-linear-gradient(
       45deg,
       transparent,
@@ -51,7 +59,7 @@
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
   border-radius: var(--radius-full);
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
   letter-spacing: var(--ls-wide);
@@ -63,7 +71,7 @@
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: var(--fw-bold);
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: var(--lh-tight);
   max-width: 700px;
 }
@@ -92,7 +100,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
 }
@@ -140,14 +148,14 @@
   border-radius: var(--radius-xl);
   margin-bottom: var(--space-3);
   font-size: 1.75rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .cardTitle {
   font-family: var(--font-heading);
   font-size: var(--fs-lg);
   font-weight: var(--fw-bold);
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0 0 var(--space-1) 0;
 }
 
@@ -194,7 +202,7 @@
 
 /* Form Card */
 .formCard {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: var(--radius-2xl);
   padding: var(--space-8);
   box-shadow:
@@ -211,7 +219,7 @@
 
 .formHeaderIcon {
   font-size: 2rem;
-  color: #FF6D00;
+  color: #ff6d00;
 }
 
 .formTitle {
@@ -257,13 +265,13 @@
   font-family: var(--font-heading);
   font-size: var(--fs-xl);
   font-weight: var(--fw-bold);
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0 0 var(--space-6) 0;
 }
 
 .whyEarlyIcon {
   font-size: 1.5rem;
-  color: #FFF9C4;
+  color: #fff9c4;
 }
 
 .whyEarlyList {
@@ -278,6 +286,8 @@
 .whyEarlyItem {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
+  text-align: start;
   gap: var(--space-3);
   font-size: var(--fs-base);
   color: rgba(255, 255, 255, 0.95);
@@ -286,7 +296,7 @@
 
 .checkIcon {
   font-size: 1.3rem;
-  color: #FFF9C4;
+  color: #fff9c4;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -451,7 +461,7 @@
    ============================================ */
 @media print {
   .section {
-    background: #FFF3E0;
+    background: #fff3e0;
     padding: var(--space-8) 0;
   }
 
