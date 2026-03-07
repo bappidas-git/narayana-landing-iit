@@ -56,8 +56,8 @@ const ContactSection = () => {
     {
       icon: "mdi:phone-outline",
       title: "Phone",
-      content: "+91-9667225657",
-      href: "tel:+919667225657",
+      content: "+91-6002500672",
+      href: "tel:+916002500672",
     },
     {
       icon: "mdi:phone-in-talk",
@@ -68,14 +68,14 @@ const ContactSection = () => {
     {
       icon: "mdi:email-outline",
       title: "Email",
-      content: "info@narayanagroup.com",
-      href: "mailto:info@narayanagroup.com",
+      content: "bm.guwahati@narayanagroup.com",
+      href: "mailto:bm.guwahati@narayanagroup.com",
     },
     {
       icon: "mdi:whatsapp",
       title: "WhatsApp",
       content: "Quick Chat",
-      href: "https://wa.me/919667225657",
+      href: "https://wa.me/916002500672",
       external: true,
     },
     {
@@ -118,12 +118,12 @@ const ContactSection = () => {
 
           {/* Quick Action Buttons (mobile-first, visible on all) */}
           <motion.div variants={itemVariants} className={styles.quickActions}>
-            <a href="tel:+919667225657" className={styles.quickActionBtn}>
+            <a href="tel:+916002500672" className={styles.quickActionBtn}>
               <Icon icon="mdi:phone" className={styles.quickActionIcon} />
               <span>Call Now</span>
             </a>
             <a
-              href="https://wa.me/919667225657"
+              href="https://wa.me/916002500672"
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.quickActionBtn} ${styles.quickActionWhatsapp}`}

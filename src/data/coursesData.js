@@ -5,13 +5,13 @@
 
 export const coursesData = [
   {
-    id: 'tyicp',
-    name: 'Two-Year Integrated Programme (TYICP)',
-    shortName: '2-Year Programme',
+    id: 'tycp',
+    name: 'Two-Year Classroom Programme (TYCP)',
+    shortName: '2-Year Programme (TYCP)',
     target: 'Class 11 Students',
     duration: '2 Years',
     description: 'For students preparing for IIT-JEE Main & Advanced alongside XII Boards. 8 units across 2 academic sessions with comprehensive revision and mock tests.',
-    features: ['Board + JEE Syllabus Coverage', 'Micro-Schedule & Test Planners', 'All India Test Series', 'Doubt Clearing Sessions'],
+    features: ['Board + JEE Syllabus Coverage', 'Micro-Schedule & Test Planners', 'All India Test Series', 'Up to 90% Scholarship via NACST & NSAT'],
     frequency: '3-4 days/week (12-16 hrs/week)',
     badge: 'Most Popular',
     icon: 'mdi:clock-time-eight',
@@ -29,9 +29,9 @@ export const coursesData = [
     icon: 'mdi:rocket-launch',
   },
   {
-    id: 'oyicp',
-    name: 'One-Year Integrated Programme (OYICP)',
-    shortName: '1-Year Programme',
+    id: 'oycp',
+    name: 'One-Year Classroom Programme (OYCP)',
+    shortName: '1-Year Programme (OYCP)',
     target: 'Class 11 → 12 Students',
     duration: '1 Year',
     description: 'Specifically designed for students moving from XI to XII grade. Meticulously crafted curriculum covering IIT-JEE and Board exam syllabus.',

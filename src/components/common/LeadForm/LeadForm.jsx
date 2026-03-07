@@ -33,11 +33,11 @@ import styles from './LeadForm.module.css';
 
 // Course interest options
 const COURSE_OPTIONS = [
-  "2-Year Programme (TYICP)",
-  "Apex/Spark Programme",
-  "1-Year Programme (OYICP)",
-  "Repeater/Dropper Course",
-  "Foundation Course",
+  "Two-Year Classroom Programme (TYCP)",
+  "Apex/Spark Integrated Programme",
+  "One-Year Classroom Programme (OYCP)",
+  "Repeater/Dropper Programme",
+  "Foundation Course (Class 8-10)",
   "Not Sure - Need Guidance",
 ];
 

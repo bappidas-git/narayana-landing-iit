@@ -157,7 +157,7 @@ const LocationSection = () => {
                         variant="body2"
                         className={styles.contactValue}
                       >
-                        <a href={`tel:${centreData.phone}`}>+91-9667225657</a>
+                        <a href={`tel:${centreData.phone}`}>+91-6002500672</a>
                       </Typography>
                     </div>
                   </div>
@@ -211,7 +211,7 @@ const LocationSection = () => {
                 <div className={styles.mapContainer}>
                   <div className={styles.mapPlaceholder}>
                     <img
-                      src="https://placehold.co/800x400/1A237E/FFFFFF?text=Guwahati+Centre+Location+Map"
+                      src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop"
                       alt="Narayana Coaching Centre Guwahati Location Map"
                       className={styles.mapImage}
                     />

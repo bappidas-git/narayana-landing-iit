@@ -290,7 +290,7 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
           </Typography>
           <Box className={styles.contactActions}>
             <motion.a
-              href="tel:+919667225657"
+              href="tel:+916002500672"
               className={styles.contactLink}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -299,7 +299,7 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
               <span>Call Us</span>
             </motion.a>
             <motion.a
-              href="https://wa.me/919667225657"
+              href="https://wa.me/916002500672"
               className={styles.contactLinkWhatsapp}
               target="_blank"
               rel="noopener noreferrer"

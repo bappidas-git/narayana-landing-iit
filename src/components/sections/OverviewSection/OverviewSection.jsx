@@ -43,16 +43,16 @@ const itemVariants = {
 // Stats data
 const keyStats = [
   {
-    value: "40",
+    value: "47",
     suffix: "+",
     label: "Years of Excellence",
     icon: "mdi:trophy-award",
     color: "#FF6D00",
   },
   {
-    value: "4",
+    value: "5",
     suffix: "",
-    label: "Students in Top 15 AIR (JEE 2024)",
+    label: "out of Top 10 AIR (Every Year)",
     icon: "mdi:medal",
     color: "#1A237E",
   },
@@ -64,17 +64,17 @@ const keyStats = [
     color: "#FF6D00",
   },
   {
-    value: "200",
+    value: "950",
     suffix: "+",
-    label: "Centers Pan India",
-    icon: "mdi:map-marker-multiple",
+    label: "Schools Pan India",
+    icon: "mdi:domain",
     color: "#1A237E",
   },
   {
-    value: "90",
-    suffix: "%",
-    label: "Max Scholarship",
-    icon: "mdi:school",
+    value: "350",
+    suffix: "+",
+    label: "Coaching Centres",
+    icon: "mdi:map-marker-multiple",
     color: "#FF6D00",
   },
 ];
@@ -82,15 +82,15 @@ const keyStats = [
 // Image grid data
 const gridImages = [
   {
-    src: "https://placehold.co/400x300/1A237E/FFFFFF?text=Classroom",
+    src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop",
     alt: "Narayana Classroom",
   },
   {
-    src: "https://placehold.co/400x300/283593/FFFFFF?text=Students",
+    src: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=300&fit=crop",
     alt: "Narayana Students",
   },
   {
-    src: "https://placehold.co/400x300/FF6D00/FFFFFF?text=Results",
+    src: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=400&h=300&fit=crop",
     alt: "Narayana Results",
   },
 ];
@@ -215,14 +215,14 @@ const OverviewSection = () => {
             {/* Left Column - Text */}
             <motion.div variants={itemVariants} className={styles.textColumn}>
               <Typography className={styles.contentParagraph}>
-                For more than forty years, Narayana Group has established
+                For more than forty-seven years, Narayana Group has established
                 unparalleled standards in academic excellence. Consistently
                 producing top performers in IIT-JEE since inception, Narayana is
                 now the best coaching center for IIT-JEE in India.
               </Typography>
               <Typography className={styles.contentParagraph}>
-                In JEE Advanced 2024, 4 of the top-15 rankers (Open category)
-                were from Narayana. 18 students in top-50 and 30 students in
+                In JEE Advanced, 5 out of the top-10 rankers every year (Open category)
+                were from Narayana. 30 students in
                 top-100 ranks in the open category.
               </Typography>
               <Button

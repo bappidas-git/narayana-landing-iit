@@ -32,7 +32,7 @@ const courseHighlights = [
   { icon: "mdi:account-question", label: "Doubt Clearing Sessions" },
   { icon: "mdi:calendar-clock", label: "Micro-Schedule & Test Planners" },
   { icon: "mdi:account-supervisor", label: "Regular Parent Updates" },
-  { icon: "mdi:trophy-award", label: "Up to 90% Scholarship through NACST" },
+  { icon: "mdi:trophy-award", label: "Up to 90% Scholarship via NACST & NSAT" },
 ];
 
 // Animation variants

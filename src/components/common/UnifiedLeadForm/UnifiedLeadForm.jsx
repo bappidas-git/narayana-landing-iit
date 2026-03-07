@@ -11,6 +11,7 @@
 import React, { useState, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
+import { submitLeadToWebhook, isDuplicateLead, markLeadAsSubmitted } from "../../../utils/webhookSubmit";
 import {
   Box,
   TextField,
@@ -39,11 +40,11 @@ const LEADS_STORAGE_KEY = "narayana_jee_submitted_leads";
 
 // Course interest options
 const COURSE_OPTIONS = [
-  "2-Year Programme (TYICP)",
+  "2-Year Programme (TYCP)",
   "Apex/Spark Programme",
-  "1-Year Programme (OYICP)",
+  "1-Year Programme (OYCP)",
   "Repeater/Dropper Course",
-  "Foundation Course",
+  "Foundation Course (Class 8-10)",
   "Not Sure - Need Guidance",
 ];
 
@@ -347,9 +348,9 @@ const PrivacyPolicyContent = () => (
       >
         <strong>Narayana Coaching Centers</strong>
         <br />
-        Email: info@narayanagroup.com
+        Email: bm.guwahati@narayanagroup.com
         <br />
-        Phone: +91-9667225657
+        Phone: +91-6002500672
       </p>
     </section>
 
@@ -641,32 +642,13 @@ const UnifiedLeadForm = ({
       return;
     }
 
-    // Check for duplicate lead
-    if (checkDuplicateLead(formData.email, formData.mobile)) {
-      // Close drawer first if it exists
-      if (onClose) {
-        onClose();
-      }
-
-      await Swal.fire({
-        icon: "info",
-        title: "Already Registered!",
-        html: `
-          <p style="margin-bottom: 12px;">You have already submitted an enquiry with this email or mobile number.</p>
-          <p style="color: #666; font-size: 14px;">Our team will contact you soon. For immediate assistance, please call us.</p>
-        `,
-        confirmButtonColor: "#FF6D00",
-        confirmButtonText: "Got it!",
-        showCancelButton: true,
-        cancelButtonText: "Call Now",
-        cancelButtonColor: "#1A237E",
-        customClass: {
-          popup: styles.swalPopup,
-        },
-      }).then((result) => {
-        if (!result.isConfirmed && result.dismiss === "cancel") {
-          window.location.href = "tel:+919667225657";
-        }
+    // Check for duplicate
+    if (isDuplicateLead(formData.mobile)) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Already Registered!',
+        text: 'This mobile number has already been registered. Our counsellor will contact you soon.',
+        confirmButtonColor: '#1A237E',
       });
       return;
     }
@@ -674,143 +656,72 @@ const UnifiedLeadForm = ({
     setIsSubmitting(true);
 
     try {
-      // Submit to PHP backend
-      const apiUrl = process.env.REACT_APP_API_BASE_URL || '';
-      const endpoint = `${apiUrl}/api/save-lead.php`;
+      // Prepare lead data
+      const leadData = {
+        name: formData.name.trim(),
+        mobile: formData.mobile.trim(),
+        email: formData.email.trim(),
+        course_interest: formData.course_interest || '',
+        student_class: formData.student_class || '',
+        source: formId || 'general',
+      };
 
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          mobile: formData.mobile,
-          course_interest: formData.course_interest || '',
-          student_class: formData.student_class || '',
-          source: 'website',
-        }),
-      });
+      // Submit to webhook (Pabbly or dummy)
+      const result = await submitLeadToWebhook(leadData);
 
-      // Check if response has content before parsing JSON
-      const responseText = await response.text();
-      let data = {};
+      if (result.success) {
+        // Mark as submitted for duplicate prevention
+        markLeadAsSubmitted(formData.mobile);
 
-      if (responseText) {
-        try {
-          data = JSON.parse(responseText);
-        } catch (parseError) {
-          console.error('JSON parse error:', parseError);
-          throw new Error('Invalid server response');
-        }
-      }
+        // Also save to localStorage for local duplicate checking
+        saveLeadToStorage(formData);
 
-      // Handle duplicate lead (409 Conflict)
-      if (response.status === 409 || data.data?.duplicate) {
+        // Set lead submitted flag for thank you page access
+        sessionStorage.setItem("lead_submitted", "true");
+        sessionStorage.setItem("lead_name", formData.name);
+
+        // Reset form
+        setFormData(initialFormState);
+        setTouched({});
+        setErrors(initialErrorState);
+
         // Close drawer first if it exists
         if (onClose) {
           onClose();
         }
 
+        // Show success alert
         await Swal.fire({
-          icon: "info",
-          title: "Already Registered!",
-          html: `
-            <p style="margin-bottom: 12px;">You have already submitted an enquiry with this email or mobile number.</p>
-            <p style="color: #666; font-size: 14px;">Our team will contact you soon. For immediate assistance, please call us.</p>
-          `,
-          confirmButtonColor: "#FF6D00",
-          confirmButtonText: "Got it!",
-          showCancelButton: true,
-          cancelButtonText: "Call Now",
-          cancelButtonColor: "#1A237E",
-          customClass: {
-            popup: styles.swalPopup,
-          },
-        }).then((result) => {
-          if (!result.isConfirmed && result.dismiss === "cancel") {
-            window.location.href = "tel:+919667225657";
-          }
+          icon: 'success',
+          title: 'Enrollment Request Received!',
+          text: 'Thank you for your interest in Narayana Coaching Centers! Our academic counsellor will contact you within 24 hours.',
+          confirmButtonColor: '#1A237E',
+          confirmButtonText: 'Great!',
         });
-        return;
+
+        // Callback for parent component
+        if (onSubmitSuccess) {
+          onSubmitSuccess(formData);
+        }
+
+        // Navigate to thank you page
+        navigate('/thank-you');
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: result.message,
+          confirmButtonColor: '#1A237E',
+        });
       }
-
-      // Handle validation errors
-      if (response.status === 422 && data.data?.errors) {
-        setErrors(data.data.errors);
-        throw new Error('Validation failed');
-      }
-
-      // Handle other errors
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || 'Something went wrong');
-      }
-
-      // Success - save lead to localStorage for duplicate checking
-      saveLeadToStorage(formData);
-
-      // Set lead submitted flag for thank you page access
-      sessionStorage.setItem("lead_submitted", "true");
-      sessionStorage.setItem("lead_name", formData.name);
-
-      // Reset form
-      setFormData(initialFormState);
-      setTouched({});
-      setErrors(initialErrorState);
-
-      // Close drawer first if it exists
-      if (onClose) {
-        onClose();
-      }
-
-      // Show success message with SweetAlert2
-      await Swal.fire({
-        icon: "success",
-        title: "Enrollment Request Received! 🎓",
-        html: `
-          <p style="margin-bottom: 8px;">Thank you for your interest in Narayana Coaching Centers!</p>
-          <p style="font-size: 14px; color: #666;">Our academic counsellor will contact you within 24 hours.</p>
-        `,
-        confirmButtonColor: "#FF6D00",
-        confirmButtonText: "Continue",
-        timer: 3000,
-        timerProgressBar: true,
-        allowOutsideClick: false,
-        customClass: {
-          popup: styles.swalPopup,
-        },
-      });
-
-      // Callback for parent component
-      if (onSubmitSuccess) {
-        onSubmitSuccess(formData);
-      }
-
-      // Navigate to thank you page
-      navigate("/thank-you");
     } catch (error) {
       console.error('Form submission error:', error);
-
-      // Close drawer first if it exists
-      if (onClose) {
-        onClose();
-      }
-
-      // Show error message with SweetAlert2 (skip if validation error as errors are shown inline)
-      if (error.message !== 'Validation failed') {
-        await Swal.fire({
-          icon: "error",
-          title: "Oops!",
-          text: error.message || "Something went wrong. Please try again.",
-          confirmButtonColor: "#FF6D00",
-          confirmButtonText: "Try Again",
-          customClass: {
-            popup: styles.swalPopup,
-          },
-        });
-      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Something went wrong',
+        text: 'Please try again or call us directly at +91-6002500672.',
+        confirmButtonColor: '#1A237E',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -1207,7 +1118,7 @@ const UnifiedLeadForm = ({
               }
             >
               <Icon icon="mdi:trophy-award" className={styles.trustIcon} />
-              <span>40+ Years Legacy</span>
+              <span>47+ Years Legacy</span>
             </div>
             <div
               className={styles.trustBadge}
@@ -1218,7 +1129,7 @@ const UnifiedLeadForm = ({
               }
             >
               <Icon icon="mdi:star-circle" className={styles.trustIcon} />
-              <span>4 in Top 15 AIR (JEE 2024)</span>
+              <span>5 in Top 10 AIR Every Year</span>
             </div>
             <div
               className={styles.trustBadge}
@@ -1281,9 +1192,9 @@ const UnifiedLeadForm = ({
           >
             Or call us directly
           </Typography>
-          <a href="tel:+919667225657" className={styles.phoneLink}>
+          <a href="tel:+916002500672" className={styles.phoneLink}>
             <Icon icon="mdi:phone" />
-            <span>+91-9667225657</span>
+            <span>+91-6002500672</span>
           </a>
         </div>
       )}

@@ -65,9 +65,10 @@ const buttonVariants = {
 
 // Trust indicators data
 const trustIndicators = [
-  { icon: 'mdi:trophy-outline', text: '40+ Years Legacy' },
-  { icon: 'mdi:map-marker-multiple-outline', text: '200+ Centers' },
-  { icon: 'mdi:star-outline', text: '4 in Top 15 AIR' },
+  { icon: 'mdi:trophy-outline', text: '47+ Years' },
+  { icon: 'mdi:star-outline', text: '5 in Top 10 AIR' },
+  { icon: 'mdi:domain', text: '950+ Schools' },
+  { icon: 'mdi:map-marker-multiple-outline', text: '350+ Centres' },
   { icon: 'mdi:percent-outline', text: '90% Scholarship' },
 ];
 
@@ -108,7 +109,7 @@ const HeroSection = () => {
               <motion.div variants={badgeVariants}>
                 <Chip
                   icon={<span className={styles.pulseDot} />}
-                  label="🏆 #1 IIT-JEE Coaching in North-East India"
+                  label="🏆 #1 IIT-JEE Coaching in India"
                   className={styles.launchBadge}
                   sx={{
                     backgroundColor: '#FF6D00',
@@ -157,7 +158,7 @@ const HeroSection = () => {
                     lineHeight: 1.6,
                   }}
                 >
-                  4 of Top-15 All India Rankers in JEE Advanced 2024 | 40+ Years of Academic Excellence | Up to 90% Scholarship via NACST
+                  5 out of Top 10 All India Rankers Every Year | 47+ Years of Academic Excellence | Up to 90% Scholarship via NACST & NSAT
                 </Typography>
               </motion.div>
 

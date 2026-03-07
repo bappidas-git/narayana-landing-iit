@@ -6,6 +6,7 @@
 
 import React, { useState, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { submitLeadToWebhook, isDuplicateLead, markLeadAsSubmitted } from "../../../utils/webhookSubmit";
 import {
   Container,
   Typography,
@@ -237,20 +238,13 @@ const FoundationCTASection = () => {
       return;
     }
 
-    if (checkDuplicateLead(formData.email, formData.mobile)) {
-      await Swal.fire({
-        icon: "info",
-        title: "Already Registered!",
-        html: '<p style="margin-bottom: 12px;">You have already submitted an enquiry with this email or mobile number.</p><p style="color: #666; font-size: 14px;">Our team will contact you soon.</p>',
-        confirmButtonColor: "#FF6D00",
-        confirmButtonText: "Got it!",
-        showCancelButton: true,
-        cancelButtonText: "Call Now",
-        cancelButtonColor: "#1A237E",
-      }).then((result) => {
-        if (!result.isConfirmed && result.dismiss === "cancel") {
-          window.location.href = "tel:+919667225657";
-        }
+    // Check for duplicate
+    if (isDuplicateLead(formData.mobile)) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Already Registered!',
+        text: 'This mobile number has already been registered. Our counsellor will contact you soon.',
+        confirmButtonColor: '#1A237E',
       });
       return;
     }
@@ -258,87 +252,52 @@ const FoundationCTASection = () => {
     setIsSubmitting(true);
 
     try {
-      const apiUrl = process.env.REACT_APP_API_BASE_URL || "";
-      const endpoint = `${apiUrl}/api/save-lead.php`;
+      const leadData = {
+        name: formData.name.trim(),
+        mobile: formData.mobile.trim(),
+        email: formData.email.trim(),
+        current_class: formData.current_class || '',
+        interested_programme: formData.interested_programme || '',
+        source: 'foundation-course',
+      };
 
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          mobile: formData.mobile,
-          course_interest: formData.interested_programme,
-          student_class: formData.current_class,
-          source: "foundation-course",
-        }),
-      });
+      const result = await submitLeadToWebhook(leadData);
 
-      const responseText = await response.text();
-      let data = {};
-      if (responseText) {
-        try {
-          data = JSON.parse(responseText);
-        } catch (parseError) {
-          console.error("JSON parse error:", parseError);
-          throw new Error("Invalid server response");
-        }
-      }
+      if (result.success) {
+        markLeadAsSubmitted(formData.mobile);
+        saveLeadToStorage(formData);
+        sessionStorage.setItem("lead_submitted", "true");
+        sessionStorage.setItem("lead_name", formData.name);
 
-      if (response.status === 409 || data.data?.duplicate) {
+        setFormData(initialFormState);
+        setTouched({});
+        setErrors(initialErrorState);
+
         await Swal.fire({
-          icon: "info",
-          title: "Already Registered!",
-          html: '<p>You have already submitted an enquiry.</p>',
-          confirmButtonColor: "#FF6D00",
-          confirmButtonText: "Got it!",
+          icon: "success",
+          title: "Foundation Course Enquiry Received!",
+          text: "Our counsellor will contact you soon.",
+          confirmButtonColor: "#1A237E",
+          confirmButtonText: "Great!",
         });
-        return;
+
+        navigate("/thank-you");
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: result.message,
+          confirmButtonColor: '#1A237E',
+        });
       }
-
-      if (response.status === 422 && data.data?.errors) {
-        setErrors((prev) => ({ ...prev, ...data.data.errors }));
-        throw new Error("Validation failed");
-      }
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || "Something went wrong");
-      }
-
-      saveLeadToStorage(formData);
-      sessionStorage.setItem("lead_submitted", "true");
-      sessionStorage.setItem("lead_name", formData.name);
-
-      setFormData(initialFormState);
-      setTouched({});
-      setErrors(initialErrorState);
-
-      await Swal.fire({
-        icon: "success",
-        title: "Foundation Course Enquiry Received! 📚",
-        html: '<p>Our counsellor will contact you soon.</p>',
-        confirmButtonColor: "#FF6D00",
-        confirmButtonText: "Continue",
-        timer: 3000,
-        timerProgressBar: true,
-        allowOutsideClick: false,
-      });
-
-      navigate("/thank-you");
     } catch (error) {
       console.error("Form submission error:", error);
-      if (error.message !== "Validation failed") {
-        await Swal.fire({
-          icon: "error",
-          title: "Oops!",
-          text: error.message || "Something went wrong. Please try again.",
-          confirmButtonColor: "#FF6D00",
-          confirmButtonText: "Try Again",
-        });
-      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Something went wrong',
+        text: 'Please try again or call us directly at +91-6002500672.',
+        confirmButtonColor: '#1A237E',
+      });
     } finally {
       setIsSubmitting(false);
     }

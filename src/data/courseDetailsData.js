@@ -5,9 +5,9 @@
 
 export const courseDetailsData = [
   {
-    id: 'tyicp',
-    title: 'Two-Year Integrated Classroom Programme',
-    image: 'https://placehold.co/600x400/1A237E/FFFFFF?text=2+Year+Programme',
+    id: 'tycp',
+    title: 'Two-Year Classroom Programme (TYCP)',
+    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop',
     commencement: 'February / March 2025',
     frequency: '3-4 days/week weekdays OR 2 days/week weekends (12-16 hrs/week)',
     highlights: ['8 Units across 2 Academic Sessions', 'Board + JEE Main & Advanced', 'Extensive Review Classes', 'Q&A Sessions + Practice Tests'],
@@ -15,15 +15,15 @@ export const courseDetailsData = [
   {
     id: 'apex',
     title: 'Apex/Spark Integrated Programme',
-    image: 'https://placehold.co/600x400/283593/FFFFFF?text=Apex+Programme',
+    image: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&h=400&fit=crop',
     commencement: 'February / March / June / July 2025',
     frequency: '3-4 days/week weekdays OR 2 days/week weekends (12-16 hrs/week)',
     highlights: ['14,000+ Hours Teaching', 'Four Distinct Phases', 'Before & After Board Batches', 'Detailed Practice + Review'],
   },
   {
-    id: 'oyicp',
-    title: 'One-Year Integrated Classroom Programme',
-    image: 'https://placehold.co/600x400/3949AB/FFFFFF?text=1+Year+Programme',
+    id: 'oycp',
+    title: 'One-Year Classroom Programme (OYCP)',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop',
     commencement: 'April / May 2025',
     frequency: '3-4 days/week weekdays OR 2 days/week weekends (12-16 hrs/week)',
     highlights: ['XI → XII Transition Focused', 'Complete JEE + Board Syllabus', 'Intensive Revision Cycles', 'Mock Test Series'],
@@ -31,7 +31,7 @@ export const courseDetailsData = [
   {
     id: 'repeater',
     title: 'One-Year Dropper/Repeater Programme',
-    image: 'https://placehold.co/600x400/0D1754/FFFFFF?text=Repeater+Programme',
+    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&h=400&fit=crop',
     commencement: 'June / July / August 2025',
     frequency: '4-5 days/week, all subjects daily',
     highlights: ['Solely Entrance Focused', 'No Board Exam Prep Needed', 'Speed & Accuracy Training', 'Comprehensive Mock Tests'],

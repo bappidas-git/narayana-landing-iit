@@ -203,35 +203,14 @@ const Header = ({ forceCloseMenu = false }) => {
               transition={{ delay: 0.5, duration: 0.3 }}
             >
               <a
-                href="tel:+919667225657"
+                href="tel:+916002500672"
                 className={styles.callButton}
               >
                 <Icon icon="mdi:phone" className={styles.callButtonIcon} />
-                +91-9667225657
+                +91-6002500672
               </a>
             </motion.div>
           )}
-
-          <motion.div
-            className={styles.iconLogo}
-            initial={{ opacity: 0, rotate: -180 }}
-            animate={{ opacity: 1, rotate: 0 }}
-            transition={{ delay: 0.6, duration: 0.5, type: 'spring' }}
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #FF6D00, #FF9100)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#fff',
-              fontWeight: 800,
-              fontSize: '1.1rem',
-            }}
-          >
-            N
-          </motion.div>
 
           {/* Mobile Menu Button */}
           {isMobile && (
@@ -281,12 +260,12 @@ const Header = ({ forceCloseMenu = false }) => {
               </ul>
               <div className={styles.mobileNavCTA}>
                 <a
-                  href="tel:+919667225657"
+                  href="tel:+916002500672"
                   className={styles.mobileCallButton}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Icon icon="mdi:phone" className={styles.callButtonIcon} />
-                  +91-9667225657
+                  +91-6002500672
                 </a>
               </div>
             </nav>
