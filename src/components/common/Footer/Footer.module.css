@@ -137,8 +137,9 @@
 
 .contactItem {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-3);
 }
 
 .contactLabelRow {
@@ -152,6 +153,7 @@
   font-size: 1.1rem;
   color: var(--accent-gold);
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .contactLabel {
@@ -159,6 +161,7 @@
   color: rgba(255, 255, 255, 0.45);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  display: block;
 }
 
 .contactValue {
@@ -166,6 +169,7 @@
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   transition: color var(--transition-fast);
+  display: block;
 }
 
 a.contactValue:hover {
@@ -476,6 +480,7 @@ a.contactValue:hover {
 
   .contactItem {
     justify-content: center;
+    text-align: left;
   }
 
   .bottomContent {
