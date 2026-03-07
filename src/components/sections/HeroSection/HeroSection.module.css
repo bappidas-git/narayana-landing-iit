@@ -3,6 +3,11 @@
    Premium coaching hero section styling
    ============================================ */
 
+/* ============================================
+   Hero Background Layers — Stacked with z-index
+   Order (bottom to top): gradient → image → video → overlay → pattern → content
+   ============================================ */
+
 /* ========== Main Section ========== */
 .heroSection {
   position: relative;
@@ -10,32 +15,82 @@
   min-height: 100dvh;
   display: flex;
   align-items: center;
-  /* Base gradient — always visible as fallback */
-  background: linear-gradient(135deg, #1A237E 0%, #0D1754 50%, #1A237E 100%);
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
+  background: none;
   padding-top: 80px;
   padding-bottom: 2rem;
 }
 
-/* Subtle radial gradient overlays for visual interest when no image loads */
-.heroSection::before {
+/* Layer 1: Gradient fallback — always present as absolute base */
+.heroBgGradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, #1A237E 0%, #0D1754 50%, #1A237E 100%);
+}
+
+/* Subtle radial gradient overlays for visual interest */
+.heroBgGradient::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(255, 109, 0, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(57, 73, 171, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 80%, rgba(255, 145, 0, 0.06) 0%, transparent 50%);
-  z-index: 1;
   pointer-events: none;
 }
 
-/* Pattern Overlay */
+/* Layer 2: Fallback image */
+.heroBgImage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.8s ease;
+}
+
+.heroBgImageHidden {
+  opacity: 0;
+}
+
+/* Layer 3: Background video */
+.heroVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.heroVideoVisible {
+  opacity: 1;
+}
+
+/* Layer 4: Dark overlay for text readability */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 35, 126, 0.82) 0%,
+    rgba(13, 23, 84, 0.78) 50%,
+    rgba(26, 35, 126, 0.85) 100%
+  );
+}
+
+/* Pattern Overlay (above dark overlay) */
 .patternOverlay {
   position: absolute;
   top: 0;
@@ -48,20 +103,20 @@
     transparent 0
   );
   background-size: 40px 40px;
-  z-index: 1;
+  z-index: 4;
   pointer-events: none;
 }
 
 /* ========== Container ========== */
 .heroContainer {
   position: relative;
-  z-index: 2;
+  z-index: 5;
 }
 
 /* ========== Content ========== */
 .heroContent {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   padding: 1rem 0;
 }
 
@@ -133,6 +188,8 @@
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  z-index: 5;
 }
 
 .trustIndicator {
@@ -152,7 +209,7 @@
 /* ========== Form Section ========== */
 .formWrapper {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -210,7 +267,7 @@
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 6;
 }
 
 .scrollIcon {
@@ -317,6 +374,22 @@
   }
 }
 
+@media (max-width: 768px) {
+  .heroVideo {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .heroOverlay {
+    background: linear-gradient(
+      180deg,
+      rgba(26, 35, 126, 0.88) 0%,
+      rgba(13, 23, 84, 0.80) 40%,
+      rgba(26, 35, 126, 0.90) 100%
+    );
+  }
+}
+
 /* Small Mobile */
 @media (max-width: 374px) {
   .trustIndicators {
@@ -365,6 +438,14 @@
 
 /* ========== Reduced Motion ========== */
 @media (prefers-reduced-motion: reduce) {
+  .heroVideo {
+    display: none;
+  }
+
+  .heroBgImageHidden {
+    opacity: 1;
+  }
+
   .pulseDot::before {
     animation: none;
   }
