@@ -253,7 +253,11 @@ const LocationSection = () => {
           className={styles.areasSection}
         >
           <motion.div variants={itemVariants}>
-            <Typography variant="h5" className={styles.areasTitle}>
+            <Typography
+              variant="h5"
+              className={styles.areasTitle}
+              sx={{ marginBottom: "1.5rem" }}
+            >
               Now Serving Students From
             </Typography>
           </motion.div>
