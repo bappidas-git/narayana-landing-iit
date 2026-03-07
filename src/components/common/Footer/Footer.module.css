@@ -5,7 +5,7 @@
 
 /* Footer Base */
 .footer {
-  background: #0D1754;
+  background: #0d1754;
   color: var(--white);
   margin-top: auto;
 }
@@ -117,6 +117,7 @@
   text-decoration: none;
   transition: all var(--transition-fast);
   display: inline-block;
+  margin-bottom: unset;
 }
 
 .footerLink:hover {
@@ -228,7 +229,7 @@ a.contactValue:hover {
 }
 
 .developerLink {
-  background: linear-gradient(135deg, #FF6D00 0%, #FF9100 50%, #FF6D00 100%);
+  background: linear-gradient(135deg, #ff6d00 0%, #ff9100 50%, #ff6d00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -280,7 +281,7 @@ a.contactValue:hover {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-5) var(--space-6);
-  background: linear-gradient(135deg, #0D1754 0%, #1A237E 100%);
+  background: linear-gradient(135deg, #0d1754 0%, #1a237e 100%);
   border-bottom: 3px solid var(--accent-gold);
 }
 
@@ -426,8 +427,9 @@ a.contactValue:hover {
 
   .footerGrid {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: 0;
     text-align: center;
+    margin-top: 20px;
   }
 
   .footerBrand {
@@ -448,10 +450,16 @@ a.contactValue:hover {
 
   .columnTitle {
     display: inline-block;
+    margin-top: 30px;
   }
 
   .footerLinks {
     align-items: center;
+    gap: 0;
+  }
+
+  .footerLink {
+    margin-bottom: -15px;
   }
 
   .footerLink:hover {
