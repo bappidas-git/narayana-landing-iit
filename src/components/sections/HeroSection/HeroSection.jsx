@@ -3,13 +3,19 @@
    Premium coaching hero section with animations
    ============================================ */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Container, Typography, Grid, Chip, useMediaQuery, useTheme, Button } from '@mui/material';
 import { Icon } from '@iconify/react';
 import UnifiedLeadForm from '../../common/UnifiedLeadForm/UnifiedLeadForm';
 import { useModal } from '../../../context/ModalContext';
 import styles from './HeroSection.module.css';
+
+// Video URLs
+const HERO_VIDEOS = {
+  desktop: 'https://video.gumlet.io/688f392c0f894537edc335ad/69aada2806a15537d045fcfa/download.mp4',
+  mobile: 'https://video.gumlet.io/688f392c0f894537edc335ad/69aada2806a15537d045fcf8/download.mp4',
+};
 
 // Unsplash hero images with fallbacks
 const HERO_IMAGES = {
@@ -88,10 +94,51 @@ const HeroSection = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const { openLeadDrawer } = useModal();
 
+  // Fallback image state
   const [heroImageUrl, setHeroImageUrl] = useState('');
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  // Try loading images in order, use first one that works
+  // Video state
+  const videoRef = useRef(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+  const videoSrc = isMobile ? HERO_VIDEOS.mobile : HERO_VIDEOS.desktop;
+
+  const handleVideoCanPlay = () => {
+    setVideoLoaded(true);
+  };
+
+  const handleVideoError = () => {
+    setVideoError(true);
+    console.warn('Hero video failed to load, using image fallback');
+  };
+
+  // Ensure video plays (some browsers block autoplay even with muted)
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playVideo = async () => {
+      try {
+        await video.play();
+      } catch (err) {
+        console.warn('Video autoplay blocked:', err.message);
+      }
+    };
+
+    if (video.readyState >= 3) {
+      playVideo();
+    } else {
+      video.addEventListener('canplay', playVideo, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener('canplay', playVideo);
+    };
+  }, [videoSrc]);
+
+  // Try loading fallback images in order
   useEffect(() => {
     const images = isMobile ? HERO_IMAGES.mobile : HERO_IMAGES.desktop;
     let cancelled = false;
@@ -124,15 +171,39 @@ const HeroSection = () => {
   }, [isMobile]);
 
   return (
-    <section
-      className={styles.heroSection}
-      id="home"
-      style={{
-        background: imageLoaded
-          ? `linear-gradient(135deg, rgba(26, 35, 126, 0.88) 0%, rgba(13, 23, 84, 0.92) 100%), url('${heroImageUrl}') center/cover no-repeat`
-          : 'linear-gradient(135deg, #1A237E 0%, #0D1754 50%, #1A237E 100%)',
-      }}
-    >
+    <section className={styles.heroSection} id="home">
+
+      {/* === Background Layer 1: Gradient fallback (always present) === */}
+      <div className={styles.heroBgGradient} />
+
+      {/* === Background Layer 2: Fallback image (shows while video loads or if video fails) === */}
+      {imageLoaded && (
+        <div
+          className={`${styles.heroBgImage} ${videoLoaded && !videoError ? styles.heroBgImageHidden : ''}`}
+          style={{ backgroundImage: `url('${heroImageUrl}')` }}
+        />
+      )}
+
+      {/* === Background Layer 3: Video (fades in when loaded) === */}
+      {!videoError && (
+        <video
+          ref={videoRef}
+          className={`${styles.heroVideo} ${videoLoaded ? styles.heroVideoVisible : ''}`}
+          src={videoSrc}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          onCanPlay={handleVideoCanPlay}
+          onError={handleVideoError}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* === Dark overlay for text readability === */}
+      <div className={styles.heroOverlay} />
+
       {/* Animated Background Pattern */}
       <div className={styles.patternOverlay} />
 
