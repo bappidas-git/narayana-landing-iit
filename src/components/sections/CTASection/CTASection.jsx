@@ -55,8 +55,8 @@ const CTASection = () => {
   };
 
   const stats = [
-    { value: "40+", label: "Years", icon: "mdi:trophy-award" },
-    { value: "Top 15", label: "AIR", icon: "mdi:star-circle" },
+    { value: "47+", label: "Years", icon: "mdi:trophy-award" },
+    { value: "Top 10", label: "AIR", icon: "mdi:star-circle" },
     { value: "90%", label: "Scholarship", icon: "mdi:percent-circle" },
   ];
 
@@ -126,10 +126,10 @@ const CTASection = () => {
               variant="outline"
               size="large"
               startIcon="mdi:phone-outline"
-              href="tel:+919667225657"
+              href="tel:+916002500672"
               className={styles.secondaryBtn}
             >
-              Call: 9667-225-657
+              Call: 6002-500-672
             </Button>
           </motion.div>
         </motion.div>

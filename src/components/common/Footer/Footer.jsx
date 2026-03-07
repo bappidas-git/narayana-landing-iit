@@ -103,7 +103,7 @@ const PrivacyPolicyContent = () => (
       <p>
         <strong>Narayana Group</strong>
         <br />
-        Email: info@narayanagroup.com
+        Email: bm.guwahati@narayanagroup.com
         <br />
         Phone: 1800-102-3344
       </p>
@@ -219,7 +219,7 @@ const TermsConditionsContent = () => (
       <p>
         <strong>Narayana Group</strong>
         <br />
-        Email: info@narayanagroup.com
+        Email: bm.guwahati@narayanagroup.com
         <br />
         Phone: 1800-102-3344
       </p>
@@ -257,7 +257,7 @@ const DisclaimerContent = () => (
       <h3>Contact</h3>
       <p>
         For any questions or concerns, please contact us at
-        info@narayanagroup.com or call 1800-102-3344.
+        bm.guwahati@narayanagroup.com or call 1800-102-3344.
       </p>
     </section>
 
@@ -464,8 +464,8 @@ const Footer = () => {
                       <span className={styles.contactLabel}>
                         Admission Support
                       </span>
-                      <a href="tel:+919667225657" className={styles.contactValue}>
-                        9667225657
+                      <a href="tel:+916002500672" className={styles.contactValue}>
+                        6002500672
                       </a>
                     </div>
                   </li>
@@ -486,10 +486,10 @@ const Footer = () => {
                     <div>
                       <span className={styles.contactLabel}>Email</span>
                       <a
-                        href="mailto:info@narayanagroup.com"
+                        href="mailto:bm.guwahati@narayanagroup.com"
                         className={styles.contactValue}
                       >
-                        info@narayanagroup.com
+                        bm.guwahati@narayanagroup.com
                       </a>
                     </div>
                   </li>

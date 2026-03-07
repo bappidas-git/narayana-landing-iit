@@ -42,10 +42,10 @@ const resultsData = [
     icon: "mdi:trophy-award",
     iconColor: "#FFD700",
     title: "JEE Advanced 2024",
-    stat: 4,
+    stat: 5,
     statSuffix: "",
-    statLabel: "Students in Top 15 AIR (Open Category)",
-    subStats: "18 in Top 50 | 30 in Top 100",
+    statLabel: "out of Top 10 AIR Every Year (Open Category)",
+    subStats: "30 in Top 100",
   },
   {
     id: 2,
@@ -262,11 +262,10 @@ const PricingSection = () => {
               </div>
               <div className={styles.scholarshipTextBlock}>
                 <Typography className={styles.scholarshipHeading}>
-                  Get Up to 90% Scholarship!
+                  Get Up to 90% Scholarship via NACST & NSAT!
                 </Typography>
                 <Typography className={styles.scholarshipDesc}>
-                  Register for NACST (Narayana Admission cum Scholarship Test)
-                  and avail scholarships up to 90% on course fees.
+                  Register for NACST (Narayana Admission cum Scholarship Test) or NSAT (Narayana Scholastic Aptitude Test) and avail scholarships up to 90% on course fees.
                 </Typography>
               </div>
               <motion.button
@@ -275,7 +274,7 @@ const PricingSection = () => {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <span>Register for NACST</span>
+                <span>Register for NACST / NSAT</span>
                 <Icon icon="mdi:arrow-right" />
               </motion.button>
             </div>

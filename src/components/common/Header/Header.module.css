@@ -210,30 +210,6 @@
   color: var(--accent-gold);
 }
 
-.iconLogo {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    var(--primary-dark) 0%,
-    var(--primary-dark-alt) 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  padding: 4px;
-}
-
-.iconLogoImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
-}
-
 /* Menu Button */
 .menuButton {
   display: none;
@@ -321,10 +297,6 @@
     font-size: 13px;
   }
 
-  .iconLogo {
-    width: 52px;
-    height: 52px;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -366,10 +338,6 @@
     height: 24px;
   }
 
-  .iconLogo {
-    width: 48px;
-    height: 48px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -385,15 +353,6 @@
     height: 36px;
   }
 
-  .iconLogo {
-    width: 44px;
-    height: 44px;
-  }
-}
-
-/* Animation States */
-.header.scrolled .iconLogo {
-  transform: scale(0.9);
 }
 
 /* Focus States */

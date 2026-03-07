@@ -44,8 +44,8 @@ export const DRAWER_TITLES = {
     subtitle: 'Our academic counsellors will reach out within 24 hours',
   },
   'scholarship-test': {
-    title: 'Register for NACST',
-    subtitle: 'Take the Narayana Admission cum Scholarship Test & get up to 90% scholarship',
+    title: 'Register for NACST / NSAT',
+    subtitle: 'Take the scholarship test & get up to 90% scholarship on course fees',
   },
   'foundation-enroll': {
     title: 'Enroll in Foundation Course',

@@ -10,6 +10,8 @@ import {
   Container,
   Typography,
   Chip,
+  Box,
+  Button,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
@@ -62,7 +64,7 @@ const cardVariants = {
 
 // Comparison data
 const comparisonData = {
-  headers: ["Feature", "2-Year (TYICP)", "Apex/Spark", "1-Year (OYICP)", "Repeater"],
+  headers: ["Feature", "2-Year (TYCP)", "Apex/Spark", "1-Year (OYCP)", "Repeater"],
   rows: [
     {
       label: "Duration",
@@ -328,6 +330,91 @@ const FloorPlansSection = () => {
               <span>Talk to Academic Counsellor</span>
               <Icon icon="mdi:arrow-right" />
             </motion.button>
+          </motion.div>
+
+          {/* === Foundation Course CTA Banner === */}
+          <motion.div
+            className={styles.foundationBanner}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <Box
+              sx={{
+                background: 'linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%)',
+                borderRadius: '16px',
+                padding: { xs: '24px 20px', md: '32px 40px' },
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: { xs: 2, md: 3 },
+                border: '1px solid #FFE0B2',
+                mt: 3,
+              }}
+            >
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flex: 1 }}>
+                <Box
+                  sx={{
+                    width: 56, height: 56, borderRadius: '14px',
+                    background: 'linear-gradient(135deg, #FF6D00, #FF9100)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  <Icon icon="mdi:school-outline" style={{ fontSize: 28, color: '#FFF' }} />
+                </Box>
+                <Box>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 700, color: '#1B2A4A',
+                      fontSize: { xs: '1rem', md: '1.15rem' },
+                      fontFamily: 'Poppins, sans-serif',
+                    }}
+                  >
+                    Foundation Courses for IIT-JEE & NEET
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: '#546E7A', fontSize: { xs: '0.85rem', md: '0.9rem' },
+                      mt: 0.5,
+                    }}
+                  >
+                    For students in Class 8, 9 & 10 — Start your preparation early!
+                  </Typography>
+                </Box>
+              </Box>
+              <Button
+                onClick={() => {
+                  const foundationSection = document.getElementById('foundation');
+                  if (foundationSection) {
+                    const headerOffset = 80;
+                    const elementPosition = foundationSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
+                sx={{
+                  background: 'linear-gradient(135deg, #FF6D00, #FF9100)',
+                  color: '#FFF',
+                  fontWeight: 600,
+                  borderRadius: '12px',
+                  padding: { xs: '10px 24px', md: '12px 32px' },
+                  textTransform: 'none',
+                  fontSize: '0.95rem',
+                  whiteSpace: 'nowrap',
+                  boxShadow: '0 4px 14px rgba(255, 109, 0, 0.3)',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #E65100, #FF6D00)',
+                    boxShadow: '0 6px 20px rgba(255, 109, 0, 0.4)',
+                  },
+                }}
+              >
+                Explore Foundation Courses →
+              </Button>
+            </Box>
           </motion.div>
         </motion.div>
       </Container>
