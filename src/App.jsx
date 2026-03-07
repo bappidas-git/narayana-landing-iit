@@ -502,7 +502,7 @@ const App = () => {
       initialLoader.classList.add('hidden');
       setTimeout(() => {
         initialLoader.style.display = 'none';
-      }, 300);
+      }, 400); // matches the CSS transition duration
     }
   }, []);
 
