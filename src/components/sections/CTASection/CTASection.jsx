@@ -84,7 +84,11 @@ const CTASection = () => {
 
           {/* Subtext */}
           <motion.div variants={itemVariants}>
-            <Typography variant="body1" className={styles.description}>
+            <Typography
+              variant="body1"
+              className={styles.description}
+              sx={{ color: "#fff" }}
+            >
               Join thousands of successful Narayana students who cracked
               IIT-JEE. Limited seats available for 2025-26 batch in Guwahati.
             </Typography>

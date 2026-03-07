@@ -6,7 +6,11 @@
 
 import React, { useState, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { submitLeadToWebhook, isDuplicateLead, markLeadAsSubmitted } from "../../../utils/webhookSubmit";
+import {
+  submitLeadToWebhook,
+  isDuplicateLead,
+  markLeadAsSubmitted,
+} from "../../../utils/webhookSubmit";
 import {
   Container,
   Typography,
@@ -33,7 +37,11 @@ import styles from "./FoundationCTASection.module.css";
 const LEADS_STORAGE_KEY = "narayana_jee_submitted_leads";
 
 const CLASS_OPTIONS = ["Class 7", "Class 8", "Class 9", "Class 10"];
-const PROGRAMME_OPTIONS = ["1-Year Foundation", "2-Year Foundation", "3-Year Foundation"];
+const PROGRAMME_OPTIONS = [
+  "1-Year Foundation",
+  "2-Year Foundation",
+  "3-Year Foundation",
+];
 
 const initialFormState = {
   name: "",
@@ -138,12 +146,12 @@ const FoundationCTASection = () => {
   const checkDuplicateLead = useCallback((email, mobile) => {
     try {
       const storedLeads = JSON.parse(
-        localStorage.getItem(LEADS_STORAGE_KEY) || "[]"
+        localStorage.getItem(LEADS_STORAGE_KEY) || "[]",
       );
       return storedLeads.some(
         (lead) =>
           lead.email.toLowerCase() === email.toLowerCase() ||
-          lead.mobile === mobile
+          lead.mobile === mobile,
       );
     } catch {
       return false;
@@ -153,7 +161,7 @@ const FoundationCTASection = () => {
   const saveLeadToStorage = useCallback((leadData) => {
     try {
       const storedLeads = JSON.parse(
-        localStorage.getItem(LEADS_STORAGE_KEY) || "[]"
+        localStorage.getItem(LEADS_STORAGE_KEY) || "[]",
       );
       storedLeads.push({
         email: leadData.email,
@@ -177,7 +185,7 @@ const FoundationCTASection = () => {
         setErrors((prev) => ({ ...prev, [field]: "" }));
       }
     },
-    [errors]
+    [errors],
   );
 
   const handleBlur = useCallback(
@@ -195,17 +203,19 @@ const FoundationCTASection = () => {
           errorMessage = getEmailErrorMessage(formData.email);
           break;
         case "current_class":
-          if (!formData.current_class) errorMessage = "Please select your class";
+          if (!formData.current_class)
+            errorMessage = "Please select your class";
           break;
         case "interested_programme":
-          if (!formData.interested_programme) errorMessage = "Please select a programme";
+          if (!formData.interested_programme)
+            errorMessage = "Please select a programme";
           break;
         default:
           break;
       }
       setErrors((prev) => ({ ...prev, [field]: errorMessage }));
     },
-    [formData]
+    [formData],
   );
 
   const validateForm = useCallback(() => {
@@ -241,8 +251,8 @@ const FoundationCTASection = () => {
     // Check for duplicate
     if (isDuplicateLead(formData.mobile)) {
       await showInfo(
-        'Already Registered!',
-        'This mobile number has already been registered. Our counsellor will contact you soon.'
+        "Already Registered!",
+        "This mobile number has already been registered. Our counsellor will contact you soon.",
       );
       return;
     }
@@ -254,9 +264,9 @@ const FoundationCTASection = () => {
         name: formData.name.trim(),
         mobile: formData.mobile.trim(),
         email: formData.email.trim(),
-        current_class: formData.current_class || '',
-        interested_programme: formData.interested_programme || '',
-        source: 'foundation-course',
+        current_class: formData.current_class || "",
+        interested_programme: formData.interested_programme || "",
+        source: "foundation-course",
       };
 
       const result = await submitLeadToWebhook(leadData);
@@ -268,8 +278,8 @@ const FoundationCTASection = () => {
         sessionStorage.setItem("lead_name", formData.name);
 
         await showSuccess(
-          'Foundation Course Enquiry Received!',
-          'Our counsellor will contact you soon.'
+          "Foundation Course Enquiry Received!",
+          "Our counsellor will contact you soon.",
         );
 
         setFormData(initialFormState);
@@ -278,13 +288,13 @@ const FoundationCTASection = () => {
 
         navigate("/thank-you");
       } else {
-        await showError('Oops!', result.message);
+        await showError("Oops!", result.message);
       }
     } catch (error) {
       console.error("Form submission error:", error);
       await showError(
-        'Something went wrong',
-        'Please try again or call us directly at +91-6002500672.'
+        "Something went wrong",
+        "Please try again or call us directly at +91-6002500672.",
       );
     } finally {
       setIsSubmitting(false);
@@ -310,14 +320,22 @@ const FoundationCTASection = () => {
 
           {/* Headline */}
           <motion.div variants={itemVariants}>
-            <Typography variant="h3" className={styles.title}>
+            <Typography
+              variant="h3"
+              className={styles.title}
+              sx={{ color: "#fff" }}
+            >
               Foundation Courses for IIT-JEE & NEET
             </Typography>
           </motion.div>
 
           {/* Subtext */}
           <motion.div variants={itemVariants}>
-            <Typography variant="body1" className={styles.subtitle}>
+            <Typography
+              variant="body1"
+              className={styles.subtitle}
+              sx={{ color: "#fff" }}
+            >
               For Students in Class 8, 9 & 10 — Build a strong foundation for
               competitive exams with Narayana's expertly designed Foundation
               Programme
@@ -373,10 +391,7 @@ const FoundationCTASection = () => {
           {/* Form + Why Start Early layout */}
           <div className={styles.formSection}>
             {/* Inline Lead Form */}
-            <motion.div
-              variants={itemVariants}
-              className={styles.formCard}
-            >
+            <motion.div variants={itemVariants} className={styles.formCard}>
               <div className={styles.formHeader}>
                 <Icon icon="mdi:school" className={styles.formHeaderIcon} />
                 <div>
@@ -411,7 +426,10 @@ const FoundationCTASection = () => {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <Icon icon="mdi:account-outline" style={{ color: "#9E9E9E" }} />
+                        <Icon
+                          icon="mdi:account-outline"
+                          style={{ color: "#9E9E9E" }}
+                        />
                       </InputAdornment>
                     ),
                   }}
@@ -469,7 +487,10 @@ const FoundationCTASection = () => {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <Icon icon="mdi:email-outline" style={{ color: "#9E9E9E" }} />
+                        <Icon
+                          icon="mdi:email-outline"
+                          style={{ color: "#9E9E9E" }}
+                        />
                       </InputAdornment>
                     ),
                   }}
@@ -490,12 +511,17 @@ const FoundationCTASection = () => {
                     disabled={isSubmitting}
                     startAdornment={
                       <InputAdornment position="start">
-                        <Icon icon="mdi:school-outline" style={{ color: "#9E9E9E" }} />
+                        <Icon
+                          icon="mdi:school-outline"
+                          style={{ color: "#9E9E9E" }}
+                        />
                       </InputAdornment>
                     }
                     renderValue={(selected) => {
                       if (!selected) {
-                        return <span style={{ opacity: 0.5 }}>Current Class</span>;
+                        return (
+                          <span style={{ opacity: 0.5 }}>Current Class</span>
+                        );
                       }
                       return selected;
                     }}
@@ -529,7 +555,10 @@ const FoundationCTASection = () => {
                     disabled={isSubmitting}
                     startAdornment={
                       <InputAdornment position="start">
-                        <Icon icon="mdi:book-education-outline" style={{ color: "#9E9E9E" }} />
+                        <Icon
+                          icon="mdi:book-education-outline"
+                          style={{ color: "#9E9E9E" }}
+                        />
                       </InputAdornment>
                     }
                     renderValue={(selected) => {
@@ -591,10 +620,7 @@ const FoundationCTASection = () => {
             </motion.div>
 
             {/* Why Start Early */}
-            <motion.div
-              variants={itemVariants}
-              className={styles.whyEarlyCard}
-            >
+            <motion.div variants={itemVariants} className={styles.whyEarlyCard}>
               <h4 className={styles.whyEarlyTitle}>
                 <Icon icon="mdi:lightbulb-on" className={styles.whyEarlyIcon} />
                 Why Start Early?

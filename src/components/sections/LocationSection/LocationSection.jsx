@@ -63,7 +63,7 @@ const LocationSection = () => {
     window.open(
       "https://www.google.com/maps/search/Narayana+Coaching+Center+Guwahati+Assam",
       "_blank",
-      "noopener,noreferrer"
+      "noopener,noreferrer",
     );
   };
 
@@ -126,10 +126,7 @@ const LocationSection = () => {
                     <Icon icon="mdi:school" />
                   </div>
                   <div>
-                    <Typography
-                      variant="h5"
-                      className={styles.centreName}
-                    >
+                    <Typography variant="h5" className={styles.centreName}>
                       {centreData.name}
                     </Typography>
                     <Typography
@@ -177,7 +174,9 @@ const LocationSection = () => {
                         variant="body2"
                         className={styles.contactValue}
                       >
-                        <a href={`tel:${centreData.tollFree}`}>{centreData.tollFree}</a>
+                        <a href={`tel:${centreData.tollFree}`}>
+                          {centreData.tollFree}
+                        </a>
                       </Typography>
                     </div>
                   </div>
@@ -197,7 +196,9 @@ const LocationSection = () => {
                         variant="body2"
                         className={styles.contactValue}
                       >
-                        <a href={`mailto:${centreData.email}`}>{centreData.email}</a>
+                        <a href={`mailto:${centreData.email}`}>
+                          {centreData.email}
+                        </a>
                       </Typography>
                     </div>
                   </div>
@@ -220,16 +221,10 @@ const LocationSection = () => {
                         icon="mdi:map-marker"
                         className={styles.mapPinIcon}
                       />
-                      <Typography
-                        variant="h6"
-                        className={styles.mapTitle}
-                      >
+                      <Typography variant="h6" className={styles.mapTitle}>
                         Narayana Coaching Centre
                       </Typography>
-                      <Typography
-                        variant="body2"
-                        className={styles.mapAddress}
-                      >
+                      <Typography variant="body2" className={styles.mapAddress}>
                         Guwahati, Assam
                       </Typography>
                       <Button
@@ -327,7 +322,11 @@ const LocationSection = () => {
           className={styles.bottomCta}
         >
           <motion.div variants={itemVariants}>
-            <Typography variant="h5" className={styles.ctaTitle}>
+            <Typography
+              variant="h5"
+              className={styles.ctaTitle}
+              sx={{ color: "#fff", marginBottom: "2rem" }}
+            >
               Visit our Guwahati centre today!
             </Typography>
           </motion.div>

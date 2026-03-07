@@ -261,11 +261,19 @@ const PricingSection = () => {
                 <Icon icon="mdi:school" />
               </div>
               <div className={styles.scholarshipTextBlock}>
-                <Typography className={styles.scholarshipHeading}>
+                <Typography
+                  className={styles.scholarshipHeading}
+                  sx={{ color: "#fff", fontWeight: "bold" }}
+                >
                   Get Up to 90% Scholarship via NACST & NSAT!
                 </Typography>
-                <Typography className={styles.scholarshipDesc}>
-                  Register for NACST (Narayana Admission cum Scholarship Test) or NSAT (Narayana Scholastic Aptitude Test) and avail scholarships up to 90% on course fees.
+                <Typography
+                  className={styles.scholarshipDesc}
+                  sx={{ color: "#fff" }}
+                >
+                  Register for NACST (Narayana Admission cum Scholarship Test)
+                  or NSAT (Narayana Scholastic Aptitude Test) and avail
+                  scholarships up to 90% on course fees.
                 </Typography>
               </div>
               <motion.button
