@@ -3,7 +3,7 @@
    Premium coaching hero section with animations
    ============================================ */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Container, Typography, Grid, Chip, useMediaQuery, useTheme, Button } from '@mui/material';
 import { Icon } from '@iconify/react';
@@ -11,9 +11,19 @@ import UnifiedLeadForm from '../../common/UnifiedLeadForm/UnifiedLeadForm';
 import { useModal } from '../../../context/ModalContext';
 import styles from './HeroSection.module.css';
 
-// Import hero images
-import heroDesktopImg from '../../../assets/images/hero/hero-desktop.jpg';
-import heroMobileImg from '../../../assets/images/hero/hero-mobile.jpg';
+// Unsplash hero images with fallbacks
+const HERO_IMAGES = {
+  desktop: [
+    'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=800&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&h=800&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1920&h=800&fit=crop&q=80',
+  ],
+  mobile: [
+    'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=768&h=1000&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=768&h=1000&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1529390079861-591de354faf5?w=768&h=1000&fit=crop&q=80',
+  ],
+};
 
 // Animation variants
 const containerVariants = {
@@ -78,19 +88,51 @@ const HeroSection = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const { openLeadDrawer } = useModal();
 
-  return (
-    <section className={styles.heroSection} id="home">
-      {/* Background Image with Overlay */}
-      <div className={styles.heroBg}>
-        <img
-          src={isMobile ? heroMobileImg : heroDesktopImg}
-          alt="Narayana IIT-JEE Coaching Centers"
-          className={styles.heroImage}
-          loading="eager"
-        />
-        <div className={styles.heroOverlay} />
-      </div>
+  const [heroImageUrl, setHeroImageUrl] = useState('');
+  const [imageLoaded, setImageLoaded] = useState(false);
 
+  // Try loading images in order, use first one that works
+  useEffect(() => {
+    const images = isMobile ? HERO_IMAGES.mobile : HERO_IMAGES.desktop;
+    let cancelled = false;
+
+    const tryLoadImage = async () => {
+      for (const url of images) {
+        if (cancelled) return;
+        try {
+          const loaded = await new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(true);
+            img.onerror = () => resolve(false);
+            img.src = url;
+            setTimeout(() => resolve(false), 5000);
+          });
+          if (loaded && !cancelled) {
+            setHeroImageUrl(url);
+            setImageLoaded(true);
+            return;
+          }
+        } catch {
+          continue;
+        }
+      }
+      console.warn('All hero images failed to load, using gradient fallback');
+    };
+
+    tryLoadImage();
+    return () => { cancelled = true; };
+  }, [isMobile]);
+
+  return (
+    <section
+      className={styles.heroSection}
+      id="home"
+      style={{
+        background: imageLoaded
+          ? `linear-gradient(135deg, rgba(26, 35, 126, 0.88) 0%, rgba(13, 23, 84, 0.92) 100%), url('${heroImageUrl}') center/cover no-repeat`
+          : 'linear-gradient(135deg, #1A237E 0%, #0D1754 50%, #1A237E 100%)',
+      }}
+    >
       {/* Animated Background Pattern */}
       <div className={styles.patternOverlay} />
 

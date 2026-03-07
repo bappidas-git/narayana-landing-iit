@@ -19,7 +19,7 @@ import {
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
-import Swal from 'sweetalert2';
+import { showAlert, showError, showInfo } from '../../../utils/swalHelper';
 import Button from '../Button/Button';
 import {
   validateIndianMobile,
@@ -250,22 +250,10 @@ const LeadForm = ({
 
       // Handle duplicate lead (409 Conflict)
       if (response.status === 409 || data.data?.duplicate) {
-        Swal.fire({
-          icon: 'info',
-          title: 'Already Registered!',
-          html: `
-            <p style="margin-bottom: 12px;">You have already submitted an enquiry with this email or mobile number.</p>
-            <p style="color: #666; font-size: 14px;">Our team will contact you soon.</p>
-          `,
-          confirmButtonColor: '#FF6D00',
-          confirmButtonText: 'Got it!',
-          customClass: {
-            popup: styles.swalPopup,
-            title: styles.swalTitle,
-            content: styles.swalContent,
-            confirmButton: styles.swalButton,
-          },
-        });
+        await showInfo(
+          'Already Registered!',
+          'You have already submitted an enquiry with this email or mobile number. Our team will contact you soon.'
+        );
         return;
       }
 
@@ -286,20 +274,14 @@ const LeadForm = ({
       setTouched({});
 
       // Show success message with SweetAlert2
-      Swal.fire({
+      await showAlert({
         icon: 'success',
-        title: 'Enrollment Request Received! 🎓',
+        title: 'Enrollment Request Received!',
         text: 'Thank you for your interest in Narayana Coaching Centers! Our academic counsellor will contact you within 24 hours.',
-        confirmButtonColor: '#FF6D00',
+        confirmButtonColor: '#1A237E',
         confirmButtonText: 'Great!',
         timer: 3000,
         timerProgressBar: true,
-        customClass: {
-          popup: styles.swalPopup,
-          title: styles.swalTitle,
-          content: styles.swalContent,
-          confirmButton: styles.swalButton,
-        },
       });
 
       // Callback for parent component
@@ -312,19 +294,10 @@ const LeadForm = ({
 
       // Show error message with SweetAlert2 (skip if validation error)
       if (error.message !== 'Validation failed') {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops!',
-          text: error.message || 'Something went wrong. Please try again.',
-          confirmButtonColor: '#FF6D00',
-          confirmButtonText: 'Try Again',
-          customClass: {
-            popup: styles.swalPopup,
-            title: styles.swalTitle,
-            content: styles.swalContent,
-            confirmButton: styles.swalButton,
-          },
-        });
+        await showError(
+          'Oops!',
+          error.message || 'Something went wrong. Please try again.'
+        );
       }
 
       // Callback for parent component

@@ -141,7 +141,7 @@ const ProjectHighlights = () => {
               <motion.div variants={imageVariants} className={styles.imageWrapper}>
                 <div className={styles.towerImageContainer}>
                   <img
-                    src="https://images.unsplash.com/photo-1562774053-701939f06e0b?w=600&h=800&fit=crop"
+                    src="https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=800&fit=crop"
                     alt="Narayana IIT-JEE Centre"
                     className={styles.towerImage}
                     loading="lazy"
