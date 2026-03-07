@@ -1,5 +1,5 @@
 /* ============================================
-   OverviewSection Component - About Narayana
+   AboutSection Component - About Narayana
    IIT-JEE legacy, stats, content grid & differentiators
    ============================================ */
 
@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { Icon } from "@iconify/react";
 import AnimatedCounter from "../../common/AnimatedCounter/AnimatedCounter";
-import styles from "./OverviewSection.module.css";
+import styles from "./AboutSection.module.css";
 
 // Animation variants
 const containerVariants = {
@@ -123,7 +123,7 @@ const differentiators = [
   },
 ];
 
-const OverviewSection = () => {
+const AboutSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const ref = React.useRef(null);
@@ -317,4 +317,4 @@ const OverviewSection = () => {
   );
 };
 
-export default OverviewSection;
+export default AboutSection;

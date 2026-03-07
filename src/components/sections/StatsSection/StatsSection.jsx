@@ -1,5 +1,5 @@
 /* ============================================
-   ProjectHighlights Component - Narayana IIT-JEE
+   StatsSection Component - Narayana IIT-JEE
    Project highlights with expand/collapse functionality
    ============================================ */
 
@@ -9,7 +9,7 @@ import { Container, Typography, Grid, Button, useMediaQuery, useTheme } from '@m
 import { Icon } from '@iconify/react';
 import { useModal } from '../../../context/ModalContext';
 import { highlightsData } from '../../../data/highlightsData';
-import styles from './ProjectHighlights.module.css';
+import styles from './StatsSection.module.css';
 
 // Animation variants
 const containerVariants = {
@@ -108,7 +108,7 @@ const imageVariants = {
   },
 };
 
-const ProjectHighlights = () => {
+const StatsSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const ref = useRef(null);
@@ -360,4 +360,4 @@ const ProjectHighlights = () => {
   );
 };
 
-export default ProjectHighlights;
+export default StatsSection;

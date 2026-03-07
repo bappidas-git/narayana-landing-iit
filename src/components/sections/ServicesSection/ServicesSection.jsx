@@ -22,7 +22,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { coursesData } from "../../../data/coursesData";
 import { useModal } from "../../../context/ModalContext";
-import styles from "./FloorPlansSection.module.css";
+import styles from "./ServicesSection.module.css";
 
 // Animation variants
 const containerVariants = {
@@ -85,7 +85,7 @@ const comparisonData = {
   ],
 };
 
-const FloorPlansSection = () => {
+const ServicesSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const ref = useRef(null);
@@ -422,4 +422,4 @@ const FloorPlansSection = () => {
   );
 };
 
-export default FloorPlansSection;
+export default ServicesSection;
