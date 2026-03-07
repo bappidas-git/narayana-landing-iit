@@ -137,15 +137,14 @@
 
 .contactItem {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: var(--space-3);
+  flex-direction: column;
+  gap: 4px;
 }
 
 .contactLabelRow {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 6px;
 }
 
@@ -153,7 +152,6 @@
   font-size: 1.1rem;
   color: var(--accent-gold);
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
 .contactLabel {
@@ -161,7 +159,6 @@
   color: rgba(255, 255, 255, 0.45);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  display: block;
 }
 
 .contactValue {
@@ -169,7 +166,6 @@
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   transition: color var(--transition-fast);
-  display: block;
 }
 
 a.contactValue:hover {
@@ -480,7 +476,6 @@ a.contactValue:hover {
 
   .contactItem {
     justify-content: center;
-    text-align: left;
   }
 
   .bottomContent {
@@ -490,6 +485,10 @@ a.contactValue:hover {
 
   .legalLinks {
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contactLabelRow {
     justify-content: center;
   }
 }
@@ -524,6 +523,10 @@ a.contactValue:hover {
   .legalSection p,
   .legalSection li {
     font-size: var(--fs-xs);
+  }
+
+  .contactLabelRow {
+    justify-content: center;
   }
 }
 
@@ -576,6 +579,10 @@ a.contactValue:hover {
 
   .legalSection {
     margin-bottom: var(--space-5);
+  }
+
+  .contactLabelRow {
+    justify-content: center;
   }
 }
 

@@ -339,16 +339,16 @@ const quickLinks = [
 
 // Courses data
 const courses = [
-  { label: "IIT-JEE Coaching", href: "#overview" },
+  { label: "NEET Coaching", href: "#overview" },
   {
-    label: "NEET Coaching",
-    href: "https://www.narayanacoachingcenters.in/neet-coaching",
+    label: "IIT-JEE Coaching",
+    href: "https://www.narayanacoachingcenters.in/iit-jee-coaching",
     external: true,
   },
   { label: "Foundation Courses", href: "#overview" },
   {
     label: "Crash Courses",
-    href: "https://www.narayanacoachingcenters.in/iit-crash-course",
+    href: "https://www.narayanacoachingcenters.in/neet-crash-course",
     external: true,
   },
   {
@@ -459,51 +459,51 @@ const Footer = () => {
                 <h4 className={styles.columnTitle}>Contact</h4>
                 <ul className={styles.contactList}>
                   <li className={styles.contactItem}>
-                    <Icon icon="mdi:phone" className={styles.contactIcon} />
-                    <div>
+                    <div className={styles.contactLabelRow}>
+                      <Icon icon="mdi:phone" className={styles.contactIcon} />
                       <span className={styles.contactLabel}>
                         Admission Support
                       </span>
-                      <a href="tel:+916002500672" className={styles.contactValue}>
-                        6002500672
-                      </a>
                     </div>
+                    <a href="tel:+916002500672" className={styles.contactValue}>
+                      6002500672
+                    </a>
                   </li>
                   <li className={styles.contactItem}>
-                    <Icon
-                      icon="mdi:phone-in-talk"
-                      className={styles.contactIcon}
-                    />
-                    <div>
+                    <div className={styles.contactLabelRow}>
+                      <Icon
+                        icon="mdi:phone-in-talk"
+                        className={styles.contactIcon}
+                      />
                       <span className={styles.contactLabel}>Toll Free</span>
-                      <a href="tel:18001023344" className={styles.contactValue}>
-                        1800-102-3344
-                      </a>
                     </div>
+                    <a href="tel:18001023344" className={styles.contactValue}>
+                      1800-102-3344
+                    </a>
                   </li>
                   <li className={styles.contactItem}>
-                    <Icon icon="mdi:email" className={styles.contactIcon} />
-                    <div>
+                    <div className={styles.contactLabelRow}>
+                      <Icon icon="mdi:email" className={styles.contactIcon} />
                       <span className={styles.contactLabel}>Email</span>
-                      <a
-                        href="mailto:bm.guwahati@narayanagroup.com"
-                        className={styles.contactValue}
-                      >
-                        bm.guwahati@narayanagroup.com
-                      </a>
                     </div>
+                    <a
+                      href="mailto:bm.guwahati@narayanagroup.com"
+                      className={styles.contactValue}
+                    >
+                      bm.guwahati@narayanagroup.com
+                    </a>
                   </li>
                   <li className={styles.contactItem}>
-                    <Icon
-                      icon="mdi:map-marker"
-                      className={styles.contactIcon}
-                    />
-                    <div>
+                    <div className={styles.contactLabelRow}>
+                      <Icon
+                        icon="mdi:map-marker"
+                        className={styles.contactIcon}
+                      />
                       <span className={styles.contactLabel}>Address</span>
-                      <span className={styles.contactValue}>
-                        Guwahati, Assam
-                      </span>
                     </div>
+                    <span className={styles.contactValue}>
+                      Guwahati, Assam
+                    </span>
                   </li>
                 </ul>
               </div>
