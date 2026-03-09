@@ -60,6 +60,49 @@
   text-align: center;
 }
 
+/* ========== JEE 2025 Results Showcase ========== */
+.resultsShowcase {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.showcaseImageWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(26, 35, 126, 0.12),
+    0 2px 8px rgba(255, 109, 0, 0.08);
+  background: #FFFFFF;
+  cursor: default;
+}
+
+.showcaseImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.showcaseGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, rgba(26, 35, 126, 0.15), rgba(255, 109, 0, 0.2)) border-box;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.showcaseImageWrapper:hover .showcaseGlow {
+  opacity: 1;
+}
+
 /* ========== Results Highlight Cards ========== */
 .resultsGrid {
   display: grid;
@@ -341,6 +384,14 @@
     padding: 5rem 0;
   }
 
+  .resultsShowcase {
+    margin-bottom: 3.5rem;
+  }
+
+  .showcaseImageWrapper {
+    border-radius: 24px;
+  }
+
   .resultsGrid {
     gap: 2rem;
   }
@@ -366,6 +417,14 @@
 
   .sectionHeader {
     margin-bottom: 2rem;
+  }
+
+  .resultsShowcase {
+    margin-bottom: 2.5rem;
+  }
+
+  .showcaseImageWrapper {
+    border-radius: 16px;
   }
 
   .resultsGrid {
@@ -417,6 +476,17 @@
 
   .sectionHeader {
     margin-bottom: 1.5rem;
+  }
+
+  .resultsShowcase {
+    margin-bottom: 2rem;
+  }
+
+  .showcaseImageWrapper {
+    border-radius: 12px;
+    box-shadow:
+      0 4px 16px rgba(26, 35, 126, 0.1),
+      0 1px 4px rgba(255, 109, 0, 0.06);
   }
 
   .sectionSubtitle {
@@ -540,6 +610,14 @@
     padding: 2rem 0;
   }
 
+  .resultsShowcase {
+    margin-bottom: 1.5rem;
+  }
+
+  .showcaseImageWrapper {
+    border-radius: 10px;
+  }
+
   .resultCard {
     padding: 1.25rem 1rem;
   }
@@ -587,6 +665,10 @@
 
 /* ========== Reduced Motion ========== */
 @media (prefers-reduced-motion: reduce) {
+  .showcaseGlow {
+    transition: none;
+  }
+
   .resultCard,
   .testTypeCard,
   .scholarshipCta,
@@ -615,6 +697,16 @@
   .resultsSection {
     padding: 2rem 0;
     background: white;
+  }
+
+  .showcaseImageWrapper {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+  .showcaseGlow {
+    display: none;
   }
 
   .resultCard {
