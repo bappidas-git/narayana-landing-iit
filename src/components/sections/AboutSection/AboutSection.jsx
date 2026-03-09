@@ -82,15 +82,15 @@ const keyStats = [
 // Image grid data
 const gridImages = [
   {
-    src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop",
+    src: "https://res.cloudinary.com/dn9gyaiik/image/upload/v1773039903/1_ewuacr.jpg",
     alt: "Narayana Classroom",
   },
   {
-    src: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=300&fit=crop",
+    src: "https://res.cloudinary.com/dn9gyaiik/image/upload/v1773039904/5_lssiti.jpg",
     alt: "Narayana Students",
   },
   {
-    src: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=400&h=300&fit=crop",
+    src: "https://res.cloudinary.com/dn9gyaiik/image/upload/v1773040142/4_fsqvw1.jpg",
     alt: "Narayana Results",
   },
 ];
@@ -221,9 +221,9 @@ const AboutSection = () => {
                 now the best coaching center for IIT-JEE in India.
               </Typography>
               <Typography className={styles.contentParagraph}>
-                In JEE Advanced, 5 out of the top-10 rankers every year (Open category)
-                were from Narayana. 30 students in
-                top-100 ranks in the open category.
+                In JEE Advanced, 5 out of the top-10 rankers every year (Open
+                category) were from Narayana. 30 students in top-100 ranks in
+                the open category.
               </Typography>
               <Button
                 variant="contained"
