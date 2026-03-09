@@ -157,6 +157,25 @@ const HighlightsSection = () => {
             </Typography>
           </motion.div>
 
+          {/* JEE Advanced 2025 Results Showcase */}
+          <motion.div
+            variants={itemVariants}
+            className={styles.resultsShowcase}
+          >
+            <motion.div
+              className={styles.showcaseImageWrapper}
+              whileHover={{ scale: 1.01, transition: { duration: 0.4 } }}
+            >
+              <img
+                src="https://res.cloudinary.com/dn9gyaiik/image/upload/v1773039870/JEE-2025_ykmpmq.png"
+                alt="JEE Advanced 2025 Results - 5 All India open category ranks in top 10 with AIR 3, 4, 6, 7, and 10"
+                className={styles.showcaseImage}
+                loading="eager"
+              />
+              <div className={styles.showcaseGlow} />
+            </motion.div>
+          </motion.div>
+
           {/* Results Highlight Cards */}
           <motion.div variants={itemVariants} className={styles.resultsGrid}>
             {resultsData.map((card, index) => (
