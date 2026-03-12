@@ -57,6 +57,19 @@ const ThankYou = () => {
     setIsAuthorized(true);
     setUserName(name || 'there');
 
+    // Push virtual pageview and conversion event to GTM dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'virtualPageview',
+      pagePath: '/thank-you',
+      pageTitle: 'Thank You',
+    });
+    window.dataLayer.push({
+      event: 'lead_conversion',
+      conversionType: 'lead_form_thank_you',
+      leadName: name || '',
+    });
+
     // Clear the session flag after some time to prevent re-access
     const timeout = setTimeout(() => {
       sessionStorage.removeItem('lead_submitted');
