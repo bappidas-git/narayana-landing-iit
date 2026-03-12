@@ -674,6 +674,15 @@ const UnifiedLeadForm = ({
         // Also save to localStorage for local duplicate checking
         saveLeadToStorage(formData);
 
+        // Push lead form submission event to GTM dataLayer
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'lead_form_submission',
+          formSource: source || 'unknown',
+          courseInterest: formData.course_interest || '',
+          studentClass: formData.student_class || '',
+        });
+
         // Set lead submitted flag for thank you page access
         sessionStorage.setItem("lead_submitted", "true");
         sessionStorage.setItem("lead_name", formData.name);
