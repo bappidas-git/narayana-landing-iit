@@ -11,7 +11,11 @@
 import React, { useState, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
-import { submitLeadToWebhook, isDuplicateLead, markLeadAsSubmitted } from "../../../utils/webhookSubmit";
+import {
+  submitLeadToWebhook,
+  isDuplicateLead,
+  markLeadAsSubmitted,
+} from "../../../utils/webhookSubmit";
 import {
   Box,
   TextField,
@@ -459,7 +463,7 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
         </motion.div>
       )}
     </AnimatePresence>,
-    document.body
+    document.body,
   );
 };
 
@@ -499,12 +503,12 @@ const UnifiedLeadForm = ({
   const checkDuplicateLead = useCallback((email, mobile) => {
     try {
       const storedLeads = JSON.parse(
-        localStorage.getItem(LEADS_STORAGE_KEY) || "[]"
+        localStorage.getItem(LEADS_STORAGE_KEY) || "[]",
       );
       return storedLeads.some(
         (lead) =>
           lead.email.toLowerCase() === email.toLowerCase() ||
-          lead.mobile === mobile
+          lead.mobile === mobile,
       );
     } catch {
       return false;
@@ -515,7 +519,7 @@ const UnifiedLeadForm = ({
   const saveLeadToStorage = useCallback((leadData) => {
     try {
       const storedLeads = JSON.parse(
-        localStorage.getItem(LEADS_STORAGE_KEY) || "[]"
+        localStorage.getItem(LEADS_STORAGE_KEY) || "[]",
       );
       storedLeads.push({
         email: leadData.email,
@@ -551,7 +555,7 @@ const UnifiedLeadForm = ({
         }));
       }
     },
-    [errors]
+    [errors],
   );
 
   // Handle input blur - validate on blur
@@ -594,7 +598,7 @@ const UnifiedLeadForm = ({
         [field]: errorMessage,
       }));
     },
-    [formData, showCourseFields]
+    [formData, showCourseFields],
   );
 
   // Validate entire form
@@ -645,8 +649,8 @@ const UnifiedLeadForm = ({
     // Check for duplicate — show alert ON TOP of drawer (don't close drawer)
     if (isDuplicateLead(formData.mobile)) {
       await showInfo(
-        'Already Registered!',
-        'This mobile number has already been registered. Our counsellor will contact you soon.'
+        "Already Registered!",
+        "This mobile number has already been registered. Our counsellor will contact you soon.",
       );
       return;
     }
@@ -659,9 +663,9 @@ const UnifiedLeadForm = ({
         name: formData.name.trim(),
         mobile: formData.mobile.trim(),
         email: formData.email.trim(),
-        course_interest: formData.course_interest || '',
-        student_class: formData.student_class || '',
-        source: formId || 'general',
+        course_interest: formData.course_interest || "",
+        student_class: formData.student_class || "",
+        source: formId || "general",
       };
 
       // Submit to webhook (Pabbly or dummy)
@@ -677,10 +681,10 @@ const UnifiedLeadForm = ({
         // Push lead form submission event to GTM dataLayer
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-          event: 'lead_form_submission',
-          formSource: source || 'unknown',
-          courseInterest: formData.course_interest || '',
-          studentClass: formData.student_class || '',
+          event: "lead_form_submission",
+          formSource: formId || "unknown",
+          courseInterest: formData.course_interest || "",
+          studentClass: formData.student_class || "",
         });
 
         // Set lead submitted flag for thank you page access
@@ -689,8 +693,8 @@ const UnifiedLeadForm = ({
 
         // Show success alert ON TOP of drawer
         await showSuccess(
-          'Enrollment Request Received!',
-          'Thank you for your interest in Narayana Coaching Centers! Our academic counsellor will contact you within 24 hours.'
+          "Enrollment Request Received!",
+          "Thank you for your interest in Narayana Coaching Centers! Our academic counsellor will contact you within 24 hours.",
         );
 
         // THEN reset form
@@ -709,15 +713,15 @@ const UnifiedLeadForm = ({
         }
 
         // THEN navigate to thank you page
-        navigate('/thank-you');
+        navigate("/thank-you");
       } else {
-        await showError('Oops!', result.message);
+        await showError("Oops!", result.message);
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error("Form submission error:", error);
       await showError(
-        'Something went wrong',
-        'Please try again or call us directly at +91-6002500672.'
+        "Something went wrong",
+        "Please try again or call us directly at +91-6002500672.",
       );
     } finally {
       setIsSubmitting(false);
@@ -960,7 +964,18 @@ const UnifiedLeadForm = ({
                 renderValue={(selected) => {
                   if (!selected) {
                     return (
-                      <span style={{ color: variant === "dark" || variant === "drawer" ? "#FFFFFF80" : undefined, opacity: variant === "dark" || variant === "drawer" ? 1 : 0.5 }}>
+                      <span
+                        style={{
+                          color:
+                            variant === "dark" || variant === "drawer"
+                              ? "#FFFFFF80"
+                              : undefined,
+                          opacity:
+                            variant === "dark" || variant === "drawer"
+                              ? 1
+                              : 0.5,
+                        }}
+                      >
                         Select Course Interest
                       </span>
                     );
@@ -979,7 +994,10 @@ const UnifiedLeadForm = ({
                 }}
                 sx={
                   variant === "dark" || variant === "drawer"
-                    ? { color: "#FFFFFF", "& .MuiSelect-icon": { color: "#FFFFFF80" } }
+                    ? {
+                        color: "#FFFFFF",
+                        "& .MuiSelect-icon": { color: "#FFFFFF80" },
+                      }
                     : undefined
                 }
               >
@@ -1032,7 +1050,18 @@ const UnifiedLeadForm = ({
                 renderValue={(selected) => {
                   if (!selected) {
                     return (
-                      <span style={{ color: variant === "dark" || variant === "drawer" ? "#FFFFFF80" : undefined, opacity: variant === "dark" || variant === "drawer" ? 1 : 0.5 }}>
+                      <span
+                        style={{
+                          color:
+                            variant === "dark" || variant === "drawer"
+                              ? "#FFFFFF80"
+                              : undefined,
+                          opacity:
+                            variant === "dark" || variant === "drawer"
+                              ? 1
+                              : 0.5,
+                        }}
+                      >
                         Select Student's Class
                       </span>
                     );
@@ -1051,7 +1080,10 @@ const UnifiedLeadForm = ({
                 }}
                 sx={
                   variant === "dark" || variant === "drawer"
-                    ? { color: "#FFFFFF", "& .MuiSelect-icon": { color: "#FFFFFF80" } }
+                    ? {
+                        color: "#FFFFFF",
+                        "& .MuiSelect-icon": { color: "#FFFFFF80" },
+                      }
                     : undefined
                 }
               >
